@@ -1,21 +1,44 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <functional>
+#include <vector>
 #include <unordered_map>
 
 class ReadInput {
 
-    std::unordered_map<std::string, int> commands;
+    std::vector <std::string> commands
+
+    bool isChessBoardNumber(char c) {
+        return (49 <= c) && (56 >= c);
+    }
+
+    bool isChessBoardLetter(char c) {
+        return (97 <= c) && (104 >= c);
+    }
+
+    bool isValidMove(std::string move) {
+        if (move.size() != 4)
+            return false;
+
+        if (isChessBoardLetter(move[0]) &&
+            isChessBoardNumber(move[1]) &&
+            isChessBoardLetter(move[2]) &&
+            isChessBoardNumber(move[3]))
+            return true;
+
+        return false;
+    }
 
 public:
 
     ReadInput() {
-        commands["xboard"] = 0;
-        commands["protover"] = 1;
-        commands["new"] = 2;
-        commands["force"] = 3;
-        commands["go"] = 4;
-        commands["quit"] = 5;
+        commands.push_back("xboard");
+        commands.push_back("protover");
+        commands.push_back("new");
+        commands.push_back("force");
+        commands.push_back("go");
+        commands.push_back("quit");
     }
 
     void readInput() {
@@ -23,38 +46,25 @@ public:
         while (true) {
             std::string input;
             getline(std::cin, input);
+            std::string first_word = input.substr(0, input.find(" "));
 
-            switch (commands[input.substr(0, input.find(" "))]) {
-                case 0: {
-                    std::cout << std::endl;
-                    std::cout.flush();
-                    break;
-                }
-                case 1: {
-                    std::cout << "feature sigint=0 san=0 name=\"chess\"" << std::endl;
-                    std::cout.flush();
-                    break;
-                }
-                case 2: {
-                    // TODO: Initialize new board
-                    break;
-                }
-                case 3: {
-                    // TODO: Stop the bot from playing and halt
-                    break;
-                }
-                case 4: {
-                    // TODO: Force the bot to play a move and continue thinking
-                    break;
-                }
-                case 5: { // end the program
-                    return;
-                }
-                default: {
-                    std::cout << "move a7a5" << std::endl;
-                    std::cout.flush();
-                    break;
-                }
+            if (first_word.compare(commands[0])) {
+                std::cout << std::endl;
+                std::cout.flush();
+            } else if (first_word.compare(commands[1])) {
+                std::cout << std::endl;
+                std::cout.flush();
+            } else if (first_word.compare(commands[2])) {
+                // TODO: Initialize new board
+            } else if (first_word.compare(commands[3])) {
+                // TODO: Stop the bot from playing and halt
+            } else if (first_word.compare(commands[4])) {
+                // TODO: Force the bot to play a move and continue thinking
+            } else if (first_word.compare(commands[5])) {
+                // end the function
+                return;
+            } else if (isValidMove(first_word)) {
+                // TODO: Generate next move based on the move received from the xboard
             }
         }
     }
