@@ -5,9 +5,11 @@
 #include <vector>
 #include <unordered_map>
 
+using std::ofstream;
+
 class ReadInput {
 
-    std::vector <std::string> commands
+    std::vector <std::string> commands;
 
     bool isChessBoardNumber(char c) {
         return (49 <= c) && (56 >= c);
@@ -42,35 +44,42 @@ public:
     }
 
     void readInput() {
+        ofstream my_file;
+        my_file.open("debug");
 
+        my_file << "Starting" << std::endl;
         while (true) {
             std::string input;
             getline(std::cin, input);
             std::string first_word = input.substr(0, input.find(" "));
 
-            if (first_word.compare(commands[0])) {
+
+            if (!first_word.compare(commands[0])) { // xboard
+                my_file << "why" << std::endl;
                 std::cout << std::endl;
-                std::cout.flush();
-            } else if (first_word.compare(commands[1])) {
-                std::cout << std::endl;
-                std::cout.flush();
-            } else if (first_word.compare(commands[2])) {
+            } else if (!first_word.compare(commands[1])) { // protover
+                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << std::endl;
+            } else if (!first_word.compare(commands[2])) { // new
                 // TODO: Initialize new board
-            } else if (first_word.compare(commands[3])) {
+            } else if (!first_word.compare(commands[3])) { // force
                 // TODO: Stop the bot from playing and halt
-            } else if (first_word.compare(commands[4])) {
+            } else if (!first_word.compare(commands[4])) { // go
                 // TODO: Force the bot to play a move and continue thinking
-            } else if (first_word.compare(commands[5])) {
-                // end the function
+            } else if (!first_word.compare(commands[5])) { // quit
+                // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
+                std::string c = first_word.substr(0, 1);
+                std::cout << "move " + c + "7" + c + "5" << std::endl;
                 // TODO: Generate next move based on the move received from the xboard
             }
         }
+
+        my_file.close();
     }
 };
 
 int main() {
-
+    ReadInput reader;
     reader.readInput();
 }
