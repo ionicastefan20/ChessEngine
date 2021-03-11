@@ -1,15 +1,9 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <functional>
-#include <vector>
-#include <unordered_map>
-
-using std::ofstream;
+#include "Piece.h"
+#include "dependencies.h"
 
 class ReadInput {
 
-    std::vector <std::string> commands;
+    vector <string> commands;
 
     bool isChessBoardNumber(char c) {
         return (49 <= c) && (56 >= c);
@@ -19,7 +13,7 @@ class ReadInput {
         return (97 <= c) && (104 >= c);
     }
 
-    bool isValidMove(std::string move) {
+    bool isValidMove(string move) {
         if (move.size() != 4)
             return false;
 
@@ -49,16 +43,16 @@ public:
 
         my_file << "Starting" << std::endl;
         while (true) {
-            std::string input;
-            getline(std::cin, input);
-            std::string first_word = input.substr(0, input.find(" "));
+            string input;
+            getline(cin, input);
+            string first_word = input.substr(0, input.find(" "));
 
 
             if (!first_word.compare(commands[0])) { // xboard
-                my_file << "why" << std::endl;
-                std::cout << std::endl;
+                my_file << "why" << endl;
+                cout << endl;
             } else if (!first_word.compare(commands[1])) { // protover
-                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << std::endl;
+                cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << endl;
             } else if (!first_word.compare(commands[2])) { // new
                 // TODO: Initialize new board
             } else if (!first_word.compare(commands[3])) { // force
@@ -69,8 +63,8 @@ public:
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                std::string c = first_word.substr(0, 1);
-                std::cout << "move " + c + "7" + c + "5" << std::endl;
+                string c = first_word.substr(0, 1);
+                cout << "move " + c + "7" + c + "5" << endl;
                 // TODO: Generate next move based on the move received from the xboard
             }
         }
