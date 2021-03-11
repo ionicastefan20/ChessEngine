@@ -17,11 +17,7 @@ protected:
     vector<Move *> moves;
     Piece();
 
-    ~Piece() {
-        for(auto it = begin(moves); it != end(moves); ++it) {
-            delete *it;
-        }
-    }
+    ~Piece();
 };
 
 class Pawn : Piece {
