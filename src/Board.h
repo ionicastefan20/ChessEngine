@@ -1,7 +1,7 @@
 #ifndef CHESSENGINE_BOARD_H
 #define CHESSENGINE_BOARD_H
 
-#include "dependencies.h"
+#include "Piece.h"
 
 class Board {
 
@@ -13,4 +13,4 @@ public:
 };
 
 
-#endif //CHESSENGINE_BOARD_H
+#endif

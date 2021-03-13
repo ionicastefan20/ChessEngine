@@ -1,9 +1,4 @@
-//
-// Created by stefan.ionica on 3/13/2021.
-//
-
 #include "Board.h"
-#include "Piece.h"
 
 int* Board::squares = new int[64];
 
