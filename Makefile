@@ -12,6 +12,9 @@ build: main.o Piece.o Board.o
 main.o: $(SRC_FOLDER)main.cpp
 	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
 
+Move.o: $(SRC_FOLDER)Move.cpp
+	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
+
 Piece.o: $(SRC_FOLDER)Piece.cpp
 	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
 
