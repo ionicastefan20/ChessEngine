@@ -1,4 +1,5 @@
 #include "Board.h"
+#include <cstring>
 
 int* Board::squares = new int[64];
 
@@ -20,4 +21,20 @@ void Board::initBoard() {
     squares[60] = Piece::BLACK | Piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = Piece::BLACK | Piece::PAWN;
+}
+
+string Board::convertToCode(int square) {
+    string s(1, 'a' + (square % 8));
+    s += std::to_string(square / 8 + 1);
+
+    return s;
+}
+
+int Board::convertToInt(string code) {
+    char *c = new char[code.length()];
+    std::strcpy(c, code.c_str());
+
+    int result = (c[0] - 'a') + (atoi(&c[1]) - 1) * 8;
+    delete c;
+    return result;
 }

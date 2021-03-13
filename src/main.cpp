@@ -1,6 +1,18 @@
-#include "Piece.h"
+#include <vector>
+using std::vector;
+
+#include <string>
+using std::string;
+
+#include <fstream>
+using std::ofstream;
+
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
 #include "Board.h"
-#include "dependencies.h"
 
 class ReadInput {
 
@@ -42,7 +54,7 @@ public:
         ofstream my_file;
         my_file.open("debug");
 
-        my_file << "Starting" << std::endl;
+        my_file << "Starting" << endl;
         while (true) {
             string input;
             getline(cin, input);
@@ -75,8 +87,7 @@ public:
 };
 
 int main() {
-    Board b;
-    b.initBoard();
+    Board::initBoard();
 
     ReadInput reader;
     reader.readInput();

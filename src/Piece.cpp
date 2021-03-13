@@ -1,4 +1,3 @@
-#include "dependencies.h"
 #include "Piece.h"
 
 const int Piece::NONE = 0;
