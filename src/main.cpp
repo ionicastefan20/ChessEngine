@@ -1,4 +1,5 @@
 #include "Piece.h"
+#include "Board.h"
 #include "dependencies.h"
 
 class ReadInput {
@@ -74,6 +75,10 @@ public:
 };
 
 int main() {
+    Board b;
+    b.initBoard();
+    for (int i = 0; i < 64; i++)
+        cout<<b.squares[i]<<" ";
     ReadInput reader;
     reader.readInput();
 }

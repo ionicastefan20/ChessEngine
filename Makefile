@@ -1,13 +1,22 @@
+CC=g++
+CFLAGS=-Wall -Wextra
+SRC_FOLDER=src/
 EXE = target/main
 
-build: main.o Piece.o
-	g++ target/main.o target/Piece.o -o $(EXE) -Wall -Wextra
+.PHONY: run build
 
-main.o:
-	g++ -c src/main.cpp -o target/main.o -Wall -Wextra
+build: main.o Piece.o Board.o
+	$(CC) $^ -o $(EXE) $(CFLAGS)
+	rm *.o
 
-Piece.o:
-	g++ -c src/Piece.cpp -o target/Piece.o -Wall -Wextra
+main.o: $(SRC_FOLDER)main.cpp
+	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
+
+Piece.o: $(SRC_FOLDER)Piece.cpp
+	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
+
+Board.o: $(SRC_FOLDER)Board.cpp
+	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
 
 run:
-	./target/main
+	./$(EXE)
