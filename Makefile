@@ -5,6 +5,8 @@ EXE = target/main
 
 .PHONY: run build
 
+all: build run
+
 build: main.o Piece.o Board.o
 	$(CC) $^ -o $(EXE) $(CFLAGS)
 	rm *.o

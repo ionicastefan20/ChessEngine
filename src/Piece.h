@@ -1,8 +1,6 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
-#include "dependencies.h"
-
 class Piece {
 
 public:
