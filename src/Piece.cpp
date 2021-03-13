@@ -11,11 +11,3 @@ const int Piece::KING = 6;
 
 const int Piece::WHITE = 8;
 const int Piece::BLACK = 16;
-
-//Piece::Piece() {}
-
-//Piece::~Piece() {
-//    for (auto it = begin(moves); it != end(moves); ++it) {
-//        delete *it;
-//    }
-//}

@@ -16,11 +16,6 @@ public:
 
     static const int WHITE;
     static const int BLACK;
-
-protected:
-//    vector<Move *> moves;
-//    Piece();
-//    ~Piece();
 };
 
 #endif
