@@ -32,6 +32,7 @@ void Board::initBoard() {
         squares[i] = Piece::BLACK | Piece::PAWN;
 
     Board::botColor = Piece::BLACK;
+    Board::isPlaying = true;
 }
 
 /**

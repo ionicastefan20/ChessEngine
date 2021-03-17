@@ -41,6 +41,16 @@ class ReadInput {
         return false;
     }
 
+    bool makeBotThink() {
+        if (Board::isPlaying) {
+            pair<int, int> move = GeneratePawnMoves::generatePawnMove();
+            if (move.first == -1 && move.second == -1)
+                cout << "resign" << endl;
+            else
+                cout << "move " + Board::encodeMove(move) << endl;
+        }
+    }
+
 public:
 
     ReadInput() {
@@ -72,21 +82,19 @@ public:
             } else if (!first_word.compare(commands[2])) { // new
                 Board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
+                Board::isPlaying = false;
                 // TODO: Stop the bot from playing and halt
             } else if (!first_word.compare(commands[4])) { // go
+                Board::isPlaying = true;
+                makeBotThink();
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
+                exit(0);
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                fout3 << first_word << endl;
                 Board::makeMove(first_word); // his move (computer's, oponent's)
-                pair<int, int> ceva = GeneratePawnMoves::generatePawnMove();
-                fout3 << "primu: " << ceva.first << " doi: " << ceva.second << endl;
-                cout << "move " + Board::encodeMove(ceva) << endl;
-                // string c = first_word.substr(0, 1);
-                // cout << "move " + c + "7" + c + "5" << endl;
-                // TODO: Generate next move based on the move received from the xboard
+                makeBotThink();
             }
         }
         fout3.close();
