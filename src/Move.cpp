@@ -72,7 +72,11 @@ int Move::getFuturePosForMove(int initialPos, string direction,
           !(Board::squares[retValue]))
         return -1;
     
-    if ( numberOfBlocks != 1 && (initialPos < 48 || initialPos > 56))
+    if ( numberOfBlocks == 2 && (initialPos < 48 || initialPos > 56))
+        return -1;
+
+    if ( direction == "down" && numberOfBlocks == 1 && Board::squares[retValue] & Piece::WHITE) // change to something more generic
+    // something like negate the current bot color !Board::botColor
         return -1;
 
     fout.close();

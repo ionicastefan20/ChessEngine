@@ -9,6 +9,10 @@ int Board::botColor = Piece::BLACK;
 bool Board::isPlaying = true;
 
 void Board::initBoard() {
+    // remove in future updates
+    GeneratePawnMoves::currPawn = 1;
+    GeneratePawnMoves::lastPos = 48;
+
     squares[0] = squares[7] = Piece::WHITE | Piece::ROOK;
     squares[1] = squares[6] = Piece::WHITE | Piece::KNIGHT;
     squares[2] = squares[5] = Piece::WHITE | Piece::BISHOP;

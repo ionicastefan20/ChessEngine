@@ -1,8 +1,8 @@
 #include "GeneratePawnMoves.h"
 #include <fstream>
 
-int GeneratePawnMoves::currPawn = 2;
-int GeneratePawnMoves::lastPos = 49; // 47 + currPawn
+int GeneratePawnMoves::currPawn = 1;
+int GeneratePawnMoves::lastPos = 48; // 47 + currPawn
 
 /**
  * Returns the move it makes
