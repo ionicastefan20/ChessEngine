@@ -13,13 +13,9 @@ public:
 
     static void initBoard();
 
-    static string convertToCode(int square);
+    static pair<int, int> decodeMove(string move);
 
-    static int convertToInt(string code);
-
-    pair<int, int> decodeMove(string move);
-
-    void makeMove(string move);
+    static void makeMove(string move);
 };
 
 #endif

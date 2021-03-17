@@ -23,22 +23,6 @@ void Board::initBoard() {
         squares[i] = Piece::BLACK | Piece::PAWN;
 }
 
-string Board::convertToCode(int square) {
-    string s(1, 'a' + (square % 8));
-    s += std::to_string(square / 8 + 1);
-
-    return s;
-}
-
-int Board::convertToInt(string code) {
-    char *c = new char[code.length()];
-    std::strcpy(c, code.c_str());
-
-    int result = (c[0] - 'a') + (atoi(&c[1]) - 1) * 8;
-    delete c;
-    return result;
-}
-
 /**
  * Receives a pair of indexes from the Board::squares and returns a string
  * representing the move : "a3a4"
