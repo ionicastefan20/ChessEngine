@@ -1,30 +1,23 @@
 CC=g++
 CFLAGS=-Wall -Wextra
 SRC_FOLDER=src/
-EXE = target/main
+EXE=target/main
 
-.PHONY: run build
+SRCS=$(wildcard $(SRC_FOLDER)*.cpp)
+OBJECTS=$(SRCS:.cpp=.o)
 
-all: build run
+.PHONY: run build clean
 
-build: main.o Piece.o Board.o
+all: build clean run
+
+build: $(OBJECTS)
 	$(CC) $^ -o $(EXE) $(CFLAGS)
-	rm *.o
 
-main.o: $(SRC_FOLDER)main.cpp
-	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
-
-Move.o: $(SRC_FOLDER)Move.cpp
-	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
-
-Piece.o: $(SRC_FOLDER)Piece.cpp
-	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
-
-Board.o: $(SRC_FOLDER)Board.cpp
-	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
-
-GeneratePawnMoves.o: $(SRC_FOLDER)GeneratePawnMoves.cpp
-	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
+%.o: $(SRC_FOLDER)%.cpp
+	$(CC) -MMD -MP -c $< -o $(TARGET_FOLDER)$@ $(CFLAGS)
 
 run:
 	./$(EXE)
+
+clean:
+	rm $(SRC_FOLDER)*.o
