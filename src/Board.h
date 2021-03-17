@@ -9,6 +9,10 @@ using std::pair;
 class Board {
 
 public:
+    static int botColor;
+
+    static bool isPlaying;
+
     static int* squares;
 
     static void initBoard();

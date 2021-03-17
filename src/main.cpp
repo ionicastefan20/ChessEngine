@@ -67,7 +67,7 @@ public:
             } else if (!first_word.compare(commands[1])) { // protover
                 cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << endl;
             } else if (!first_word.compare(commands[2])) { // new
-                // TODO: Initialize new board
+                Board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
                 // TODO: Stop the bot from playing and halt
             } else if (!first_word.compare(commands[4])) { // go

@@ -3,6 +3,8 @@
 
 int* Board::squares = new int[64];
 
+bool Board::isPlaying = true;
+
 void Board::initBoard() {
     squares[0] = squares[7] = Piece::WHITE | Piece::ROOK;
     squares[1] = squares[6] = Piece::WHITE | Piece::KNIGHT;
@@ -21,6 +23,8 @@ void Board::initBoard() {
     squares[60] = Piece::BLACK | Piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = Piece::BLACK | Piece::PAWN;
+
+    Board::botColor = Piece::BLACK;
 }
 
 /**

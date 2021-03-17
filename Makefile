@@ -23,5 +23,8 @@ Piece.o: $(SRC_FOLDER)Piece.cpp
 Board.o: $(SRC_FOLDER)Board.cpp
 	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
 
+GeneratePawnMoves.o: $(SRC_FOLDER)GeneratePawnMoves.cpp
+	$(CC) -c $^ -o $(TARGET_FOLDER)$@ $(CFLAGS)
+
 run:
 	./$(EXE)
