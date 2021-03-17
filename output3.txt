@@ -1,0 +1,18 @@
+b2b4
+primu: 49 doi: 33
+c2c4
+primu: 33 doi: 26
+d2d3
+primu: 26 doi: 19
+c1a3
+primu: 19 doi: 12
+d1b3
+primu: 12 doi: 5
+b2b4
+primu: 50 doi: 34
+g1f3
+primu: 34 doi: 25
+c2c3
+primu: 25 doi: 18
+c1a3
+primu: 18 doi: 11

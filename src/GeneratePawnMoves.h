@@ -2,6 +2,8 @@
 #define CHESSENGINE_GENERATEPAWNMOVES_H
 
 #include <string>
+#include "Board.h"
+#include "Move.h"
 using std::pair;
 
 class GeneratePawnMoves {
@@ -12,7 +14,7 @@ public:
 
     static int lastPos;
 
-    pair<int, int> generatePawnMove();
+    static pair<int, int> generatePawnMove();
 };
 
 #endif

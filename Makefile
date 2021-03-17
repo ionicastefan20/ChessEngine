@@ -8,7 +8,7 @@ OBJECTS=$(SRCS:.cpp=.o)
 
 .PHONY: run build clean
 
-all: build clean run
+all: build clean
 
 build: $(OBJECTS)
 	$(CC) $^ -o $(EXE) $(CFLAGS)

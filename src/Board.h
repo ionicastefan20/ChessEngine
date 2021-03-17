@@ -3,6 +3,7 @@
 
 #include "Piece.h"
 #include <string>
+
 using std::string;
 using std::pair;
 
@@ -16,6 +17,8 @@ public:
     static int* squares;
 
     static void initBoard();
+
+    static string encodeMove(pair<int, int> move);
 
     static pair<int, int> decodeMove(string move);
 

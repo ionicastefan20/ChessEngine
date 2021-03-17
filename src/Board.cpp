@@ -1,7 +1,10 @@
 #include "Board.h"
 #include <cstring>
+#include <fstream>
 
 int* Board::squares = new int[64];
+
+int Board::botColor = Piece::BLACK;
 
 bool Board::isPlaying = true;
 
@@ -31,9 +34,13 @@ void Board::initBoard() {
  * Receives a pair of indexes from the Board::squares and returns a string
  * representing the move : "a3a4"
  */
-static string encodeMove(pair<int, int> move) {
-    return "" + (move.first / 8 + 'a') + (move.first % 10 + '0') +
-            (move.second / 8 + 'a') + (move.second % 10 + '0');
+string Board::encodeMove(pair<int, int> move) {
+    string retMove = "";
+    retMove.push_back( (char) (move.first % 8 + 'a'));
+    retMove.push_back( (char) (move.first / 8  + 1 + '0'));
+    retMove.push_back( (char) (move.second % 8 + 'a'));
+    retMove.push_back( (char) (move.second / 8 + 1 + '0'));
+    return retMove;
 }
 
 /**
@@ -41,13 +48,17 @@ static string encodeMove(pair<int, int> move) {
  * for the Board::squares array, reffering to the spot on the board
  * that it represents
  */
-static pair<int, int> decodeMove(string move) {
-    return std::make_pair((move[0] - 'a') * 8 + (move[1] - '0'),
-                          (move[2] - 'a') * 8 + (move[3] - '0'));
+pair<int, int> Board::decodeMove(string move) {
+    return std::make_pair((move[0] - 'a') + (move[1] - '0' - 1) * 8,
+                          (move[2] - 'a') + (move[3] - '0' - 1) * 8);
 }
 
 void Board::makeMove(string move) {
-    pair<int, int> result = decodeMove(move);
+    std::ofstream fout4("output4.txt", std::ios_base::app);
+
+    fout4 << "move: " << move << " ";
+    pair<int, int> result = decodeMove(move); //b2b4
+    fout4 << "first: " << result.first << " second: " << result.second << std::endl;
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
 }

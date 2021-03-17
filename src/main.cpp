@@ -13,6 +13,8 @@ using std::cout;
 using std::endl;
 
 #include "Board.h"
+#include "Move.h"
+#include "GeneratePawnMoves.h"
 
 class ReadInput {
 
@@ -53,6 +55,7 @@ public:
     void readInput() {
         ofstream my_file;
         my_file.open("debug");
+        std::ofstream fout3("output3.txt");
 
         my_file << "Starting" << endl;
         while (true) {
@@ -76,18 +79,24 @@ public:
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                string c = first_word.substr(0, 1);
-                cout << "move " + c + "7" + c + "5" << endl;
+                fout3 << first_word << endl;
+                Board::makeMove(first_word); // his move (computer's, oponent's)
+                pair<int, int> ceva = GeneratePawnMoves::generatePawnMove();
+                fout3 << "primu: " << ceva.first << " doi: " << ceva.second << endl;
+                cout << "move " + Board::encodeMove(ceva) << endl;
+                // string c = first_word.substr(0, 1);
+                // cout << "move " + c + "7" + c + "5" << endl;
                 // TODO: Generate next move based on the move received from the xboard
             }
         }
-
+        fout3.close();
         my_file.close();
     }
 };
 
 int main() {
     Board::initBoard();
+    Move::initDistancesAndDirections();
 
     ReadInput reader;
     reader.readInput();
