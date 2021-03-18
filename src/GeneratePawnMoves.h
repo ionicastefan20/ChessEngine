@@ -30,6 +30,14 @@ public:
 
     static void setLastPosForCurrentColor(int value);
 
+    static int getWhiteCurrPawn();
+
+    static int getBlackCurrPawn();
+
+    static void setWhiteCurrPawn(int value);
+
+    static void setBlackCurrPawn(int value);
+
     static pair<int, int> generatePawnMove();
 };
 

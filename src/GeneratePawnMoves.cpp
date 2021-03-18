@@ -37,6 +37,24 @@ void GeneratePawnMoves::setLastPosForCurrentColor(int value) {
         setWhiteLastPos(value);
 }
 
+int GeneratePawnMoves::getBlackCurrPawn() {
+    return (currPawn & 7); // 7 = 111 in binary (a mask)
+}
+
+int GeneratePawnMoves::getWhiteCurrPawn() {
+    return (currPawn >> 3);
+}
+
+void GeneratePawnMoves::setBlackCurrPawn(int value) {
+    currPawn = (currPawn & 56); // 56 = 111000 in binary (a mask)
+    currPawn += value;
+}
+
+void GeneratePawnMoves::setWhiteCurrPawn(int value) {
+    currPawn = getBlackCurrPawn() + (value << 3); // shift the new value with 3
+    // bits and add the remaining black
+}
+
 /**
  * Returns the move it makes
  */
@@ -49,29 +67,29 @@ static pair<int, int> makeMoveUpdatePos(int move) {
         Board::squares[move] == Piece::QUEEN | Board::botColor;
     int tempLastPos = GeneratePawnMoves::getLastPosForCurrentColor();
     GeneratePawnMoves::setLastPosForCurrentColor(move);
+    // Board::botColor = Board::botColor ^ (8 + 16);
     return std::make_pair(tempLastPos, move);
 }
 
 static pair<int, int> moveForNextPawn() {
     if (Board::botColor == Piece::WHITE) { 
         // keep only last 3 bits
-        int whiteCurrPawn = GeneratePawnMoves::currPawn >> 3; 
+        int whiteCurrPawn = GeneratePawnMoves::getWhiteCurrPawn(); 
         whiteCurrPawn++;
         if (whiteCurrPawn > 8) {
             return std::make_pair(-1, -1); // resign
         }
         GeneratePawnMoves::setLastPosForCurrentColor(16 - whiteCurrPawn);
-        GeneratePawnMoves::currPawn = (whiteCurrPawn << 3) +
-                                      (GeneratePawnMoves::currPawn & 7);        
+        GeneratePawnMoves::setWhiteCurrPawn(whiteCurrPawn);
     }
     else if (Board::botColor == Piece::BLACK) {
         // keep only first 3 bits (7=111b)
-        int blackCurrPawn = GeneratePawnMoves::currPawn & 7; 
+        int blackCurrPawn = GeneratePawnMoves::getBlackCurrPawn(); 
         blackCurrPawn++;
         if (blackCurrPawn > 8)
             return std::make_pair(-1, -1); // resign
         GeneratePawnMoves::setLastPosForCurrentColor(47 + blackCurrPawn);
-        GeneratePawnMoves::currPawn++;
+        GeneratePawnMoves::setBlackCurrPawn(blackCurrPawn);
     }
     // if on the pawn slot we dont have a pawn, call this methot again and get
     // the next desired pawn
@@ -144,7 +162,6 @@ pair<int, int> GeneratePawnMoves::generatePawnMove() {
             GeneratePawnMoves::getLastPosForCurrentColor(), "up", 1);
     }
 
-    // fout2 << currPawn << " " << lastPos << " " << moveDownRight << " " << moveLeftDown << " " << moveDownTwoBlocks << " " << moveDownOneBlock << std::endl;
     // try advance the pawn 2 blocks
     if (moveTwo >= 0) // prioritize moving pawns 2 pieces forward
         return makeMoveUpdatePos(moveTwo);

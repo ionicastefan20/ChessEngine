@@ -13,7 +13,8 @@ int Board::colorOnMove = Piece::WHITE;
 void Board::initBoard() {
     // remove in future updates
     GeneratePawnMoves::currPawn = 1;
-    GeneratePawnMoves::setLastPosForCurrentColor(48);
+    GeneratePawnMoves::setBlackLastPos(48);
+    GeneratePawnMoves::setWhiteLastPos(15);
     colorOnMove = Piece::WHITE;
 
     squares[0] = squares[7] = Piece::WHITE | Piece::ROOK;
