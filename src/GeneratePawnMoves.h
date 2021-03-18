@@ -10,8 +10,10 @@ class GeneratePawnMoves {
 
 public:
 
-    static int currPawn;
-
+    // first 3 bits (less signifiant) -> the black pawns
+    // next 3 bits (most signifiant) -> white pawns
+    static int currPawn; // 6 bit value
+    
     static int lastPos;
 
     static pair<int, int> generatePawnMove();

@@ -49,8 +49,6 @@ void Move::initDistancesAndDirections() {
  */
 int Move::getFuturePosForMove(int initialPos, string direction,
                                     int numberOfBlocks) {
-    std::ofstream fout("output.txt", std::ios_base::app);
-    // fout << initialPos << " " << numberOfBlocks << "num:" << Move::numUntilEdge[initialPos][direction] << ":" << std::endl;
     int retValue;
     if (numberOfBlocks <= Move::numUntilEdge[initialPos][direction])
         retValue = initialPos + numberOfBlocks * (DIRECTIONS[direction]);
@@ -68,17 +66,29 @@ int Move::getFuturePosForMove(int initialPos, string direction,
         return -1;
     
     // Next rules only for pawns
-    if ( (direction == "right_down" || direction == "down_left") &&
-          !(Board::squares[retValue]))
-        return -1;
+    if (Board::botColor & Piece::BLACK) {
+        if ((direction == "right_down" || direction == "down_left") &&
+            !(Board::squares[retValue]))
+            return -1;
     
-    if ( numberOfBlocks == 2 && (initialPos < 48 || initialPos > 56))
-        return -1;
+        if (numberOfBlocks == 2 && (initialPos < 48 || initialPos > 56))
+            return -1;
 
-    if ( direction == "down" && numberOfBlocks == 1 && Board::squares[retValue] & Piece::WHITE) // change to something more generic
-    // something like negate the current bot color !Board::botColor
-        return -1;
+        if (direction == "down" && numberOfBlocks == 1 &&
+            Board::squares[retValue] & Piece::WHITE)
+            return -1;
+    }
+    else {
+        if ((direction == "up_right" || direction == "left_up") &&
+            !(Board::squares[retValue]))
+            return -1;
+    
+        if (numberOfBlocks == 2 && (initialPos < 8 || initialPos > 15))
+            return -1;
 
-    fout.close();
+        if (direction == "up" && numberOfBlocks == 1 &&
+            Board::squares[retValue] & Piece::BLACK)
+            return -1;
+    }
     return retValue;
 }

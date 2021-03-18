@@ -11,6 +11,8 @@ using std::pair;
 class Board {
 
 public:
+    static int colorOnMove; // which color needs to move next
+
     static int botColor;
 
     static bool isPlaying;

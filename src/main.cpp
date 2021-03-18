@@ -86,6 +86,7 @@ public:
                 // TODO: Stop the bot from playing and halt
             } else if (!first_word.compare(commands[4])) { // go
                 Board::isPlaying = true;
+                Board::botColor = Board::colorOnMove;
                 makeBotThink();
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit

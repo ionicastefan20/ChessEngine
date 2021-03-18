@@ -8,10 +8,13 @@ int Board::botColor = Piece::BLACK;
 
 bool Board::isPlaying = true;
 
+int Board::colorOnMove = Piece::WHITE;
+
 void Board::initBoard() {
     // remove in future updates
     GeneratePawnMoves::currPawn = 1;
     GeneratePawnMoves::lastPos = 48;
+    colorOnMove = Piece::WHITE;
 
     squares[0] = squares[7] = Piece::WHITE | Piece::ROOK;
     squares[1] = squares[6] = Piece::WHITE | Piece::KNIGHT;
@@ -59,11 +62,8 @@ pair<int, int> Board::decodeMove(string move) {
 }
 
 void Board::makeMove(string move) {
-    std::ofstream fout4("output4.txt", std::ios_base::app);
-
-    fout4 << "move: " << move << " ";
+    colorOnMove = colorOnMove ^ (8 + 16); // set the oposite color;
     pair<int, int> result = decodeMove(move); //b2b4
-    fout4 << "first: " << result.first << " second: " << result.second << std::endl;
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
 }
