@@ -5,32 +5,64 @@ int GeneratePawnMoves::currPawn = 1; // first pawn in black,
                                           // first pawn in white
 int GeneratePawnMoves::lastPos = 48; // 47 + currPawn
 
+int GeneratePawnMoves::getBlackLastPos() {
+    return (lastPos & 63); // 64 = 111111 in binary (a mask)
+}
+
+int GeneratePawnMoves::getWhiteLastPos() {
+    return (lastPos >> 6); // shift 6 bits, get only the next 6
+}
+
+void GeneratePawnMoves::setBlackLastPos(int value) {
+    lastPos = (lastPos & 4032); // 4032 = 111111000000 in binary (a mask)
+    lastPos += value;
+}
+
+void GeneratePawnMoves::setWhiteLastPos(int value) {
+    lastPos = getBlackLastPos() + (value << 6); // shift the new value with 6
+    // bits and add the remaining black
+}
+
+int GeneratePawnMoves::getLastPosForCurrentColor() {
+    if (Board::botColor & Piece::BLACK)
+        return getBlackLastPos();
+    else
+        return getWhiteLastPos();
+}
+
+void GeneratePawnMoves::setLastPosForCurrentColor(int value) {
+    if (Board::botColor & Piece::BLACK)
+        setBlackLastPos(value);
+    else
+        setWhiteLastPos(value);
+}
+
 /**
  * Returns the move it makes
  */
 static pair<int, int> makeMoveUpdatePos(int move) {
-    Board::makeMove(Board::encodeMove(
-            std::make_pair(GeneratePawnMoves::lastPos, move)));
+    Board::makeMove(Board::encodeMove(std::make_pair(
+        GeneratePawnMoves::getLastPosForCurrentColor(), move)));
     // if we move to the last row, turn into queen
     if ((move >= 0 && move < 8 && (Board::botColor & Piece::BLACK)) ||
         (move >= 56 && move < 64 && (Board::botColor & Piece::WHITE)))
         Board::squares[move] == Piece::QUEEN | Board::botColor;
-    int tempLastPos = GeneratePawnMoves::lastPos;
-    GeneratePawnMoves::lastPos = move;
+    int tempLastPos = GeneratePawnMoves::getLastPosForCurrentColor();
+    GeneratePawnMoves::setLastPosForCurrentColor(move);
     return std::make_pair(tempLastPos, move);
 }
 
 static pair<int, int> moveForNextPawn() {
-    if (Board::botColor == Piece::WHITE) {
+    if (Board::botColor == Piece::WHITE) { 
         // keep only last 3 bits
         int whiteCurrPawn = GeneratePawnMoves::currPawn >> 3; 
         whiteCurrPawn++;
         if (whiteCurrPawn > 8) {
             return std::make_pair(-1, -1); // resign
         }
-        GeneratePawnMoves::lastPos = 16 - whiteCurrPawn;
-        GeneratePawnMoves::currPawn = whiteCurrPawn << 3 +
-                                      (GeneratePawnMoves::currPawn & 7);
+        GeneratePawnMoves::setLastPosForCurrentColor(16 - whiteCurrPawn);
+        GeneratePawnMoves::currPawn = (whiteCurrPawn << 3) +
+                                      (GeneratePawnMoves::currPawn & 7);        
     }
     else if (Board::botColor == Piece::BLACK) {
         // keep only first 3 bits (7=111b)
@@ -38,15 +70,16 @@ static pair<int, int> moveForNextPawn() {
         blackCurrPawn++;
         if (blackCurrPawn > 8)
             return std::make_pair(-1, -1); // resign
-        GeneratePawnMoves::lastPos = 47 + blackCurrPawn;
+        GeneratePawnMoves::setLastPosForCurrentColor(47 + blackCurrPawn);
         GeneratePawnMoves::currPawn++;
     }
     // if on the pawn slot we dont have a pawn, call this methot again and get
     // the next desired pawn
-    if (Board::squares[GeneratePawnMoves::lastPos] !=
+    if (Board::squares[GeneratePawnMoves::getLastPosForCurrentColor()] !=
                                         (Piece::PAWN | Board::botColor)) {
         return moveForNextPawn();
     }
+
     // we have set the parameters for the next pawn, now make a move for it
     return GeneratePawnMoves::generatePawnMove();
 }
@@ -55,23 +88,23 @@ static void getNextPositions(int& moveOne, int& moveTwo, int& moveDiagRight,
                              int& moveDiagLeft) {
     if (Board::botColor & Piece::BLACK) {
         moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "right_down", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "right_down", 1);
         moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down_left", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down_left", 1);
         moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down", 2);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 2);
         moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 1);
     }
     else {
         moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "left_up", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "left_up", 1);
         moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up_right", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up_right", 1);
         moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up", 2);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 2);
         moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 1);
     }
 }
 
@@ -82,7 +115,8 @@ static void getNextPositions(int& moveOne, int& moveTwo, int& moveDiagRight,
 pair<int, int> GeneratePawnMoves::generatePawnMove() {
 
     // if the piece has been taken, go to the next pawn
-    if (Board::squares[lastPos] & (Board::botColor ^ (8 + 16))) {
+    if (Board::squares[getLastPosForCurrentColor()] &
+        (Board::botColor ^ (8 + 16))) {
         // xor between botcolor and bitmask 11000 gets us the other color
         return moveForNextPawn();
     }
@@ -91,23 +125,23 @@ pair<int, int> GeneratePawnMoves::generatePawnMove() {
     // getNextPositions(moveOne, moveTwo, moveDiagRight, moveDiagLeft);
     if (Board::botColor & Piece::BLACK) {
         moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "right_down", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "right_down", 1);
         moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down_left", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down_left", 1);
         moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down", 2);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 2);
         moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "down", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 1);
     }
     else {
         moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "left_up", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "left_up", 1);
         moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up_right", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up_right", 1);
         moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up", 2);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 2);
         moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::lastPos, "up", 1);
+            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 1);
     }
 
     // fout2 << currPawn << " " << lastPos << " " << moveDownRight << " " << moveLeftDown << " " << moveDownTwoBlocks << " " << moveDownOneBlock << std::endl;
