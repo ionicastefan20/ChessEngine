@@ -140,27 +140,7 @@ pair<int, int> GeneratePawnMoves::generatePawnMove() {
     }
 
     int moveDiagRight, moveDiagLeft, moveTwo, moveOne;
-    // getNextPositions(moveOne, moveTwo, moveDiagRight, moveDiagLeft);
-    if (Board::botColor & Piece::BLACK) {
-        moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "right_down", 1);
-        moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "down_left", 1);
-        moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 2);
-        moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "down", 1);
-    }
-    else {
-        moveDiagRight = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "left_up", 1);
-        moveDiagLeft = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "up_right", 1);
-        moveTwo = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 2);
-        moveOne = Move::getFuturePosForMove(
-            GeneratePawnMoves::getLastPosForCurrentColor(), "up", 1);
-    }
+    getNextPositions(moveOne, moveTwo, moveDiagRight, moveDiagLeft);
 
     // try advance the pawn 2 blocks
     if (moveTwo >= 0) // prioritize moving pawns 2 pieces forward
