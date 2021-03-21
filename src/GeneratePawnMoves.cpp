@@ -131,13 +131,6 @@ static void getNextPositions(int& moveOne, int& moveTwo, int& moveDiagRight,
  */
 pair<int, int> GeneratePawnMoves::generatePawnMove() {
 
-    // // if there is not a pawn of the same color in the last place the pawn has
-    // // been seen, go to the next pawn
-    // if (Board::squares[getLastPosForCurrentColor()] &
-    //     Board::getOpositeBotColor(Board::botColor)) {
-    //     // xor between botcolor and bitmask 11000 gets us the other color
-    //     return moveForNextPawn();
-    // }
     // if there is not a pawn of the same color in the last place the pawn has
     // been seen, go to the next pawn
     if (!(Board::squares[getLastPosForCurrentColor()] &
