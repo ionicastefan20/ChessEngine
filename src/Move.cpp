@@ -50,6 +50,7 @@ void Move::initDistancesAndDirections() {
 int Move::getFuturePosForMove(int initialPos, string direction,
                                     int numberOfBlocks) {
     int retValue;
+    // check if move is out of board
     if (numberOfBlocks <= Move::numUntilEdge[initialPos][direction])
         retValue = initialPos + numberOfBlocks * (DIRECTIONS[direction]);
     else
@@ -67,6 +68,12 @@ int Move::getFuturePosForMove(int initialPos, string direction,
     
     // Next rules only for pawns
     if (Board::botColor & Piece::BLACK) {
+        // if by moving the pawn 2 pieces (trying to capture by moving 2 pieces)
+        // we move on a color of the oposite side, make the move invalid
+        if ((Board::squares[retValue] & 
+            Board::getOpositeBotColor(Board::botColor))
+            && direction == "down")
+            return -1;
         if ((direction == "right_down" || direction == "down_left") &&
             !(Board::squares[retValue]))
             return -1;
@@ -79,6 +86,12 @@ int Move::getFuturePosForMove(int initialPos, string direction,
             return -1;
     }
     else {
+        // if by moving the pawn 2 pieces (trying to capture by moving 2 pieces)
+        // we move on a color of the oposite side, make the move invalid
+        if ((Board::squares[retValue] & 
+            Board::getOpositeBotColor(Board::botColor))
+            && direction == "up")
+            return -1;
         if ((direction == "up_right" || direction == "left_up") &&
             !(Board::squares[retValue]))
             return -1;

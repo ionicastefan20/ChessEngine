@@ -67,7 +67,6 @@ static pair<int, int> makeMoveUpdatePos(int move) {
         Board::squares[move] == Piece::QUEEN | Board::botColor;
     int tempLastPos = GeneratePawnMoves::getLastPosForCurrentColor();
     GeneratePawnMoves::setLastPosForCurrentColor(move);
-    // Board::botColor = Board::botColor ^ (8 + 16);
     return std::make_pair(tempLastPos, move);
 }
 
@@ -134,7 +133,7 @@ pair<int, int> GeneratePawnMoves::generatePawnMove() {
 
     // if the piece has been taken, go to the next pawn
     if (Board::squares[getLastPosForCurrentColor()] &
-        (Board::botColor ^ (8 + 16))) {
+        Board::getOpositeBotColor(Board::botColor)) {
         // xor between botcolor and bitmask 11000 gets us the other color
         return moveForNextPawn();
     }

@@ -10,6 +10,11 @@ bool Board::isPlaying = true;
 
 int Board::colorOnMove = Piece::WHITE;
 
+int Board::getOpositeBotColor(int color) {
+    return color ^ (8 + 16); // bitwise xor with a mask of 11000
+    // which will make the color 01000 ^ 11000 = 10000 the other color
+}
+
 void Board::initBoard() {
     // remove in future updates
     GeneratePawnMoves::currPawn = 1;
@@ -63,7 +68,7 @@ pair<int, int> Board::decodeMove(string move) {
 }
 
 void Board::makeMove(string move) {
-    colorOnMove = colorOnMove ^ (8 + 16); // set the oposite color;
+    colorOnMove = getOpositeBotColor(colorOnMove); // set the oposite color;
     pair<int, int> result = decodeMove(move); //b2b4
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;

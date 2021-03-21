@@ -65,7 +65,6 @@ public:
     void readInput() {
         ofstream my_file;
         my_file.open("debug");
-        std::ofstream fout3("output3.txt");
 
         my_file << "Starting" << endl;
         while (true) {
@@ -98,7 +97,6 @@ public:
                 makeBotThink();
             }
         }
-        fout3.close();
         my_file.close();
     }
 };

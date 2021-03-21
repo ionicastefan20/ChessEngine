@@ -19,6 +19,8 @@ public:
 
     static int* squares;
 
+    static int getOpositeBotColor(int color);
+
     static void initBoard();
 
     static string encodeMove(pair<int, int> move);
