@@ -133,7 +133,7 @@ pair<int, int> GeneratePawnMoves::generatePawnMove() {
 
     // if there is not a pawn of the same color in the last place the pawn has
     // been seen, go to the next pawn
-    if (!(Board::squares[getLastPosForCurrentColor()] &
+    if (!(Board::squares[getLastPosForCurrentColor()] ==
         (Piece::PAWN | Board::botColor))) {
         return moveForNextPawn();
     }
