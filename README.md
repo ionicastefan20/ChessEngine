@@ -109,9 +109,9 @@ the following scenario :
 1. The board is in the following state and the knight is about to capture the
 last black pawn
 
-![image](images/black_resigns_pre.png)
+![image](./images/black_resigns_pre.png)
 
 2. After the capture we can see that the <strong>xboard</strong> received the <em>resign</em> command (black resigned)
 
-![image](images/black_resigns_post.png)
+![image](./images/black_resigns_post.png)
 
