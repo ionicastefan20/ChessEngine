@@ -171,7 +171,7 @@ The board is in the following state and the knight is about to capture the last 
 
 The board is in the following state and the pawn is about to promote to a queen on b1 |  After the promotion we can see that the <strong>xboard</strong> promoted the pawn to a queen
 :---:|:---:
-![](./images/pawn_promotes_pre.PNG)  |  ![](./images/pawn_promotes_post.PNG)
+![](./images/pawn_promotes_pre.png)  |  ![](./images/pawn_promotes_post.png)
 
 The following code block will check if the pawn is in a correct position to be
 promoted to a <strong>Queen</strong> and replaces the pawn on the table with
