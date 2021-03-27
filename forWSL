@@ -1,1 +1,1 @@
-DISPLAY=:0 xboard -fcp "make run"
+DISPLAY=:0 xboard -fcp "make run" -debug
