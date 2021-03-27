@@ -38,20 +38,20 @@ void GeneratePawnMoves::setLastPosForCurrentColor(int value) {
 }
 
 int GeneratePawnMoves::getBlackCurrPawn() {
-    return (currPawn & 7); // 7 = 111 in binary (a mask)
+    return (currPawn & 15); // 15 = 1111 in binary (a mask)
 }
 
 int GeneratePawnMoves::getWhiteCurrPawn() {
-    return (currPawn >> 3);
+    return (currPawn >> 4);
 }
 
 void GeneratePawnMoves::setBlackCurrPawn(int value) {
-    currPawn = (currPawn & 56); // 56 = 111000 in binary (a mask)
+    currPawn = (currPawn & 240); // 240 = 11110000 in binary (a mask)
     currPawn += value;
 }
 
 void GeneratePawnMoves::setWhiteCurrPawn(int value) {
-    currPawn = getBlackCurrPawn() + (value << 3); // shift the new value with 3
+    currPawn = getBlackCurrPawn() + (value << 4); // shift the new value with 3
     // bits and add the remaining black
 }
 

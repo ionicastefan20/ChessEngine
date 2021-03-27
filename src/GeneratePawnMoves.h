@@ -10,9 +10,9 @@ class GeneratePawnMoves {
 
 public:
 
-    // first 3 bits (less signifiant) -> the black pawns
-    // next 3 bits (most signifiant) -> white pawns
-    static int currPawn; // 6 bit value
+    // first 4 bits (less signifiant) -> the black pawns
+    // next 4 bits (most signifiant) -> white pawns
+    static int currPawn; // 8 bit value
     
     // first 6 bits (less signifiant) -> the black pawns
     // next 6 bits (most signifiant) -> white pawns

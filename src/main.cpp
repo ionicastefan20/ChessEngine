@@ -63,18 +63,13 @@ public:
     }
 
     void readInput() {
-        ofstream my_file;
-        my_file.open("debug");
 
-        my_file << "Starting" << endl;
         while (true) {
             string input;
             getline(cin, input);
             string first_word = input.substr(0, input.find(" "));
 
-
             if (!first_word.compare(commands[0])) { // xboard
-                my_file << "why" << endl;
                 cout << endl;
             } else if (!first_word.compare(commands[1])) { // protover
                 cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << endl;
@@ -97,7 +92,6 @@ public:
                 makeBotThink();
             }
         }
-        my_file.close();
     }
 };
 
