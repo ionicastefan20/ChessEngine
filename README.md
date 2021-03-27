@@ -12,6 +12,7 @@
     - [<br> <strong> Move Class </strong>](#--move-class-)
       - [<strong> initDistancesAndDirections() method </strong>](#-initdistancesanddirections-method-)
       - [<strong> getFuturePostForMove() method </strong>](#-getfuturepostformove-method-)
+    - [<br> <strong> GeneratePawnMoves Class </strong>](#--generatepawnmoves-class-)
   - [<br> <strong> Algorithms Details </strong>](#--algorithms-details-)
   - [<br> <strong> Inspiration Sources </strong>](#--inspiration-sources-)
   - [<br> <strong> Member's Responsabilities </strong>](#--members-responsabilities-)
@@ -87,6 +88,7 @@ moves in a different pattern and will have a dedicated method.
 This class deals exactly with the specific rules for moving a pawn with separate
 cases for white and black pawns.
 
+### <br> <strong> GeneratePawnMoves Class </strong>
 
 GeneratePawnMoves Class is used to do exactly what its name says: it generates possible
 moves for the pawns.
@@ -109,9 +111,9 @@ the following scenario :
 1. The board is in the following state and the knight is about to capture the
 last black pawn
 
-![image](./images/black_resigns_pre.png)
+![image](./images/black_resigns_pre.PNG)
 
 2. After the capture we can see that the <strong>xboard</strong> received the <em>resign</em> command (black resigned)
 
-![image](./images/black_resigns_post.png)
+![image](./images/black_resigns_post.PNG)
 
