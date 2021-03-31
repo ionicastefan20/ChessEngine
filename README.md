@@ -13,6 +13,8 @@
       - [initDistancesAndDirections() method](#initdistancesanddirections-method)
       - [getFuturePostForMove() method](#getfuturepostformove-method)
     - [GeneratePawnMoves Class](#generatepawnmoves-class)
+  - [Algorithmic approach](#algorithmic-approach)
+  - [Responsabilities](#responsabilities)
   - [Inspiration Sources](#inspiration-sources)
   - [Examples of running](#examples-of-running)
   
@@ -136,15 +138,29 @@ pawn, black or white.
 <strong> "makeMoveUpdatePos" </strong> method returns the move that a pawn makes.
 At the end, we update the last position with the method
 "setLastPosForCurrentColor". We also check if the pawn is on the last row for
-black or white, in which case it turns into a queen with the same color.
+black or for white. In this case, it turns into a queen with the same color.
 
-<strong> moveForNextPawn </strong> 
+<strong> moveForNextPawn </strong> Generate the move for the next pawn. This
+method is called only when the previous pawn cannot be further moved and we need
+to go to the next pawn or resign if there is no other pawn left to move.
+
+<strong> generatePawnMove </strong> Calculates the next positions for the next
+possible moves, prioritizing moving the pawn 2 blocks forward, then capturing
+to the right, then to the left, then finally moving it only 1 piece forward.
 
 <!-- <br> -->
 
 <!-- ## Algorithms Details -->
 
 <br>
+
+## Algorithmic approach
+
+As for the algorithm used for the first stage, the program iterates through all pawns and, with each pawn, it tries to reach the end of the board so it can transform it into a queen. It priorities getting enemy pieces over moving forward.
+
+## Responsabilities
+
+For the first stage, we all worked together on developing the structure of the project and and the logic behind it.
 
 ## Inspiration Sources
 

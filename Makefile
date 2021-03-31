@@ -1,23 +1,23 @@
 CC=g++
 CFLAGS=-Wall -Wextra
 SRC_FOLDER=src/
-EXE=target/main
+EXE=main
 
 SRCS=$(wildcard $(SRC_FOLDER)*.cpp)
 OBJECTS=$(SRCS:.cpp=.o)
 
 .PHONY: run build clean
 
-all: build clean
+all: build
 
 build: $(OBJECTS)
 	$(CC) $^ -o $(EXE) $(CFLAGS)
 
 %.o: $(SRC_FOLDER)%.cpp
-	$(CC) -MMD -MP -c $< -o $(TARGET_FOLDER)$@ $(CFLAGS)
+	$(CC) -MMD -MP -c $< -o $@ $(CFLAGS)
 
 run:
 	./$(EXE)
 
 clean:
-	rm $(SRC_FOLDER)*.o
+	rm -f $(SRC_FOLDER)*.o main 2> /dev/null
