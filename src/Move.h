@@ -20,9 +20,6 @@ public:
     static vector<unordered_map<string, int>> numUntilEdge;
 
     static void initDistancesAndDirections();
-
-    static int getFuturePosForMove(int initialPos, string direction,
-                                    int numberOfBlocks);
 };
 
 #endif
