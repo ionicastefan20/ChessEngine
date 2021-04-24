@@ -175,6 +175,9 @@ std::vector<int> Move::generateRookMoves(int pos) {
         for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * Move::DIRECTIONS[dir];
             fout4 << "am dadaugat: " << new_pos << std::endl;
+
+            if (Board::squares[new_pos] & Board::botColor)
+                break;
             result.push_back(new_pos);
 
             if (Board::squares[new_pos] &
