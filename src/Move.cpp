@@ -41,6 +41,34 @@ void Move::initDistancesAndDirections() {
 
 void Move::generate() {
     moves.clear();
+
+    for (int i = 0; i < 64; ++i) {
+        if (Board::botColor && Board::squares[i]) {
+            switch (Board::squares[i] && (~(1 << 3))) {
+                case Piece::PAWN:
+                    generatePawnMoves();
+                    break;
+                case Piece::ROOK:
+                    generateRookMoves();
+                    break;
+                case Piece::KNIGHT:
+                    generateKnightMoves();
+                    break;
+                case Piece::BISHOP:
+                    generateBishopMoves();
+                    break;
+                case Piece::QUEEN:
+                    generateRookMoves();
+                    generateBishopMoves();
+                    break;
+                case Piece::KING:
+                    generateKingMoves();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }
 
 void Move::calculateSquaresAttacked() {
@@ -49,5 +77,3 @@ void Move::calculateSquaresAttacked() {
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
         if ()
-    }
-}
