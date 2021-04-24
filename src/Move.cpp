@@ -21,7 +21,7 @@ void Move::initDistancesAndDirections() {
         for (int j = 0; j < 8; j++) {
             int numUp = 7 - i; // 6
             int numDown = i; // 1
-            int numLeft = j; // 
+            int numLeft = j; //
             int numRight = 7 - j;
 
             unordered_map<string, int> distances = {
@@ -37,4 +37,8 @@ void Move::initDistancesAndDirections() {
 
             Move::numUntilEdge.push_back(distances);
         }
+}
+
+void Move::generate() {
+    moves.clear();
 }

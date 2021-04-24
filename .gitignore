@@ -3,3 +3,4 @@ debug
 xboard.debug
 .gitignore
 forWSL
+.vscode
