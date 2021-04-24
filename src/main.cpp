@@ -43,7 +43,9 @@ class ReadInput {
 
     bool makeBotThink() {
         if (Board::isPlaying) {
+            // Replace
             pair<int, int> move = GeneratePawnMoves::generatePawnMove();
+
             if (move.first == -1 && move.second == -1)
                 cout << "resign" << endl;
             else

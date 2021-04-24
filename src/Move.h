@@ -14,15 +14,19 @@ using std::unordered_map;
 
 class Move {
 
+private:
+
+
 public:
     static unordered_map<string, int> DIRECTIONS;
 
     static vector<unordered_map<string, int>> numUntilEdge;
 
-    static void initDistancesAndDirections();
+    static std::unordered_map<int, std::vector<int>> moves;
 
-    static int getFuturePosForMove(int initialPos, string direction,
-                                    int numberOfBlocks);
+    static void generate();
+
+    static void initDistancesAndDirections();
 };
 
 #endif
