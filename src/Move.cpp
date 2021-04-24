@@ -42,3 +42,12 @@ void Move::initDistancesAndDirections() {
 void Move::generate() {
     moves.clear();
 }
+
+void Move::calculateSquaresAttacked() {
+    squaresAttacked.clear();
+
+    // iterate over the squares, over the current state of the board
+    for (int i = 0; i < 64; i++) {
+        if ()
+    }
+}

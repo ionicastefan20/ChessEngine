@@ -17,7 +17,7 @@ public:
 
     static bool isPlaying;
 
-    static int* squares;
+    static int* squares; // main board table
 
     static int getOpositeBotColor(int color);
 
