@@ -86,13 +86,19 @@ std::vector<int> Move::generatePawnMoves(int pos) {
     std::vector<int> result;
 
     if (Board::squares[pos] & Piece::WHITE) {
-        addMove(result, pos, 8);
-        if (pos >= 8 && pos <= 15)
-            addMove(result, pos, 16);
+        if (Board::squares[pos + 8] == 0)
+            addMove(result, pos, 8);
+        if (pos >= 8 && pos <= 15) {
+            if (Board::squares[pos + 8] == 0 && Board::squares[pos + 16] == 0)
+                addMove(result, pos, 16);
+        }
     } else {
-        addMove(result, pos, -8);
-        if (pos >= 48 && pos <= 55)
-            addMove(result, pos, -16);
+        if (Board::squares[pos - 8] == 0)
+            addMove(result, pos, -8);
+        if (pos >= 48 && pos <= 55) {
+            if (Board::squares[pos - 8] == 0 && Board::squares[pos - 16] == 0)
+                addMove(result, pos, -16);
+        }
     }
 
     return result;
