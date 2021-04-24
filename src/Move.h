@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Board.h"
+#include "Piece.h"
 
 using std::vector;
 using std::string;
@@ -15,7 +16,10 @@ using std::unordered_map;
 class Move {
 
 private:
-
+    static void generatePawnMoves();
+    static void generateKnightMoves();
+    static void generateKingMoves();
+    static void generateLongMoves();
 
 public:
     static unordered_map<string, int> DIRECTIONS;

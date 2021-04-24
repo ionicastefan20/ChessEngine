@@ -4,16 +4,19 @@
 class Piece {
 
 public:
-    static const int NONE;
-    static const int PAWN;
-    static const int ROOK;
-    static const int KNIGHT;
-    static const int BISHOP;
-    static const int QUEEN;
-    static const int KING;
 
-    static const int WHITE;
-    static const int BLACK;
+    enum Constants {
+        NONE = 0,
+        PAWN = 1,
+        ROOK = 2,
+        KNIGHT = 3,
+        BISHOP = 4,
+        QUEEN = 5,
+        KING = 6,
+
+        WHITE = 8,
+        BLACK = 16
+    };
 };
 
 #endif
