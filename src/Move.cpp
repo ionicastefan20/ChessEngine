@@ -70,3 +70,7 @@ void Move::generate() {
         }
     }
 }
+
+void Move::generateRookMoves() {
+
+}
