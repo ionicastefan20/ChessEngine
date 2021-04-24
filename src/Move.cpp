@@ -78,14 +78,14 @@ void Move::generate() {
 
 void addMove(std::vector<int>& result, int pos, int shift) {
     int new_pos = pos + shift;
-    if (!(Board::squares[new_pos] && Board::botColor))
+    if (!(Board::squares[new_pos] & Board::botColor))
         result.push_back(new_pos);
 }
 
 std::vector<int> Move::generatePawnMoves(int pos) {
     std::vector<int> result;
 
-    if (Board::squares[pos] && Piece::WHITE) {
+    if (Board::squares[pos] & Piece::WHITE) {
         addMove(result, pos, 8);
         if (pos >= 8 && pos <= 15)
             addMove(result, pos, 16);
@@ -127,7 +127,7 @@ std::vector<int> Move::generateKingMoves(int pos) {
     for (auto kv : Move::DIRECTIONS) {
         int new_pos = pos + kv.second;
 
-        if ((Board::squares[new_pos] && Board::botColor) ||
+        if ((Board::squares[new_pos] & Board::botColor) ||
                 (Move::numUntilEdge[pos][kv.first] > 0))
             break;
 
@@ -144,12 +144,12 @@ std::vector<int> Move::generateBishopMoves(int pos) {
         for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * Move::DIRECTIONS[dir];
 
-            if (Board::squares[new_pos] && Board::botColor)
+            if (Board::squares[new_pos] & Board::botColor)
                 break;
 
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] &&
+            if (Board::squares[new_pos] &
                 Board::getOppositeBotColor(Board::botColor))
                 break;
         }
@@ -169,7 +169,7 @@ std::vector<int> Move::generateRookMoves(int pos) {
             fout4 << "am dadaugat: " << new_pos << std::endl;
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] &&
+            if (Board::squares[new_pos] &
                 Board::getOppositeBotColor(Board::botColor))
                 break;
         }
