@@ -45,7 +45,7 @@ class ReadInput {
         if (Board::isPlaying) {
             // Replace
             pair<int, int> move = MoveGenerator::generateMove();
-
+        
             if (move.first == -1 && move.second == -1)
                 cout << "resign" << endl;
             else

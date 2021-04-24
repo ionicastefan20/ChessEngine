@@ -18,5 +18,5 @@ pair<int, int> MoveGenerator::generateMove() {
     int randomMove = rand() % Move::moves[nonZeroMoves[randomPiece]].size();
 
     return std::make_pair(nonZeroMoves[randomPiece],
-                     Move::moves[nonZeroMoves[randomPiece]][randomMove]);
+                          Move::moves[nonZeroMoves[randomPiece]][randomMove]);
 }
