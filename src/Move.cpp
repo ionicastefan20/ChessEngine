@@ -73,16 +73,46 @@ void Move::generate() {
 
 void Move::calculateSquaresAttacked() {
     squaresAttacked.clear();
+    for (int i = 0; i < 64; i++)
+        squaresAttacked.push_back(false); // initialize the map with all false
 
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
         if (Board::botColor && Board::squares[i]) {
-            
+            vector<int> attackedSquares;
+            vector<int> auxAttackedSquares;
+
+            switch (Board::squares[i] && (~(1 << 3))) {
+                case Piece::PAWN:
+                    attackedSquares = generatePawnMoves(i);
+                    break;
+                case Piece::ROOK:
+                    attackedSquares = generateRookMoves(i);
+                    break;
+                case Piece::KNIGHT:
+                    attackedSquares = generateKnightMoves(i);
+                    break;
+                case Piece::BISHOP:
+                    attackedSquares = generateBishopMoves(i);
+                    break;
+                case Piece::QUEEN:
+                    attackedSquares = generateRookMoves(i);
+                    auxAttackedSquares = generateBishopMoves(i);
+                    // append the second list fo positions to the first one
+                    // basically centralize the it
+                    attackedSquares.insert(attackedSquares.end(),
+                        auxAttackedSquares.begin(), auxAttackedSquares.end()); 
+                    break;
+                case Piece::KING:
+                    attackedSquares = generateKingMoves(i);
+                    break;
+                default:
+                    break;
+            }
+
+            for (int j = 0; j < attackedSquares.size(); j++) {
+                squaresAttacked[attackedSquares[j]] = true;
+            }
         }
-
-
     }
-}
-
-void Move::generateRookMoves(int pos) {
 }

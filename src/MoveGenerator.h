@@ -1,0 +1,6 @@
+#ifndef CHESSENGINE_MOVE_GENERATOR_H
+#define CHESSENGINE_MOVE_GENERATOR_H
+
+    
+
+#endif
