@@ -40,8 +40,8 @@ class ReadInput {
                 std::cout << "resign" << std::endl;
             else {
                 string move_str = Board::encodeMove(move);
-                Board::makeMove(move_str);
                 std::cout << "move " << move_str << std::endl;
+                Board::makeMove(move_str);
             }
         }
     }
