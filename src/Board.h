@@ -19,7 +19,7 @@ public:
 
     static int* squares;
 
-    static int getOpositeBotColor(int color);
+    static int getOppositeBotColor(int color);
 
     static void initBoard();
 

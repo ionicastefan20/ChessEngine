@@ -10,7 +10,7 @@ bool Board::isPlaying = true;
 
 int Board::colorOnMove = Piece::WHITE;
 
-int Board::getOpositeBotColor(int color) {
+int Board::getOppositeBotColor(int color) {
     return color ^ (8 + 16); // bitwise xor with a mask of 11000
     // which will make the color 01000 ^ 11000 = 10000 the other color
 }

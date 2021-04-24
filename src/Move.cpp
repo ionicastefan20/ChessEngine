@@ -46,23 +46,23 @@ void Move::generate() {
         if (Board::botColor && Board::squares[i]) {
             switch (Board::squares[i] && (~(1 << 3))) {
                 case Piece::PAWN:
-                    generatePawnMoves(i);
+                    Move::moves[i] = generatePawnMoves(i);
                     break;
                 case Piece::ROOK:
-                    generateRookMoves(i);
+                    Move::moves[i] = generateRookMoves(i);
                     break;
                 case Piece::KNIGHT:
-                    generateKnightMoves(i);
+                    Move::moves[i] = generateKnightMoves(i);
                     break;
                 case Piece::BISHOP:
-                    generateBishopMoves(i);
+                    Move::moves[i] = generateBishopMoves(i);
                     break;
                 case Piece::QUEEN:
-                    generateRookMoves(i);
-                    generateBishopMoves(i);
+                    Move::moves[i] = generateRookMoves(i);
+                    Move::moves[i] = generateBishopMoves(i);
                     break;
                 case Piece::KING:
-                    generateKingMoves(i);
+                    Move::moves[i] = generateKingMoves(i);
                     break;
                 default:
                     break;
@@ -71,10 +71,65 @@ void Move::generate() {
     }
 }
 
-std::vector<int> Move::generateRookMoves(int pos) {
+void addKnightMove(std::vector<int>& result, int pos, int shift) {
+    int new_pos = pos + shift;
+    if (!(Board::squares[new_pos] && Board::botColor))
+        result.push_back(new_pos);
+}
+
+std::vector<int> Move::generatePawnMoves(int pos) {
     std::vector<int> result;
 
-    for (std::string dir : {"left", "up", "right", "down"} ) {
+    for (auto kv : Move::DIRECTIONS) {
+        int new_pos = pos + kv.second;
+
+        if ((Board::squares[new_pos] && Board::botColor) ||
+                (Move::numUntilEdge[pos][kv.first] > 0))
+            break;
+
+        result.push_back(new_pos);
+    }
+}
+
+std::vector<int> Move::generateKnightMoves(int pos) {
+    std::vector<int> result;
+
+    // up left
+    addKnightMove(result, pos, 15);
+    // left up
+    addKnightMove(result, pos, 6);
+    // up right
+    addKnightMove(result, pos, 17);
+    // right up
+    addKnightMove(result, pos, 10);
+    // down left
+    addKnightMove(result, pos, -17);
+    // left down
+    addKnightMove(result, pos, -10);
+    // down right
+    addKnightMove(result, pos, -15);
+    // right down
+    addKnightMove(result, pos, -6);
+}
+
+std::vector<int> Move::generateKingMoves(int pos) {
+    std::vector<int> result;
+
+    for (auto kv : Move::DIRECTIONS) {
+        int new_pos = pos + kv.second;
+
+        if ((Board::squares[new_pos] && Board::botColor) ||
+                (Move::numUntilEdge[pos][kv.first] > 0))
+            break;
+
+        result.push_back(new_pos);
+    }
+}
+
+std::vector<int> Move::generateBishopMoves(int pos) {
+    std::vector<int> result;
+
+    for (std::string dir : {"left_up", "up_right", "right_down", "down_left"}) {
         for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * Move::DIRECTIONS[dir];
 
@@ -82,6 +137,27 @@ std::vector<int> Move::generateRookMoves(int pos) {
                 break;
 
             result.push_back(new_pos);
+
+            if (Board::squares[new_pos] && Board::getOppositeBotColor(Board::botColor))
+                break;
+        }
+    }
+}
+
+std::vector<int> Move::generateRookMoves(int pos) {
+    std::vector<int> result;
+
+    for (std::string dir : {"left", "up", "right", "down"}) {
+        for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
+            int new_pos = pos + i * Move::DIRECTIONS[dir];
+
+            if (Board::squares[new_pos] && Board::botColor)
+                break;
+
+            result.push_back(new_pos);
+
+            if (Board::squares[new_pos] && Board::getOppositeBotColor(Board::botColor))
+                break;
         }
     }
 }
