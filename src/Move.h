@@ -17,15 +17,15 @@ class Move {
 
 private:
 
-    static void generatePawnMoves(int pos);
+    static std::vector<int> generatePawnMoves(int pos);
 
-    static void generateKnightMoves(int pos);
+    static std::vector<int> generateKnightMoves(int pos);
 
-    static void generateKingMoves(int pos);
+    static std::vector<int> generateKingMoves(int pos);
 
-    static void generateBishopMoves(int pos);
+    static std::vector<int> generateBishopMoves(int pos);
 
-    static void generateRookMoves(int pos);
+    static std::vector<int> generateRookMoves(int pos);
 
 public:
 

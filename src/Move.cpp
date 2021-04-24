@@ -71,5 +71,17 @@ void Move::generate() {
     }
 }
 
-void Move::generateRookMoves(int pos) {
+std::vector<int> Move::generateRookMoves(int pos) {
+    std::vector<int> result;
+
+    for (std::string dir : {"left", "up", "right", "down"} ) {
+        for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
+            int new_pos = pos + i * Move::DIRECTIONS[dir];
+
+            if (Board::squares[new_pos] && Board::botColor)
+                break;
+
+            result.push_back(new_pos);
+        }
+    }
 }
