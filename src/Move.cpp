@@ -46,23 +46,23 @@ void Move::generate() {
         if (Board::botColor && Board::squares[i]) {
             switch (Board::squares[i] && (~(1 << 3))) {
                 case Piece::PAWN:
-                    generatePawnMoves();
+                    generatePawnMoves(i);
                     break;
                 case Piece::ROOK:
-                    generateRookMoves();
+                    generateRookMoves(i);
                     break;
                 case Piece::KNIGHT:
-                    generateKnightMoves();
+                    generateKnightMoves(i);
                     break;
                 case Piece::BISHOP:
-                    generateBishopMoves();
+                    generateBishopMoves(i);
                     break;
                 case Piece::QUEEN:
-                    generateRookMoves();
-                    generateBishopMoves();
+                    generateRookMoves(i);
+                    generateBishopMoves(i);
                     break;
                 case Piece::KING:
-                    generateKingMoves();
+                    generateKingMoves(i);
                     break;
                 default:
                     break;
@@ -78,8 +78,9 @@ void Move::calculateSquaresAttacked() {
     for (int i = 0; i < 64; i++) {
         if ()
 
+        
+    }
 }
 
-void Move::generateRookMoves() {
-
+void Move::generateRookMoves(int pos) {
 }
