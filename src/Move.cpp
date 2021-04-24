@@ -108,28 +108,28 @@ std::vector<int> Move::generateKnightMoves(int pos) {
     std::vector<int> result;
 
     // up left
-    if (pos + 15 < 63)
+    if (Move::numUntilEdge[pos]["up"] >= 2 && Move::numUntilEdge[pos]["left"] >= 1)
         addMove(result, pos, 15);
     // left up
-    if (pos + 6 < 63)
+    if (Move::numUntilEdge[pos]["left"] >= 2 && Move::numUntilEdge[pos]["up"] >= 1)
         addMove(result, pos, 6);
     // up right
-    if (pos + 17 < 63)
+    if (Move::numUntilEdge[pos]["up"] >= 2 && Move::numUntilEdge[pos]["right"] >= 1)
         addMove(result, pos, 17);
     // right up
-    if (pos + 10 < 63)
+    if (Move::numUntilEdge[pos]["right"] >= 2 && Move::numUntilEdge[pos]["up"] >= 1)
         addMove(result, pos, 10);
     // down left
-    if (pos - 17 > 0)
+    if (Move::numUntilEdge[pos]["down"] >= 2 && Move::numUntilEdge[pos]["left"] >= 1)
         addMove(result, pos, -17);
     // left down
-    if (pos - 10 < 63)
+    if (Move::numUntilEdge[pos]["left"] >= 2 && Move::numUntilEdge[pos]["down"] >= 1)
         addMove(result, pos, -10);
     // down right
-    if (pos - 15 < 63)
+    if (Move::numUntilEdge[pos]["down"] >= 2 && Move::numUntilEdge[pos]["right"] >= 1)
         addMove(result, pos, -15);
     // right down
-    if (pos - 6 < 63)
+    if (Move::numUntilEdge[pos]["right"] >= 2 && Move::numUntilEdge[pos]["down"] >= 1)
         addMove(result, pos, -6);
 
     return result;
@@ -142,8 +142,8 @@ std::vector<int> Move::generateKingMoves(int pos) {
         int new_pos = pos + kv.second;
 
         if ((Board::squares[new_pos] & Board::botColor) ||
-                (Move::numUntilEdge[pos][kv.first] > 0))
-            break;
+                (Move::numUntilEdge[pos][kv.first] <= 0))
+            continue;
 
         result.push_back(new_pos);
     }
@@ -231,6 +231,7 @@ void Move::calculateSquaresAttacked() {
                     break;
                 case Piece::KING:
                     attackedSquares = generateKingMoves(i);
+                    // fout3 << "\t\t " << attackedSquares[j] << std::endl;
                     break;
                 default:
                     break;
@@ -238,8 +239,10 @@ void Move::calculateSquaresAttacked() {
 
             fout3 << "yessir: " << i << std::endl;
             for (int j = 0; j < attackedSquares.size(); j++) {
+                fout3 << "\tyessir mid before sugio: " << attackedSquares[j] << std::endl;
                 squaresAttacked[attackedSquares[j]] = true;
             }
+            fout3 << "yessir milsugio: " << i << std::endl;
         }
     }
 }
