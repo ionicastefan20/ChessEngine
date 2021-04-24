@@ -22,5 +22,8 @@ run:
 run_wsl:
 	DISPLAY=:0 xboard -fcp "make run"
 
+debug_wsl:
+	DISPLAY=:0 xboard -fcp "make run" -debug
+
 clean:
 	rm -f $(SRC_FOLDER)*.o main 2> /dev/null

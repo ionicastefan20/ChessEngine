@@ -75,7 +75,7 @@ void Move::generate() {
     }
 }
 
-void addKnightMove(std::vector<int>& result, int pos, int shift) {
+void addMove(std::vector<int>& result, int pos, int shift) {
     int new_pos = pos + shift;
     if (!(Board::squares[new_pos] && Board::botColor))
         result.push_back(new_pos);
@@ -84,36 +84,40 @@ void addKnightMove(std::vector<int>& result, int pos, int shift) {
 std::vector<int> Move::generatePawnMoves(int pos) {
     std::vector<int> result;
 
-    for (auto kv : Move::DIRECTIONS) {
-        int new_pos = pos + kv.second;
-
-        if ((Board::squares[new_pos] && Board::botColor) ||
-                (Move::numUntilEdge[pos][kv.first] > 0))
-            break;
-
-        result.push_back(new_pos);
+    if (Board::squares[pos] && Piece::WHITE) {
+        addMove(result, pos, 8);
+        if (pos >= 8 && pos <= 15)
+            addMove(result, pos, 16);
+    } else {
+        addMove(result, pos, -8);
+        if (pos >= 48 && pos <= 55)
+            addMove(result, pos, -16);
     }
+
+    return result;
 }
 
 std::vector<int> Move::generateKnightMoves(int pos) {
     std::vector<int> result;
 
     // up left
-    addKnightMove(result, pos, 15);
+    addMove(result, pos, 15);
     // left up
-    addKnightMove(result, pos, 6);
+    addMove(result, pos, 6);
     // up right
-    addKnightMove(result, pos, 17);
+    addMove(result, pos, 17);
     // right up
-    addKnightMove(result, pos, 10);
+    addMove(result, pos, 10);
     // down left
-    addKnightMove(result, pos, -17);
+    addMove(result, pos, -17);
     // left down
-    addKnightMove(result, pos, -10);
+    addMove(result, pos, -10);
     // down right
-    addKnightMove(result, pos, -15);
+    addMove(result, pos, -15);
     // right down
-    addKnightMove(result, pos, -6);
+    addMove(result, pos, -6);
+
+    return result;
 }
 
 std::vector<int> Move::generateKingMoves(int pos) {
@@ -128,6 +132,8 @@ std::vector<int> Move::generateKingMoves(int pos) {
 
         result.push_back(new_pos);
     }
+
+    return result;
 }
 
 std::vector<int> Move::generateBishopMoves(int pos) {
@@ -147,6 +153,8 @@ std::vector<int> Move::generateBishopMoves(int pos) {
                 break;
         }
     }
+
+    return result;
 }
 
 std::vector<int> Move::generateRookMoves(int pos) {
@@ -162,6 +170,8 @@ std::vector<int> Move::generateRookMoves(int pos) {
                 break;
         }
     }
+
+    return result;
 }
 
 void Move::calculateSquaresAttacked() {

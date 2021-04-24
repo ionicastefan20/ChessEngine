@@ -1,24 +1,14 @@
 #include <vector>
-using std::vector;
-
 #include <string>
-using std::string;
-
 #include <fstream>
-using std::ofstream;
-
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
-
 #include "Board.h"
 #include "Move.h"
 #include "MoveGenerator.h"
 
 class ReadInput {
 
-    vector <string> commands;
+    std::vector<std::string> commands;
 
     bool isChessBoardNumber(char c) {
         return (49 <= c) && (56 >= c);
@@ -41,15 +31,18 @@ class ReadInput {
         return false;
     }
 
-    bool makeBotThink() {
+    void makeBotThink() {
         if (Board::isPlaying) {
             // Replace
             pair<int, int> move = MoveGenerator::generateMove();
-        
+
             if (move.first == -1 && move.second == -1)
-                cout << "resign" << endl;
-            else
-                cout << "move " + Board::encodeMove(move) << endl;
+                std::cout << "resign" << std::endl;
+            else {
+                string move_str = Board::encodeMove(move);
+                Board::makeMove(move_str);
+                std::cout << "move " << move_str << std::endl;
+            }
         }
     }
 
@@ -68,13 +61,13 @@ public:
 
         while (true) {
             string input;
-            getline(cin, input);
+            std::getline(std::cin, input);
             string first_word = input.substr(0, input.find(" "));
 
             if (!first_word.compare(commands[0])) { // xboard
-                cout << endl;
+                std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover
-                cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << endl;
+                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << std::endl;
             } else if (!first_word.compare(commands[2])) { // new
                 Board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
