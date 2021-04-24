@@ -5,6 +5,10 @@ unordered_map<string, int> Move::DIRECTIONS;
 
 vector<unordered_map<string, int>> Move::numUntilEdge;
 
+std::unordered_map<int, std::vector<int>> Move::moves;
+
+vector<bool> Move::squaresAttacked;
+
 void Move::initDistancesAndDirections() {
     Move::DIRECTIONS = {
         {"left", -1},
@@ -44,7 +48,7 @@ void Move::generate() {
 
     for (int i = 0; i < 64; ++i) {
         if (Board::botColor && Board::squares[i]) {
-            switch (Board::squares[i] && (~(1 << 3))) {
+            switch (Board::squares[i] & (~(1 << 3))) {
                 case Piece::PAWN:
                     Move::moves[i] = generatePawnMoves(i);
                     break;
@@ -138,7 +142,8 @@ std::vector<int> Move::generateBishopMoves(int pos) {
 
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] && Board::getOppositeBotColor(Board::botColor))
+            if (Board::squares[new_pos] &&
+                Board::getOppositeBotColor(Board::botColor))
                 break;
         }
     }
@@ -152,7 +157,8 @@ std::vector<int> Move::generateRookMoves(int pos) {
             int new_pos = pos + i * Move::DIRECTIONS[dir];
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] && Board::getOppositeBotColor(Board::botColor))
+            if (Board::squares[new_pos] &&
+                Board::getOppositeBotColor(Board::botColor))
                 break;
         }
     }
@@ -169,7 +175,7 @@ void Move::calculateSquaresAttacked() {
             vector<int> attackedSquares;
             vector<int> auxAttackedSquares;
 
-            switch (Board::squares[i] && (~(1 << 3))) {
+            switch (Board::squares[i] & (~(1 << 3))) {
                 case Piece::PAWN:
                     attackedSquares = generatePawnMoves(i);
                     break;

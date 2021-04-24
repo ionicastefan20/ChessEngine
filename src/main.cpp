@@ -14,7 +14,7 @@ using std::endl;
 
 #include "Board.h"
 #include "Move.h"
-#include "GeneratePawnMoves.h"
+#include "MoveGenerator.h"
 
 class ReadInput {
 
@@ -44,7 +44,7 @@ class ReadInput {
     bool makeBotThink() {
         if (Board::isPlaying) {
             // Replace
-            pair<int, int> move = GeneratePawnMoves::generatePawnMove();
+            pair<int, int> move = MoveGenerator::generateMove();
 
             if (move.first == -1 && move.second == -1)
                 cout << "resign" << endl;

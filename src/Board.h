@@ -2,7 +2,6 @@
 #define CHESSENGINE_BOARD_H
 
 #include "Piece.h"
-#include "GeneratePawnMoves.h"
 #include <string>
 
 using std::string;

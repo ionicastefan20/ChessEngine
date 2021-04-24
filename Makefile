@@ -19,5 +19,8 @@ build: $(OBJECTS)
 run:
 	./$(EXE)
 
+run_wsl:
+	DISPLAY=:0 xboard -fcp "make run"
+
 clean:
 	rm -f $(SRC_FOLDER)*.o main 2> /dev/null

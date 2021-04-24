@@ -17,9 +17,9 @@ int Board::getOppositeBotColor(int color) {
 
 void Board::initBoard() {
     // remove in future updates
-    GeneratePawnMoves::currPawn = 1;
-    GeneratePawnMoves::setBlackLastPos(48);
-    GeneratePawnMoves::setWhiteLastPos(15);
+    // GeneratePawnMoves::currPawn = 1;
+    // GeneratePawnMoves::setBlackLastPos(48);
+    // GeneratePawnMoves::setWhiteLastPos(15);
     colorOnMove = Piece::WHITE;
 
     squares[0] = squares[7] = Piece::WHITE | Piece::ROOK;
@@ -68,7 +68,7 @@ pair<int, int> Board::decodeMove(string move) {
 }
 
 void Board::makeMove(string move) {
-    colorOnMove = getOpositeBotColor(colorOnMove); // set the oposite color;
+    colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
     pair<int, int> result = decodeMove(move); //b2b4
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
