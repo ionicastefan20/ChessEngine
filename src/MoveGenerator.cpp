@@ -1,8 +1,14 @@
 #include "MoveGenerator.h"
+#include <fstream>
 
 pair<int, int> MoveGenerator::generateMove() {
+    std::ofstream fout2("out2", std::ofstream::app);
+
+    fout2 << "da1" << std::endl;
     Move::calculateSquaresAttacked();
+    fout2 << "da2" << std::endl;
     Move::generate();
+    fout2 << "da3" << std::endl;
     srand(time(NULL));
 
     // iterate through pieces and for the first piece that has valid move,
@@ -14,9 +20,15 @@ pair<int, int> MoveGenerator::generateMove() {
             nonZeroMoves.push_back(entry.first);
     }
 
-    int randomPiece = rand() % nonZeroMoves.size();
-    int randomMove = rand() % Move::moves[nonZeroMoves[randomPiece]].size();
+    fout2 << "da4: " << nonZeroMoves.size() << std::endl;
 
+    int randomPiece = std::rand() % nonZeroMoves.size();
+    fout2 << "randomPiece: " << randomPiece << std::endl;
+    int randomMove = std::rand() % Move::moves[nonZeroMoves[randomPiece]].size();
+    fout2 << "randomMove: " << randomMove << std::endl;
+
+    fout2 << "da5" << std::endl;
+    
     return std::make_pair(nonZeroMoves[randomPiece],
                           Move::moves[nonZeroMoves[randomPiece]][randomMove]);
 }

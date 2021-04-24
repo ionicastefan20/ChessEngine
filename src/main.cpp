@@ -33,8 +33,13 @@ class ReadInput {
 
     void makeBotThink() {
         if (Board::isPlaying) {
+            std::ofstream fout("out1", std::ofstream::app);
             // Replace
+            fout << "mdap" << std::endl;
+
             pair<int, int> move = MoveGenerator::generateMove();
+
+            fout << "intra" << std::endl;
 
             if (move.first == -1 && move.second == -1)
                 std::cout << "resign" << std::endl;

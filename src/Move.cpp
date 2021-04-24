@@ -45,10 +45,11 @@ void Move::initDistancesAndDirections() {
 
 void Move::generate() {
     moves.clear();
-
+    std::ofstream fout5("out5", std::ofstream::app);
     for (int i = 0; i < 64; ++i) {
-        if (Board::botColor && Board::squares[i]) {
-            switch (Board::squares[i] & (~(1 << 3))) {
+        if (Board::botColor & Board::squares[i]) {
+            fout5 << "va: " << (Board::squares[i] & 0x7) << std::endl;
+            switch (Board::squares[i] & 0x7) {
                 case Piece::PAWN:
                     Move::moves[i] = generatePawnMoves(i);
                     break;
@@ -63,7 +64,7 @@ void Move::generate() {
                     break;
                 case Piece::QUEEN:
                     Move::moves[i] = generateRookMoves(i);
-                    Move::moves[i] = generateBishopMoves(i);
+                    Move::moves[i] = generateBishopMoves(i); // append instead of replace TODO
                     break;
                 case Piece::KING:
                     Move::moves[i] = generateKingMoves(i);
@@ -159,10 +160,13 @@ std::vector<int> Move::generateBishopMoves(int pos) {
 
 std::vector<int> Move::generateRookMoves(int pos) {
     std::vector<int> result;
+    std::ofstream fout4("out4", std::ofstream::app);
 
     for (std::string dir : {"left", "up", "right", "down"}) {
+        fout4 << "directia: " << dir << " ";
         for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * Move::DIRECTIONS[dir];
+            fout4 << "am dadaugat: " << new_pos << std::endl;
             result.push_back(new_pos);
 
             if (Board::squares[new_pos] &&
@@ -175,17 +179,19 @@ std::vector<int> Move::generateRookMoves(int pos) {
 }
 
 void Move::calculateSquaresAttacked() {
+    std::ofstream fout3("out3", std::ofstream::app);
     squaresAttacked.clear();
     for (int i = 0; i < 64; i++)
         squaresAttacked.push_back(false); // initialize the map with all false
 
+    fout3 << "yessir1" << std::endl;
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
-        if (Board::botColor && Board::squares[i]) {
+        if (Board::botColor & Board::squares[i]) {
             vector<int> attackedSquares;
             vector<int> auxAttackedSquares;
 
-            switch (Board::squares[i] & (~(1 << 3))) {
+            switch (Board::squares[i] & 0x7) {
                 case Piece::PAWN:
                     attackedSquares = generatePawnMoves(i);
                     break;
@@ -213,6 +219,7 @@ void Move::calculateSquaresAttacked() {
                     break;
             }
 
+            fout3 << "yessir: " << i << std::endl;
             for (int j = 0; j < attackedSquares.size(); j++) {
                 squaresAttacked[attackedSquares[j]] = true;
             }
