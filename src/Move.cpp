@@ -76,9 +76,11 @@ void Move::calculateSquaresAttacked() {
 
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
-        if ()
+        if (Board::botColor && Board::squares[i]) {
+            
+        }
 
-        
+
     }
 }
 
