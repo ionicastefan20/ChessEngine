@@ -16,12 +16,19 @@ using std::unordered_map;
 class Move {
 
 private:
+
     static void generatePawnMoves();
+
     static void generateKnightMoves();
+
     static void generateKingMoves();
-    static void generateLongMoves();
+
+    static void generateBishopMoves();
+
+    static void generateRookMoves();
 
 public:
+
     static unordered_map<string, int> DIRECTIONS;
 
     static vector<unordered_map<string, int>> numUntilEdge;
