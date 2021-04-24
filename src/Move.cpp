@@ -102,21 +102,29 @@ std::vector<int> Move::generateKnightMoves(int pos) {
     std::vector<int> result;
 
     // up left
-    addMove(result, pos, 15);
+    if (pos + 15 < 63)
+        addMove(result, pos, 15);
     // left up
-    addMove(result, pos, 6);
+    if (pos + 6 < 63)
+        addMove(result, pos, 6);
     // up right
-    addMove(result, pos, 17);
+    if (pos + 17 < 63)
+        addMove(result, pos, 17);
     // right up
-    addMove(result, pos, 10);
+    if (pos + 10 < 63)
+        addMove(result, pos, 10);
     // down left
-    addMove(result, pos, -17);
+    if (pos - 17 > 0)
+        addMove(result, pos, -17);
     // left down
-    addMove(result, pos, -10);
+    if (pos - 10 < 63)
+        addMove(result, pos, -10);
     // down right
-    addMove(result, pos, -15);
+    if (pos - 15 < 63)
+        addMove(result, pos, -15);
     // right down
-    addMove(result, pos, -6);
+    if (pos - 6 < 63)
+        addMove(result, pos, -6);
 
     return result;
 }
