@@ -17,15 +17,15 @@ class Move {
 
 private:
 
-    static void generatePawnMoves();
+    static void generatePawnMoves(int pos);
 
-    static void generateKnightMoves();
+    static void generateKnightMoves(int pos);
 
-    static void generateKingMoves();
+    static void generateKingMoves(int pos);
 
-    static void generateBishopMoves();
+    static void generateBishopMoves(int pos);
 
-    static void generateRookMoves();
+    static void generateRookMoves(int pos);
 
 public:
 
