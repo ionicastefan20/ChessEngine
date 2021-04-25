@@ -258,11 +258,10 @@ void move::generate() {
         fout5 << std::endl;
     }
 
-
-    if (move::squaresAttacked[board::kingPos]) {
-        move::moves[board::kingPos] = generateKingMoves(board::kingPos, board::botColor);
-        return;
-    }
+    // if (move::squaresAttacked[board::kingPos]) {
+    //     move::moves[board::kingPos] = generateKingMoves(board::kingPos, board::botColor);
+    //     return;
+    // }
 
     for (int i = 0; i < 64; ++i) {
         if (board::botColor & board::squares[i]) {
