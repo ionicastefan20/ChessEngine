@@ -53,6 +53,40 @@ void addMove(std::vector<int>& result, int pos, int shift) {
         result.push_back(new_pos);
 }
 
+bool isOnLeftColumn(int pos) {
+    return pos % 8 == 0;
+}
+
+bool isOnRightColumn(int pos) {
+    return (pos + 1) % 8 == 0;
+}
+
+std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
+    std::vector<int> result;
+
+    if (board::squares[pos] & piece::WHITE) {
+        if (isOnLeftColumn(pos))
+            addMove(result, pos, 9);
+        else if (isOnRightColumn(pos))
+            addMove(result, pos, 7);
+        else {
+            addMove(result, pos, 7);
+            addMove(result, pos, 9);
+        }
+    } else {
+        if (isOnLeftColumn(pos))
+            addMove(result, pos, -7);
+        else if (isOnRightColumn(pos))
+            addMove(result, pos, -9);
+        else {
+            addMove(result, pos, -7);
+            addMove(result, pos, -9);
+        }
+    }
+
+    return result;
+}
+
 std::vector<int> generatePawnMoves(int pos, int botColor) {
     std::vector<int> result;
 
@@ -276,7 +310,7 @@ void move::calculateSquaresAttacked() {
 
             switch (board::squares[i] & 0x7) {
                 case piece::PAWN:
-                    attackedSquares = generatePawnMoves(i, oppositeColor);
+                    attackedSquares = generatePawnCheckMoves(i, oppositeColor);
                     break;
                 case piece::ROOK:
                     attackedSquares = generateRookMoves(i, oppositeColor);
