@@ -250,10 +250,10 @@ void move::generate() {
     moves.clear();
     std::ofstream fout5("out5", std::ofstream::app);
 
-    fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+    fout5 << board::botColor << " " << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
     for (int i = 7; i >= 0; --i) {
         for (int j = 0; j < 8; ++j) {
-            fout5 << move::squaresAttacked[i*8+7] << " ";
+            fout5 << move::squaresAttacked[i*8+j] << " ";
         }
         fout5 << std::endl;
     }
