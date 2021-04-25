@@ -233,12 +233,13 @@ void removePositionWithCheck(int i) {
         move::calculateSquaresAttacked();
 
         fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
-    for (int i = 7; i >= 0; --i) {
-        for (int j = 0; j < 8; ++j) {
-            fout5 << move::squaresAttacked[i*8+j] << " ";
+        for (int i = 7; i >= 0; --i) {
+            for (int j = 0; j < 8; ++j) {
+                fout5 << move::squaresAttacked[i*8+j] << " ";
+            }
+            fout5 << std::endl;
         }
-        fout5 << std::endl;
-    }
+
         if (!move::squaresAttacked[board::kingPos]) // a valid move
             nonCheckMoves.push_back(move::moves[i][k]);
 
@@ -301,7 +302,7 @@ void move::calculateSquaresAttacked() {
         if (oppositeColor & board::squares[i]) {
             std::vector<int> attackedSquares;
             std::vector<int> auxAttackedSquares;
-            
+
 
             switch (board::squares[i] & 0x7) {
                 case piece::PAWN:

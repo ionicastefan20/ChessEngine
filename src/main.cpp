@@ -45,8 +45,9 @@ class ReadInput {
 
     void makeBotThink() {
         std::ofstream fout1("out1", std::ofstream::app);
+        fout1 << "think: in" << std::endl;
         if (board::isPlaying) {
-            std::pair<std::string, std::pair<int, int>> move = 
+            std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
 
             if (move.second.first == -1 && move.second.second == -1)
@@ -57,14 +58,14 @@ class ReadInput {
                     board::whiteKingPos = move.second.second;
                 if (move.second.first == board::blackKingPos)
                     board::blackKingPos = move.second.second;
-                
+
                 if (board::colorOnMove == piece::BLACK)
                     board::kingPos = board::blackKingPos;
                 else
                     board::kingPos = board::whiteKingPos;
 
                 fout1 << "after: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
-                
+
                 std::string move_str = board::encodeMove(move.second);
                 std::cout << "move " << move_str + move.first << std::endl;
                 fout1 << "move " << move_str + move.first << std::endl;
@@ -87,6 +88,7 @@ public:
 
     void readInput() {
         std::ofstream fout3("out3", std::ofstream::app);
+
         while (true) {
             std::string input;
             std::getline(std::cin, input);
@@ -104,28 +106,34 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
-                fout3 << "amintrat\n";
-                
-                if (board::colorOnMove & piece::WHITE)
-                    board::kingPos = board::whiteKingPos;
-                else
-                    board::kingPos = board::blackKingPos;
+                fout3 << "go: in" << std::endl;
+
+                // if (board::colorOnMove & piece::WHITE)
+                //     board::kingPos = board::whiteKingPos;
+                // else
+                //     board::kingPos = board::blackKingPos;
 
                 makeBotThink();
+                fout3 << "go: out" << std::endl;
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
                 exit(0);
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
+                fout3 << "move: in" << std::endl;
                 board::makeMove(first_word); // his move (computer's, oponent's)
                 makeBotThink();
+                fout3 << "move: out" << std::endl;
             }
         }
     }
 };
 
 int main() {
+    // std::ofstream fout6("out6", std::ofstream::app);
+    // fout6 << "amintrat" << std::endl;
+    
     board::initBoard();
     move::initDistancesAndDirections();
 

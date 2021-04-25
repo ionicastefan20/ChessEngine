@@ -28,14 +28,15 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
         if (move.second <= 63 && move.second >= 56) {
             return random_promotion;
         }
-    } else {
-        return "";
     }
+
+    return "";
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     std::ofstream fout2("out2", std::ofstream::app);
 
+    fout2 << "genMove: in" << std::endl;
     fout2 << "kingpos: " << board::kingPos << std::endl;
     // fout2 << "da1" << std::endl;
     move::calculateSquaresAttacked();
@@ -64,5 +65,10 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     std::pair<int, int> move = std::make_pair(nonZeroMoves[randomPiece],
                           move::moves[nonZeroMoves[randomPiece]][randomMove]);
     std::string padding = checkForPromotionAndRandom(move);
-    return std::make_pair(padding, move);
+    // fout2 << "genMove: out" << std::endl;
+
+    std::pair<std::string, std::pair<int, int>> aux(padding, move);
+    return aux;
+
+    // return std::make_pair(padding, move);
 }
