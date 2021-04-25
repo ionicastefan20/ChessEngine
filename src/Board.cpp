@@ -18,17 +18,18 @@ int board::getOppositeBotColor(int color) {
 }
 
 void board::initBoard() {
+    std::ofstream fout7("out7", std::ofstream::app);
     // remove in future updates
     // GeneratePawnMoves::currPawn = 1;
     // GeneratePawnMoves::setBlackLastPos(48);
     // GeneratePawnMoves::setWhiteLastPos(15);
 
-    int colorOnMove = piece::WHITE;
-    int botColor = piece::BLACK;
-    bool isPlaying = true;
-    int kingPos = 60;
-    int blackKingPos = 60;
-    int whiteKingPos = 4;
+    colorOnMove = piece::WHITE;
+    botColor = piece::BLACK;
+    isPlaying = true;
+    kingPos = 60;
+    blackKingPos = 60;
+    whiteKingPos = 4;
     squares[0] = squares[7] = piece::WHITE | piece::ROOK;
     squares[1] = squares[6] = piece::WHITE | piece::KNIGHT;
     squares[2] = squares[5] = piece::WHITE | piece::BISHOP;
@@ -46,6 +47,7 @@ void board::initBoard() {
     squares[60] = piece::BLACK | piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
+    fout7 << "sfarsit" << std::endl;
 }
 
 /**

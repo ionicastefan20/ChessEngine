@@ -37,7 +37,7 @@ class ReadInput {
         if (isChessBoardLetter(move[0]) &&
             isChessBoardNumber(move[1]) &&
             isChessBoardLetter(move[2]) &&
-            isChessBoardNumber(move[3]))
+            isChessBoardNumber(move[3])) // add condition for the 5-th char
             return true;
 
         return false;
@@ -45,7 +45,7 @@ class ReadInput {
 
     void makeBotThink() {
         std::ofstream fout1("out1", std::ofstream::app);
-        fout1 << "think: in" << std::endl;
+        fout1 << "think: in: " << board::isPlaying << std::endl;
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
@@ -70,7 +70,7 @@ class ReadInput {
                 std::cout << "move " << move_str + move.first << std::endl;
                 fout1 << "move " << move_str + move.first << std::endl;
                 board::makeMove(move_str);
-                fout1 << "very after\n";
+                // fout1 << "very after\n";
             }
         }
     }
@@ -94,6 +94,7 @@ public:
             std::getline(std::cin, input);
             std::string first_word = input.substr(0, input.find(" "));
 
+            fout3 << first_word << " " << board::isPlaying << std::endl;
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover

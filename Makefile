@@ -27,3 +27,6 @@ debug_wsl:
 
 clean:
 	rm -f $(SRC_FOLDER)*.o main 2> /dev/null
+
+clean_outs:
+	rm -f out*
