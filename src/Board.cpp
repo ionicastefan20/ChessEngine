@@ -23,6 +23,12 @@ void board::initBoard() {
     // GeneratePawnMoves::setBlackLastPos(48);
     // GeneratePawnMoves::setWhiteLastPos(15);
 
+    int colorOnMove = piece::WHITE;
+    int botColor = piece::BLACK;
+    bool isPlaying = true;
+    int kingPos = 60;
+    int blackKingPos = 60;
+    int whiteKingPos = 4;
     squares[0] = squares[7] = piece::WHITE | piece::ROOK;
     squares[1] = squares[6] = piece::WHITE | piece::KNIGHT;
     squares[2] = squares[5] = piece::WHITE | piece::BISHOP;
@@ -70,4 +76,14 @@ void board::makeMove(std::string move) {
     std::pair<int, int> result = decodeMove(move); //b2b4
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
+    if (move.size() == 5) {
+        if (move[4] == 'q')
+            squares[result.second] = (piece::QUEEN | getOppositeBotColor(colorOnMove));
+        else if (move[4] == 'b')
+            squares[result.second] = (piece::BISHOP | getOppositeBotColor(colorOnMove));
+        else if (move[4] == 'r')
+            squares[result.second] = (piece::ROOK | getOppositeBotColor(colorOnMove));
+        else
+            squares[result.second] = (piece::KNIGHT | getOppositeBotColor(colorOnMove));
+    }
 }

@@ -31,7 +31,7 @@ class ReadInput {
     }
 
     bool isValidMove(std::string move) {
-        if (move.size() != 4)
+        if (move.size() != 4 && move.size() != 5 )
             return false;
 
         if (isChessBoardLetter(move[0]) &&
