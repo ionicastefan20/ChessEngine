@@ -177,6 +177,41 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
     return result;
 }
 
+void removePositionWithCheck(int i) {
+    std::vector<int> nonCheckMoves; // only the positions that do not
+                                    // generate a check are kept here
+                                            
+    // artificially make the move on the board, check if it generates a
+    // situation where the king is in chess, if so remove the move from the
+    // list of possible moves
+    std::vector<int> copyBoardState(board::squares, board::squares + 64); //copy
+        // iterate through moves
+    for (int k = 0; k < move::moves[i].size(); k++) {
+        // artifically make the move
+        int kingPosCopy = board::kingPos; // make copy of the king pos
+        if (board::squares[i] == (piece::KING | board::botColor))
+            board::kingPos = move::moves[i][k];
+
+        board::squares[move::moves[i][k]] = board::squares[i];
+        board::squares[i] = 0;
+
+        // make copy of the squaresAttacked vector
+        std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
+        move::calculateSquaresAttacked();
+
+        if (!move::squaresAttacked[board::kingPos]) // a valid move
+            nonCheckMoves.push_back(move::moves[i][k]);
+                
+        // restore copies
+        board::kingPos = kingPosCopy;
+        move::squaresAttacked = squaresAttackedCopy;
+        for (int j = 0; j < 64; j++)
+            board::squares[j] = copyBoardState[j];
+    }
+
+    move::moves[i] = nonCheckMoves;
+}
+
 void move::generate() {
     std::vector<int> aux;
 
@@ -219,6 +254,8 @@ void move::generate() {
                 default:
                     break;
             }
+
+            removePositionWithCheck(i);
         }
     }
 }
