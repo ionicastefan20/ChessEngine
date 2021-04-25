@@ -4,31 +4,27 @@
 #include "Piece.h"
 #include <string>
 
-using std::string;
-using std::pair;
+namespace board {
 
-class Board {
+    extern int colorOnMove; // which color needs to move next
 
-public:
-    static int colorOnMove; // which color needs to move next
+    extern int botColor;
 
-    static int botColor;
+    extern bool isPlaying;
 
-    static bool isPlaying;
+    extern int kingPos;
 
-    static int kingPos;
+    extern int squares[64]; // main board table
 
-    static int* squares; // main board table
+    int getOppositeBotColor(int color);
 
-    static int getOppositeBotColor(int color);
+    void initBoard();
 
-    static void initBoard();
+    std::string encodeMove(std::pair<int, int> move);
 
-    static string encodeMove(pair<int, int> move);
+    std::pair<int, int> decodeMove(std::string move);
 
-    static pair<int, int> decodeMove(string move);
-
-    static void makeMove(string move);
+    void makeMove(std::string move);
 };
 
 #endif

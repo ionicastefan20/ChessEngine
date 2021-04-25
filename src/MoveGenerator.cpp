@@ -1,21 +1,31 @@
 #include "MoveGenerator.h"
 #include <fstream>
 
-pair<int, int> MoveGenerator::generateMove() {
+extern int board::colorOnMove;
+extern int board::botColor;
+extern bool board::isPlaying;
+extern int board::kingPos;
+
+extern std::unordered_map<std::string, int> move::directions;
+extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
+extern std::vector<bool> move::squaresAttacked;
+extern std::unordered_map<int, std::vector<int>> move::moves;
+
+std::pair<int, int> moveGenerator::generateMove() {
     std::ofstream fout2("out2", std::ofstream::app);
 
     fout2 << "da1" << std::endl;
-    Move::calculateSquaresAttacked();
+    move::calculateSquaresAttacked();
     fout2 << "da2" << std::endl;
-    Move::generate();
+    move::generate();
     fout2 << "da3" << std::endl;
     srand(time(NULL));
 
     // iterate through pieces and for the first piece that has valid move,
     // for the first one pick a random future position and make the move.
-    vector<int> nonZeroMoves; // keeps starting position
+    std::vector<int> nonZeroMoves; // keeps starting position
 
-    for (auto entry : Move::moves) {
+    for (auto entry : move::moves) {
         if (entry.second.size() != 0)
             nonZeroMoves.push_back(entry.first);
     }
@@ -24,11 +34,11 @@ pair<int, int> MoveGenerator::generateMove() {
 
     int randomPiece = std::rand() % nonZeroMoves.size();
     fout2 << "randomPiece: " << randomPiece << std::endl;
-    int randomMove = std::rand() % Move::moves[nonZeroMoves[randomPiece]].size();
+    int randomMove = std::rand() % move::moves[nonZeroMoves[randomPiece]].size();
     fout2 << "randomMove: " << randomMove << std::endl;
 
     fout2 << "da5" << std::endl;
-    
+
     return std::make_pair(nonZeroMoves[randomPiece],
-                          Move::moves[nonZeroMoves[randomPiece]][randomMove]);
+                          move::moves[nonZeroMoves[randomPiece]][randomMove]);
 }

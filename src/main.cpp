@@ -6,6 +6,16 @@
 #include "Move.h"
 #include "MoveGenerator.h"
 
+extern int board::colorOnMove;
+extern int board::botColor;
+extern bool board::isPlaying;
+extern int board::kingPos;
+
+extern std::unordered_map<std::string, int> move::directions;
+extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
+extern std::vector<bool> move::squaresAttacked;
+extern std::unordered_map<int, std::vector<int>> move::moves;
+
 class ReadInput {
 
     std::vector<std::string> commands;
@@ -18,7 +28,7 @@ class ReadInput {
         return (97 <= c) && (104 >= c);
     }
 
-    bool isValidMove(string move) {
+    bool isValidMove(std::string move) {
         if (move.size() != 4)
             return false;
 
@@ -32,21 +42,21 @@ class ReadInput {
     }
 
     void makeBotThink() {
-        if (Board::isPlaying) {
+        if (board::isPlaying) {
             std::ofstream fout("out1", std::ofstream::app);
             // Replace
             fout << "mdap" << std::endl;
 
-            pair<int, int> move = MoveGenerator::generateMove();
+            std::pair<int, int> move = moveGenerator::generateMove();
 
             fout << "intra" << std::endl;
 
             if (move.first == -1 && move.second == -1)
                 std::cout << "resign" << std::endl;
             else {
-                string move_str = Board::encodeMove(move);
+                std::string move_str = board::encodeMove(move);
                 std::cout << "move " << move_str << std::endl;
-                Board::makeMove(move_str);
+                board::makeMove(move_str);
             }
         }
     }
@@ -65,26 +75,26 @@ public:
     void readInput() {
 
         while (true) {
-            string input;
+            std::string input;
             std::getline(std::cin, input);
-            string first_word = input.substr(0, input.find(" "));
+            std::string first_word = input.substr(0, input.find(" "));
 
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover
                 std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << std::endl;
             } else if (!first_word.compare(commands[2])) { // new
-                Board::initBoard();
+                board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
-                Board::isPlaying = false;
+                board::isPlaying = false;
                 // TODO: Stop the bot from playing and halt
             } else if (!first_word.compare(commands[4])) { // go
-                Board::isPlaying = true;
-                Board::botColor = Board::colorOnMove;
-                if (Board::colorOnMove & Piece::WHITE)
-                    Board::kingPos = 4;
+                board::isPlaying = true;
+                board::botColor = board::colorOnMove;
+                if (board::colorOnMove & piece::WHITE)
+                    board::kingPos = 4;
                 else
-                    Board::kingPos = 60;
+                    board::kingPos = 60;
                 makeBotThink();
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
@@ -92,7 +102,7 @@ public:
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                Board::makeMove(first_word); // his move (computer's, oponent's)
+                board::makeMove(first_word); // his move (computer's, oponent's)
                 makeBotThink();
             }
         }
@@ -100,8 +110,8 @@ public:
 };
 
 int main() {
-    Board::initBoard();
-    Move::initDistancesAndDirections();
+    board::initBoard();
+    move::initDistancesAndDirections();
 
     ReadInput reader;
     reader.readInput();

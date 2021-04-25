@@ -7,43 +7,36 @@
 #include "Board.h"
 #include "Piece.h"
 
-using std::vector;
-using std::string;
-using std::unordered_map;
-
 #define __min(a,b) (((a) < (b)) ? (a) : (b))
 
-class Move {
+namespace move {
 
-private:
 
-    static std::vector<int> generatePawnMoves(int pos);
+    extern std::unordered_map<std::string, int> directions;
 
-    static std::vector<int> generateKnightMoves(int pos);
+    extern std::vector<std::unordered_map<std::string, int>> numUntilEdge;
 
-    static std::vector<int> generateKingMoves(int pos);
+    extern std::vector<bool> squaresAttacked;
 
-    static std::vector<int> generateBishopMoves(int pos);
+    extern std::unordered_map<int, std::vector<int>> moves;
 
-    static std::vector<int> generateRookMoves(int pos);
+    std::vector<int> generatePawnMoves(int pos);
 
-public:
+    std::vector<int> generateKnightMoves(int pos);
 
-    static unordered_map<string, int> DIRECTIONS;
+    std::vector<int> generateKingMoves(int pos);
 
-    static vector<unordered_map<string, int>> numUntilEdge;
+    std::vector<int> generateBishopMoves(int pos);
 
-    static vector<bool> squaresAttacked;
+    std::vector<int> generateRookMoves(int pos);
 
-    static std::unordered_map<int, std::vector<int>> moves;
-
-    static void generate();
+    void generate();
 
     // analyze the board state and generate for the piece to move all attacked
     // spots on the board (true for attacked, false for not attacked)
-    static void calculateSquaresAttacked();
+    void calculateSquaresAttacked();
 
-    static void initDistancesAndDirections();
+    void initDistancesAndDirections();
 };
 
 #endif

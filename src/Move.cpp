@@ -1,16 +1,20 @@
 #include "Move.h"
 #include <fstream>
 
-unordered_map<string, int> Move::DIRECTIONS;
+extern int board::colorOnMove;
+extern int board::botColor;
+extern bool board::isPlaying;
+extern int board::kingPos;
 
-vector<unordered_map<string, int>> Move::numUntilEdge;
+namespace move {
+    std::unordered_map<std::string, int> directions;
+    std::vector<std::unordered_map<std::string, int>> numUntilEdge;
+    std::vector<bool> squaresAttacked;
+    std::unordered_map<int, std::vector<int>> moves;
+}
 
-std::unordered_map<int, std::vector<int>> Move::moves;
-
-vector<bool> Move::squaresAttacked;
-
-void Move::initDistancesAndDirections() {
-    Move::DIRECTIONS = {
+void move::initDistancesAndDirections() {
+    move::directions = {
         {"left", -1},
         {"left_up", 7},
         {"up", 8},
@@ -28,7 +32,7 @@ void Move::initDistancesAndDirections() {
             int numLeft = j; //
             int numRight = 7 - j;
 
-            unordered_map<string, int> distances = {
+            std::unordered_map<std::string, int> distances = {
                 {"left", numLeft},
                 {"left_up", __min(numLeft, numUp)},
                 {"up", numUp},
@@ -39,41 +43,45 @@ void Move::initDistancesAndDirections() {
                 {"down_left", __min(numDown, numLeft)}
             };
 
-            Move::numUntilEdge.push_back(distances);
+            move::numUntilEdge.push_back(distances);
         }
 }
 
-void Move::generate() {
+void move::generate() {
+    std::vector<int> aux;
+
     moves.clear();
     std::ofstream fout5("out5", std::ofstream::app);
 
-    if (Move::squaresAttacked[Board::kingPos]) {
-        Move::moves[Board::kingPos] = generateKingMoves(Board::kingPos);
+    if (move::squaresAttacked[board::kingPos]) {
+        move::moves[board::kingPos] = generateKingMoves(board::kingPos);
         return;
     }
 
     for (int i = 0; i < 64; ++i) {
-        if (Board::botColor & Board::squares[i]) {
-            fout5 << "va: " << (Board::squares[i] & 0x7) << std::endl;
-            switch (Board::squares[i] & 0x7) {
-                case Piece::PAWN:
-                    Move::moves[i] = generatePawnMoves(i);
+        if (board::botColor & board::squares[i]) {
+            fout5 << "va: " << (board::squares[i] & 0x7) << std::endl;
+            switch (board::squares[i] & 0x7) {
+                case piece::PAWN:
+                    move::moves[i] = generatePawnMoves(i);
                     break;
-                case Piece::ROOK:
-                    Move::moves[i] = generateRookMoves(i);
+                case piece::ROOK:
+                    move::moves[i] = generateRookMoves(i);
                     break;
-                case Piece::KNIGHT:
-                    Move::moves[i] = generateKnightMoves(i);
+                case piece::KNIGHT:
+                    move::moves[i] = generateKnightMoves(i);
                     break;
-                case Piece::BISHOP:
-                    Move::moves[i] = generateBishopMoves(i);
+                case piece::BISHOP:
+                    move::moves[i] = generateBishopMoves(i);
                     break;
-                case Piece::QUEEN:
-                    Move::moves[i] = generateRookMoves(i);
-                    Move::moves[i] = generateBishopMoves(i); // append instead of replace TODO
+                case piece::QUEEN:
+                    move::moves[i] = generateRookMoves(i);
+                    aux = generateBishopMoves(i);
+                    move::moves[i].insert(move::moves[i].end(),
+                        aux.begin(), aux.end()); // append instead of replace TODO
                     break;
-                case Piece::KING:
-                    Move::moves[i] = generateKingMoves(i);
+                case piece::KING:
+                    move::moves[i] = generateKingMoves(i);
                     break;
                 default:
                     break;
@@ -84,25 +92,25 @@ void Move::generate() {
 
 void addMove(std::vector<int>& result, int pos, int shift) {
     int new_pos = pos + shift;
-    if (!(Board::squares[new_pos] & Board::botColor))
+    if (!(board::squares[new_pos] & board::botColor))
         result.push_back(new_pos);
 }
 
-std::vector<int> Move::generatePawnMoves(int pos) {
+std::vector<int> move::generatePawnMoves(int pos) {
     std::vector<int> result;
 
-    if (Board::squares[pos] & Piece::WHITE) {
-        if (Board::squares[pos + 8] == 0)
+    if (board::squares[pos] & piece::WHITE) {
+        if (board::squares[pos + 8] == 0)
             addMove(result, pos, 8);
         if (pos >= 8 && pos <= 15) {
-            if (Board::squares[pos + 8] == 0 && Board::squares[pos + 16] == 0)
+            if (board::squares[pos + 8] == 0 && board::squares[pos + 16] == 0)
                 addMove(result, pos, 16);
         }
     } else {
-        if (Board::squares[pos - 8] == 0)
+        if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8);
         if (pos >= 48 && pos <= 55) {
-            if (Board::squares[pos - 8] == 0 && Board::squares[pos - 16] == 0)
+            if (board::squares[pos - 8] == 0 && board::squares[pos - 16] == 0)
                 addMove(result, pos, -16);
         }
     }
@@ -110,46 +118,46 @@ std::vector<int> Move::generatePawnMoves(int pos) {
     return result;
 }
 
-std::vector<int> Move::generateKnightMoves(int pos) {
+std::vector<int> move::generateKnightMoves(int pos) {
     std::vector<int> result;
 
     // up left
-    if (Move::numUntilEdge[pos]["up"] >= 2 && Move::numUntilEdge[pos]["left"] >= 1)
+    if (move::numUntilEdge[pos]["up"] >= 2 && move::numUntilEdge[pos]["left"] >= 1)
         addMove(result, pos, 15);
     // left up
-    if (Move::numUntilEdge[pos]["left"] >= 2 && Move::numUntilEdge[pos]["up"] >= 1)
+    if (move::numUntilEdge[pos]["left"] >= 2 && move::numUntilEdge[pos]["up"] >= 1)
         addMove(result, pos, 6);
     // up right
-    if (Move::numUntilEdge[pos]["up"] >= 2 && Move::numUntilEdge[pos]["right"] >= 1)
+    if (move::numUntilEdge[pos]["up"] >= 2 && move::numUntilEdge[pos]["right"] >= 1)
         addMove(result, pos, 17);
     // right up
-    if (Move::numUntilEdge[pos]["right"] >= 2 && Move::numUntilEdge[pos]["up"] >= 1)
+    if (move::numUntilEdge[pos]["right"] >= 2 && move::numUntilEdge[pos]["up"] >= 1)
         addMove(result, pos, 10);
     // down left
-    if (Move::numUntilEdge[pos]["down"] >= 2 && Move::numUntilEdge[pos]["left"] >= 1)
+    if (move::numUntilEdge[pos]["down"] >= 2 && move::numUntilEdge[pos]["left"] >= 1)
         addMove(result, pos, -17);
     // left down
-    if (Move::numUntilEdge[pos]["left"] >= 2 && Move::numUntilEdge[pos]["down"] >= 1)
+    if (move::numUntilEdge[pos]["left"] >= 2 && move::numUntilEdge[pos]["down"] >= 1)
         addMove(result, pos, -10);
     // down right
-    if (Move::numUntilEdge[pos]["down"] >= 2 && Move::numUntilEdge[pos]["right"] >= 1)
+    if (move::numUntilEdge[pos]["down"] >= 2 && move::numUntilEdge[pos]["right"] >= 1)
         addMove(result, pos, -15);
     // right down
-    if (Move::numUntilEdge[pos]["right"] >= 2 && Move::numUntilEdge[pos]["down"] >= 1)
+    if (move::numUntilEdge[pos]["right"] >= 2 && move::numUntilEdge[pos]["down"] >= 1)
         addMove(result, pos, -6);
 
     return result;
 }
 
-std::vector<int> Move::generateKingMoves(int pos) {
+std::vector<int> move::generateKingMoves(int pos) {
     std::vector<int> result;
 
-    for (auto kv : Move::DIRECTIONS) {
+    for (auto kv : move::directions) {
         int new_pos = pos + kv.second;
 
-        if ((Board::squares[new_pos] & Board::botColor) ||
-                (Move::numUntilEdge[pos][kv.first] <= 0) ||
-                (Move::squaresAttacked[new_pos]))
+        if ((board::squares[new_pos] & board::botColor) ||
+                (move::numUntilEdge[pos][kv.first] <= 0) ||
+                (move::squaresAttacked[new_pos]))
             continue;
 
         result.push_back(new_pos);
@@ -158,20 +166,20 @@ std::vector<int> Move::generateKingMoves(int pos) {
     return result;
 }
 
-std::vector<int> Move::generateBishopMoves(int pos) {
+std::vector<int> move::generateBishopMoves(int pos) {
     std::vector<int> result;
 
     for (std::string dir : {"left_up", "up_right", "right_down", "down_left"}) {
-        for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
-            int new_pos = pos + i * Move::DIRECTIONS[dir];
+        for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
+            int new_pos = pos + i * move::directions[dir];
 
-            if (Board::squares[new_pos] & Board::botColor)
+            if (board::squares[new_pos] & board::botColor)
                 break;
 
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] &
-                Board::getOppositeBotColor(Board::botColor))
+            if (board::squares[new_pos] &
+                board::getOppositeBotColor(board::botColor))
                 break;
         }
     }
@@ -179,22 +187,22 @@ std::vector<int> Move::generateBishopMoves(int pos) {
     return result;
 }
 
-std::vector<int> Move::generateRookMoves(int pos) {
+std::vector<int> move::generateRookMoves(int pos) {
     std::vector<int> result;
     std::ofstream fout4("out4", std::ofstream::app);
 
     for (std::string dir : {"left", "up", "right", "down"}) {
         fout4 << "directia: " << dir << " ";
-        for (int i = 1; i <= Move::numUntilEdge[pos][dir]; ++i) {
-            int new_pos = pos + i * Move::DIRECTIONS[dir];
+        for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
+            int new_pos = pos + i * move::directions[dir];
             fout4 << "am dadaugat: " << new_pos << std::endl;
 
-            if (Board::squares[new_pos] & Board::botColor)
+            if (board::squares[new_pos] & board::botColor)
                 break;
             result.push_back(new_pos);
 
-            if (Board::squares[new_pos] &
-                Board::getOppositeBotColor(Board::botColor))
+            if (board::squares[new_pos] &
+                board::getOppositeBotColor(board::botColor))
                 break;
         }
     }
@@ -202,7 +210,7 @@ std::vector<int> Move::generateRookMoves(int pos) {
     return result;
 }
 
-void Move::calculateSquaresAttacked() {
+void move::calculateSquaresAttacked() {
     std::ofstream fout3("out3", std::ofstream::app);
     squaresAttacked.clear();
     for (int i = 0; i < 64; i++)
@@ -211,24 +219,24 @@ void Move::calculateSquaresAttacked() {
     fout3 << "yessir1" << std::endl;
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
-        if (Board::botColor & Board::squares[i]) {
-            vector<int> attackedSquares;
-            vector<int> auxAttackedSquares;
+        if (board::botColor & board::squares[i]) {
+            std::vector<int> attackedSquares;
+            std::vector<int> auxAttackedSquares;
 
-            switch (Board::squares[i] & 0x7) {
-                case Piece::PAWN:
+            switch (board::squares[i] & 0x7) {
+                case piece::PAWN:
                     attackedSquares = generatePawnMoves(i);
                     break;
-                case Piece::ROOK:
+                case piece::ROOK:
                     attackedSquares = generateRookMoves(i);
                     break;
-                case Piece::KNIGHT:
+                case piece::KNIGHT:
                     attackedSquares = generateKnightMoves(i);
                     break;
-                case Piece::BISHOP:
+                case piece::BISHOP:
                     attackedSquares = generateBishopMoves(i);
                     break;
-                case Piece::QUEEN:
+                case piece::QUEEN:
                     attackedSquares = generateRookMoves(i);
                     auxAttackedSquares = generateBishopMoves(i);
                     // append the second list fo positions to the first one
@@ -236,7 +244,7 @@ void Move::calculateSquaresAttacked() {
                     attackedSquares.insert(attackedSquares.end(),
                         auxAttackedSquares.begin(), auxAttackedSquares.end());
                     break;
-                case Piece::KING:
+                case piece::KING:
                     attackedSquares = generateKingMoves(i);
                     // fout3 << "\t\t " << attackedSquares[j] << std::endl;
                     break;

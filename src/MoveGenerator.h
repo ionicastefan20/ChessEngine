@@ -7,13 +7,11 @@
 #include "Piece.h"
 #include "Move.h"
 #include <time.h>
-using std::pair;
 
-class MoveGenerator {
+namespace moveGenerator {
 
-public:
+    std::pair<int, int> generateMove();
 
-    static pair<int, int> generateMove();
 };
 
 #endif

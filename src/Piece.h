@@ -1,9 +1,7 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
-class Piece {
-
-public:
+namespace piece {
 
     enum Constants {
         NONE = 0,
@@ -17,6 +15,7 @@ public:
         WHITE = 8,
         BLACK = 16
     };
+
 };
 
 #endif
