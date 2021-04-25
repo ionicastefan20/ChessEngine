@@ -44,20 +44,32 @@ class ReadInput {
     }
 
     void makeBotThink() {
+        std::ofstream fout1("out1", std::ofstream::app);
         if (board::isPlaying) {
-            std::pair<int, int> move = moveGenerator::generateMove();
+            std::pair<std::string, std::pair<int, int>> move = 
+                                                moveGenerator::generateMove();
 
-            if (move.first == -1 && move.second == -1)
+            if (move.second.first == -1 && move.second.second == -1)
                 std::cout << "resign" << std::endl;
             else {
-                if (move.first == board::whiteKingPos)
-                    board::whiteKingPos = move.second;
-                if (move.first == board::blackKingPos)
-                    board::blackKingPos = move.second;
+                fout1 << "before: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
+                if (move.second.first == board::whiteKingPos)
+                    board::whiteKingPos = move.second.second;
+                if (move.second.first == board::blackKingPos)
+                    board::blackKingPos = move.second.second;
+                
+                if (board::colorOnMove == piece::BLACK)
+                    board::kingPos = board::blackKingPos;
+                else
+                    board::kingPos = board::whiteKingPos;
 
-                std::string move_str = board::encodeMove(move);
-                std::cout << "move " << move_str << std::endl;
+                fout1 << "after: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
+                
+                std::string move_str = board::encodeMove(move.second);
+                std::cout << "move " << move_str + move.first << std::endl;
+                fout1 << "move " << move_str + move.first << std::endl;
                 board::makeMove(move_str);
+                fout1 << "very after\n";
             }
         }
     }
@@ -74,7 +86,7 @@ public:
     }
 
     void readInput() {
-
+        std::ofstream fout3("out3", std::ofstream::app);
         while (true) {
             std::string input;
             std::getline(std::cin, input);
@@ -92,7 +104,8 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
-
+                fout3 << "amintrat\n";
+                
                 if (board::colorOnMove & piece::WHITE)
                     board::kingPos = board::whiteKingPos;
                 else

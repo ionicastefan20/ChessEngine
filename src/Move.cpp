@@ -210,6 +210,7 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
 }
 
 void removePositionWithCheck(int i) {
+    std::ofstream fout5("out5", std::ofstream::app);
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
 
@@ -231,6 +232,13 @@ void removePositionWithCheck(int i) {
         std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
         move::calculateSquaresAttacked();
 
+        fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+    for (int i = 7; i >= 0; --i) {
+        for (int j = 0; j < 8; ++j) {
+            fout5 << move::squaresAttacked[i*8+j] << " ";
+        }
+        fout5 << std::endl;
+    }
         if (!move::squaresAttacked[board::kingPos]) // a valid move
             nonCheckMoves.push_back(move::moves[i][k]);
 

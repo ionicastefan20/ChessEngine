@@ -10,7 +10,7 @@
 
 namespace moveGenerator {
 
-    std::pair<int, int> generateMove();
+    std::pair<std::string, std::pair<int, int>> generateMove();
 
 };
 
