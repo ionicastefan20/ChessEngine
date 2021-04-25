@@ -12,13 +12,13 @@ extern std::vector<bool> move::squaresAttacked;
 extern std::unordered_map<int, std::vector<int>> move::moves;
 
 std::pair<int, int> moveGenerator::generateMove() {
-    std::ofstream fout2("out2", std::ofstream::app);
+    // std::ofstream fout2("out2", std::ofstream::app);
 
-    fout2 << "da1" << std::endl;
-    move::calculateSquaresAttacked();
-    fout2 << "da2" << std::endl;
+    // fout2 << "da1" << std::endl;
+    // move::calculateSquaresAttacked();
+    // fout2 << "da2" << std::endl;
     move::generate();
-    fout2 << "da3" << std::endl;
+    // fout2 << "da3" << std::endl;
     srand(time(NULL));
 
     // iterate through pieces and for the first piece that has valid move,
@@ -30,14 +30,14 @@ std::pair<int, int> moveGenerator::generateMove() {
             nonZeroMoves.push_back(entry.first);
     }
 
-    fout2 << "da4: " << nonZeroMoves.size() << std::endl;
+    // fout2 << "da4: " << nonZeroMoves.size() << std::endl;
 
     int randomPiece = std::rand() % nonZeroMoves.size();
-    fout2 << "randomPiece: " << randomPiece << std::endl;
+    // fout2 << "randomPiece: " << randomPiece << std::endl;
     int randomMove = std::rand() % move::moves[nonZeroMoves[randomPiece]].size();
-    fout2 << "randomMove: " << randomMove << std::endl;
+    // fout2 << "randomMove: " << randomMove << std::endl;
 
-    fout2 << "da5" << std::endl;
+    // fout2 << "da5" << std::endl;
 
     return std::make_pair(nonZeroMoves[randomPiece],
                           move::moves[nonZeroMoves[randomPiece]][randomMove]);

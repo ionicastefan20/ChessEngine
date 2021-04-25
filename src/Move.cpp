@@ -248,20 +248,6 @@ void move::generate() {
     std::vector<int> aux;
 
     moves.clear();
-    // std::ofstream fout5("out5", std::ofstream::app);
-
-    // fout5 << board::botColor << " " << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
-    // for (int i = 7; i >= 0; --i) {
-    //     for (int j = 0; j < 8; ++j) {
-    //         fout5 << move::squaresAttacked[i*8+j] << " ";
-    //     }
-    //     fout5 << std::endl;
-    // }
-
-    // if (move::squaresAttacked[board::kingPos]) {
-    //     move::moves[board::kingPos] = generateKingMoves(board::kingPos, board::botColor);
-    //     return;
-    // }
 
     for (int i = 0; i < 64; ++i) {
         if (board::botColor & board::squares[i]) {
@@ -301,12 +287,13 @@ void move::calculateSquaresAttacked() {
     for (int i = 0; i < 64; i++)
         squaresAttacked.push_back(false); // initialize the map with all false
 
+    int oppositeColor = board::getOppositeBotColor(board::botColor);
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
-        if (board::botColor & board::squares[i]) {
+        if (oppositeColor & board::squares[i]) {
             std::vector<int> attackedSquares;
             std::vector<int> auxAttackedSquares;
-            int oppositeColor = board::getOppositeBotColor(board::botColor);
+            
 
             switch (board::squares[i] & 0x7) {
                 case piece::PAWN:
@@ -331,7 +318,6 @@ void move::calculateSquaresAttacked() {
                     break;
                 case piece::KING:
                     attackedSquares = generateKingMoves(i, oppositeColor);
-                    // fout3 << "\t\t " << attackedSquares[j] << std::endl;
                     break;
                 default:
                     break;
