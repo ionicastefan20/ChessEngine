@@ -46,6 +46,12 @@ void Move::initDistancesAndDirections() {
 void Move::generate() {
     moves.clear();
     std::ofstream fout5("out5", std::ofstream::app);
+
+    if (Move::squaresAttacked[Board::kingPos]) {
+        Move::moves[Board::kingPos] = generateKingMoves(Board::kingPos);
+        return;
+    }
+
     for (int i = 0; i < 64; ++i) {
         if (Board::botColor & Board::squares[i]) {
             fout5 << "va: " << (Board::squares[i] & 0x7) << std::endl;
@@ -142,7 +148,8 @@ std::vector<int> Move::generateKingMoves(int pos) {
         int new_pos = pos + kv.second;
 
         if ((Board::squares[new_pos] & Board::botColor) ||
-                (Move::numUntilEdge[pos][kv.first] <= 0))
+                (Move::numUntilEdge[pos][kv.first] <= 0) ||
+                (Move::squaresAttacked[new_pos]))
             continue;
 
         result.push_back(new_pos);

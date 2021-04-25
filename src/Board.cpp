@@ -8,6 +8,8 @@ int Board::botColor = Piece::BLACK;
 
 bool Board::isPlaying = true;
 
+int Board::kingPos = 60;
+
 int Board::colorOnMove = Piece::WHITE;
 
 int Board::getOppositeBotColor(int color) {

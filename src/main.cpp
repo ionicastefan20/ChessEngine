@@ -81,6 +81,10 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 Board::isPlaying = true;
                 Board::botColor = Board::colorOnMove;
+                if (Board::colorOnMove & Piece::WHITE)
+                    Board::kingPos = 4;
+                else
+                    Board::kingPos = 60;
                 makeBotThink();
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
