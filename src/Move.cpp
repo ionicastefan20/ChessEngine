@@ -53,14 +53,17 @@ void move::generate() {
     moves.clear();
     std::ofstream fout5("out5", std::ofstream::app);
 
+
+    fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
     if (move::squaresAttacked[board::kingPos]) {
+        fout5 << "yasss" << std::endl;
         move::moves[board::kingPos] = generateKingMoves(board::kingPos);
         return;
     }
 
     for (int i = 0; i < 64; ++i) {
         if (board::botColor & board::squares[i]) {
-            fout5 << "va: " << (board::squares[i] & 0x7) << std::endl;
+            // fout5 << "va: " << (board::squares[i] & 0x7) << std::endl;
             switch (board::squares[i] & 0x7) {
                 case piece::PAWN:
                     move::moves[i] = generatePawnMoves(i);
@@ -106,6 +109,12 @@ std::vector<int> move::generatePawnMoves(int pos) {
             if (board::squares[pos + 8] == 0 && board::squares[pos + 16] == 0)
                 addMove(result, pos, 16);
         }
+        if (board::squares[pos + 9] & piece::BLACK &&
+                move::numUntilEdge[pos]["up_right"] > 0)
+            addMove(result, pos, 9);
+        if (board::squares[pos + 7] & piece::BLACK &&
+                move::numUntilEdge[pos]["left_up"] > 0)
+            addMove(result, pos, 7);
     } else {
         if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8);
@@ -113,6 +122,12 @@ std::vector<int> move::generatePawnMoves(int pos) {
             if (board::squares[pos - 8] == 0 && board::squares[pos - 16] == 0)
                 addMove(result, pos, -16);
         }
+        if (board::squares[pos - 9] & piece::WHITE &&
+                move::numUntilEdge[pos]["down_left"] > 0)
+            addMove(result, pos, -9);
+        if (board::squares[pos - 7] & piece::WHITE &&
+                move::numUntilEdge[pos]["right_down"] > 0)
+            addMove(result, pos, -7);
     }
 
     return result;
@@ -172,14 +187,13 @@ std::vector<int> move::generateBishopMoves(int pos) {
     for (std::string dir : {"left_up", "up_right", "right_down", "down_left"}) {
         for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * move::directions[dir];
-
             if (board::squares[new_pos] & board::botColor)
                 break;
 
             result.push_back(new_pos);
 
             if (board::squares[new_pos] &
-                board::getOppositeBotColor(board::botColor))
+                    board::getOppositeBotColor(board::botColor))
                 break;
         }
     }
@@ -195,14 +209,13 @@ std::vector<int> move::generateRookMoves(int pos) {
         fout4 << "directia: " << dir << " ";
         for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * move::directions[dir];
-            fout4 << "am dadaugat: " << new_pos << std::endl;
-
             if (board::squares[new_pos] & board::botColor)
                 break;
+
             result.push_back(new_pos);
 
             if (board::squares[new_pos] &
-                board::getOppositeBotColor(board::botColor))
+                    board::getOppositeBotColor(board::botColor))
                 break;
         }
     }
