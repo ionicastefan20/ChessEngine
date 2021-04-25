@@ -7,6 +7,8 @@ namespace board {
     int botColor = piece::BLACK;
     bool isPlaying = true;
     int kingPos = 60;
+    int blackKingPos = 60;
+    int whiteKingPos = 4;
     int squares[64];
 }
 
@@ -20,7 +22,6 @@ void board::initBoard() {
     // GeneratePawnMoves::currPawn = 1;
     // GeneratePawnMoves::setBlackLastPos(48);
     // GeneratePawnMoves::setWhiteLastPos(15);
-    colorOnMove = piece::WHITE;
 
     squares[0] = squares[7] = piece::WHITE | piece::ROOK;
     squares[1] = squares[6] = piece::WHITE | piece::KNIGHT;
@@ -39,9 +40,6 @@ void board::initBoard() {
     squares[60] = piece::BLACK | piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
-
-    board::botColor = piece::BLACK;
-    board::isPlaying = true;
 }
 
 /**

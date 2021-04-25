@@ -12,7 +12,7 @@ namespace board {
 
     extern bool isPlaying;
 
-    extern int kingPos;
+    extern int kingPos, whiteKingPos, blackKingPos;
 
     extern int squares[64]; // main board table
 

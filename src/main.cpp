@@ -10,6 +10,8 @@ extern int board::colorOnMove;
 extern int board::botColor;
 extern bool board::isPlaying;
 extern int board::kingPos;
+extern int board::whiteKingPos;
+extern int board::blackKingPos;
 
 extern std::unordered_map<std::string, int> move::directions;
 extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
@@ -43,17 +45,16 @@ class ReadInput {
 
     void makeBotThink() {
         if (board::isPlaying) {
-            std::ofstream fout("out1", std::ofstream::app);
-            // Replace
-            fout << "mdap" << std::endl;
-
             std::pair<int, int> move = moveGenerator::generateMove();
-
-            fout << "intra" << std::endl;
 
             if (move.first == -1 && move.second == -1)
                 std::cout << "resign" << std::endl;
             else {
+                if (move.first == board::whiteKingPos)
+                    board::whiteKingPos = move.second;
+                if (move.first == board::blackKingPos)
+                    board::blackKingPos = move.second;
+
                 std::string move_str = board::encodeMove(move);
                 std::cout << "move " << move_str << std::endl;
                 board::makeMove(move_str);
@@ -91,10 +92,12 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
+
                 if (board::colorOnMove & piece::WHITE)
-                    board::kingPos = 4;
+                    board::kingPos = board::whiteKingPos;
                 else
-                    board::kingPos = 60;
+                    board::kingPos = board::blackKingPos;
+
                 makeBotThink();
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
