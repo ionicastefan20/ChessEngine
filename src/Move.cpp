@@ -191,10 +191,8 @@ std::vector<int> generateBishopMoves(int pos, int botColor) {
 
 std::vector<int> generateRookMoves(int pos, int botColor) {
     std::vector<int> result;
-    std::ofstream fout4("out4", std::ofstream::app);
 
     for (std::string dir : {"left", "up", "right", "down"}) {
-        fout4 << "directia: " << dir << " ";
         for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * move::directions[dir];
             if (board::squares[new_pos] & board::botColor)
@@ -214,7 +212,7 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
 void removePositionWithCheck(int i) {
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
-                                            
+
     // artificially make the move on the board, check if it generates a
     // situation where the king is in chess, if so remove the move from the
     // list of possible moves
@@ -235,7 +233,7 @@ void removePositionWithCheck(int i) {
 
         if (!move::squaresAttacked[board::kingPos]) // a valid move
             nonCheckMoves.push_back(move::moves[i][k]);
-                
+
         // restore copies
         board::kingPos = kingPosCopy;
         move::squaresAttacked = squaresAttackedCopy;
@@ -252,17 +250,22 @@ void move::generate() {
     moves.clear();
     std::ofstream fout5("out5", std::ofstream::app);
 
-
     fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+    for (int i = 7; i >= 0; --i) {
+        for (int j = 0; j < 8; ++j) {
+            fout5 << move::squaresAttacked[i*8+7] << " ";
+        }
+        fout5 << std::endl;
+    }
+
+
     if (move::squaresAttacked[board::kingPos]) {
-        fout5 << "yasss" << std::endl;
         move::moves[board::kingPos] = generateKingMoves(board::kingPos, board::botColor);
         return;
     }
 
     for (int i = 0; i < 64; ++i) {
         if (board::botColor & board::squares[i]) {
-            // fout5 << "va: " << (board::squares[i] & 0x7) << std::endl;
             switch (board::squares[i] & 0x7) {
                 case piece::PAWN:
                     move::moves[i] = generatePawnMoves(i, board::botColor);
@@ -295,12 +298,10 @@ void move::generate() {
 }
 
 void move::calculateSquaresAttacked() {
-    std::ofstream fout3("out3", std::ofstream::app);
     squaresAttacked.clear();
     for (int i = 0; i < 64; i++)
         squaresAttacked.push_back(false); // initialize the map with all false
 
-    fout3 << "yessir1" << std::endl;
     // iterate over the squares, over the current state of the board
     for (int i = 0; i < 64; i++) {
         if (board::botColor & board::squares[i]) {
@@ -337,12 +338,8 @@ void move::calculateSquaresAttacked() {
                     break;
             }
 
-            fout3 << "yessir: " << i << std::endl;
-            for (int j = 0; j < attackedSquares.size(); j++) {
-                fout3 << "\tyessir mid before sugio: " << attackedSquares[j] << std::endl;
+            for (int j = 0; j < attackedSquares.size(); j++)
                 squaresAttacked[attackedSquares[j]] = true;
-            }
-            fout3 << "yessir milsugio: " << i << std::endl;
         }
     }
 }
