@@ -19,16 +19,6 @@ namespace move {
 
     extern std::unordered_map<int, std::vector<int>> moves;
 
-    std::vector<int> generatePawnMoves(int pos);
-
-    std::vector<int> generateKnightMoves(int pos);
-
-    std::vector<int> generateKingMoves(int pos);
-
-    std::vector<int> generateBishopMoves(int pos);
-
-    std::vector<int> generateRookMoves(int pos);
-
     void generate();
 
     // analyze the board state and generate for the piece to move all attacked
