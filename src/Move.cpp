@@ -47,9 +47,9 @@ void move::initDistancesAndDirections() {
         }
 }
 
-void addMove(std::vector<int>& result, int pos, int shift) {
+void addMove(std::vector<int>& result, int pos, int shift, int botColor) {
     int new_pos = pos + shift;
-    if (!(board::squares[new_pos] & board::botColor))
+    if (!(board::squares[new_pos] & botColor))
         result.push_back(new_pos);
 }
 
@@ -66,21 +66,21 @@ std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
 
     if (board::squares[pos] & piece::WHITE) {
         if (isOnLeftColumn(pos))
-            addMove(result, pos, 9);
+            addMove(result, pos, 9, botColor);
         else if (isOnRightColumn(pos))
-            addMove(result, pos, 7);
+            addMove(result, pos, 7, botColor);
         else {
-            addMove(result, pos, 7);
-            addMove(result, pos, 9);
+            addMove(result, pos, 7, botColor);
+            addMove(result, pos, 9, botColor);
         }
     } else {
         if (isOnLeftColumn(pos))
-            addMove(result, pos, -7);
+            addMove(result, pos, -7, botColor);
         else if (isOnRightColumn(pos))
-            addMove(result, pos, -9);
+            addMove(result, pos, -9, botColor);
         else {
-            addMove(result, pos, -7);
-            addMove(result, pos, -9);
+            addMove(result, pos, -7, botColor);
+            addMove(result, pos, -9, botColor);
         }
     }
 
@@ -92,30 +92,30 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
     if (board::squares[pos] & piece::WHITE) {
         if (board::squares[pos + 8] == 0)
-            addMove(result, pos, 8);
+            addMove(result, pos, 8, botColor);
         if (pos >= 8 && pos <= 15) {
             if (board::squares[pos + 8] == 0 && board::squares[pos + 16] == 0)
-                addMove(result, pos, 16);
+                addMove(result, pos, 16, botColor);
         }
         if (board::squares[pos + 9] & piece::BLACK &&
                 move::numUntilEdge[pos]["up_right"] > 0)
-            addMove(result, pos, 9);
+            addMove(result, pos, 9, botColor);
         if (board::squares[pos + 7] & piece::BLACK &&
                 move::numUntilEdge[pos]["left_up"] > 0)
-            addMove(result, pos, 7);
+            addMove(result, pos, 7, botColor);
     } else {
         if (board::squares[pos - 8] == 0)
-            addMove(result, pos, -8);
+            addMove(result, pos, -8, botColor);
         if (pos >= 48 && pos <= 55) {
             if (board::squares[pos - 8] == 0 && board::squares[pos - 16] == 0)
-                addMove(result, pos, -16);
+                addMove(result, pos, -16, botColor);
         }
         if (board::squares[pos - 9] & piece::WHITE &&
                 move::numUntilEdge[pos]["down_left"] > 0)
-            addMove(result, pos, -9);
+            addMove(result, pos, -9, botColor);
         if (board::squares[pos - 7] & piece::WHITE &&
                 move::numUntilEdge[pos]["right_down"] > 0)
-            addMove(result, pos, -7);
+            addMove(result, pos, -7, botColor);
     }
 
     return result;
@@ -126,28 +126,28 @@ std::vector<int> generateKnightMoves(int pos, int botColor) {
 
     // up left
     if (move::numUntilEdge[pos]["up"] >= 2 && move::numUntilEdge[pos]["left"] >= 1)
-        addMove(result, pos, 15);
+        addMove(result, pos, 15, botColor);
     // left up
     if (move::numUntilEdge[pos]["left"] >= 2 && move::numUntilEdge[pos]["up"] >= 1)
-        addMove(result, pos, 6);
+        addMove(result, pos, 6, botColor);
     // up right
     if (move::numUntilEdge[pos]["up"] >= 2 && move::numUntilEdge[pos]["right"] >= 1)
-        addMove(result, pos, 17);
+        addMove(result, pos, 17, botColor);
     // right up
     if (move::numUntilEdge[pos]["right"] >= 2 && move::numUntilEdge[pos]["up"] >= 1)
-        addMove(result, pos, 10);
+        addMove(result, pos, 10, botColor);
     // down left
     if (move::numUntilEdge[pos]["down"] >= 2 && move::numUntilEdge[pos]["left"] >= 1)
-        addMove(result, pos, -17);
+        addMove(result, pos, -17, botColor);
     // left down
     if (move::numUntilEdge[pos]["left"] >= 2 && move::numUntilEdge[pos]["down"] >= 1)
-        addMove(result, pos, -10);
+        addMove(result, pos, -10, botColor);
     // down right
     if (move::numUntilEdge[pos]["down"] >= 2 && move::numUntilEdge[pos]["right"] >= 1)
-        addMove(result, pos, -15);
+        addMove(result, pos, -15, botColor);
     // right down
     if (move::numUntilEdge[pos]["right"] >= 2 && move::numUntilEdge[pos]["down"] >= 1)
-        addMove(result, pos, -6);
+        addMove(result, pos, -6, botColor);
 
     return result;
 }
@@ -158,7 +158,7 @@ std::vector<int> generateKingMoves(int pos, int botColor) {
     for (auto kv : move::directions) {
         int new_pos = pos + kv.second;
 
-        if ((board::squares[new_pos] & board::botColor) ||
+        if ((board::squares[new_pos] & botColor) ||
                 (move::numUntilEdge[pos][kv.first] <= 0) ||
                 (move::squaresAttacked[new_pos]))
             continue;
@@ -175,13 +175,13 @@ std::vector<int> generateBishopMoves(int pos, int botColor) {
     for (std::string dir : {"left_up", "up_right", "right_down", "down_left"}) {
         for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * move::directions[dir];
-            if (board::squares[new_pos] & board::botColor)
+            if (board::squares[new_pos] & botColor)
                 break;
 
             result.push_back(new_pos);
 
             if (board::squares[new_pos] &
-                    board::getOppositeBotColor(board::botColor))
+                    board::getOppositeBotColor(botColor))
                 break;
         }
     }
@@ -195,13 +195,13 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
     for (std::string dir : {"left", "up", "right", "down"}) {
         for (int i = 1; i <= move::numUntilEdge[pos][dir]; ++i) {
             int new_pos = pos + i * move::directions[dir];
-            if (board::squares[new_pos] & board::botColor)
+            if (board::squares[new_pos] & botColor)
                 break;
 
             result.push_back(new_pos);
 
             if (board::squares[new_pos] &
-                    board::getOppositeBotColor(board::botColor))
+                    board::getOppositeBotColor(botColor))
                 break;
         }
     }
@@ -248,15 +248,15 @@ void move::generate() {
     std::vector<int> aux;
 
     moves.clear();
-    std::ofstream fout5("out5", std::ofstream::app);
+    // std::ofstream fout5("out5", std::ofstream::app);
 
-    fout5 << board::botColor << " " << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
-    for (int i = 7; i >= 0; --i) {
-        for (int j = 0; j < 8; ++j) {
-            fout5 << move::squaresAttacked[i*8+j] << " ";
-        }
-        fout5 << std::endl;
-    }
+    // fout5 << board::botColor << " " << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+    // for (int i = 7; i >= 0; --i) {
+    //     for (int j = 0; j < 8; ++j) {
+    //         fout5 << move::squaresAttacked[i*8+j] << " ";
+    //     }
+    //     fout5 << std::endl;
+    // }
 
     // if (move::squaresAttacked[board::kingPos]) {
     //     move::moves[board::kingPos] = generateKingMoves(board::kingPos, board::botColor);
