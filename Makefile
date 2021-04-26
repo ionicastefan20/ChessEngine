@@ -20,19 +20,28 @@ run:
 	./$(EXE)
 
 run_ubuntu:
+	rm -f *_out
+	make build
 	xboard -fcp "make run"
 
 debug_ubuntu:
+	rm -f *_out
+	make build
 	xboard -fcp "make run" -debug
 
 run_wsl:
-	DISPLAY=:0 xboard -fcp "make run"
+	rm -f *_out
+	make build
+	rm -f *_out &&DISPLAY=:0 xboard -fcp "make run"
 
 debug_wsl:
+	rm -f *_out
+	make build
 	DISPLAY=:0 xboard -fcp "make run" -debug
 
 clean:
+	rm -f *_out xboard.debug
 	rm -f $(SRC_FOLDER)*.o main 2> /dev/null
 
 clean_outs:
-	rm -f out*
+	rm -f *_out
