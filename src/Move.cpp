@@ -107,11 +107,9 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             addMove(result, pos, 7, botColor);
 
         // en passant
-        if (board::squares[pos + 1] & piece::BLACK && move::enPassantMove == pos + 1 &&
-                move::numUntilEdge[pos]["up_right"] > 0) {}
+        if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1))
             addMove(result, pos, 9, botColor);
-        if (board::squares[pos - 1] & piece::BLACK && move::enPassantMove == pos - 1 &&
-                move::numUntilEdge[pos]["left_up"] > 0)
+        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
             addMove(result, pos, 7, botColor);
     } else {
         if (board::squares[pos - 8] == 0)
@@ -128,11 +126,9 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             addMove(result, pos, -7, botColor);
 
         // en passant
-        if (board::squares[pos + 1] & piece::WHITE && move::enPassantMove == pos + 1 &&
-                move::numUntilEdge[pos]["right_down"] > 0) {}
+        if ((board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1))
             addMove(result, pos, -7, botColor);
-        if (board::squares[pos - 1] & piece::WHITE && move::enPassantMove == pos - 1 &&
-                move::numUntilEdge[pos]["down_left"] > 0)
+        if ((board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1))
             addMove(result, pos, -9, botColor);
     }
 

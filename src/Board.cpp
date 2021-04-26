@@ -1,6 +1,9 @@
 #include "Board.h"
 #include <cstring>
 #include <fstream>
+#include "Move.h"
+
+extern int move::enPassantMove;
 
 namespace board {
     int colorOnMove = piece::WHITE;
@@ -80,11 +83,16 @@ void board::makeMove(std::string move) {
     squares[result.first] = 0;
 
     // en passant update
+    move::enPassantMove = -1;
     if (colorOnMove == botColor) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
         if (getOppositeBotColor(colorOnMove) & piece::BLACK) {
-            if (result.first)
+            if ((result.first >= 48 && result.first <= 55) &&
+                    (result.second - result.first == -16))
+                move::enPassantMove = result.second;
         } else {
-
+            if ((result.first >= 8 && result.first <= 15) &&
+                    (result.second - result.first == 16))
+                move::enPassantMove = result.second;
         }
     }
 
