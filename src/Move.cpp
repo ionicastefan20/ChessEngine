@@ -90,7 +90,7 @@ std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
 }
 
 std::vector<int> generatePawnMoves(int pos, int botColor) {
-    std::ofstream fout9("out9", std::ofstream::app);
+    std::ofstream f("out12", std::ofstream::app);
     std::vector<int> result;
 
     if (board::squares[pos] & piece::WHITE) {
@@ -109,13 +109,11 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
         // en passant
         if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
+            f << "ya" << std::endl;
             addMove(result, pos, 9, botColor);
-            fout9 << "pos: " << pos << std::endl;
         }
-        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1)) {
+        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
             addMove(result, pos, 7, botColor);
-            fout9 << "pos1: " << pos << std::endl;
-        }
     } else {
         if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8, botColor);
@@ -259,13 +257,13 @@ void removePositionWithCheck(int i) {
         std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
         move::calculateSquaresAttacked();
 
-        fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
-        for (int i = 7; i >= 0; --i) {
-            for (int j = 0; j < 8; ++j) {
-                fout5 << move::squaresAttacked[i*8+j] << " ";
-            }
-            fout5 << std::endl;
-        }
+        // fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+        // for (int i = 7; i >= 0; --i) {
+        //     for (int j = 0; j < 8; ++j) {
+        //         fout5 << move::squaresAttacked[i*8+j] << " ";
+        //     }
+        //     fout5 << std::endl;
+        // }
 
         if (!move::squaresAttacked[board::kingPos]) // a valid move
             nonCheckMoves.push_back(move::moves[i][k]);
