@@ -74,11 +74,13 @@ std::pair<int, int> board::decodeMove(std::string move) {
 }
 
 void board::makeMove(std::string move) {
+    std::ofstream fout8("out8", std::ofstream::app);
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
     std::pair<int, int> result = decodeMove(move); //b2b4
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
     if (move.size() == 5) {
+        fout8 << "da" << std::endl;
         if (move[4] == 'q')
             squares[result.second] = (piece::QUEEN | getOppositeBotColor(colorOnMove));
         else if (move[4] == 'b')

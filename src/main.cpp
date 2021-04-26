@@ -45,7 +45,14 @@ class ReadInput {
 
     void makeBotThink() {
         std::ofstream fout1("out1", std::ofstream::app);
-        fout1 << "think: in: " << board::isPlaying << std::endl;
+        for (int i = 7; i >= 0; i--) {
+            for (int j = 0; j < 8; j++)
+                fout1 << board::squares[8 * i + j] << " ";
+            fout1 << std::endl;
+        }
+
+
+        // fout1 << "think: in: " << board::isPlaying << std::endl;
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
@@ -53,7 +60,7 @@ class ReadInput {
             if (move.second.first == -1 && move.second.second == -1)
                 std::cout << "resign" << std::endl;
             else {
-                fout1 << "before: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
+                // fout1 << "before: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
                 if (move.second.first == board::whiteKingPos)
                     board::whiteKingPos = move.second.second;
                 if (move.second.first == board::blackKingPos)
@@ -64,11 +71,11 @@ class ReadInput {
                 else
                     board::kingPos = board::whiteKingPos;
 
-                fout1 << "after: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
+                // fout1 << "after: " << "white: " << board::whiteKingPos << " black: " << board::blackKingPos << std::endl;
 
                 std::string move_str = board::encodeMove(move.second);
                 std::cout << "move " << move_str + move.first << std::endl;
-                fout1 << "move " << move_str + move.first << std::endl;
+                // fout1 << "move " << move_str + move.first << std::endl;
                 board::makeMove(move_str);
                 // fout1 << "very after\n";
             }
@@ -122,7 +129,7 @@ public:
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                fout3 << "move: in" << std::endl;
+                fout3 << "move: " << first_word << std::endl;
                 board::makeMove(first_word); // his move (computer's, oponent's)
                 makeBotThink();
                 fout3 << "move: out" << std::endl;
