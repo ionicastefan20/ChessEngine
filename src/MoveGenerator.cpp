@@ -64,10 +64,10 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 // }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    std::ofstream fout2("out2", std::ofstream::app);
+    // std::ofstream fout2("out2", std::ofstream::app);
 
-    fout2 << "genMove: in" << std::endl;
-    fout2 << "kingpos: " << board::kingPos << std::endl;
+    // fout2 << "genMove: in" << std::endl;
+    // fout2 << "kingpos: " << board::kingPos << std::endl;
     // fout2 << "da1" << std::endl;
     move::calculateSquaresAttacked();
     // fout2 << "da2" << std::endl;

@@ -21,7 +21,7 @@ int board::getOppositeBotColor(int color) {
 }
 
 void board::initBoard() {
-    std::ofstream fout7("out7", std::ofstream::app);
+    // std::ofstream fout7("out7", std::ofstream::app);
     // remove in future updates
     // GeneratePawnMoves::currPawn = 1;
     // GeneratePawnMoves::setBlackLastPos(48);
@@ -50,7 +50,7 @@ void board::initBoard() {
     squares[60] = piece::BLACK | piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
-    fout7 << "sfarsit" << std::endl;
+    // fout7 << "sfarsit" << std::endl;
 }
 
 /**
@@ -77,7 +77,7 @@ std::pair<int, int> board::decodeMove(std::string move) {
 }
 
 void board::makeMove(std::string move) {
-    std::ofstream f("out11", std::ofstream::app);
+    // std::ofstream f("out11", std::ofstream::app);
 
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
     std::pair<int, int> result = decodeMove(move); //b2b4
@@ -95,7 +95,7 @@ void board::makeMove(std::string move) {
             if ((result.first >= 8 && result.first <= 15) &&
                     (result.second - result.first == 16))
                 move::enPassantMove = result.second;
-            f << move::enPassantMove << std::endl;
+            // f << move::enPassantMove << std::endl;
         }
     }
 

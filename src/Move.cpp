@@ -65,7 +65,6 @@ bool isOnRightColumn(int pos) {
 std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
     std::vector<int> result;
 
-
     if (board::squares[pos] & piece::WHITE) {
         if (isOnLeftColumn(pos))
             addMove(result, pos, 9, botColor);
@@ -90,7 +89,7 @@ std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
 }
 
 std::vector<int> generatePawnMoves(int pos, int botColor) {
-    std::ofstream f("out12", std::ofstream::app);
+    // std::ofstream f("out12", std::ofstream::app);
     std::vector<int> result;
 
     if (board::squares[pos] & piece::WHITE) {
@@ -230,7 +229,7 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
 }
 
 void removePositionWithCheck(int i) {
-    std::ofstream fout5("out5", std::ofstream::app);
+    // std::ofstream fout5("out5", std::ofstream::app);
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
 
