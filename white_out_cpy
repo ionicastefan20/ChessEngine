@@ -1,0 +1,1620 @@
+white bot
+
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB bN bR |
+7 | bP bP bP bP bP bP bP bP |
+6 | -- -- -- -- -- -- -- -- |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- wP -- -- -- -- -- -- |
+2 | wP -- wP wP wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c7c6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB bN bR |
+7 | bP bP -- bP bP bP bP bP |
+6 | -- -- bP -- -- -- -- -- |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- wP -- -- -- wP -- -- |
+2 | wP -- wP wP wP -- wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: h7h6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB bN bR |
+7 | bP bP -- bP bP bP bP -- |
+6 | -- -- bP -- -- -- -- bP |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- wP wP -- -- wP -- -- |
+2 | wP -- -- wP wP -- wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f7f6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB bN bR |
+7 | bP bP -- bP bP -- bP -- |
+6 | -- -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- wP -- -- -- |
+3 | -- wP wP -- -- wP -- -- |
+2 | wP -- -- wP -- -- wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e8f7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR bN bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK bP -- |
+6 | -- -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- wP wP -- -- -- |
+3 | -- wP wP -- -- wP -- -- |
+2 | wP -- -- -- -- -- wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b8a6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK bP -- |
+6 | bN -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- wP wP -- wP -- |
+3 | -- wP wP -- -- wP -- -- |
+2 | wP -- -- -- -- -- -- wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a8b8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- bR bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK bP -- |
+6 | bN -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- wP wP -- wP wP |
+3 | -- wP wP -- -- wP -- -- |
+2 | wP -- -- -- -- -- -- -- |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g7g5
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- bR bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- bP -- |
+4 | wP -- -- wP wP -- wP wP |
+3 | -- wP wP -- -- wP -- -- |
+2 | -- -- -- -- -- -- -- -- |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f7e8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- bR bB bQ bK bB bN bR |
+7 | bP bP -- bP bP -- -- -- |
+6 | bN -- bP -- -- bP -- bP |
+5 | -- -- -- -- -- -- bP -- |
+4 | wP -- -- wP wP -- wP wP |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- -- -- -- -- -- |
+1 | wR wN wB wQ wK wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f6f5
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- bR bB bQ bK bB bN bR |
+7 | bP bP -- bP bP -- -- -- |
+6 | bN -- bP -- -- -- -- bP |
+5 | -- -- -- -- -- bP bP -- |
+4 | wP -- -- wP wP -- wP wP |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB wQ -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e8f7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- bR bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- bP -- -- -- -- bP |
+5 | -- -- -- -- -- bP bP wP |
+4 | wP -- -- wP wP -- wP -- |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB wQ -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b8a8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- bP -- -- -- -- bP |
+5 | wP -- -- -- -- bP bP wP |
+4 | -- -- -- wP wP -- wP -- |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB wQ -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c6c5
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- -- -- -- -- -- bP |
+5 | wP -- bP -- -- bP bP wP |
+4 | -- -- -- wP wP -- wP -- |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR wN wB -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f5e4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- -- -- -- -- -- bP |
+5 | wP -- bP -- -- -- bP wP |
+4 | -- -- -- wP bP -- wP -- |
+3 | -- wP wP -- -- wP -- wR |
+2 | -- -- -- wQ -- -- -- -- |
+1 | wR wN wB wK -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c5c4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN bR |
+7 | bP bP -- bP bP bK -- -- |
+6 | bN -- -- -- -- -- -- bP |
+5 | wP -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- wP -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- -- -- wQ -- -- -- -- |
+1 | wR -- wB wK -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: h8h7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- bB bN -- |
+7 | bP bP -- bP bP bK -- bR |
+6 | bN -- -- -- -- -- -- bP |
+5 | wP -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- wP -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ -- -- -- -- |
+1 | wR -- -- wK -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f8g7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB bQ -- -- bN -- |
+7 | bP bP -- bP bP bK bB bR |
+6 | bN -- -- -- -- -- -- bP |
+5 | wP -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- wP -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ -- -- -- -- |
+1 | wR -- -- -- wK wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d8b6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- bN -- |
+7 | bP bP -- bP bP bK bB bR |
+6 | bN wP -- -- -- -- -- bP |
+5 | -- -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- wP -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ -- -- -- -- |
+1 | wR -- -- -- wK wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g8f6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- -- -- |
+7 | wP bP -- bP bP bK bB bR |
+6 | bN -- -- -- -- bN -- bP |
+5 | -- -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- wP -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ -- -- -- -- |
+1 | wR -- -- -- wK wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f6g4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- -- -- |
+7 | wP bP -- bP bP bK bB bR |
+6 | bN -- -- -- -- -- -- bP |
+5 | -- -- -- -- -- -- bP wP |
+4 | -- -- bP wP bP -- bN -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ wK -- -- -- |
+1 | wR -- -- -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a6c7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- -- -- |
+7 | wP bP bN bP bP bK bB bR |
+6 | -- -- -- -- -- -- -- bP |
+5 | -- -- -- wP -- -- bP wP |
+4 | -- -- bP -- bP -- bN -- |
+3 | wN wP wP -- -- wP -- wR |
+2 | -- wB -- wQ wK -- -- -- |
+1 | wR -- -- -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b7b5
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- -- -- |
+7 | wP -- bN bP bP bK bB bR |
+6 | -- -- -- -- -- -- -- bP |
+5 | -- bP -- wP -- -- bP wP |
+4 | -- -- bP -- bP wP bN -- |
+3 | wN wP wP -- -- -- -- wR |
+2 | -- wB -- wQ wK -- -- -- |
+1 | wR -- -- -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g4e3
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- bB -- -- -- -- -- |
+7 | wP -- bN bP bP bK bB bR |
+6 | -- -- -- -- -- -- -- bP |
+5 | -- bP -- wP -- -- bP wP |
+4 | -- -- bP -- bP wP -- wR |
+3 | wN wP wP -- bN -- -- -- |
+2 | -- wB -- wQ wK -- -- -- |
+1 | wR -- -- -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c8a6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bR -- -- -- -- -- -- -- |
+7 | wP -- bN bP bP bK bB bR |
+6 | bB -- -- -- -- -- -- bP |
+5 | -- bP -- wP -- -- bP wP |
+4 | -- -- bP -- bP wP -- wR |
+3 | wN wP wP -- bN -- -- -- |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR -- wB -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a8g8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN bP bP bK bB bR |
+6 | bB -- -- -- -- -- -- bP |
+5 | -- bP -- wP -- -- bP wP |
+4 | -- -- bP -- bP wP -- wR |
+3 | wN wP wP -- bN -- -- -- |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR -- wB -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e7e5
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN bP -- bK bB bR |
+6 | bB -- -- -- wP -- -- bP |
+5 | -- bP -- -- bP -- bP wP |
+4 | -- -- bP -- bP wP -- wR |
+3 | wN wP wP -- bN -- -- -- |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR -- wB -- -- wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f7e7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN bP bK -- bB bR |
+6 | bB -- -- -- wP -- -- bP |
+5 | -- bP -- -- bP -- bP wP |
+4 | -- -- bP -- bP wP -- -- |
+3 | wN wP wP -- bN -- -- -- |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR -- wB -- -- wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d7e6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- bB bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- bP wP |
+4 | -- -- wP -- bP wP -- -- |
+3 | wN -- wP -- bN -- -- -- |
+2 | -- -- -- wQ wK -- -- -- |
+1 | wR -- wB -- -- wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g5f4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- bB bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- -- |
+3 | wN -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR -- wB -- wQ wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g7f6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- -- bR |
+6 | bB -- -- -- bP bB -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- wR |
+3 | wN -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR -- wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f6h4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e7d6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- -- -- -- bR |
+6 | bB -- -- bK bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d6e7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e7d6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- -- -- -- bR |
+6 | bB -- -- bK bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d6e7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e7d6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- -- -- -- bR |
+6 | bB -- -- bK bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d6d7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN bK -- -- -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: d7e7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- bK -- -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: e7f7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- -- bN -- -- bK -- bR |
+6 | bB -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a6b7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- -- -- -- -- bR -- |
+7 | -- bB bN -- -- bK -- bR |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b7c8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- bB -- -- -- bR -- |
+7 | -- -- bN -- -- bK -- bR |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP -- -- bP -- -- wP |
+4 | -- -- wP -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: h7g7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | wQ -- bB -- -- -- bR -- |
+7 | -- -- bN -- -- bK bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c8b7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- -- -- -- wQ bR -- |
+7 | -- bB bN -- -- bK bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f7f8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- -- -- -- bK bR -- |
+7 | -- bB bN -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b7c8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- -- bK bR -- |
+7 | -- -- bN -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c8b7
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- -- -- -- bK bR -- |
+7 | -- bB bN -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b7c8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- -- bK bR -- |
+7 | -- -- bN -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- -- -- |
+1 | wR wN wB -- wQ wB wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: c7a8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bN -- bB -- -- bK bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- wB -- |
+1 | wR wN wB -- wQ -- wN -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f8e8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bN -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- -- bP bP -- bB |
+3 | -- -- wP -- bN wN -- -- |
+2 | -- -- -- -- wK -- wB -- |
+1 | wR wN wB -- wQ -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a8b6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- wN bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- wB -- |
+1 | wR wN wB -- wQ -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b6a8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | bN -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- -- -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- wN bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wK -- -- wB -- |
+1 | wR wN wB -- wQ -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: a8b6
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- bP wP -- bP -- -- wP |
+4 | -- -- -- wN bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- -- wK -- wB -- |
+1 | wR wN wB -- wQ -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: b5b4
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- -- wP -- bP -- -- wP |
+4 | -- bP -- wN bP bP -- bB |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wB wK -- wB -- |
+1 | wR wN -- -- wQ -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: h4f2
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- -- wP -- bP -- -- wP |
+4 | -- bP -- wN bP bP -- -- |
+3 | -- -- wP -- bN -- -- -- |
+2 | -- -- -- wB wK bB wB -- |
+1 | wR wN -- -- -- -- -- wQ |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: f4f3
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK -- bR -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- -- wP -- bP -- -- wP |
+4 | -- bP -- wN bP -- -- -- |
+3 | -- -- wP -- bN wB -- -- |
+2 | -- -- -- wB wK bB -- -- |
+1 | wR wN -- -- -- -- -- wQ |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+	[main readinput]: g8f8
+[main readinput]: before
+[main readinput]: mid
+
+  |-------------------------|
+8 | -- -- bB -- bK bR -- -- |
+7 | -- -- -- -- -- -- bR -- |
+6 | -- bN -- -- bP -- -- bP |
+5 | -- -- wP -- bP -- -- wP |
+4 | -- bP -- wN bP -- -- wQ |
+3 | -- -- wP -- bN wB -- -- |
+2 | -- -- -- wB wK bB -- -- |
+1 | wR wN -- -- -- -- -- -- |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[main readinput]: end
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky
+[main readinput]: mid of start
+[main readinput]: end of start
+[main readinput]: start
+[main readinput]: ce faci aici brosky

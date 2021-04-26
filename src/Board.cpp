@@ -22,7 +22,6 @@ int board::getOppositeBotColor(int color) {
 }
 
 void board::initBoard() {
-    logger::log("board init", "start", 0);
 
     colorOnMove = piece::WHITE;
     botColor = piece::BLACK;
@@ -48,7 +47,6 @@ void board::initBoard() {
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
 
-    logger::log("board init", "end", 0);
 }
 
 /**
@@ -75,7 +73,6 @@ std::pair<int, int> board::decodeMove(std::string move) {
 }
 
 void board::makeMove(std::string move) {
-    logger::log("board makeMove", "start", 0);
 
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
     std::pair<int, int> result = decodeMove(move); //b2b4
@@ -107,5 +104,4 @@ void board::makeMove(std::string move) {
             squares[result.second] = (piece::KNIGHT | getOppositeBotColor(colorOnMove));
     }
 
-    logger::log("board makeMove", "end", 0);
 }
