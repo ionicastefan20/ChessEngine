@@ -11,21 +11,27 @@ extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
 extern std::vector<bool> move::squaresAttacked;
 extern std::unordered_map<int, std::vector<int>> move::moves;
 
+static int contor = 0;
+
 // returns padding for promotion or empty string for a non-promotion
 std::string checkForPromotionAndRandom(std::pair<int, int> move) {
     srand(time(NULL));
     std::string all_promotions[4] = {"q", "r", "n", "b"};
+    int all_promotions_values[4] = {piece::QUEEN, piece::ROOK, piece::KNIGHT, piece::BISHOP};
+
     int random_promotion_index = rand() % 4;
     std::string random_promotion = all_promotions[random_promotion_index];
 
     if (board::squares[move.first] == (piece::PAWN | piece::BLACK)) {
         // for black pawn check if its final move it's on the first row
         if (move.second <= 7 && move.second >= 0) {
+            board::squares[move.first] =  all_promotions_values[random_promotion_index] | piece::BLACK;
             return random_promotion;
         }
     } else if (board::squares[move.first] == (piece::PAWN | piece::WHITE)) {
         // for white pawn check if its final move it's on the top (last) row
         if (move.second <= 63 && move.second >= 56) {
+            board::squares[move.first] =  all_promotions_values[random_promotion_index] | piece::WHITE;
             return random_promotion;
         }
     }
