@@ -78,6 +78,16 @@ void board::makeMove(std::string move) {
     std::pair<int, int> result = decodeMove(move); //b2b4
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
+
+    // en passant update
+    if (colorOnMove == botColor) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+        if (getOppositeBotColor(colorOnMove) & piece::BLACK) {
+            if (result.first)
+        } else {
+
+        }
+    }
+
     if (move.size() == 5) {
         if (move[4] == 'q')
             squares[result.second] = (piece::QUEEN | getOppositeBotColor(colorOnMove));

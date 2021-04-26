@@ -7,6 +7,7 @@ extern bool board::isPlaying;
 extern int board::kingPos;
 
 namespace move {
+    int enPassantMove = -1;
     std::unordered_map<std::string, int> directions;
     std::vector<std::unordered_map<std::string, int>> numUntilEdge;
     std::vector<bool> squaresAttacked;
@@ -64,6 +65,7 @@ bool isOnRightColumn(int pos) {
 std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
     std::vector<int> result;
 
+
     if (board::squares[pos] & piece::WHITE) {
         if (isOnLeftColumn(pos))
             addMove(result, pos, 9, botColor);
@@ -98,9 +100,17 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
                 addMove(result, pos, 16, botColor);
         }
         if (board::squares[pos + 9] & piece::BLACK &&
-                move::numUntilEdge[pos]["up_right"] > 0)
+                move::numUntilEdge[pos]["up_right"] > 0) {}
             addMove(result, pos, 9, botColor);
         if (board::squares[pos + 7] & piece::BLACK &&
+                move::numUntilEdge[pos]["left_up"] > 0)
+            addMove(result, pos, 7, botColor);
+
+        // en passant
+        if (board::squares[pos + 1] & piece::BLACK && move::enPassantMove == pos + 1 &&
+                move::numUntilEdge[pos]["up_right"] > 0) {}
+            addMove(result, pos, 9, botColor);
+        if (board::squares[pos - 1] & piece::BLACK && move::enPassantMove == pos - 1 &&
                 move::numUntilEdge[pos]["left_up"] > 0)
             addMove(result, pos, 7, botColor);
     } else {
@@ -116,6 +126,14 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
         if (board::squares[pos - 7] & piece::WHITE &&
                 move::numUntilEdge[pos]["right_down"] > 0)
             addMove(result, pos, -7, botColor);
+
+        // en passant
+        if (board::squares[pos + 1] & piece::WHITE && move::enPassantMove == pos + 1 &&
+                move::numUntilEdge[pos]["right_down"] > 0) {}
+            addMove(result, pos, -7, botColor);
+        if (board::squares[pos - 1] & piece::WHITE && move::enPassantMove == pos - 1 &&
+                move::numUntilEdge[pos]["down_left"] > 0)
+            addMove(result, pos, -9, botColor);
     }
 
     return result;
