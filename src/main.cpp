@@ -100,8 +100,8 @@ public:
 
     void readInput() {
         std::string input;
+            logger::init();
         while (true) {
-            // logger::init();
             logger::log("main", "start", 0);
             std::string input;
             std::getline(std::cin, input);
