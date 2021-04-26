@@ -109,11 +109,12 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
         // en passant
         if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
-            f << "ya" << std::endl;
-            addMove(result, pos, 9, botColor);
+            if ((pos + 1) % 8 != 0) // is not on the right most column
+                addMove(result, pos, 9, botColor);
         }
         if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
-            addMove(result, pos, 7, botColor);
+            if (pos % 8 != 0) // is not on the left most column
+                addMove(result, pos, 7, botColor);
     } else {
         if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8, botColor);
@@ -130,9 +131,11 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
         // en passant
         if ((board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1))
-            addMove(result, pos, -7, botColor);
+            if ((pos + 1) % 8 != 0) // is not on the right most column
+                addMove(result, pos, -7, botColor);
         if ((board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1))
-            addMove(result, pos, -9, botColor);
+            if (pos % 8 != 0) // is not on the left most column
+                addMove(result, pos, -9, botColor);
     }
 
     return result;
