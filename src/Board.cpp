@@ -2,6 +2,7 @@
 #include <cstring>
 #include <fstream>
 #include "Move.h"
+#include "Logger.h"
 
 extern int move::enPassantMove;
 
@@ -21,11 +22,7 @@ int board::getOppositeBotColor(int color) {
 }
 
 void board::initBoard() {
-    // std::ofstream fout7("out7", std::ofstream::app);
-    // remove in future updates
-    // GeneratePawnMoves::currPawn = 1;
-    // GeneratePawnMoves::setBlackLastPos(48);
-    // GeneratePawnMoves::setWhiteLastPos(15);
+    logger::log("board init", "start", 0);
 
     colorOnMove = piece::WHITE;
     botColor = piece::BLACK;
@@ -50,7 +47,8 @@ void board::initBoard() {
     squares[60] = piece::BLACK | piece::KING;
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
-    // fout7 << "sfarsit" << std::endl;
+
+    logger::log("board init", "end", 0);
 }
 
 /**
@@ -77,7 +75,7 @@ std::pair<int, int> board::decodeMove(std::string move) {
 }
 
 void board::makeMove(std::string move) {
-    // std::ofstream f("out11", std::ofstream::app);
+    logger::log("board makeMove", "start", 0);
 
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
     std::pair<int, int> result = decodeMove(move); //b2b4
@@ -95,7 +93,6 @@ void board::makeMove(std::string move) {
             if ((result.first >= 8 && result.first <= 15) &&
                     (result.second - result.first == 16))
                 move::enPassantMove = result.second;
-            // f << move::enPassantMove << std::endl;
         }
     }
 
@@ -110,5 +107,5 @@ void board::makeMove(std::string move) {
             squares[result.second] = (piece::KNIGHT | getOppositeBotColor(colorOnMove));
     }
 
-    // f << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
+    logger::log("board makeMove", "end", 0);
 }

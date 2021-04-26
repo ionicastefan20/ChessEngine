@@ -41,7 +41,4 @@ debug_wsl:
 
 clean:
 	rm -f *_out xboard.debug
-	rm -f $(SRC_FOLDER)*.o main 2> /dev/null
-
-clean_outs:
-	rm -f *_out
+	rm -f $(SRC_FOLDER)*.o main

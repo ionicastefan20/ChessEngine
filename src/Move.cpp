@@ -1,5 +1,5 @@
 #include "Move.h"
-#include <fstream>
+#include "Logger.h"
 
 extern int board::colorOnMove;
 extern int board::botColor;
@@ -89,7 +89,6 @@ std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
 }
 
 std::vector<int> generatePawnMoves(int pos, int botColor) {
-    // std::ofstream f("out12", std::ofstream::app);
     std::vector<int> result;
 
     if (board::squares[pos] & piece::WHITE) {
@@ -229,7 +228,6 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
 }
 
 void removePositionWithCheck(int i) {
-    // std::ofstream fout5("out5", std::ofstream::app);
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
 
@@ -258,14 +256,6 @@ void removePositionWithCheck(int i) {
         // make copy of the squaresAttacked vector
         std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
         move::calculateSquaresAttacked();
-
-        // fout5 << board::kingPos << " " << move::squaresAttacked[board::kingPos] << std::endl;
-        // for (int i = 7; i >= 0; --i) {
-        //     for (int j = 0; j < 8; ++j) {
-        //         fout5 << move::squaresAttacked[i*8+j] << " ";
-        //     }
-        //     fout5 << std::endl;
-        // }
 
         if (!move::squaresAttacked[board::kingPos]) // a valid move
             nonCheckMoves.push_back(move::moves[i][k]);
@@ -304,7 +294,7 @@ void move::generate() {
                     move::moves[i] = generateRookMoves(i, board::botColor);
                     aux = generateBishopMoves(i, board::botColor);
                     move::moves[i].insert(move::moves[i].end(),
-                        aux.begin(), aux.end()); // append instead of replace TODO
+                        aux.begin(), aux.end());
                     break;
                 case piece::KING:
                     move::moves[i] = generateKingMoves(i, board::botColor);

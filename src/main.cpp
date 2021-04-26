@@ -84,14 +84,7 @@ class ReadInput {
 
                 board::makeMove(move_str);
 
-                // for (int i = 7; i >= 0; --i) {
-                //     for (int j = 0; j < 8; ++j) {
-                //         int a = board::squares[i*8+j];
-                //         fout1 << ((a < 10) ? " " : "") << a << " ";
-                //     }
-                //     fout1 << std::endl;
-                // }
-                // fout1 << std::endl;
+                logger::logBoard();
             }
         }
     }
@@ -109,6 +102,8 @@ public:
 
     void readInput() {
         while (true) {
+            // logger::init();
+
             std::string input;
             std::getline(std::cin, input);
             std::string first_word = input.substr(0, input.find(" "));
@@ -124,19 +119,15 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
-                
+
                 logger::init();
-                logger::log("go", "start", 0);
                 makeBotThink();
-                logger::log("go", "end", 0);
             } else if (!first_word.compare(commands[5])) { // quit
                 exit(0);
                 return;
             } else if (isValidMove(first_word)) {
-                logger::log("move", "start", 0);
                 board::makeMove(first_word); // his move (computer's, oponent's)
                 makeBotThink();
-                logger::log("move", "end", 0);
             }
         }
     }
@@ -148,6 +139,7 @@ int main() {
 
     ReadInput reader;
     reader.readInput();
+
 
     logger::close();
 }
