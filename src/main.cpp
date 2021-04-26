@@ -79,14 +79,9 @@ class ReadInput {
                     }
                 }
 
-<<<<<<< HEAD
-=======
                 logger::logBoard();
                 board::makeMove(move_str);
->>>>>>> 0673256cb74a1f2618ac9da818f51e98ebe13dce
                 logger::logBoard();
-                board::makeMove(move_str);
-                logger::logBoard(); 
             }
         }
         logger::log("think", "end", 0);
