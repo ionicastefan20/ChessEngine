@@ -11,6 +11,8 @@
 
 namespace move {
 
+    extern int enPassantMove;
+
     extern std::unordered_map<std::string, int> directions;
 
     extern std::vector<std::unordered_map<std::string, int>> numUntilEdge;

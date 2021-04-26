@@ -19,6 +19,12 @@ build: $(OBJECTS)
 run:
 	./$(EXE)
 
+run_ubuntu:
+	xboard -fcp "make run"
+
+debug_ubuntu:
+	xboard -fcp "make run" -debug
+
 run_wsl:
 	DISPLAY=:0 xboard -fcp "make run"
 

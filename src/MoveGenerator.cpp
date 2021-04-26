@@ -12,6 +12,11 @@ extern std::vector<bool> move::squaresAttacked;
 extern std::unordered_map<int, std::vector<int>> move::moves;
 
 static int contor = 0;
+static std::vector<std::pair<int, int>> mymoves{
+    {49, 33},
+    {33, 25},
+    {25, 18}
+};
 
 // returns padding for promotion or empty string for a non-promotion
 std::string checkForPromotionAndRandom(std::pair<int, int> move) {
@@ -38,6 +43,25 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 
     return "";
 }
+
+// std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
+//     std::ofstream fout2("out2", std::ofstream::app);
+
+//     fout2 << "genMove: in" << std::endl;
+//     fout2 << "kingpos: " << board::kingPos << std::endl;
+//     // fout2 << "da1" << std::endl;
+//     move::calculateSquaresAttacked();
+//     // fout2 << "da2" << std::endl;
+//     move::generate();
+
+//     std::string padding = checkForPromotionAndRandom(mymoves[contor]);
+//     // fout2 << "genMove: out" << std::endl;
+
+//     std::pair<std::string, std::pair<int, int>> aux(padding, mymoves[contor++]);
+//     return aux;
+
+//     // return std::make_pair(padding, move);
+// }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     std::ofstream fout2("out2", std::ofstream::app);
