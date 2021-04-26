@@ -107,14 +107,15 @@ public:
     }
 
     void readInput() {
-        std::ofstream fout3("out3", std::ofstream::app);
+        std::string s1 = "out1";
+        std::string s2 = (board::botColor & piece::WHITE) ? "White" : "Black";
+        std::ofstream fout1(s1 + s2, std::ofstream::app);
 
         while (true) {
             std::string input;
             std::getline(std::cin, input);
             std::string first_word = input.substr(0, input.find(" "));
 
-            fout3 << first_word << " " << board::isPlaying << std::endl;
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover
@@ -127,7 +128,7 @@ public:
             } else if (!first_word.compare(commands[4])) { // go
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
-                fout3 << "go: in" << std::endl;
+                // fout3 << "go: in" << std::endl;
 
                 // if (board::colorOnMove & piece::WHITE)
                 //     board::kingPos = board::whiteKingPos;
@@ -135,17 +136,19 @@ public:
                 //     board::kingPos = board::blackKingPos;
 
                 makeBotThink();
-                fout3 << "go: out" << std::endl;
+                // fout3 << "go: out" << std::endl;
                 // TODO: Force the bot to play a move and continue thinking
             } else if (!first_word.compare(commands[5])) { // quit
                 exit(0);
                 // TODO: end the function, kill all
                 return;
             } else if (isValidMove(first_word)) {
-                fout3 << "move: " << first_word << std::endl;
+                fout1 << "am intrat" << std::endl;
                 board::makeMove(first_word); // his move (computer's, oponent's)
+                fout1 << "mijloc" << std::endl;
                 makeBotThink();
-                fout3 << "move: out" << std::endl;
+                fout1 << "sfarsti" << std::endl;
+                // fout3 << "move: out" << std::endl;
             }
         }
     }
