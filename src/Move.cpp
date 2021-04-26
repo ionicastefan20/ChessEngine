@@ -90,6 +90,7 @@ std::vector<int> generatePawnCheckMoves(int pos, int botColor) {
 }
 
 std::vector<int> generatePawnMoves(int pos, int botColor) {
+    std::ofstream fout9("out9", std::ofstream::app);
     std::vector<int> result;
 
     if (board::squares[pos] & piece::WHITE) {
@@ -100,17 +101,21 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
                 addMove(result, pos, 16, botColor);
         }
         if (board::squares[pos + 9] & piece::BLACK &&
-                move::numUntilEdge[pos]["up_right"] > 0) {}
+                move::numUntilEdge[pos]["up_right"] > 0)
             addMove(result, pos, 9, botColor);
         if (board::squares[pos + 7] & piece::BLACK &&
                 move::numUntilEdge[pos]["left_up"] > 0)
             addMove(result, pos, 7, botColor);
 
         // en passant
-        if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1))
+        if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
             addMove(result, pos, 9, botColor);
-        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
+            fout9 << "pos: " << pos << std::endl;
+        }
+        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1)) {
             addMove(result, pos, 7, botColor);
+            fout9 << "pos1: " << pos << std::endl;
+        }
     } else {
         if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8, botColor);
@@ -241,6 +246,14 @@ void removePositionWithCheck(int i) {
 
         board::squares[move::moves[i][k]] = board::squares[i];
         board::squares[i] = 0;
+        // check for enpassant
+        if ((i & piece::PAWN) && (move::moves[i][k] - i) % 8 != 0 && move::moves[i][k] == 0) {
+            if (i & piece::WHITE)
+                board::squares[move::moves[i][k] - 8] = 0;
+            else
+                board::squares[move::moves[i][k] + 8] = 0;
+        }
+
 
         // make copy of the squaresAttacked vector
         std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
