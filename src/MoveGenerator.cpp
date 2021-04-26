@@ -1,5 +1,5 @@
 #include "MoveGenerator.h"
-#include <fstream>
+#include "Logger.h"
 
 extern int board::colorOnMove;
 extern int board::botColor;
@@ -10,13 +10,6 @@ extern std::unordered_map<std::string, int> move::directions;
 extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
 extern std::vector<bool> move::squaresAttacked;
 extern std::unordered_map<int, std::vector<int>> move::moves;
-
-static int contor = 0;
-static std::vector<std::pair<int, int>> mymoves{
-    {49, 33},
-    {33, 25},
-    {25, 18}
-};
 
 // returns padding for promotion or empty string for a non-promotion
 std::string checkForPromotionAndRandom(std::pair<int, int> move) {
@@ -44,35 +37,10 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
     return "";
 }
 
-// std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-//     std::ofstream fout2("out2", std::ofstream::app);
-
-//     fout2 << "genMove: in" << std::endl;
-//     fout2 << "kingpos: " << board::kingPos << std::endl;
-//     // fout2 << "da1" << std::endl;
-//     move::calculateSquaresAttacked();
-//     // fout2 << "da2" << std::endl;
-//     move::generate();
-
-//     std::string padding = checkForPromotionAndRandom(mymoves[contor]);
-//     // fout2 << "genMove: out" << std::endl;
-
-//     std::pair<std::string, std::pair<int, int>> aux(padding, mymoves[contor++]);
-//     return aux;
-
-//     // return std::make_pair(padding, move);
-// }
-
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    std::ofstream fout2("out2", std::ofstream::app);
 
-    // fout2 << "genMove: in" << std::endl;
-    // fout2 << "kingpos: " << board::kingPos << std::endl;
-    fout2 << "da1" << std::endl;
     move::calculateSquaresAttacked();
-    fout2 << "da2" << std::endl;
     move::generate();
-    fout2 << "da3" << std::endl;
     srand(time(NULL));
 
     // iterate through pieces and for the first piece that has valid move,
@@ -84,27 +52,18 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
             nonZeroMoves.push_back(entry.first);
     }
 
-    fout2 << "da4: " << nonZeroMoves.size() << std::endl;
-
-    if (nonZeroMoves.size() == 0) { // checkmate or stalemate
+    if (nonZeroMoves.size() == 0) {  // checkmate or stalemate
         std::pair<int, int> resignMove(-1, -1);
         std::pair<std::string, std::pair<int, int>> aux("", resignMove);
         return aux;
     }
 
     int randomPiece = std::rand() % nonZeroMoves.size();
-    fout2 << "randomPiece: " << randomPiece << std::endl;
     int randomMove = std::rand() % move::moves[nonZeroMoves[randomPiece]].size();
-    fout2 << "randomMove: " << randomMove << std::endl;
-
-    fout2 << "da5" << std::endl;
     std::pair<int, int> move = std::make_pair(nonZeroMoves[randomPiece],
                           move::moves[nonZeroMoves[randomPiece]][randomMove]);
     std::string padding = checkForPromotionAndRandom(move);
-    fout2 << "genMove: out" << std::endl;
 
     std::pair<std::string, std::pair<int, int>> aux(padding, move);
     return aux;
-
-    // return std::make_pair(padding, move);
 }
