@@ -45,10 +45,7 @@ class ReadInput {
     }
 
     void makeBotThink() {
-        // std::string s1 = "out";
-        // std::string s2 = (board::botColor & piece::WHITE) ? "White" : "Black";
-        // std::ofstream fout1(s1 + s2, std::ofstream::app);
-        // fout1 << "think: in: " << board::isPlaying << std::endl;
+        logger::log("think", "start", 0);
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
@@ -82,11 +79,12 @@ class ReadInput {
                     }
                 }
 
+                logger::logBoard();
                 board::makeMove(move_str);
-
                 logger::logBoard();
             }
         }
+        logger::log("think", "end", 0);
     }
 
 public:
@@ -103,9 +101,10 @@ public:
     void readInput() {
         while (true) {
             // logger::init();
-
+            logger::log("main", "start", 0);
             std::string input;
             std::getline(std::cin, input);
+            logger::log("main", "input: " + input, 0);
             std::string first_word = input.substr(0, input.find(" "));
 
             if (!first_word.compare(commands[0])) { // xboard
@@ -130,6 +129,7 @@ public:
                 makeBotThink();
             }
         }
+            logger::log("main", "end", 0);
     }
 };
 
