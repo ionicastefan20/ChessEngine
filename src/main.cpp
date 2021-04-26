@@ -45,10 +45,7 @@ class ReadInput {
     }
 
     void makeBotThink() {
-        // std::string s1 = "out";
-        // std::string s2 = (board::botColor & piece::WHITE) ? "White" : "Black";
-        // std::ofstream fout1(s1 + s2, std::ofstream::app);
-        // fout1 << "think: in: " << board::isPlaying << std::endl;
+        logger::log("think", "start", 0);
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
@@ -82,11 +79,17 @@ class ReadInput {
                     }
                 }
 
+<<<<<<< HEAD
+=======
+                logger::logBoard();
+                board::makeMove(move_str);
+>>>>>>> 0673256cb74a1f2618ac9da818f51e98ebe13dce
                 logger::logBoard();
                 board::makeMove(move_str);
                 logger::logBoard(); 
             }
         }
+        logger::log("think", "end", 0);
     }
 
 public:
@@ -104,13 +107,10 @@ public:
         std::string input;
         while (true) {
             // logger::init();
-
-
-            input = "ce faci aici brosky";
-            logger::log("main readinput", "start " + std::to_string(move::enPassantMove) + " ", 0);
-            logger::log("main readinput", input, 0);
+            logger::log("main", "start", 0);
+            std::string input;
             std::getline(std::cin, input);
-            logger::log("main readinput", "mid of start", 0);
+            logger::log("main", "input: " + input, 0);
             std::string first_word = input.substr(0, input.find(" "));
             logger::log("main readinput", "end of start", 0);
 
@@ -140,6 +140,7 @@ public:
                 logger::log("main readinput", "end", 0);
             }
         }
+            logger::log("main", "end", 0);
     }
 };
 

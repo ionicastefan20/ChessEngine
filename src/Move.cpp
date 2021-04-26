@@ -106,12 +106,12 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             addMove(result, pos, 7, botColor);
 
         // en passant
-        if ((board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
-            if ((pos + 1) % 8 != 0) // is not on the right most column
+        if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
+            //if ((pos + 1) % 8 != 0) // is not on the right most column
                 addMove(result, pos, 9, botColor);
         }
-        if ((board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
-            if (pos % 8 != 0) // is not on the left most column
+        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
+            //if (pos % 8 != 0) // is not on the left most column
                 addMove(result, pos, 7, botColor);
     } else {
         if (board::squares[pos - 8] == 0)
@@ -128,11 +128,11 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             addMove(result, pos, -7, botColor);
 
         // en passant
-        if ((board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1))
-            if ((pos + 1) % 8 != 0) // is not on the right most column
+        if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1))
+            //if ((pos + 1) % 8 != 0) // is not on the right most column
                 addMove(result, pos, -7, botColor);
-        if ((board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1))
-            if (pos % 8 != 0) // is not on the left most column
+        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1))
+            //if (pos % 8 != 0) // is not on the left most column
                 addMove(result, pos, -9, botColor);
     }
 
@@ -245,8 +245,8 @@ void removePositionWithCheck(int i) {
         board::squares[move::moves[i][k]] = board::squares[i];
         board::squares[i] = 0;
         // check for enpassant
-        if ((i & piece::PAWN) && (move::moves[i][k] - i) % 8 != 0 && move::moves[i][k] == 0) {
-            if (i & piece::WHITE)
+        if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (move::moves[i][k] == 0)) {
+            if (board::squares[i] & piece::WHITE)
                 board::squares[move::moves[i][k] - 8] = 0;
             else
                 board::squares[move::moves[i][k] + 8] = 0;

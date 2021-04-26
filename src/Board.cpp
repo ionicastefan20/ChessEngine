@@ -75,13 +75,13 @@ std::pair<int, int> board::decodeMove(std::string move) {
 void board::makeMove(std::string move) {
 
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
+    logger::log("board makeMove", move, 0);
+
     std::pair<int, int> result = decodeMove(move); //b2b4
-    squares[result.second] = squares[result.first];
-    squares[result.first] = 0;
 
     // en passant update
     move::enPassantMove = -1;
-    if (colorOnMove == botColor) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+    if ((colorOnMove == botColor) && (board::squares[result.first] & 7 == piece::PAWN)) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
         if (botColor & piece::WHITE) {
             if ((result.first >= 48 && result.first <= 55) &&
                     (result.second - result.first == -16))
@@ -92,6 +92,10 @@ void board::makeMove(std::string move) {
                 move::enPassantMove = result.second;
         }
     }
+
+    squares[result.second] = squares[result.first];
+    squares[result.first] = 0;
+
 
     if (move.size() == 5) {
         if (move[4] == 'q')
