@@ -44,7 +44,9 @@ class ReadInput {
     }
 
     void makeBotThink() {
-        std::ofstream fout1("out1", std::ofstream::app);
+        std::string s1 = "out";
+        std::string s2 = (board::botColor & piece::WHITE) ? "White" : "Black";
+        std::ofstream fout1(s1 + s2, std::ofstream::app);
         fout1 << "think: in: " << board::isPlaying << std::endl;
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
@@ -69,8 +71,26 @@ class ReadInput {
                 std::string move_str = board::encodeMove(move.second);
                 std::cout << "move " << move_str + move.first << std::endl;
                 fout1 << "move " << move_str + move.first << std::endl;
+                if (board::squares[move.second.first] == piece::PAWN) {
+                    fout1 << "yes i am a pawn" << std::endl;
+                    fout1 << (move.second.second - move.second.first) % 2 << " " << board::squares[move.second.second] << std::endl;
+                    if (((move.second.second - move.second.first) % 2) &&
+                            (board::squares[move.second.second] == 0)) {
+                        fout1 << "yes i am doing an en passant" << std::endl;
+                        board::squares[move.second.second + 8 * ((board::botColor & piece::WHITE) ? -1 : 1)] = 0;
+                    }
+                }
+
                 board::makeMove(move_str);
-                // fout1 << "very after\n";
+
+                for (int i = 7; i >= 0; --i) {
+                    for (int j = 0; j < 8; ++j) {
+                        int a = board::squares[i*8+j];
+                        fout1 << ((a < 10) ? " " : "") << a << " ";
+                    }
+                    fout1 << std::endl;
+                }
+                fout1 << std::endl;
             }
         }
     }
@@ -134,7 +154,7 @@ public:
 int main() {
     // std::ofstream fout6("out6", std::ofstream::app);
     // fout6 << "amintrat" << std::endl;
-    
+
     board::initBoard();
     move::initDistancesAndDirections();
 
