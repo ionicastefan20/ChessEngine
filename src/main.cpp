@@ -45,7 +45,6 @@ class ReadInput {
     }
 
     void makeBotThink() {
-        logger::log("think", "start", 0);
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
@@ -79,12 +78,9 @@ class ReadInput {
                     }
                 }
 
-                logger::logBoard();
                 board::makeMove(move_str);
-                logger::logBoard();
             }
         }
-        logger::log("think", "end", 0);
     }
 
 public:
@@ -102,12 +98,9 @@ public:
         std::string input;
             logger::init();
         while (true) {
-            logger::log("main", "start", 0);
             std::string input;
             std::getline(std::cin, input);
-            logger::log("main", "input: " + input, 0);
             std::string first_word = input.substr(0, input.find(" "));
-            logger::log("main readinput", "end of start", 0);
 
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
@@ -121,21 +114,15 @@ public:
                 board::isPlaying = true;
                 board::botColor = board::colorOnMove;
 
-                logger::init();
                 makeBotThink();
             } else if (!first_word.compare(commands[5])) { // quit
                 exit(0);
                 return;
             } else if (isValidMove(first_word)) {
-                logger::log("main readinput", first_word, 1);
-                logger::log("main readinput", "before", 0);
                 board::makeMove(first_word); // his move (computer's, oponent's)
-                logger::log("main readinput", "mid", 0);
                 makeBotThink();
-                logger::log("main readinput", "end", 0);
             }
         }
-            logger::log("main", "end", 0);
     }
 };
 

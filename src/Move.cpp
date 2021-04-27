@@ -64,8 +64,9 @@ bool emptyPath(int start, int end) {
 
 void addMove(std::vector<int>& result, int pos, int shift, int botColor) {
     int new_pos = pos + shift;
-    if (!(board::squares[new_pos] & botColor))
+    if (!(board::squares[new_pos] & botColor)) {
         result.push_back(new_pos);
+    }
 }
 
 bool isOnLeftColumn(int pos) {
@@ -124,9 +125,10 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             //if ((pos + 1) % 8 != 0) // is not on the right most column
                 addMove(result, pos, 9, botColor);
         }
-        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1))
+        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1)) {
             //if (pos % 8 != 0) // is not on the left most column
-                addMove(result, pos, 7, botColor);
+            addMove(result, pos, 7, botColor);
+        }
     } else {
         if (board::squares[pos - 8] == 0)
             addMove(result, pos, -8, botColor);
@@ -333,7 +335,7 @@ void removePositionWithCheck(int i) {
     for (int k = 0; k < move::moves[i].size(); k++) {
         // check for castling
         int isCastingMove = checkForCastling(nonCheckMoves, i, k, copyBoardState);
-        if (isCastingMove)
+        if (isCastingMove == 1)
             break; // if catling found exit and dont count any other positions
 
         if (isCastingMove == 0) {
@@ -346,12 +348,17 @@ void removePositionWithCheck(int i) {
             board::squares[i] = 0;
 
             // check for enpassant
-            if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (move::moves[i][k] == 0)) {
+            int canEnPassant = -1;
+            if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (board::squares[move::moves[i][k]] == 0)) {
+                canEnPassant = 1;
                 if (board::squares[i] & piece::WHITE)
                     board::squares[move::moves[i][k] - 8] = 0;
                 else
                     board::squares[move::moves[i][k] + 8] = 0;
             }
+
+            if (canEnPassant == 1)
+                nonCheckMoves.clear();
 
             // make copy of the squaresAttacked vector
             std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
@@ -365,6 +372,10 @@ void removePositionWithCheck(int i) {
             move::squaresAttacked = squaresAttackedCopy;
             for (int j = 0; j < 64; j++)
                 board::squares[j] = copyBoardState[j];
+            
+            if (canEnPassant == 1) {
+                break;
+            }
         }
     }
 
@@ -383,7 +394,7 @@ void move::generate() {
                     move::moves[i] = generatePawnMoves(i, board::botColor);
                     break;
                 case piece::ROOK:
-                    move::moves[i] = generateRookMoves(i, board::botColor);
+                    // move::moves[i] = generateRookMoves(i, board::botColor);
                     break;
                 case piece::KNIGHT:
                     move::moves[i] = generateKnightMoves(i, board::botColor);

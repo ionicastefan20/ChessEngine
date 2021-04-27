@@ -79,17 +79,14 @@ std::pair<int, int> board::decodeMove(std::string move) {
 }
 
 void board::makeMove(std::string move) {
-
     colorOnMove = getOppositeBotColor(colorOnMove); // set the oposite color;
-    logger::log("board makeMove", move, 0);
 
     std::pair<int, int> result = decodeMove(move); //b2b4
 
     // en passant update
     move::enPassantMove = -1;
-    // logger::log("makeMove ce pzm", std::to_string((board::squares[result.first] & 7) == piece::PAWN), 1);
-    if ((colorOnMove == botColor) && ((board::squares[result.first] & 7) == piece::PAWN)) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
-        if (botColor & piece::WHITE) {
+    if ((board::squares[result.first] & 7) == piece::PAWN) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+        if (colorOnMove & piece::WHITE) {
             if ((result.first >= 48 && result.first <= 55) &&
                     (result.second - result.first == -16))
                 move::enPassantMove = result.second;
@@ -115,7 +112,6 @@ void board::makeMove(std::string move) {
                 move::rightWhiteRook = 0;
         }
         else {
-            logger::log("makeMove rookVibeCheck", "yo", 1);
             if (result.first == 56)
                 move::leftBlackRook = 0;
             else if (result.first == 63)
@@ -132,13 +128,9 @@ void board::makeMove(std::string move) {
             board::squares[result.second + 8] = 0;
     }
 
-    logger::log("makeMove first", std::to_string(result.first), 1);
-    logger::log("makeMove second", std::to_string(result.second), 1);
-    logger::log("makeMove rook", std::to_string(move::rightBlackRook), 1);
     // apply castle
     if (((board::squares[result.first] & 7) == piece::KING) &&
             (abs(result.second - result.first) == 2)) {
-        logger::log("makeMove", "yes i am king", 1);
         if (result.second == 58 || result.second == 2) { // left
             board::squares[result.second + 1] = board::squares[result.second - 2];
             board::squares[result.second - 2] = 0;

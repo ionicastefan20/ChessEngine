@@ -55,13 +55,12 @@ static std::vector<std::pair<int, int>> first_moves = {
 //     std::vector<int> nonZeroMoves; // keeps starting position
 
 //     std::pair<int, int> move;
-//     logger::log("generate King", std::to_string(move::moves[60].size()), 1);
-//     if (contor < 3) {
+//     if (contor < 2) {
 //         move = first_moves[contor++];
 //     } else {
-//         int randomMove = std::rand() % move::moves[60].size();
-//         std::pair<int, int> move = std::make_pair(60,
-//                             move::moves[60][randomMove]);
+//         int randomMove = std::rand() % move::moves[33].size();
+//         std::pair<int, int> move = std::make_pair(33,
+//                             move::moves[33][randomMove]);
 //     }
 //     std::string padding = checkForPromotionAndRandom(move);
 
