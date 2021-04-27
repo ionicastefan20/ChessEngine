@@ -1,0 +1,124 @@
+black bot
+
+[main]: start
+[main]: input: xboard
+[main readinput]: end of start
+[main]: start
+[main]: input: protover 2
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted sigint
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted san
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted name
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted done
+[main readinput]: end of start
+[main]: start
+[main]: input: new
+[main readinput]: end of start
+[main]: start
+[main]: input: random
+[main readinput]: end of start
+[main]: start
+[main]: input: level 40 5 0
+[main readinput]: end of start
+[main]: start
+[main]: input: post
+[main readinput]: end of start
+[main]: start
+[main]: input: hard
+[main readinput]: end of start
+[main]: start
+[main]: input: force
+[main readinput]: end of start
+[main]: start
+black bot
+
+[main]: start
+[main]: input: xboard
+[main readinput]: end of start
+[main]: start
+[main]: input: protover 2
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted sigint
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted san
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted name
+[main readinput]: end of start
+[main]: start
+[main]: input: accepted done
+[main readinput]: end of start
+[main]: start
+[main]: input: new
+[main readinput]: end of start
+[main]: start
+[main]: input: random
+[main readinput]: end of start
+[main]: start
+[main]: input: level 40 5 0
+[main readinput]: end of start
+[main]: start
+[main]: input: post
+[main readinput]: end of start
+[main]: start
+[main]: input: hard
+[main readinput]: end of start
+[main]: start
+[main]: input: force
+[main readinput]: end of start
+[main]: start
+[main]: input: computer
+[main readinput]: end of start
+[main]: start
+[main]: input: computer
+[main readinput]: end of start
+[main]: start
+[main]: input: black
+[main readinput]: end of start
+[main]: start
+[main]: input: time 30000
+[main readinput]: end of start
+[main]: start
+[main]: input: otim 30000
+[main readinput]: end of start
+[main]: start
+[main]: input: white
+[main readinput]: end of start
+[main]: start
+[main]: input: go
+[main readinput]: end of start
+[main]: input: time 30000
+[main readinput]: end of start
+[main]: start
+[main]: input: otim 30000
+[main readinput]: end of start
+[main]: start
+[main]: input: a2a3
+[main readinput]: end of start
+	[main readinput]: a2a3
+[main readinput]: before
+[board makeMove]: a2a3
+	[makeMove first]: 9
+	[makeMove second]: 0
+	[makeMove]: yes i am pawn
+	[makeMove res first]: 8
+	[makeMove res second]: 16
+[main readinput]: mid
+[think]: start
+[think]: end
+[main readinput]: end
+[main]: start
+[main]: input: black
+[main readinput]: end of start
+[main]: start
+[main]: input: go
+[main readinput]: end of start

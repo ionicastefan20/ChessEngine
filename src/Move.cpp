@@ -233,6 +233,72 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
     return result;
 }
 
+// returns 1 if the move was actually castling, 0 otherwise
+int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<int> copyBoardState) {
+    if (((board::squares[i] & 7) == piece::KING) && (abs(move::moves[i][k] - i) == 2)) { // is catling move ?
+        int canItCastle = 1;
+        int kingPosCopy = board::kingPos; // make copy of the king pos
+        // check chess for initial position
+
+        // make copy of the squaresAttacked vector
+        std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
+        move::calculateSquaresAttacked();
+
+        if (move::squaresAttacked[board::kingPos]) // not a valid move
+            canItCastle = 0;
+
+        // restore copy
+        move::squaresAttacked = squaresAttackedCopy;
+        
+        // check chess for king moves 1 position in the direction of the castle
+        board::kingPos = (move::moves[i][k] - i) / 2 + i;
+        board::squares[board::kingPos] = board::squares[i];
+        board::squares[i] = 0;
+
+        // make copy of the squaresAttacked vector
+        for (int i = 0; i < 64; i++)
+            squaresAttackedCopy[i] = move::squaresAttacked[i];
+        move::calculateSquaresAttacked();
+        
+        if (move::squaresAttacked[board::kingPos]) // not a valid move
+            canItCastle = 0;
+        
+        // restore copies
+        board::kingPos = kingPosCopy;
+        move::squaresAttacked = squaresAttackedCopy;
+        for (int j = 0; j < 64; j++)
+            board::squares[j] = copyBoardState[j];
+
+        // check chess after king moves 2 positions
+        board::kingPos = move::moves[i][k];
+        board::squares[board::kingPos] = board::squares[i];
+        board::squares[i] = 0;
+
+        // make copy of the squaresAttacked vector
+        for (int i = 0; i < 64; i++)
+            squaresAttackedCopy[i] = move::squaresAttacked[i];
+        move::calculateSquaresAttacked();
+        
+        if (move::squaresAttacked[board::kingPos]) // not a valid move
+            canItCastle = 0;
+        
+        // restore copies
+        board::kingPos = kingPosCopy;
+        move::squaresAttacked = squaresAttackedCopy;
+        for (int j = 0; j < 64; j++)
+            board::squares[j] = copyBoardState[j];
+
+        // checked all cases now see if we can actually castle
+        if (canItCastle) {
+            nonCheckMoves.clear();
+            nonCheckMoves.push_back(move::moves[i][k]);
+        }
+
+        return 1;
+    }
+    return 0;
+}
+
 void removePositionWithCheck(int i) {
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
@@ -243,34 +309,43 @@ void removePositionWithCheck(int i) {
     std::vector<int> copyBoardState(board::squares, board::squares + 64); //copy
         // iterate through moves
     for (int k = 0; k < move::moves[i].size(); k++) {
-        // artifically make the move
-        int kingPosCopy = board::kingPos; // make copy of the king pos
-        if (board::squares[i] == (piece::KING | board::botColor))
-            board::kingPos = move::moves[i][k];
+        // check for castling
+        int isCastingMove = checkForCastling(nonCheckMoves, i, k, copyBoardState);
+        if (isCastingMove)
+            break; // if catling found exit and dont count any other positions
 
-        board::squares[move::moves[i][k]] = board::squares[i];
-        board::squares[i] = 0;
-        // check for enpassant
-        if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (move::moves[i][k] == 0)) {
-            if (board::squares[i] & piece::WHITE)
-                board::squares[move::moves[i][k] - 8] = 0;
-            else
-                board::squares[move::moves[i][k] + 8] = 0;
+        if (isCastingMove == 0) {
+            // artifically make the move
+            int kingPosCopy = board::kingPos; // make copy of the king pos
+            if (board::squares[i] == (piece::KING | board::botColor))
+                board::kingPos = move::moves[i][k];
+
+            board::squares[move::moves[i][k]] = board::squares[i];
+            board::squares[i] = 0;
+
+            // check for enpassant
+            if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (move::moves[i][k] == 0)) {
+                if (board::squares[i] & piece::WHITE)
+                    board::squares[move::moves[i][k] - 8] = 0;
+                else
+                    board::squares[move::moves[i][k] + 8] = 0;
+            }
+
+
+
+            // make copy of the squaresAttacked vector
+            std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
+            move::calculateSquaresAttacked();
+
+            if (!move::squaresAttacked[board::kingPos]) // a valid move
+                nonCheckMoves.push_back(move::moves[i][k]);
+
+            // restore copies
+            board::kingPos = kingPosCopy;
+            move::squaresAttacked = squaresAttackedCopy;
+            for (int j = 0; j < 64; j++)
+                board::squares[j] = copyBoardState[j];
         }
-
-
-        // make copy of the squaresAttacked vector
-        std::vector<bool> squaresAttackedCopy(move::squaresAttacked); // copy
-        move::calculateSquaresAttacked();
-
-        if (!move::squaresAttacked[board::kingPos]) // a valid move
-            nonCheckMoves.push_back(move::moves[i][k]);
-
-        // restore copies
-        board::kingPos = kingPosCopy;
-        move::squaresAttacked = squaresAttackedCopy;
-        for (int j = 0; j < 64; j++)
-            board::squares[j] = copyBoardState[j];
     }
 
     move::moves[i] = nonCheckMoves;
