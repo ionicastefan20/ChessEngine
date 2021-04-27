@@ -7,6 +7,12 @@ extern bool board::isPlaying;
 extern int board::kingPos;
 
 namespace move {
+    int leftWhiteRook = -1;
+    int rightWhiteRook = -1;
+    int leftBlackRook = -1;
+    int rightBlackRook = -1;
+    int whiteKing = -1;
+    int blackKing = -1;
     int enPassantMove = -1;
     std::unordered_map<std::string, int> directions;
     std::vector<std::unordered_map<std::string, int>> numUntilEdge;

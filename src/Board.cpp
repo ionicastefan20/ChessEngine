@@ -97,6 +97,7 @@ void board::makeMove(std::string move) {
         }
     }
 
+
     // apply en passant
     logger::log("makeMove res first", std::to_string(result.first), 1);
     logger::log("makeMove res second", std::to_string(result.second), 1);

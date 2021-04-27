@@ -13,6 +13,18 @@ namespace move {
 
     extern int enPassantMove;
 
+    extern int leftWhiteRook;
+
+    extern int rightWhiteRook;
+
+    extern int leftBlackRook;
+
+    extern int rightBlackRook;
+
+    extern int whiteKing;
+
+    extern int blackKing;
+
     extern std::unordered_map<std::string, int> directions;
 
     extern std::vector<std::unordered_map<std::string, int>> numUntilEdge;
