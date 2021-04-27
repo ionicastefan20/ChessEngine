@@ -118,6 +118,16 @@ void board::makeMove(std::string move) {
                 move::rightBlackRook = 0;
         }
     }
+    if ((board::squares[result.second] & 7) == piece::ROOK) {
+        if (result.second == 0)
+            move::leftWhiteRook = 0;
+        else if (result.second == 7)
+            move::rightWhiteRook = 0;
+        else if (result.second == 56)
+            move::leftBlackRook = 0;
+        else if (result.second == 63)
+            move::rightBlackRook = 0;
+    }
 
     // apply en passant
     if (((board::squares[result.first] & 7) == piece::PAWN) &&

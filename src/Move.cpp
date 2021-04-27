@@ -259,7 +259,11 @@ std::vector<int> generateRookMoves(int pos, int botColor) {
 
 // returns 1 if the move was actually castling, 0 otherwise
 int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<int> copyBoardState) {
+    std::ofstream fout2("out2", std::ofstream::app);
+    fout2 << "am intrat" << std::endl;
     if (((board::squares[i] & 7) == piece::KING) && (abs(move::moves[i][k] - i) == 2)) { // is catling move ?
+        fout2 << "is castling move with: " << move::moves[i][k] << " " << i << "kingPos: " << board::kingPos << std::endl;
+        logger::logBoard();
         int canItCastle = 1;
         int kingPosCopy = board::kingPos; // make copy of the king pos
         // check chess for initial position
@@ -271,6 +275,7 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
         if (move::squaresAttacked[board::kingPos]) // not a valid move
             canItCastle = 0;
 
+        fout2 << "dupa primu, can it castle? " << canItCastle << std::endl;
         // restore copy
         move::squaresAttacked = squaresAttackedCopy;
         
@@ -287,6 +292,7 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
         if (move::squaresAttacked[board::kingPos]) // not a valid move
             canItCastle = 0;
         
+        fout2 << "dupa second, can it castle? " << canItCastle << std::endl;
         // restore copies
         board::kingPos = kingPosCopy;
         move::squaresAttacked = squaresAttackedCopy;
@@ -306,6 +312,7 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
         if (move::squaresAttacked[board::kingPos]) // not a valid move
             canItCastle = 0;
         
+        fout2 << "dupa third, can it castle? " << canItCastle << std::endl;
         // restore copies
         board::kingPos = kingPosCopy;
         move::squaresAttacked = squaresAttackedCopy;
@@ -313,9 +320,12 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
             board::squares[j] = copyBoardState[j];
 
         // checked all cases now see if we can actually castle
-        if (canItCastle) {
+        fout2 << "dupa fourth, can it castle? " << canItCastle << std::endl;
+        if (canItCastle == 1) {
             nonCheckMoves.clear();
             nonCheckMoves.push_back(move::moves[i][k]);
+        } else { // is not an eligible castle
+            return 0;
         }
 
         return 1;
@@ -324,6 +334,7 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
 }
 
 void removePositionWithCheck(int i) {
+    std::ofstream fout1("out1", std::ofstream::app);
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
 
@@ -335,8 +346,14 @@ void removePositionWithCheck(int i) {
     for (int k = 0; k < move::moves[i].size(); k++) {
         // check for castling
         int isCastingMove = checkForCastling(nonCheckMoves, i, k, copyBoardState);
-        if (isCastingMove == 1)
+        fout1 << isCastingMove << std::endl;
+        if (isCastingMove == 1) {
+            fout1 << "DAAAA " << nonCheckMoves.size() << std::endl;
+            for (int i = 0; i < nonCheckMoves.size(); i++)
+                fout1 << nonCheckMoves[i] << " ";
+            fout1 << std::endl;
             break; // if catling found exit and dont count any other positions
+        }
 
         if (isCastingMove == 0) {
             // artifically make the move
@@ -394,7 +411,7 @@ void move::generate() {
                     move::moves[i] = generatePawnMoves(i, board::botColor);
                     break;
                 case piece::ROOK:
-                    // move::moves[i] = generateRookMoves(i, board::botColor);
+                    move::moves[i] = generateRookMoves(i, board::botColor);
                     break;
                 case piece::KNIGHT:
                     move::moves[i] = generateKnightMoves(i, board::botColor);
