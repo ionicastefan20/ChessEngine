@@ -34,140 +34,23 @@ black bot
 [main]: input: hard
 [main readinput]: end of start
 [main]: start
-[main]: input: force
-[main readinput]: end of start
-[main]: start
-[main]: input: g1f3
-[main readinput]: end of start
-	[main readinput]: g1f3
-[main readinput]: before
-[board makeMove]: g1f3
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 6
-	[makeMove res second]: 21
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: f7f6
-[main readinput]: end of start
-	[main readinput]: f7f6
-[main readinput]: before
-[board makeMove]: f7f6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 53
-	[makeMove res second]: 45
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: e2e3
-[main readinput]: end of start
-	[main readinput]: e2e3
-[main readinput]: before
-[board makeMove]: e2e3
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 12
-	[makeMove res second]: 20
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: e7e6
-[main readinput]: end of start
-	[main readinput]: e7e6
-[main readinput]: before
-[board makeMove]: e7e6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 52
-	[makeMove res second]: 44
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: f1d3
-[main readinput]: end of start
-	[main readinput]: f1d3
-[main readinput]: before
-[board makeMove]: f1d3
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 5
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d7d6
-[main readinput]: end of start
-	[main readinput]: d7d6
-[main readinput]: before
-[board makeMove]: d7d6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 51
-	[makeMove res second]: 43
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: e1g1
-[main readinput]: end of start
-	[main readinput]: e1g1
-[main readinput]: before
-[board makeMove]: e1g1
-	[makeMove first]: 14
-	[makeMove second]: 0
-	[makeMove res first]: 4
-	[makeMove res second]: 6
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: new
-[main readinput]: end of start
-[main]: start
-[main]: input: random
-[main readinput]: end of start
-[main]: start
-[main]: input: level 40 5 0
-[main readinput]: end of start
-[main]: start
-[main]: input: post
-[main readinput]: end of start
-[main]: start
-[main]: input: hard
-[main readinput]: end of start
-[main]: start
 [main]: input: time 30000
 [main readinput]: end of start
 [main]: start
 [main]: input: otim 30000
 [main readinput]: end of start
 [main]: start
-[main]: input: b1c3
+[main]: input: d2d3
 [main readinput]: end of start
-	[main readinput]: b1c3
+	[main readinput]: d2d3
 [main readinput]: before
-[board makeMove]: b1c3
+[board makeMove]: d2d3
 	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 1
-	[makeMove res second]: 18
+	[makeMove second]: 19
+	[makeMove rook]: 1
 [main readinput]: mid
 [think]: start
+	[generate King]: 0
 
   |-------------------------|
 8 | bR bN bB bQ bK bB bN bR |
@@ -175,1167 +58,179 @@ black bot
 6 | -- -- -- -- -- -- -- -- |
 5 | -- -- -- -- -- -- -- -- |
 4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: a7a6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 48
-	[makeMove res second]: 40
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP bP bP bP bP |
-6 | bP -- -- -- -- -- -- -- |
-5 | -- -- -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29989
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 29431
-[main readinput]: end of start
-[main]: start
-[main]: input: d2d3
-[main readinput]: end of start
-	[main readinput]: d2d3
-[main readinput]: before
-[board makeMove]: d2d3
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 11
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP bP bP bP bP |
-6 | bP -- -- -- -- -- -- -- |
-5 | -- -- -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
+3 | -- -- -- wP -- -- -- -- |
 2 | wP wP wP -- wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
+1 | wR wN wB wQ wK wB wN wR |
   |-------------------------|
      a  b  c  d  e  f  g  h
 
-[board makeMove]: e7e5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 52
-	[makeMove res second]: 36
+[board makeMove]: g8h6
+	[makeMove first]: 62
+	[makeMove second]: 47
+	[makeMove rook]: 1
 
   |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP -- bP bP bP |
-6 | bP -- -- -- -- -- -- -- |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP -- wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29982
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 29274
-[main readinput]: end of start
-[main]: start
-[main]: input: c1h6
-[main readinput]: end of start
-	[main readinput]: c1h6
-[main readinput]: before
-[board makeMove]: c1h6
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 2
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP -- bP bP bP |
-6 | bP -- -- -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP -- wP wP wP wP |
-1 | wR -- -- wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: f8e7
-	[makeMove first]: 20
-	[makeMove second]: 0
-	[makeMove res first]: 61
-	[makeMove res second]: 52
-
-  |-------------------------|
-8 | bR bN bB bQ bK -- bN bR |
-7 | -- bP bP bP bB bP bP bP |
-6 | bP -- -- -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP -- wP wP wP wP |
-1 | wR -- -- wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29971
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 28898
-[main readinput]: end of start
-[main]: start
-[main]: input: d1d2
-[main readinput]: end of start
-	[main readinput]: d1d2
-[main readinput]: before
-[board makeMove]: d1d2
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 3
-	[makeMove res second]: 11
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK -- bN bR |
-7 | -- bP bP bP bB bP bP bP |
-6 | bP -- -- -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP wQ wP wP wP wP |
-1 | wR -- -- -- wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: e8f8
-	[makeMove first]: 22
-	[makeMove second]: 0
-	[makeMove res first]: 60
-	[makeMove res second]: 61
-
-  |-------------------------|
-8 | bR bN bB bQ -- bK bN bR |
-7 | -- bP bP bP bB bP bP bP |
-6 | bP -- -- -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP wQ wP wP wP wP |
-1 | wR -- -- -- wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29963
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 28651
-[main readinput]: end of start
-[main]: start
-[main]: input: e1c1
-[main readinput]: end of start
-	[main readinput]: e1c1
-[main readinput]: before
-[board makeMove]: e1c1
-	[makeMove first]: 14
-	[makeMove second]: 0
-	[makeMove res first]: 4
-	[makeMove res second]: 2
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ -- bK bN bR |
-7 | -- bP bP bP bB bP bP bP |
-6 | bP -- -- -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP wQ wP wP wP wP |
-1 | wR -- wK -- -- wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: b8c6
-	[makeMove first]: 19
-	[makeMove second]: 0
-	[makeMove res first]: 57
-	[makeMove res second]: 42
-
-  |-------------------------|
-8 | bR -- bB bQ -- bK bN bR |
-7 | -- bP bP bP bB bP bP bP |
-6 | bP -- bN -- -- -- -- wB |
-5 | -- -- -- -- bP -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN wP -- -- -- -- |
-2 | wP wP wP wQ wP wP wP wP |
-1 | wR -- wK -- -- wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: force
-[main readinput]: end of start
-[main]: start
-[main]: input: new
-[main readinput]: end of start
-[main]: start
-[main]: input: random
-[main readinput]: end of start
-[main]: start
-[main]: input: level 40 5 0
-[main readinput]: end of start
-[main]: start
-[main]: input: post
-[main readinput]: end of start
-[main]: start
-[main]: input: hard
-[main readinput]: end of start
-[main]: start
-[main]: input: force
-[main readinput]: end of start
-[main]: start
-[main]: input: a2a4
-[main readinput]: end of start
-	[main readinput]: a2a4
-[main readinput]: before
-[board makeMove]: a2a4
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 8
-	[makeMove res second]: 24
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b7b5
-[main readinput]: end of start
-	[main readinput]: b7b5
-[main readinput]: before
-[board makeMove]: b7b5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 49
-	[makeMove res second]: 33
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b1c3
-[main readinput]: end of start
-	[main readinput]: b1c3
-[main readinput]: before
-[board makeMove]: b1c3
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 1
-	[makeMove res second]: 18
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c7c6
-[main readinput]: end of start
-	[main readinput]: c7c6
-[main readinput]: before
-[board makeMove]: c7c6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 50
-	[makeMove res second]: 42
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a4b5
-[main readinput]: end of start
-	[main readinput]: a4b5
-[main readinput]: before
-[board makeMove]: a4b5
-	[makeMove first]: 9
-	[makeMove second]: 17
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 24
-	[makeMove res second]: 33
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d8b6
-[main readinput]: end of start
-	[main readinput]: d8b6
-[main readinput]: before
-[board makeMove]: d8b6
-	[makeMove first]: 21
-	[makeMove second]: 0
-	[makeMove res first]: 59
-	[makeMove res second]: 41
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b2b4
-[main readinput]: end of start
-	[main readinput]: b2b4
-[main readinput]: before
-[board makeMove]: b2b4
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 9
-	[makeMove res second]: 25
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b6b5
-[main readinput]: end of start
-	[main readinput]: b6b5
-[main readinput]: before
-[board makeMove]: b6b5
-	[makeMove first]: 21
-	[makeMove second]: 9
-	[makeMove res first]: 41
-	[makeMove res second]: 33
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d2d3
-[main readinput]: end of start
-	[main readinput]: d2d3
-[main readinput]: before
-[board makeMove]: d2d3
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 11
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b5b4
-[main readinput]: end of start
-	[main readinput]: b5b4
-[main readinput]: before
-[board makeMove]: b5b4
-	[makeMove first]: 21
-	[makeMove second]: 9
-	[makeMove res first]: 33
-	[makeMove res second]: 25
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c1d2
-[main readinput]: end of start
-	[main readinput]: c1d2
-[main readinput]: before
-[board makeMove]: c1d2
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 2
-	[makeMove res second]: 11
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d7d6
-[main readinput]: end of start
-	[main readinput]: d7d6
-[main readinput]: before
-[board makeMove]: d7d6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 51
-	[makeMove res second]: 43
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d1b1
-[main readinput]: end of start
-	[main readinput]: d1b1
-[main readinput]: before
-[board makeMove]: d1b1
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 3
-	[makeMove res second]: 1
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a7a6
-[main readinput]: end of start
-	[main readinput]: a7a6
-[main readinput]: before
-[board makeMove]: a7a6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 48
-	[makeMove res second]: 40
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b1b3
-[main readinput]: end of start
-	[main readinput]: b1b3
-[main readinput]: before
-[board makeMove]: b1b3
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 1
-	[makeMove res second]: 17
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a6a5
-[main readinput]: end of start
-	[main readinput]: a6a5
-[main readinput]: before
-[board makeMove]: a6a5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 40
-	[makeMove res second]: 32
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: b3a3
-[main readinput]: end of start
-	[main readinput]: b3a3
-[main readinput]: before
-[board makeMove]: b3a3
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 17
-	[makeMove res second]: 16
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d6d5
-[main readinput]: end of start
-	[main readinput]: d6d5
-[main readinput]: before
-[board makeMove]: d6d5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 43
-	[makeMove res second]: 35
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: e1c1
-[main readinput]: end of start
-	[main readinput]: e1c1
-[main readinput]: before
-[board makeMove]: e1c1
-	[makeMove first]: 14
-	[makeMove second]: 0
-	[makeMove res first]: 4
-	[makeMove res second]: 2
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: new
-[main readinput]: end of start
-[main]: start
-[main]: input: random
-[main readinput]: end of start
-[main]: start
-[main]: input: level 40 5 0
-[main readinput]: end of start
-[main]: start
-[main]: input: post
-[main readinput]: end of start
-[main]: start
-[main]: input: hard
-[main readinput]: end of start
-[main]: start
-[main]: input: time 30000
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 30000
-[main readinput]: end of start
-[main]: start
-[main]: input: b1c3
-[main readinput]: end of start
-	[main readinput]: b1c3
-[main readinput]: before
-[board makeMove]: b1c3
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 1
-	[makeMove res second]: 18
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
+8 | bR bN bB bQ bK bB -- bR |
 7 | bP bP bP bP bP bP bP bP |
-6 | -- -- -- -- -- -- -- -- |
+6 | -- -- -- -- -- -- -- bN |
 5 | -- -- -- -- -- -- -- -- |
 4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: a7a5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 48
-	[makeMove res second]: 32
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP bP bP bP bP |
-6 | -- -- -- -- -- -- -- -- |
-5 | bP -- -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- wN -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29989
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 29710
-[main readinput]: end of start
-[main]: start
-[main]: input: c3b5
-[main readinput]: end of start
-	[main readinput]: c3b5
-[main readinput]: before
-[board makeMove]: c3b5
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 18
-	[makeMove res second]: 33
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP bP bP bP bP bP |
-6 | -- -- -- -- -- -- -- -- |
-5 | bP wN -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- -- -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: d7d6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 51
-	[makeMove res second]: 43
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP -- bP bP bP bP |
-6 | -- -- -- bP -- -- -- -- |
-5 | bP wN -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- -- -- -- -- -- -- |
-2 | wP wP wP wP wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: time 29979
-[main readinput]: end of start
-[main]: start
-[main]: input: otim 29366
-[main readinput]: end of start
-[main]: start
-[main]: input: d2d3
-[main readinput]: end of start
-	[main readinput]: d2d3
-[main readinput]: before
-[board makeMove]: d2d3
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 11
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP -- bP bP bP bP |
-6 | -- -- -- bP -- -- -- -- |
-5 | bP wN -- -- -- -- -- -- |
-4 | -- -- -- -- -- -- -- -- |
 3 | -- -- -- wP -- -- -- -- |
 2 | wP wP wP -- wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
-  |-------------------------|
-     a  b  c  d  e  f  g  h
-
-[board makeMove]: h7h5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 55
-	[makeMove res second]: 39
-
-  |-------------------------|
-8 | bR bN bB bQ bK bB bN bR |
-7 | -- bP bP -- bP bP bP -- |
-6 | -- -- -- bP -- -- -- -- |
-5 | bP wN -- -- -- -- -- bP |
-4 | -- -- -- -- -- -- -- -- |
-3 | -- -- -- wP -- -- -- -- |
-2 | wP wP wP -- wP wP wP wP |
-1 | wR -- wB wQ wK wB wN wR |
+1 | wR wN wB wQ wK wB wN wR |
   |-------------------------|
      a  b  c  d  e  f  g  h
 
 [think]: end
 [main readinput]: end
 [main]: start
-[main]: input: force
+[main]: input: time 29999
 [main readinput]: end of start
 [main]: start
-[main]: input: new
+[main]: input: otim 29939
 [main readinput]: end of start
 [main]: start
-[main]: input: random
+[main]: input: c2c3
 [main readinput]: end of start
-[main]: start
-[main]: input: level 40 5 0
-[main readinput]: end of start
-[main]: start
-[main]: input: post
-[main readinput]: end of start
-[main]: start
-[main]: input: hard
-[main readinput]: end of start
-[main]: start
-[main]: input: force
-[main readinput]: end of start
-[main]: start
-[main]: input: b1c3
-[main readinput]: end of start
-	[main readinput]: b1c3
+	[main readinput]: c2c3
 [main readinput]: before
-[board makeMove]: b1c3
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 1
-	[makeMove res second]: 18
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d7d6
-[main readinput]: end of start
-	[main readinput]: d7d6
-[main readinput]: before
-[board makeMove]: d7d6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 51
-	[makeMove res second]: 43
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c3d5
-[main readinput]: end of start
-	[main readinput]: c3d5
-[main readinput]: before
-[board makeMove]: c3d5
-	[makeMove first]: 11
-	[makeMove second]: 0
-	[makeMove res first]: 18
-	[makeMove res second]: 35
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d8d7
-[main readinput]: end of start
-	[main readinput]: d8d7
-[main readinput]: before
-[board makeMove]: d8d7
-	[makeMove first]: 21
-	[makeMove second]: 0
-	[makeMove res first]: 59
-	[makeMove res second]: 51
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d2d3
-[main readinput]: end of start
-	[main readinput]: d2d3
-[main readinput]: before
-[board makeMove]: d2d3
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 11
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d7c6
-[main readinput]: end of start
-	[main readinput]: d7c6
-[main readinput]: before
-[board makeMove]: d7c6
-	[makeMove first]: 21
-	[makeMove second]: 0
-	[makeMove res first]: 51
-	[makeMove res second]: 42
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c2c4
-[main readinput]: end of start
-	[main readinput]: c2c4
-[main readinput]: before
-[board makeMove]: c2c4
-	[makeMove first]: 9
-	[makeMove second]: 0
-	[makeMove]: yes i am pawn
-	[makeMove res first]: 10
-	[makeMove res second]: 26
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c6c4
-[main readinput]: end of start
-	[main readinput]: c6c4
-[main readinput]: before
-[board makeMove]: c6c4
-	[makeMove first]: 21
-	[makeMove second]: 9
-	[makeMove res first]: 42
-	[makeMove res second]: 26
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c1h6
-[main readinput]: end of start
-	[main readinput]: c1h6
-[main readinput]: before
-[board makeMove]: c1h6
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 2
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: e7e6
-[main readinput]: end of start
-	[main readinput]: e7e6
-[main readinput]: before
-[board makeMove]: e7e6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 52
-	[makeMove res second]: 44
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d1d2
-[main readinput]: end of start
-	[main readinput]: d1d2
-[main readinput]: before
-[board makeMove]: d1d2
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 3
-	[makeMove res second]: 11
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: f7f6
-[main readinput]: end of start
-	[main readinput]: f7f6
-[main readinput]: before
-[board makeMove]: f7f6
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 53
-	[makeMove res second]: 45
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: h6g7
-[main readinput]: end of start
-	[main readinput]: h6g7
-[main readinput]: before
-[board makeMove]: h6g7
-	[makeMove first]: 12
-	[makeMove second]: 17
-	[makeMove res first]: 47
-	[makeMove res second]: 54
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a7a5
-[main readinput]: end of start
-	[main readinput]: a7a5
-[main readinput]: before
-[board makeMove]: a7a5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 48
-	[makeMove res second]: 32
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: g7h6
-[main readinput]: end of start
-	[main readinput]: g7h6
-[main readinput]: before
-[board makeMove]: g7h6
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 54
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a8a6
-[main readinput]: end of start
-	[main readinput]: a8a6
-[main readinput]: before
-[board makeMove]: a8a6
-	[makeMove first]: 18
-	[makeMove second]: 0
-	[makeMove res first]: 56
-	[makeMove res second]: 40
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: h6g7
-[main readinput]: end of start
-	[main readinput]: h6g7
-[main readinput]: before
-[board makeMove]: h6g7
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 47
-	[makeMove res second]: 54
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: a6c6
-[main readinput]: end of start
-	[main readinput]: a6c6
-[main readinput]: before
-[board makeMove]: a6c6
-	[makeMove first]: 18
-	[makeMove second]: 0
-	[makeMove res first]: 40
-	[makeMove res second]: 42
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: g7h6
-[main readinput]: end of start
-	[main readinput]: g7h6
-[main readinput]: before
-[board makeMove]: g7h6
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 54
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c6c5
-[main readinput]: end of start
-	[main readinput]: c6c5
-[main readinput]: before
-[board makeMove]: c6c5
-	[makeMove first]: 18
-	[makeMove second]: 0
-	[makeMove res first]: 42
-	[makeMove res second]: 34
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: h6g7
-[main readinput]: end of start
-	[main readinput]: h6g7
-[main readinput]: before
-[board makeMove]: h6g7
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 47
-	[makeMove res second]: 54
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: c5d5
-[main readinput]: end of start
-	[main readinput]: c5d5
-[main readinput]: before
-[board makeMove]: c5d5
-	[makeMove first]: 18
-	[makeMove second]: 11
-	[makeMove res first]: 34
-	[makeMove res second]: 35
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: g7h6
-[main readinput]: end of start
-	[main readinput]: g7h6
-[main readinput]: before
-[board makeMove]: g7h6
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 54
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d5d3
-[main readinput]: end of start
-	[main readinput]: d5d3
-[main readinput]: before
-[board makeMove]: d5d3
-	[makeMove first]: 18
-	[makeMove second]: 9
-	[makeMove res first]: 35
-	[makeMove res second]: 19
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: h6g7
-[main readinput]: end of start
-	[main readinput]: h6g7
-[main readinput]: before
-[board makeMove]: h6g7
-	[makeMove first]: 12
-	[makeMove second]: 0
-	[makeMove res first]: 47
-	[makeMove res second]: 54
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d3d4
-[main readinput]: end of start
-	[main readinput]: d3d4
-[main readinput]: before
-[board makeMove]: d3d4
-	[makeMove first]: 18
-	[makeMove second]: 0
-	[makeMove res first]: 19
-	[makeMove res second]: 27
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: d2h6
-[main readinput]: end of start
-	[main readinput]: d2h6
-[main readinput]: before
-[board makeMove]: d2h6
-	[makeMove first]: 13
-	[makeMove second]: 0
-	[makeMove res first]: 11
-	[makeMove res second]: 47
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: f6f5
-[main readinput]: end of start
-	[main readinput]: f6f5
-[main readinput]: before
-[board makeMove]: f6f5
-	[makeMove first]: 17
-	[makeMove second]: 0
-	[makeMove res first]: 45
-	[makeMove res second]: 37
-[main readinput]: mid
-[think]: start
-[think]: end
-[main readinput]: end
-[main]: start
-[main]: input: g7d4
-[main readinput]: end of start
-	[main readinput]: g7d4
-[main readinput]: before
-[board makeMove]: g7d4
-	[makeMove first]: 12
+[board makeMove]: c2c3
+	[makeMove first]: 10
 	[makeMove second]: 18
-	[makeMove res first]: 54
-	[makeMove res second]: 27
+	[makeMove rook]: 1
 [main readinput]: mid
 [think]: start
+	[generate King]: 0
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB -- bR |
+7 | bP bP bP bP bP bP bP bP |
+6 | -- -- -- -- -- -- -- bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- -- wP wP -- -- -- -- |
+2 | wP wP -- -- wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[board makeMove]: g7g6
+	[makeMove first]: 54
+	[makeMove second]: 46
+	[makeMove rook]: 1
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB -- bR |
+7 | bP bP bP bP bP bP -- bP |
+6 | -- -- -- -- -- -- bP bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- -- wP wP -- -- -- -- |
+2 | wP wP -- -- wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
 [think]: end
 [main readinput]: end
 [main]: start
-[main]: input: c4b4
+[main]: input: time 29999
 [main readinput]: end of start
-	[main readinput]: c4b4
+[main]: start
+[main]: input: otim 29890
+[main readinput]: end of start
+[main]: start
+[main]: input: b2b3
+[main readinput]: end of start
+	[main readinput]: b2b3
 [main readinput]: before
-[board makeMove]: c4b4
-	[makeMove first]: 21
-	[makeMove second]: 0
-	[makeMove res first]: 26
-	[makeMove res second]: 25
+[board makeMove]: b2b3
+	[makeMove first]: 9
+	[makeMove second]: 17
+	[makeMove rook]: 1
 [main readinput]: mid
 [think]: start
+	[generate King]: 0
+
+  |-------------------------|
+8 | bR bN bB bQ bK bB -- bR |
+7 | bP bP bP bP bP bP -- bP |
+6 | -- -- -- -- -- -- bP bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- wP wP wP -- -- -- -- |
+2 | wP -- -- -- wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[board makeMove]: f8g7
+	[makeMove first]: 61
+	[makeMove second]: 54
+	[makeMove rook]: 1
+
+  |-------------------------|
+8 | bR bN bB bQ bK -- -- bR |
+7 | bP bP bP bP bP bP bB bP |
+6 | -- -- -- -- -- -- bP bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | -- wP wP wP -- -- -- -- |
+2 | wP -- -- -- wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
 [think]: end
 [main readinput]: end
 [main]: start
-[main]: input: e1d1
+[main]: input: time 29999
 [main readinput]: end of start
-	[main readinput]: e1d1
+[main]: start
+[main]: input: otim 29830
+[main readinput]: end of start
+[main]: start
+[main]: input: a2a3
+[main readinput]: end of start
+	[main readinput]: a2a3
 [main readinput]: before
-[board makeMove]: e1d1
-	[makeMove first]: 14
-	[makeMove second]: 0
-	[makeMove res first]: 4
-	[makeMove res second]: 3
+[board makeMove]: a2a3
+	[makeMove first]: 8
+	[makeMove second]: 16
+	[makeMove rook]: 1
 [main readinput]: mid
 [think]: start
+	[generate King]: 2
+
+  |-------------------------|
+8 | bR bN bB bQ bK -- -- bR |
+7 | bP bP bP bP bP bP bB bP |
+6 | -- -- -- -- -- -- bP bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | wP wP wP wP -- -- -- -- |
+2 | -- -- -- -- wP wP wP wP |
+1 | wR wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
+[board makeMove]: a1a1
+	[makeMove first]: 0
+	[makeMove second]: 0
+	[makeMove rook]: 1
+
+  |-------------------------|
+8 | bR bN bB bQ bK -- -- bR |
+7 | bP bP bP bP bP bP bB bP |
+6 | -- -- -- -- -- -- bP bN |
+5 | -- -- -- -- -- -- -- -- |
+4 | -- -- -- -- -- -- -- -- |
+3 | wP wP wP wP -- -- -- -- |
+2 | -- -- -- -- wP wP wP wP |
+1 | -- wN wB wQ wK wB wN wR |
+  |-------------------------|
+     a  b  c  d  e  f  g  h
+
 [think]: end
 [main readinput]: end
-[main]: start
-[main]: input: new
-[main readinput]: end of start
-[main]: start
-[main]: input: random
-[main readinput]: end of start
-[main]: start
-[main]: input: level 40 5 0
-[main readinput]: end of start
-[main]: start
-[main]: input: post
-[main readinput]: end of start
-[main]: start
-[main]: input: hard
-[main readinput]: end of start
 [main]: start

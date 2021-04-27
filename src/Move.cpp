@@ -59,7 +59,7 @@ bool emptyPath(int start, int end) {
     for (int i = start; i <= end; ++i)
         if (board::squares[i] != 0)
             return false;
-    return true
+    return true;
 }
 
 void addMove(std::vector<int>& result, int pos, int shift, int botColor) {
