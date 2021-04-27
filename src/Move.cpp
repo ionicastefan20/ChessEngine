@@ -7,13 +7,13 @@ extern bool board::isPlaying;
 extern int board::kingPos;
 
 namespace move {
-    int leftWhiteRook = -1;
-    int rightWhiteRook = -1;
-    int leftBlackRook = -1;
-    int rightBlackRook = -1;
-    int whiteKing = -1;
-    int blackKing = -1;
-    int enPassantMove = -1;
+    int leftWhiteRook = 1;
+    int rightWhiteRook = 1;
+    int leftBlackRook = 1;
+    int rightBlackRook = 1;
+    int whiteKing = 1;
+    int blackKing = 1;
+    int enPassantMove = 1;
     std::unordered_map<std::string, int> directions;
     std::vector<std::unordered_map<std::string, int>> numUntilEdge;
     std::vector<bool> squaresAttacked;
@@ -52,6 +52,14 @@ void move::initDistancesAndDirections() {
 
             move::numUntilEdge.push_back(distances);
         }
+}
+
+// START < END !!!!
+bool emptyPath(int start, int end) {
+    for (int i = start; i <= end; ++i)
+        if (board::squares[i] != 0)
+            return false;
+    return true
 }
 
 void addMove(std::vector<int>& result, int pos, int shift, int botColor) {
@@ -176,6 +184,7 @@ std::vector<int> generateKnightMoves(int pos, int botColor) {
     return result;
 }
 
+
 std::vector<int> generateKingMoves(int pos, int botColor) {
     std::vector<int> result;
 
@@ -188,6 +197,19 @@ std::vector<int> generateKingMoves(int pos, int botColor) {
             continue;
 
         result.push_back(new_pos);
+    }
+
+    // castle
+    if (botColor == piece::WHITE) { // white
+        if (move::whiteKing && move::leftWhiteRook && emptyPath(1, 3)) // left
+            result.push_back(pos - 2);
+        if (move::whiteKing && move::rightWhiteRook && emptyPath(5, 6)) // right
+            result.push_back(pos + 2);
+    } else { // black
+        if (move::blackKing && move::leftBlackRook && emptyPath(57, 59)) // left
+            result.push_back(pos - 2);
+        if (move::blackKing && move::rightBlackRook && emptyPath(61, 62)) // right
+            result.push_back(pos + 2);
     }
 
     return result;

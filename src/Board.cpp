@@ -5,6 +5,12 @@
 #include "Logger.h"
 
 extern int move::enPassantMove;
+extern int move::leftWhiteRook;
+extern int move::rightWhiteRook;
+extern int move::leftBlackRook;
+extern int move::rightBlackRook;
+extern int move::whiteKing;
+extern int move::blackKing;
 
 namespace board {
     int colorOnMove = piece::WHITE;
@@ -97,6 +103,27 @@ void board::makeMove(std::string move) {
         }
     }
 
+    // castle update
+    if (board::squares[result.first] & 7 == piece::KING) {
+        if (board::squares[result.first] & piece::WHITE)
+            move::whiteKing = 0;
+        else
+            move::blackKing = 0;
+    }
+    if (board::squares[result.first] & 7 == piece::ROOK) {
+        if (board::squares[result.first] & piece::WHITE) {
+            if (result.first == 0)
+                move::leftWhiteRook = 0;
+            else if (result.first == 7)
+                move::rightWhiteRook = 0;
+        }
+        else {
+            if (result.first == 56)
+                move::leftBlackRook = 0;
+            else if (result.first == 63)
+                move::rightBlackRook = 0;
+        }
+    }
 
     // apply en passant
     logger::log("makeMove res first", std::to_string(result.first), 1);
