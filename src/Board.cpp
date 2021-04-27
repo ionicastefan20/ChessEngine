@@ -81,7 +81,11 @@ void board::makeMove(std::string move) {
 
     // en passant update
     move::enPassantMove = -1;
-    if ((colorOnMove == botColor) && (board::squares[result.first] & 7 == piece::PAWN)) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+    logger::log("makeMove first", std::to_string(board::squares[result.first]), 1);
+    logger::log("makeMove second", std::to_string(board::squares[result.second]), 1);
+    // logger::log("makeMove ce pzm", std::to_string((board::squares[result.first] & 7) == piece::PAWN), 1);
+    if ((colorOnMove == botColor) && ((board::squares[result.first] & 7) == piece::PAWN)) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+        logger::log("makeMove", "yes i am pawn", 1);
         if (botColor & piece::WHITE) {
             if ((result.first >= 48 && result.first <= 55) &&
                     (result.second - result.first == -16))
@@ -93,8 +97,20 @@ void board::makeMove(std::string move) {
         }
     }
 
+    // apply en passant
+    logger::log("makeMove res first", std::to_string(result.first), 1);
+    logger::log("makeMove res second", std::to_string(result.second), 1);
+    if (((board::squares[result.first] & 7) == piece::PAWN) &&
+            ((result.second - result.first) % 2 != 0) && (board::squares[result.second] == 0)) {
+        if (board::squares[result.first] & piece::WHITE)
+            board::squares[result.second - 8] = 0;
+        else
+            board::squares[result.second + 8] = 0;
+    }
+
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
+
 
 
     if (move.size() == 5) {
