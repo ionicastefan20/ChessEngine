@@ -39,8 +39,9 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 
 static int contor = 0;
 static std::vector<std::pair<int, int>> first_moves = {
-    {49, 33},
-    {33, 25}
+    {62, 47},
+    {54, 46},
+    {61, 54},
 };
 
 // std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
@@ -53,22 +54,14 @@ static std::vector<std::pair<int, int>> first_moves = {
 //     // for the first one pick a random future position and make the move.
 //     std::vector<int> nonZeroMoves; // keeps starting position
 
-
 //     std::pair<int, int> move;
-//     if (contor < 2) {
+//     logger::log("generate King", std::to_string(move::moves[60].size()), 1);
+//     if (contor < 3) {
 //         move = first_moves[contor++];
 //     } else {
-//         for (auto entry : move::moves) {
-//             if (entry.first == 25)
-//                 nonZeroMoves.push_back(entry.first);
-//         }
-
-//         int randomPiece = std::rand() % nonZeroMoves.size();
-//         int randomMove = std::rand() % move::moves[nonZeroMoves[randomPiece]].size();
-//         logger::log("generate -> moves no", std::to_string(move::moves[nonZeroMoves[randomPiece]].size()), 1);
-//         logger::log("generate -> enPassant", std::to_string(move::enPassantMove), 1);
-//         move = std::make_pair(nonZeroMoves[randomPiece],
-//                             move::moves[nonZeroMoves[randomPiece]][randomMove]);
+//         int randomMove = std::rand() % move::moves[60].size();
+//         std::pair<int, int> move = std::make_pair(60,
+//                             move::moves[60][randomMove]);
 //     }
 //     std::string padding = checkForPromotionAndRandom(move);
 
