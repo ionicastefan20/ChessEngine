@@ -147,12 +147,14 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
             addMove(result, pos, -7, botColor);
 
         // en passant
-        if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1))
+        if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1)) {
             enPassantGod = true;
             addMove(result, pos, -7, botColor);
-        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1))
+        }
+        if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1)) {
             enPassantGod = true;
             addMove(result, pos, -9, botColor);
+        }
     }
 
     return result;
@@ -394,18 +396,6 @@ int removePositionWithCheck(int i) {
             move::squaresAttacked = squaresAttackedCopy;
             for (int j = 0; j < 64; j++)
                 board::squares[j] = copyBoardState[j];
-
-            // if (enPassantGod) {
-            //     nonCheckMoves.clear();
-            //     nonCheckMoves.push_back(move::moves[i][k]);
-            //     std::cout << "[milsugio mark] da" << std::endl;
-            //     for (auto& p : move::moves)
-            //         p.second.clear();
-            //     for (auto& p : move::moves)
-            //         std::cout << "[milsugio mark]" << p.second.size() << std::endl;
-            //     res = 2;
-            //     break;
-            // }
 
             if (canEnPassant == 1) {
                 break;
