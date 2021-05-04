@@ -169,8 +169,6 @@ void board::makeMove(std::string move) {
     squares[result.second] = squares[result.first];
     squares[result.first] = 0;
 
-
-
     if (move.size() == 5) {
         if (move[4] == 'q')
             squares[result.second] = (piece::QUEEN | getOppositeBotColor(colorOnMove));

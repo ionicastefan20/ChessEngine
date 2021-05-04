@@ -48,6 +48,7 @@ class ReadInput {
         if (board::isPlaying) {
             std::pair<std::string, std::pair<int, int>> move =
                                                 moveGenerator::generateMove();
+            std::cout << "[move]: " << move.second.first << " " << move.second.second << std::endl;
 
             if (move.second.first == -1 && move.second.second == -1)
                 std::cout << "resign" << std::endl;
