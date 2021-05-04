@@ -17,7 +17,7 @@
   - [Responsabilities](#responsabilities)
   - [Inspiration Sources](#inspiration-sources)
   - [Examples of running](#examples-of-running)
-  
+
 <br>
 
 ## Compiling Instructions
@@ -42,8 +42,8 @@ set to 1 simultaneously.
 
 Encoding:
 Name | NONE | PAWN | ROOK | KNIGHT | BISHOP | QUEEN | KING
-:---:|:----:|:----:|:----:|:------:|:------:|:-----:|:----: 
-<b>Encoding</b> | 0 | 1 | 2 | 3 | 4 | 5 | 6 
+:---:|:----:|:----:|:----:|:------:|:------:|:-----:|:----:
+<b>Encoding</b> | 0 | 1 | 2 | 3 | 4 | 5 | 6
 
 <br>
 Examples (the color of the piece = <span
@@ -97,7 +97,7 @@ you would have to add 8 to the current position).
 #### initDistancesAndDirections() method
 
 Method "initDistancesAndDirections" does exactly that: it initializes the
-available directions for a piece and a distance for each one of them. 
+available directions for a piece and a distance for each one of them.
 
 #### getFuturePostForMove() method
 
@@ -147,6 +147,12 @@ to go to the next pawn or resign if there is no other pawn left to move.
 <strong> generatePawnMove </strong> Calculates the next positions for the next
 possible moves, prioritizing moving the pawn 2 blocks forward, then capturing
 to the right, then to the left, then finally moving it only 1 piece forward.
+
+<br>
+
+### Logger Class
+
+Ignore that.
 
 <!-- <br> -->
 
