@@ -346,17 +346,13 @@ int removePositionWithCheck(int i) {
         int isCastlingMove = checkForCastling(nonCheckMoves, i, k, copyBoardState);
         if (isCastlingMove == 1) {
             if (res == 1) {
-                nonCheckMoves.push_back(nonCheckMovesCastle[0]);
-                for (auto& p : move::moves) {
-                    p.second.clear();
-                }
+                nonCheckMovesCastle.push_back(nonCheckMoves[0]);
                 break;
             } else {
                 nonCheckMovesCastle.push_back(nonCheckMoves[0]);
             }
 
             res = 1;
-            continue; // if castling found exit and dont count any other positions
         }
 
         if (isCastlingMove == 0) {
@@ -408,7 +404,15 @@ int removePositionWithCheck(int i) {
         }
     }
 
-    move::moves[i] = nonCheckMoves;
+    if (nonCheckMovesCastle.size() != 0) {
+        for (auto& p : move::moves) {
+            p.second.clear();
+        }
+        move::moves[i] = nonCheckMovesCastle;
+    } else {
+        move::moves[i] = nonCheckMoves;
+    }
+    
     return res;
 }
 
