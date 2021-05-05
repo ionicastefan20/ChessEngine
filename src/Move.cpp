@@ -371,7 +371,9 @@ int removePositionWithCheck(int i) {
 
             // check for enpassant
             int canEnPassant = -1;
-            if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (board::squares[move::moves[i][k]] == 0)) {
+            if (((board::squares[i] & 7) == piece::PAWN) &&
+                    ((move::moves[i][k] - i) % 8 != 0) &&
+                    (board::squares[move::moves[i][k]] == 0)) {
                 canEnPassant = 1;
                 if (board::squares[i] & piece::WHITE)
                     board::squares[move::moves[i][k] - 8] = 0;
