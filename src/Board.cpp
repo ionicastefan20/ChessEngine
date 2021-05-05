@@ -92,9 +92,19 @@ void board::makeMove(std::string move) {
 
     std::pair<int, int> result = decodeMove(move); //b2b4
 
+    if (result.first == board::whiteKingPos)
+        board::whiteKingPos = result.second;
+    if (result.first == board::blackKingPos)
+        board::blackKingPos = result.second;
+    if (board::colorOnMove == piece::BLACK)
+        board::kingPos = board::blackKingPos;
+    else
+        board::kingPos = board::whiteKingPos;
+
     // en passant update
     move::enPassantMove = -1;
-    if ((board::squares[result.first] & 7) == piece::PAWN) { // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
+    if ((board::squares[result.first] & 7) == piece::PAWN) {
+        // colorOnMove keeps the future color, so the "future" color of the enemy is now the bot color
         if (colorOnMove & piece::WHITE) {
             if ((result.first >= 48 && result.first <= 55) &&
                     (result.second - result.first == -16))

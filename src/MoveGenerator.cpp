@@ -66,6 +66,7 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
                           move::moves[nonZeroMoves[randomPiece]][randomMove]);
     std::string padding = checkForPromotionAndRandom(move);
 
+
     std::pair<std::string, std::pair<int, int>> aux(padding, move);
     return aux;
 }

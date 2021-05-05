@@ -420,7 +420,6 @@ int removePositionWithCheck(int i) {
 
 void move::generate() {
     std::vector<int> aux;
-
     moves.clear();
 
     for (int i = 0; i < 64; ++i) {
@@ -456,6 +455,7 @@ void move::generate() {
                 break;
         }
     }
+
 }
 
 void move::calculateSquaresAttacked() {

@@ -11,6 +11,7 @@ namespace logger {
     void log(std::string tag, std::string msg, int indent);
     void logBoard();
     void close();
+    void logBoard2();
 }
 
 #endif

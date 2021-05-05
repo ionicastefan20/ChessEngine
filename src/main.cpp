@@ -52,15 +52,6 @@ class ReadInput {
             if (move.second.first == -1 && move.second.second == -1)
                 std::cout << "resign" << std::endl;
             else {
-                if (move.second.first == board::whiteKingPos)
-                    board::whiteKingPos = move.second.second;
-                if (move.second.first == board::blackKingPos)
-                    board::blackKingPos = move.second.second;
-
-                if (board::colorOnMove == piece::BLACK)
-                    board::kingPos = board::blackKingPos;
-                else
-                    board::kingPos = board::whiteKingPos;
 
                 std::string move_str = board::encodeMove(move.second);
                 std::cout << "move " << move_str + move.first << std::endl;
