@@ -6,13 +6,16 @@
   - [Table of Contents](#table-of-contents)
   - [Compiling Instructions](#compiling-instructions)
   - [Project Structure](#project-structure)
-    - [Piece Class](#piece-class)
-    - [Board Class](#board-class)
-      - [initBoard() method](#initboard-method)
-    - [Move Class](#move-class)
-      - [initDistancesAndDirections() method](#initdistancesanddirections-method)
-      - [getFuturePostForMove() method](#getfuturepostformove-method)
-    - [GeneratePawnMoves Class](#generatepawnmoves-class)
+    - [Piece Namespace](#piece-namespace)
+    - [Board Namespace](#board-namespace)
+      - [initBoard() function](#initboard-function)
+      - [makeMove() function](#makemove-function)
+    - [Move Namespace](#move-namespace)
+      - [initDistancesAndDirections() function](#initdistancesanddirections-function)
+      - [generate() function](#generate-function)
+    - [MoveGenerator Namespace](#movegenerator-namespace)
+      - [checkForPromotionAndRandom() function](#checkforpromotionandrandom-function)
+      - [generateMove() function](#generatemove-function)
   - [Algorithmic approach](#algorithmic-approach)
   - [Responsabilities](#responsabilities)
   - [Inspiration Sources](#inspiration-sources)
@@ -26,15 +29,21 @@
     make build
     make run
 
+    make %.o
+    make run_ubuntu
+    make debug_ubuntu
+    make run_wsl
+    make debug_wsl
+
 <br>
 
 ## Project Structure
 
 <br>
 
-### Piece Class
+### Piece Namespace
 
-The Piece class contains the constants used for encoding each existing chess
+The Piece Namespace contains the constants used for encoding each existing chess
 piece. A piece is represented on 5 bits and the type of the piece can be found
 by checking the last 3 bits of the encoding. A piece is white if the 4th bit is
 set to 1 or black if the 5th bit is set to 1. The 4th and the 5th bits CANNOT be
@@ -63,94 +72,122 @@ Black Knight | <span style="color:green">10</span> | <span style="color:red">011
 
 <br>
 
-### Board Class
+### Board Namespace
 
-Board Class is used to represent the chess table. It is formed from 63 squares.
+Board Namespace is used to represent the chess table. It is formed from 63 squares.
 For their representation, we use a static int pointer named “squares”.
 “colorOnMove” variable is used to represent the color of the player that has to
 move next. “botColor” variable represents the color of the bot (black/white).
+"kingPos", "blackKingPos", "whiteKingPos" are variables used to store each king's
+position.
 
-#### initBoard() method
+#### initBoard() Function
 
-The “initBoard()” method initializes the pieces on board, putting every piece on
+The “initBoard()” function initializes the pieces on board, putting every piece on
 its corresponding square (for example, the white queen is on the 5th square and
 the black queen on 60th square). We use “getOpositeBotColor” to make a bitwise
 xor with a mask of 11000, to change the current color to the oposite one. The
-methond “encodeMove” takes a pair of integers that represent a square’s location
+function “encodeMove” takes a pair of integers that represent a square’s location
 and returns a string that represents a move on the table (example”a3a4”). As an
-opposite to it, the method "decodeMove" recieves a move as a string that will be
+opposite to it, the function "decodeMove" recieves a move as a string that will be
 decoded as an index to the corresponding square in the squares array. The
 "makeMove" method takes a string as an argument (it represents a move) and makes
 that move on the table. The "colorOnMove" variable will get the color of the
 player that has to move. The move from parameter is decoded as a result and it
 directly "moves" the piece.
 
+#### makeMove() Function
+
+This function is used to make a move and update the en passat move or the castle
+move. First, the opposite bot color is set and the move is decoded. Then, the 
+conditions for the en passant move are verified, in which case that move is applied.
+After that, the conditions for castling are verified(the king and the rook haven't
+been moved, the king is not in check). If these conditions are met, the castle is 
+applied(either on the right side, or the left side). To prioritize the castle, the
+"moves" array is emptied, and the only move left is the one that tells the bot to do
+the castling.
+
 <br>
 
-### Move Class
+### Move Namespace
 
-Move Class represents a move on the table. It has an unoredered map that
+Move Namespace represents a move on the table. It has an unoredered map that
 represents directions a piece can make. It increments/decrements the number of
 squares for a specified direction (example: to move one square up on the board,
 you would have to add 8 to the current position).
 
-#### initDistancesAndDirections() method
+#### initDistancesAndDirections() function
 
-Method "initDistancesAndDirections" does exactly that: it initializes the
+Function "initDistancesAndDirections" does exactly that: it initializes the
 available directions for a piece and a distance for each one of them.
 
-#### getFuturePostForMove() method
+#### generatePawnCheckMoves() function
 
-Method "getFuturePostForMove" returns the future position or a pair of <-1, -1>
-coordinates if the move is invalid. A move can be invalid from 3 reasons: it is
-out of the board, a piece of the same color is already in that place or moving
-it puts the king in check. This method cannot be applied to the Knight, as it
-moves in a different pattern and will have a dedicated method.
-This class deals exactly with the specific rules for moving a pawn with separate
-cases for white and black pawns.
+This function generates the attack moves of a pawn.
 
-<br>
+#### generateKnightMoves() function
 
-### GeneratePawnMoves Class
+Function "generateKnightMoves" checks where a knight piece can move and if it is
+a valid position, it is added to the "result" vector using the "addMove" function.
 
-GeneratePawnMoves Class is used to do exactly what its name says: it generates
-possible moves for the pawns.
+#### generateKingMoves() function
 
-The <strong> "getBlackLastPost" </strong> and <strong> "getWhiteLastPost"
-</strong> gets the last position of the pawn, depending on its color.
+Function "generateKingMoves" generates moves for a king piece. It also checks if a
+castle can be made (the king and rook pieces haven't been moved and the there are no
+pieces between them -> "emptyPath" function is used for the last part), in which case
+the castle move is added to the result.
 
-To set the last position, we use the methods <strong> "setBlackLastPos"
-</strong> and <strong>"setWhiteLastPos" </strong>, receiving a value as a
-parameter.
+#### generateBishopMoves() function
 
-The methods <strong>"getLastPosForCurrentColor" </strong> and
-<strong>"setLastPosForCurrentColor"</strong> checks what color is the pawn and
-gets/sets its last position.
+Function "generateBishopMoves" checks where a bishop can be moved, or the longest distance
+and adds the moves to the "result" vector.
 
-The methods <strong>"getBlackCurrPawn"</strong> and
-<strong>"getWhiteCurrPawn"</strong> return the value for the current pawn, black
-or white.
+#### generateRookMoves() function
 
-Complementing them, we have the methods <strong> "setBlackCurrPawn" </strong>
-and <strong>"setWhiteCurrPawn" </strong> that act as setters for the current
-pawn, black or white.
+This function has the same logic as "generateBishopMoves". It generates moves for a rook,
+but the longest distance is calculated on a horizontal or vertical path.
 
-<strong> "makeMoveUpdatePos" </strong> method returns the move that a pawn makes.
-At the end, we update the last position with the method
-"setLastPosForCurrentColor". We also check if the pawn is on the last row for
-black or for white. In this case, it turns into a queen with the same color.
+#### checkForCastling() function
 
-<strong> moveForNextPawn </strong> Generate the move for the next pawn. This
-method is called only when the previous pawn cannot be further moved and we need
-to go to the next pawn or resign if there is no other pawn left to move.
+Function "checkForCastling" returns 1 if the move is actually a castling(it fulfills all 
+conditions for a castling) or 0 otherwise. First, it verifies if the king is in check on
+his position. Then it checks if the king has moved from its initial position. Then the 
+function verifies if the king is in check after moving 2 positions.
+If all these conditions are fulfilled, the bot can make a castle.
 
-<strong> generatePawnMove </strong> Calculates the next positions for the next
-possible moves, prioritizing moving the pawn 2 blocks forward, then capturing
-to the right, then to the left, then finally moving it only 1 piece forward.
+#### removePositionWithCheck() function
+
+Function "removePositionWithCheck" simulates making the move on the board, checks if it
+generates a situation where the king is in check. In that case, it removes the move from
+the list of possible moves.
+
+#### generate() function
+
+Function "generate" generates random moves for a piece on the table. Depending on that
+piece, it calls one of the above function(i.e. generateKinghtMoves).
 
 <br>
 
-### Logger Class
+### MoveGenerator Namespace
+
+This namespace does what its name says: it acts as a generator for random moves.
+
+#### CheckForPromotionAndRandom() function
+
+Function "CheckForPromotionAndRandom" returns the padding for a promotion or an
+empty string for a non-promotion. (a promotion means that if a pawn gets on the
+final row on the table/ the first row of the opposite color, it is changed into
+a better piece, randomly chosen).
+
+#### generateMove() function
+
+Function "generateMove" iterates through pieces and for the first piece that has
+a valid move, it picks a random future position and makes that move. All the moves
+are generated randomly.
+
+<br>
+
+### Logger Namespace
 
 Ignore that.
 
@@ -162,11 +199,23 @@ Ignore that.
 
 ## Algorithmic approach
 
+--- FIRST STAGE ---
+
 As for the algorithm used for the first stage, the program iterates through all pawns and, with each pawn, it tries to reach the end of the board so it can transform it into a queen. It priorities getting enemy pieces over moving forward.
+
+--- SECOND STAGE ---
+
+In this stage, the moves are randomly generated. However, the bot eliminates the moves that may put the king in check and tries to prevent the king from
+reaching that stage. It also makes the castling a priority, which means that as soon as a castling move is available, it will be chosen. Also, the pawns
+can make the en passant move. A pawn that reached the final row, can be promoted to a better piece, randomly chosen.
 
 ## Responsabilities
 
-For the first stage, we all worked together on developing the structure of the project and and the logic behind it.
+For the first stage, we all worked together on developing the structure of the project and the logic behind it.
+
+For the second stage, Mihai worked on the attack simulation part and the pawn promotions. 
+Stefan worked on the generated moves for every piece and en-passant.
+Vlad worked on the castling and the random-generated move.
 
 ## Inspiration Sources
 
