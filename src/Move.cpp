@@ -21,8 +21,6 @@ namespace move {
     std::unordered_map<int, std::vector<int>> moves;
 }
 
-bool enPassantGod = false;
-
 void move::initDistancesAndDirections() {
     move::directions = {
         {"left", -1},
@@ -125,11 +123,9 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
         // en passant
         if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::BLACK) && (move::enPassantMove == pos + 1)) {
-            enPassantGod = true;
             addMove(result, pos, 9, botColor);
         }
         if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::BLACK) && (move::enPassantMove == pos - 1)) {
-            enPassantGod = true;
             addMove(result, pos, 7, botColor);
         }
     } else {
@@ -148,11 +144,9 @@ std::vector<int> generatePawnMoves(int pos, int botColor) {
 
         // en passant
         if ((pos % 8 != 7) && (board::squares[pos + 1] & piece::WHITE) && (move::enPassantMove == pos + 1)) {
-            enPassantGod = true;
             addMove(result, pos, -7, botColor);
         }
         if ((pos % 8 != 0) && (board::squares[pos - 1] & piece::WHITE) && (move::enPassantMove == pos - 1)) {
-            enPassantGod = true;
             addMove(result, pos, -9, botColor);
         }
     }
@@ -208,15 +202,21 @@ std::vector<int> generateKingMoves(int pos, int botColor) {
 
     // castle
     if (botColor == piece::WHITE) { // white
-        if (move::whiteKing && move::leftWhiteRook && emptyPath(1, 3)) // left
+        if (move::whiteKing && move::leftWhiteRook && emptyPath(1, 3)) { // left
             result.push_back(pos - 2);
-        if (move::whiteKing && move::rightWhiteRook && emptyPath(5, 6)) // right
+        }
+        if (move::whiteKing && move::rightWhiteRook && emptyPath(5, 6)) { // right
             result.push_back(pos + 2);
+        }
     } else { // black
-        if (move::blackKing && move::leftBlackRook && emptyPath(57, 59)) // left
+        if (move::blackKing && move::leftBlackRook && emptyPath(57, 59)) { // left
             result.push_back(pos - 2);
-        if (move::blackKing && move::rightBlackRook && emptyPath(61, 62)) // right
+            std::cout << "da1" << std::endl;
+        }
+        if (move::blackKing && move::rightBlackRook && emptyPath(61, 62)) { // right
             result.push_back(pos + 2);
+            std::cout << "da2" << std::endl;
+        }
     }
 
     return result;
@@ -333,6 +333,7 @@ int checkForCastling(std::vector<int>& nonCheckMoves, int i, int k, std::vector<
 int removePositionWithCheck(int i) {
     std::vector<int> nonCheckMoves; // only the positions that do not
                                     // generate a check are kept here
+    std::vector<int> nonCheckMovesCastle;
     int res = 0;
 
     // artificially make the move on the board, check if it generates a
@@ -340,31 +341,38 @@ int removePositionWithCheck(int i) {
     // list of possible moves
     std::vector<int> copyBoardState(board::squares, board::squares + 64); //copy
         // iterate through moves
-    logger::logBoard();
     for (int k = 0; k < move::moves[i].size(); k++) {
         // check for castling
         int isCastlingMove = checkForCastling(nonCheckMoves, i, k, copyBoardState);
         if (isCastlingMove == 1) {
-            nonCheckMoves.push_back(move::moves[i][k]);
-            for (auto& p : move::moves)
-                p.second.clear();
+            if (res == 1) {
+                nonCheckMoves.push_back(nonCheckMovesCastle[0]);
+                for (auto& p : move::moves) {
+                    p.second.clear();
+                }
+                break;
+            } else {
+                nonCheckMovesCastle.push_back(nonCheckMoves[0]);
+            }
+
             res = 1;
-            break; // if castling found exit and dont count any other positions
+            continue; // if castling found exit and dont count any other positions
         }
 
         if (isCastlingMove == 0) {
+            if (res == 1) {
+                continue;
+            }
+
             // artifically make the move
             int kingPosCopy = board::kingPos; // make copy of the king pos
             if (board::squares[i] == (piece::KING | board::botColor))
                 board::kingPos = move::moves[i][k];
 
             // check for enpassant
-            std::cout << "[milsugio mark] before en passant: " << i  << " -> " << move::moves[i][k]
-                << " " << board::squares[move::moves[i][k]] << std::endl;
             int canEnPassant = -1;
             if (((board::squares[i] & 7) == piece::PAWN) && ((move::moves[i][k] - i) % 8 != 0) && (board::squares[move::moves[i][k]] == 0)) {
                 canEnPassant = 1;
-                std::cout << "[milsugio mark] da" << std::endl;
                 if (board::squares[i] & piece::WHITE)
                     board::squares[move::moves[i][k] - 8] = 0;
                 else
@@ -376,11 +384,8 @@ int removePositionWithCheck(int i) {
 
             if (canEnPassant == 1) {
                 nonCheckMoves.clear();
-                std::cout << "[milsugio mark] da" << std::endl;
                 for (auto& p : move::moves)
                     p.second.clear();
-                for (auto& p : move::moves)
-                    std::cout << "[milsugio mark]" << p.second.size() << std::endl;
                 res = 2;
             }
 
@@ -445,8 +450,6 @@ void move::generate() {
                 break;
         }
     }
-
-    enPassantGod = false;
 }
 
 void move::calculateSquaresAttacked() {

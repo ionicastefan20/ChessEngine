@@ -35,6 +35,15 @@ void board::initBoard() {
     kingPos = 60;
     blackKingPos = 60;
     whiteKingPos = 4;
+
+    move::leftWhiteRook = 1;
+    move::rightWhiteRook = 1;
+    move::leftBlackRook = 1;
+    move::rightBlackRook = 1;
+    move::whiteKing = 1;
+    move::blackKing = 1;
+    move::enPassantMove = -1;
+
     squares[0] = squares[7] = piece::WHITE | piece::ROOK;
     squares[1] = squares[6] = piece::WHITE | piece::KNIGHT;
     squares[2] = squares[5] = piece::WHITE | piece::BISHOP;

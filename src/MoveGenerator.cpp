@@ -15,7 +15,6 @@ extern std::unordered_map<int, std::vector<int>> move::moves;
 
 // returns padding for promotion or empty string for a non-promotion
 std::string checkForPromotionAndRandom(std::pair<int, int> move) {
-    std::cout << "[move1]: " << move.first << " " << move.second << std::endl;
     srand(time(NULL));
     std::string all_promotions[4] = {"q", "r", "n", "b"};
     int all_promotions_values[4] = {piece::QUEEN, piece::ROOK, piece::KNIGHT, piece::BISHOP};
@@ -23,7 +22,6 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
     int random_promotion_index = rand() % 4;
     std::string random_promotion = all_promotions[random_promotion_index];
 
-    std::cout << "[move2]: " << move.first << " " << move.second << std::endl;
     if (board::squares[move.first] == (piece::PAWN | piece::BLACK)) {
         // for black pawn check if its final move it's on the first row
         if (move.second <= 7 && move.second >= 0) {
@@ -40,49 +38,6 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 
     return "";
 }
-
-// static int contor = 0;
-// static int limit = 2;
-// static std::vector<std::pair<int, int>> first_moves = {
-//     {48,32},
-//     {32,24}
-// };
-
-
-// (BBC) big black castle
-// static int limit = 4;
-// static std::vector<std::pair<int, int>> first_moves = {
-//     {49,41},
-//     {58,49},
-//     {57,42},
-//     {51,43},
-//     {59,51}
-// };
-
-// std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-
-//     move::calculateSquaresAttacked();
-//     move::generate();
-//     srand(time(NULL));
-
-//     // iterate through pieces and for the first piece that has valid move,
-//     // for the first one pick a random future position and make the move.
-//     std::vector<int> nonZeroMoves; // keeps starting position
-
-//     std::pair<int, int> move;
-//     if (contor < limit) {
-//         move = first_moves[contor++];
-//     } else {
-//         std::cout << "[pawn moves]: " << move::moves[24].size() << std::endl;
-//         int randomMove = std::rand() % move::moves[24].size();
-//         move = std::make_pair(24, move::moves[24][randomMove]);
-//     }
-//     std::cout << "[pawn move]: " << move.first << " " << move.second << std::endl;
-//     std::string padding = checkForPromotionAndRandom(move);
-
-//     std::pair<std::string, std::pair<int, int>> aux(padding, move);
-//     return aux;
-// }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
 
