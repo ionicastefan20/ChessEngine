@@ -28,8 +28,7 @@
     make clean
     make build
     make run
-
-    make %.o
+    
     make run_ubuntu
     make debug_ubuntu
     make run_wsl
