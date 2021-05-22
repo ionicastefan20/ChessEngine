@@ -1,5 +1,9 @@
 #include "Evaluate.h"
 
+#define MAX_DEPTH 3
+
+int static_evals = 0;
+
 // for white
 extern const int evaluate::wKingTableMid[64];
 extern const int evaluate::wQueenTable[64];
@@ -16,7 +20,7 @@ extern const int evaluate::bBishopTable[64];
 extern const int evaluate::bPawnTable[64];
 
 namespace evaluate {
-    
+
     const int wKingTableMid[64] = {
         -30,-40,-40,-50,-50,-40,-40,-30,
         -30,-40,-40,-50,-50,-40,-40,-30,
@@ -202,3 +206,5 @@ double evaluate::static_eval(Node root) {
     double score = material_score(root->materials) + mobility_score(root);
     return score / 100;
 }
+
+

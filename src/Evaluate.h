@@ -43,6 +43,8 @@ namespace evaluate {
     extern const int bPawnTable[64];
 
     double static_eval(Node root);
+
+    int minimax_alpha_beta(Node& root, Node& node, int depth, bool state, int alpha, int beta);
 };
 
 #endif
