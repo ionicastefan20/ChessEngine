@@ -206,7 +206,7 @@ As for the algorithm used for the first stage, the program iterates through all 
 
 In this stage, the moves are randomly generated. However, the bot eliminates the moves that may put the king in check and tries to prevent the king from
 reaching that stage. It also makes the castling a priority, which means that as soon as a castling move is available, it will be chosen. Also, the pawns
-can make the en passant move. A pawn that reached the final row, can be promoted to a better piece, randomly chosen.
+can make the en passant move (which is also prioritized). A pawn that reached the final row, can be promoted to a better piece, randomly chosen.
 
 ## Responsabilities
 
