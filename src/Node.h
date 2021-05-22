@@ -11,23 +11,20 @@
 struct tNode{
     int board[64];
 
-    std::unordered_map<int, int> materials;
+    std::unordered_map<char, int> materials;
 
     int colorOnMove;
     int blackKingPos;
     int whiteKingPos;
-    std::string mv; // kill it later
 
     std::vector<tNode*> next;
 };
 typedef struct tNode* Node;
 
-bool same_side(bool side, char target);
+std::vector<std::string> prev_moves;
 
 bool is_repeat(Node& test);
-
 void tree_insert(Node& root, int src, int dest);
-
 void tree_delete(Node& root);
 
 #endif
