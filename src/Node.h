@@ -8,6 +8,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "Piece.h"
+
 struct tNode{
     int board[64];
 
