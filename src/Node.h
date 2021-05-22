@@ -2,31 +2,37 @@
 #define CHESSENGINE_NODE_H
 
 #include <string.h>
-
 #include <string>
-#include <unordered_map>
 #include <vector>
 #include <algorithm>
 
 #include "Piece.h"
+#include "Logger.h"
 
-struct tNode{
-    int board[64];
+namespace node {
+    struct tNode{
+        int board[64];
 
-    std::unordered_map<char, int> materials;
+        std::unordered_map<char, int> materials;
 
-    int colorOnMove;
-    int blackKingPos;
-    int whiteKingPos;
+        int colorOnMove;
+        int blackKingPos;
+        int whiteKingPos;
 
-    std::vector<tNode*> next;
-};
-typedef struct tNode* Node;
+        // move for which we have rechead this specific board state
+        int start; // start pos of move
+        int end; // end pos of move
 
-std::vector<std::string> prev_moves;
+        int evaluation_result;
 
-bool is_repeat(Node& test);
-void tree_insert(Node& root, int src, int dest);
-void tree_delete(Node& root);
+        std::vector<tNode*> next;
+    };
+    typedef struct tNode* Node;
 
+    extern std::vector<std::string> prev_moves;
+
+    bool is_repeat(node::Node& test);
+    node::Node tree_insert(node::Node& root, int src, int dest);
+    void tree_delete(node::Node& root);
+}
 #endif

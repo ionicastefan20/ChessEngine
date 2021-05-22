@@ -1,8 +1,4 @@
 #include "Board.h"
-#include <cstring>
-#include <fstream>
-#include "Move.h"
-#include "Logger.h"
 
 extern int move::enPassantMove;
 extern int move::leftWhiteRook;

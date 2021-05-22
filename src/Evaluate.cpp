@@ -2,8 +2,6 @@
 
 #define MAX_DEPTH 3
 
-int static_evals = 0;
-
 // for white
 extern const int evaluate::wKingTableMid[64];
 extern const int evaluate::wQueenTable[64];
@@ -167,7 +165,7 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
 
 
 
-static double mobility_score(Node root) {
+static double mobility_score(node::Node root) {
     double score = 0;
     for (int i = 0; i < 64; i++) {
         char c = piece::map[root->board[i]];
@@ -202,8 +200,10 @@ static double mobility_score(Node root) {
     }
 }
 
-double evaluate::static_eval(Node root) {
+double evaluate::static_eval(node::Node root) {
+    logger::logBoard(root->board);
     double score = material_score(root->materials) + mobility_score(root);
+    logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
 

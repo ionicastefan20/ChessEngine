@@ -1,6 +1,4 @@
 #include "Logger.h"
-#include "Move.h"
-#include "Board.h"
 
 extern int board::botColor;
 extern int board::squares[64];
@@ -22,7 +20,7 @@ void logger::log(std::string tag, std::string msg, int indent) {
     logger::logger << "[" << tag << "]: " << msg << std::endl;
 }
 
-void logger::logBoard() {
+void logger::logBoard(int squares[]) {
 
     logger::logger << std::endl << "  |";
     for (int i = 0; i < 25; ++i)
@@ -32,9 +30,9 @@ void logger::logBoard() {
     for (int i = 7; i >= 0; --i) {
         logger::logger << i+1 << " | ";
         for (int j = 0; j < 8; ++j) {
-            std::string color = (board::squares[i*8+j] & piece::WHITE) ? "w" : "b";
+            std::string color = (squares[i*8+j] & piece::WHITE) ? "w" : "b";
 
-            switch (board::squares[i*8+j] & 0x7) {
+            switch (squares[i*8+j] & 0x7) {
                 case piece::PAWN:
                     logger::logger << color + "P ";
                     break;

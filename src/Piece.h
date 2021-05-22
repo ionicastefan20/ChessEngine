@@ -1,6 +1,8 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
+#pragma once
+
 #include <unordered_map>
 
 namespace piece {
@@ -18,22 +20,7 @@ namespace piece {
         BLACK = 16
     };
 
-    std::unordered_map<char, int> map({
-        {QUEEN  | WHITE, 'Q'},
-        {QUEEN  | BLACK, 'q'},
-        {KING   | WHITE, 'K'},
-        {KING   | BLACK, 'k'},
-        {ROOK   | WHITE, 'R'},
-        {ROOK   | BLACK, 'r'},
-        {PAWN   | WHITE, 'P'},
-        {PAWN   | BLACK, 'p'},
-        {KNIGHT | WHITE, 'N'},
-        {KNIGHT | BLACK, 'n'},
-        {BISHOP | WHITE, 'B'},
-        {BISHOP | BLACK, 'b'},
-        {PAWN   | WHITE, 'P'},
-        {PAWN   | BLACK, 'p'}
-    });
+    extern std::unordered_map<char, int> map;
 
 };
 

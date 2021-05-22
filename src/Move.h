@@ -2,10 +2,9 @@
 #define CHESSENGINE_MOVE_H
 
 #include <unordered_map>
-#include <string>
+#include <iostream>
 #include <vector>
 #include "Board.h"
-#include "Piece.h"
 
 #define __min(a,b) (((a) < (b)) ? (a) : (b))
 

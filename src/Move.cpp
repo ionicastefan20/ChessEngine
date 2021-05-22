@@ -1,6 +1,4 @@
 #include "Move.h"
-#include "Logger.h"
-#include "iostream"
 
 extern int board::colorOnMove;
 extern int board::botColor;

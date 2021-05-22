@@ -3,6 +3,10 @@
 
 #include "Piece.h"
 #include <string>
+#include <cstring>
+#include <fstream>
+#include "Move.h"
+#include "Logger.h"
 
 namespace board {
 

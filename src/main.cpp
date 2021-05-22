@@ -110,6 +110,7 @@ public:
 };
 
 int main() {
+    logger::init();
     board::initBoard();
     move::initDistancesAndDirections();
 

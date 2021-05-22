@@ -1,7 +1,4 @@
 #include "MoveGenerator.h"
-#include "Logger.h"
-
-#include <iostream>
 
 extern int board::colorOnMove;
 extern int board::botColor;
@@ -74,7 +71,7 @@ BState make_copy() {
     copy->whiteKingPos = board::whiteKingPos;
     copy->blackKingPos = board::blackKingPos;
 
-    memcpy(copy->squares, board::squares, 64);
+    memcpy(copy->squares, board::squares, 64 * sizeof(int));
     
     return copy;
 }
@@ -94,68 +91,83 @@ void restore_copy(BState copy) {
     board::whiteKingPos = copy->whiteKingPos;
     board::blackKingPos = copy->blackKingPos;
 
-    memcpy( board::squares, copy->squares, 64);
+    memcpy( board::squares, copy->squares, 64 * sizeof(int));
 }
 
-Node populate_arb_one_level(Node& root) {
 
-    for (auto move : move::moves) {  // for every legal pair of moves (start -> end)
+void populate_arb_one_level(node::Node& root, int level) {
+    // logger::log("SIZE", std::to_string(root->next.size()), 1);
+    // logger::log("MDAAAP", "DA", 0);
+    if (level == MAX_DEPTH)
+        return;
+    
+    // make copy of moves
+    std::unordered_map<int, std::vector<int>> moves_copy;
+    for (auto move : move::moves) {
+        std::vector<int> next_moves_copy(move.second);
+        moves_copy[move.first] = next_moves_copy;
+    }
+
+    int i = 0;
+    for (auto move : moves_copy) {  // for every legal pair of moves (start -> end)
         int start = move.first;
         for (auto legal_move : move.second) {
             int end = legal_move;
-            tree_insert(root, start, end);
+
+            logger::log("i", std::to_string(i++), 4);
+            BState copy = make_copy();
+            board::makeMove(board::encodeMove(std::pair<int, int>(start, end)));
+            move::calculateSquaresAttacked();
+            move::generate();
+
+            node::Node child = tree_insert(root, start, end);
+            populate_arb_one_level(child, level + 1);
+
+
+            restore_copy(copy);
         }
+    }
+
+    // restore copy
+    move::moves.clear();
+    for (auto move_cpy : moves_copy) {
+        move::moves[move_cpy.first] = move_cpy.second;
     }
 }
 
-Node populate_arb() { 
-    Node root = new tNode;
-    Node root_to_return = root;
+node::Node populate_arb() { 
+    node::Node root = new node::tNode;
+    node::Node root_to_return = root;
     BState copy;
 
     init_materials(root->materials);
     root->colorOnMove = board::colorOnMove;
     root->blackKingPos = board::blackKingPos;
     root->whiteKingPos = board::whiteKingPos;
+    memcpy(root->board, board::squares, 64 * sizeof(int));
 
     copy = make_copy();
     move::calculateSquaresAttacked();
     move::generate();
-    populate_arb_one_level(root);
 
-    for (int i = 1; i < MAX_DEPTH; i++) {
-        BState temp_copy = make_copy();
-        for (auto child : root->next)
-            
+    populate_arb_one_level(root, 0);
+    restore_copy(copy);
 
-    }
+    return root;
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
+    logger::log("1", "1", 0);
+    node::Node minimax_arb = populate_arb();
 
-    // move::calculateSquaresAttacked();
-    // move::generate();
-    srand(time(NULL));
+    logger::log("2", "2", 0);
+    node::Node best_route;
+    
+    minimax_alpha_beta(minimax_arb, best_route, 0, 0, INT32_MIN, INT32_MAX);
+    logger::log("3", "3", 0);
 
-    // iterate through pieces and for the first piece that has valid move,
-    // for the first one pick a random future position and make the move.
-    std::vector<int> nonZeroMoves; // keeps starting position
-
-    for (auto entry : move::moves) {
-        if (entry.second.size() != 0)
-            nonZeroMoves.push_back(entry.first);
-    }
-
-    if (nonZeroMoves.size() == 0) {  // checkmate or stalemate
-        std::pair<int, int> resignMove(-1, -1);
-        std::pair<std::string, std::pair<int, int>> aux("", resignMove);
-        return aux;
-    }
-
-    int randomPiece = std::rand() % nonZeroMoves.size();
-    int randomMove = std::rand() % move::moves[nonZeroMoves[randomPiece]].size();
-    std::pair<int, int> move = std::make_pair(nonZeroMoves[randomPiece],
-                          move::moves[nonZeroMoves[randomPiece]][randomMove]);
+    std::pair<int, int> move(best_route->start, best_route->end);
+    logger::log("move", std::to_string(move.first) + " -> " + std::to_string(move.second), 1);
     std::string padding = checkForPromotionAndRandom(move);
 
 

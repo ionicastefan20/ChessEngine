@@ -1,6 +1,12 @@
 #include "Node.h"
 
-bool is_repeat(Node& test){
+// extern std::vector<std::string> prev_moves;
+
+namespace node {
+    std::vector<std::string> prev_moves;
+}
+
+bool node::is_repeat(node::Node& test) {
     std::string board_hash = "";
 
     for(int i = 0; i < 64; ++i){
@@ -12,16 +18,16 @@ bool is_repeat(Node& test){
         }
     }
 
-    if(board_hash.size() == 0 || std::find(prev_moves.begin(), prev_moves.end(), board_hash) == prev_moves.end()){
-        prev_moves.push_back(board_hash);
+    if(board_hash.size() == 0 || std::find(node::prev_moves.begin(), node::prev_moves.end(), board_hash) == node::prev_moves.end()){
+        node::prev_moves.push_back(board_hash);
         return false;
     }
     return true;
 }
 
-void tree_insert(Node& root, int src, int dest){
+node::Node node::tree_insert(node::Node& root, int src, int dest) {
 
-    Node next = new struct tNode;
+    node::Node next = new struct tNode;
 
     // Copying the current board state to the new board state
     memcpy(next->board, root->board, 64*sizeof(int));
@@ -32,7 +38,7 @@ void tree_insert(Node& root, int src, int dest){
     next->board[src] = 0;
 
     // Checks if this board state has already been examined; skips it if it has been examined
-    if(!is_repeat(next)){
+    if(!node::is_repeat(next)){
 
         next->materials = root->materials;
         if(target != 0) {
@@ -43,24 +49,27 @@ void tree_insert(Node& root, int src, int dest){
         next->whiteKingPos = root->whiteKingPos;
         next->blackKingPos = root->blackKingPos;
         next->colorOnMove = !(root->colorOnMove);
+        next->start = src;
+        next->end = dest;
 
         root->next.push_back(next);
     }
     else{
         delete next;
     }
+    return next;
 }
 
-void tree_delete(Node& root){
+void node::tree_delete(node::Node& root) {
     if(NULL == root)
         return;
     if(true == root->next.empty())
         return;
 
-    std::vector<Node>::reverse_iterator r_iter;
+    std::vector<node::Node>::reverse_iterator r_iter;
     for(r_iter = root->next.rbegin(); r_iter != root->next.rend(); r_iter++){
-        tree_delete(*r_iter);
-        Node old = root->next.back();
+        node::tree_delete(*r_iter);
+        node::Node old = root->next.back();
         root->next.pop_back();
         delete old;
     }

@@ -3,11 +3,14 @@
 
 #include <string>
 #include <vector>
+#include <time.h>
+#include <iostream>
 #include "Board.h"
 #include "Piece.h"
 #include "Move.h"
 #include "Minimax.h"
-#include <time.h>
+#include "Logger.h"
+
 
 struct board_state {
     int enPassantMove;
