@@ -11,7 +11,7 @@
 struct tNode{
     int board[64];
 
-    std::unordered_map<int, int> materials;
+    std::unordered_map<char, int> materials;
 
     int colorOnMove;
     int blackKingPos;

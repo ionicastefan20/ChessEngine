@@ -2,6 +2,7 @@
 #define EVALUATE_H
 
 #include "Piece.h"
+#include "Node.h"
 #include <string>
 #include <unordered_map>
 
@@ -41,7 +42,7 @@ namespace evaluate {
 
     extern const int bPawnTable[64];
 
-    int static_eval(Node root);
+    double static_eval(Node root);
 };
 
 #endif
