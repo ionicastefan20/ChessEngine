@@ -4,7 +4,7 @@
 #include "Evaluate.h"
 #include "Logger.h"
 
-#define MAX_DEPTH 4
+#define MAX_DEPTH 2
 
 double minimax_alpha_beta(node::Node& root, node::Node& node, int depth, bool state, double alpha, double beta);
 

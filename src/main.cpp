@@ -103,6 +103,7 @@ public:
                 return;
             } else if (isValidMove(first_word)) {
                 board::makeMove(first_word); // his move (computer's, oponent's)
+                memcpy(moveGenerator::curr_node->board, board::squares, 64 * sizeof(int));
                 makeBotThink();
             }
         }
@@ -112,6 +113,7 @@ public:
 int main() {
     logger::init();
     board::initBoard();
+    moveGenerator::curr_node = moveGenerator::init_node();
     move::initDistancesAndDirections();
 
     ReadInput reader;

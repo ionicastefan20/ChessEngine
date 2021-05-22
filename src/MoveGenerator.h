@@ -5,12 +5,12 @@
 #include <vector>
 #include <time.h>
 #include <iostream>
+#include <float.h>
 #include "Board.h"
 #include "Piece.h"
 #include "Move.h"
 #include "Minimax.h"
 #include "Logger.h"
-
 
 struct board_state {
     int enPassantMove;
@@ -30,8 +30,11 @@ typedef struct board_state* BState;
 
 namespace moveGenerator {
 
+    extern node::Node curr_node;
+
     std::pair<std::string, std::pair<int, int>> generateMove();
 
+    node::Node init_node();
 };
 
 #endif
