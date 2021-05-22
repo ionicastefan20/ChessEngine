@@ -6,7 +6,24 @@
 #include "Board.h"
 #include "Piece.h"
 #include "Move.h"
+#include "Minimax.h"
 #include <time.h>
+
+struct board_state {
+    int enPassantMove;
+    int leftWhiteRook;
+    int rightWhiteRook;
+    int leftBlackRook;
+    int rightBlackRook;
+    int whiteKing;
+    int blackKing;
+
+    int colorOnMove;
+    int botColor;
+    int kingPos, whiteKingPos, blackKingPos;
+    int squares[64];
+};
+typedef struct board_state* BState;
 
 namespace moveGenerator {
 

@@ -6,6 +6,4 @@
 
 #define MAX_DEPTH 3
 
-int static_evals = 0;
-
 #endif

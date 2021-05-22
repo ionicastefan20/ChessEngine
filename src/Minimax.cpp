@@ -2,7 +2,6 @@
 
 int minimax_alpha_beta(Node& root, Node& node, int depth, bool state, int alpha, int beta) {
     if(depth >= MAX_DEPTH || root->next.size() == 0) {
-        static_evals++;
         return evaluate::static_eval(root);
     }
 

@@ -39,10 +39,102 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
     return "";
 }
 
-std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
+void init_materials(std::unordered_map<char, int>& m){
+    // Black's Pieces
+    m.insert(std::pair<char, int>('p', 8));
+    m.insert(std::pair<char, int>('r', 2));
+    m.insert(std::pair<char, int>('n', 2));
+    m.insert(std::pair<char, int>('b', 2));
+    m.insert(std::pair<char, int>('q', 1));
+    m.insert(std::pair<char, int>('k', 1));
 
+    // White's Pieces
+    m.insert(std::pair<char, int>('P', 8));
+    m.insert(std::pair<char, int>('R', 2));
+    m.insert(std::pair<char, int>('N', 2));
+    m.insert(std::pair<char, int>('B', 2));
+    m.insert(std::pair<char, int>('Q', 1));
+    m.insert(std::pair<char, int>('K', 1));
+}
+
+BState make_copy() {
+    BState copy = new board_state;
+
+    copy->enPassantMove = move::enPassantMove;
+    copy->leftBlackRook = move::leftBlackRook;
+    copy->leftWhiteRook = move::leftWhiteRook;
+    copy->rightBlackRook = move::rightBlackRook;
+    copy->rightWhiteRook = move::rightWhiteRook;
+    copy->whiteKing = move::whiteKing;
+    copy->blackKing = move::blackKing;
+
+    copy->colorOnMove = board::colorOnMove;
+    copy->botColor = board::botColor;
+    copy->kingPos = board::kingPos;
+    copy->whiteKingPos = board::whiteKingPos;
+    copy->blackKingPos = board::blackKingPos;
+
+    memcpy(copy->squares, board::squares, 64);
+    
+    return copy;
+}
+
+void restore_copy(BState copy) {
+    move::enPassantMove = copy->enPassantMove;
+    move::leftBlackRook = copy->leftBlackRook;
+    move::leftWhiteRook = copy->leftWhiteRook;
+    move::rightBlackRook = copy->rightBlackRook;
+    move::rightWhiteRook = copy->rightWhiteRook;
+    move::whiteKing = copy->whiteKing;
+    move::blackKing = copy->blackKing;
+
+    board::colorOnMove = copy->colorOnMove;
+    board::botColor = copy->botColor;
+    board::kingPos = copy->kingPos;
+    board::whiteKingPos = copy->whiteKingPos;
+    board::blackKingPos = copy->blackKingPos;
+
+    memcpy( board::squares, copy->squares, 64);
+}
+
+Node populate_arb_one_level(Node& root) {
+
+    for (auto move : move::moves) {  // for every legal pair of moves (start -> end)
+        int start = move.first;
+        for (auto legal_move : move.second) {
+            int end = legal_move;
+            tree_insert(root, start, end);
+        }
+    }
+}
+
+Node populate_arb() { 
+    Node root = new tNode;
+    Node root_to_return = root;
+    BState copy;
+
+    init_materials(root->materials);
+    root->colorOnMove = board::colorOnMove;
+    root->blackKingPos = board::blackKingPos;
+    root->whiteKingPos = board::whiteKingPos;
+
+    copy = make_copy();
     move::calculateSquaresAttacked();
     move::generate();
+    populate_arb_one_level(root);
+
+    for (int i = 1; i < MAX_DEPTH; i++) {
+        BState temp_copy = make_copy();
+        for (auto child : root->next)
+            
+
+    }
+}
+
+std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
+
+    // move::calculateSquaresAttacked();
+    // move::generate();
     srand(time(NULL));
 
     // iterate through pieces and for the first piece that has valid move,
