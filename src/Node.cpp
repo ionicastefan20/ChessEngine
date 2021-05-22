@@ -53,11 +53,12 @@ node::Node node::tree_insert(node::Node& root, int src, int dest) {
         next->end = dest;
 
         root->next.push_back(next);
+        return next;
     }
     else{
         delete next;
+        return NULL;
     }
-    return next;
 }
 
 void node::tree_delete(node::Node& root) {
