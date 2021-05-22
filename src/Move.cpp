@@ -209,11 +209,11 @@ std::vector<int> generateKingMoves(int pos, int botColor) {
     } else { // black
         if (move::blackKing && move::leftBlackRook && emptyPath(57, 59)) { // left
             result.push_back(pos - 2);
-            std::cout << "da1" << std::endl;
+            // std::cout << "da1" << std::endl;
         }
         if (move::blackKing && move::rightBlackRook && emptyPath(61, 62)) { // right
             result.push_back(pos + 2);
-            std::cout << "da2" << std::endl;
+            // std::cout << "da2" << std::endl;
         }
     }
 

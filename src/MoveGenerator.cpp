@@ -165,13 +165,15 @@ void populate_arb(node::Node& root) {
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    logger::log("1", "1", 0);
+    // logger::log("1", "1", 0);
     populate_arb(curr_node);
 
-    logger::log("2", "2", 0);
+    // logger::log("2", "2", 0);
     node::Node best_route;
     
-    minimax_alpha_beta(curr_node, best_route, 0, 0, -DBL_MAX, DBL_MAX);
+    double d_min = -DBL_MAX;
+    double d_max = DBL_MAX;
+    minimax_alpha_beta(curr_node, best_route, 0, 0, d_min, d_max);
 
     // reinitialize curr_node to best route
     curr_node->blackKingPos = best_route->blackKingPos;
@@ -181,10 +183,10 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     memcpy(curr_node->board, best_route->board, 64 * sizeof(int));
     curr_node->next.clear();
 
-    logger::log("3", "3", 0);
+    // logger::log("3", "3", 0);
 
     std::pair<int, int> move(best_route->start, best_route->end);
-    logger::log("move", std::to_string(move.first) + " -> " + std::to_string(move.second), 1);
+    // logger::log("move", std::to_string(move.first) + " -> " + std::to_string(move.second), 1);
     std::string padding = checkForPromotionAndRandom(move);
 
 

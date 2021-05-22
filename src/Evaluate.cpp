@@ -201,9 +201,9 @@ static double mobility_score(node::Node root) {
 }
 
 double evaluate::static_eval(node::Node root) {
-    logger::logBoard(root->board);
+    // logger::logBoard(root->board);
     double score = material_score(root->materials) + mobility_score(root);
-    logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
+    // logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
 
