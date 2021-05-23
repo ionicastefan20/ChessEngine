@@ -217,18 +217,20 @@ static double check_eval(Node root) {
         logger::logBoard2(root->squaresAttacked);
         logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         logger::log("black king", std::to_string(root->blackKingPos), 2);
-        if (root->squaresAttacked[root->blackKingPos] == true) { 
-            return DBL_MAX;
+        if (root->squaresAttacked[root->blackKingPos]) { 
+            return -DBL_MAX;
         }
     } else {
         logger::logBoard(root->board);
         logger::logBoard2(root->squaresAttacked);
         logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         logger::log("white king", std::to_string(root->whiteKingPos), 2);
-        if (root->squaresAttacked[root->whiteKingPos] == true) {
-            return -DBL_MAX;
+        logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
+        if (root->squaresAttacked[root->whiteKingPos]) {
+            return +DBL_MAX;
         }
     }
+    return 0;
 }
 
 double evaluate::static_eval(Node root) {

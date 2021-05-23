@@ -45,7 +45,6 @@ Node node::tree_insert(Node& root, int src, int dest) {
             next->materials[piece::map[target]] -= 1;
         }
 
-        
         // Copying attributes from old node to new node
         if (root->board[src] == (piece::WHITE | piece::KING))
             next->whiteKingPos = dest;

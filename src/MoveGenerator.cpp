@@ -168,6 +168,9 @@ void populate_arb(Node& root) {
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
+    curr_node->blackKingPos = board::blackKingPos;
+    curr_node->whiteKingPos = board::whiteKingPos;
+
     populate_arb(curr_node);
 
     Node best_route;
