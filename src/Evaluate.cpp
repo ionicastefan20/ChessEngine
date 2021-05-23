@@ -163,8 +163,6 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
     return (white_material - black_material);
 }
 
-
-
 static double mobility_score(Node root) {
     double score = 0;
     for (int i = 0; i < 64; i++) {
@@ -198,12 +196,13 @@ static double mobility_score(Node root) {
         else if('p' == c)
             score -= evaluate::bPawnTable[i];
     }
+
+    return score;
 }
 
 double evaluate::static_eval(Node root) {
     // logger::logBoard(root->board);
-    double score = material_score(root->materials);
-    //  + mobility_score(root);
+    double score = material_score(root->materials) + mobility_score(root);
     // logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }

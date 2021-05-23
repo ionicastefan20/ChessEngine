@@ -307,3 +307,15 @@ e5 9. exd5 f4 10. g3 f3 11. Nxf3 h4 12. Nxh4 Ra6 13. Nf3 a4 14. Nxe5 Rhh6
 1. d4 b5 2. c4 b4
 {Black wins on time} 0-1
 
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.23"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d4
+{xboard exit (Clocks: 302, 287)} *
+
