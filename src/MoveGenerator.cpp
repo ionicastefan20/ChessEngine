@@ -143,7 +143,7 @@ void populate_arb_recursively(Node& root, int level) {
             // logger::log("size post", std::to_string(child->squaresAttacked.size()), 1);
             if (child != NULL)
                 populate_arb_recursively(child, level + 1);
-            
+
             restore_copy(copy);
         }
     }
@@ -175,10 +175,12 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
 
     Node best_route;
 
-    double d_min = -DBL_MAX;
-    double d_max = DBL_MAX;
+    double d_min = -100000;
+    double d_max = 100000;
     int state = board::colorOnMove == piece::WHITE ? 0 : 1;
+    // int score = negamax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
     int score = minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
+    // logger::log("Score", std::to_string(score), 0);
 
     // reinitialize curr_node to best route
     curr_node->blackKingPos = best_route->blackKingPos;

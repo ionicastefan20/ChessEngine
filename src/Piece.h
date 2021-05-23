@@ -20,7 +20,7 @@ namespace piece {
         BLACK = 16
     };
 
-    extern std::unordered_map<char, int> map;
+    extern std::unordered_map<int, char> map;
 
 };
 

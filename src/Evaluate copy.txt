@@ -74,15 +74,16 @@ namespace evaluate {
         -50,-40,-30,-30,-30,-30,-40,-50
     };
 
-    const int wPawnTable[64] =
-{60,  80,  80,  80,  80,  80,  80,  60,
-50, 50, 50, 50, 50, 50, 50, 50,
-10, 10, 20, 30, 30, 20, 10, 10,
- 5,  5, 10, 25, 25, 10,  5,  5,
- 0,  0,  0, 20, 20,  0,  0,  0,
- 5, -5,-10,  0,  0,-10, -5,  5,
- 5, 10, 10,-20,-20, 10, 10,  5,
- 0,  0,  0,  0,  0,  0,  0,  0};
+    const int wPawnTable[64] = {
+        0,  0,  0,  0,  0,  0,  0,  0,
+        50, 50, 50, 50, 50, 50, 50, 50,
+        10, 10, 20, 30, 30, 20, 10, 10,
+        5,  5, 10, 25, 25, 10,  5,  5,
+        0,  0,  0, 20, 20,  0,  0,  0,
+        5, -5,-10,  0,  0,-10, -5,  5,
+        5, 10, 10,-20,-20, 10, 10,  5,
+        0,  0,  0,  0,  0,  0,  0,  0
+    };
 
     // Black's Piece-Square Tables
     const int bKingTableMid[64] = {
@@ -140,15 +141,16 @@ namespace evaluate {
         -50,-40,-30,-30,-30,-30,-40,-50
     };
 
-    const int bPawnTable[64] =
-{0,  0,  0,  0,  0,  0,  0,  0,
-5, 10, 10,-20,-20, 10, 10,  5,
-5, -5,-10,  0,  0,-10, -5,  5,
-0,  0,  0, 20, 20,  0,  0,  0,
-5,  5, 10, 25, 25, 10,  5,  5,
-10, 10, 20, 30, 30, 20, 10, 10,
-50, 50, 50, 50, 50, 50, 50, 50,
-60,  80,  80,  80,  80, 80,  80,  60};
+    const int bPawnTable[64] = {
+        0,  0,  0,  0,  0,  0,  0,  0,
+        5, 10, 10,-20,-20, 10, 10,  5,
+        5, -5,-10,  0,  0,-10, -5,  5,
+        0,  0,  0, 20, 20,  0,  0,  0,
+        5,  5, 10, 25, 25, 10,  5,  5,
+        10, 10, 20, 30, 30, 20, 10, 10,
+        50, 50, 50, 50, 50, 50, 50, 50,
+        0,  0,  0,  0,  0,  0,  0,  0
+    };
 }
 
 static double material_score(std::unordered_map<char, int> nr_pieces) {
@@ -159,9 +161,9 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
                          BishopWt * nr_pieces['B'] + RookWt * nr_pieces['R'] +
                          QueenWt * nr_pieces['Q'] + KingWt * nr_pieces['K'];
 
-    // if (board::botColor == piece::BLACK)
-        // return (black_material - white_material);
-    // else
+    if (board::botColor == piece::BLACK)
+        return (black_material - white_material);
+    else
         return (white_material - black_material);
 }
 
@@ -199,10 +201,10 @@ static double mobility_score(Node root) {
             b_score -= evaluate::bKnightTable[i];
         else if('p' == c)
             b_score -= evaluate::bPawnTable[i];
-        
-        // if (board::botColor == piece::BLACK)
-        //     score += (b_score - w_score);
-        // else
+
+        if (board::botColor == piece::BLACK)
+            score += (b_score - w_score);
+        else
             score += (w_score - b_score);
     }
 

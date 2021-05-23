@@ -66,7 +66,7 @@ void logger::logBoard(int squares[]) {
     logger::logger << "|" << std::endl << "   ";
     for (int i = 0; i < 8; ++i)
         logger::logger << "  " + std::string(1, 'a'+i);
-    logger::logger << std::endl << std::endl;
+    logger::logger << std::endl;
 }
 
 void logger::logBoard2(std::vector<bool> squaresAttacked) {
@@ -91,7 +91,7 @@ void logger::logBoard2(std::vector<bool> squaresAttacked) {
     logger::logger << "|" << std::endl << "   ";
     for (int i = 0; i < 8; ++i)
         logger::logger << "  " + std::string(1, 'a'+i);
-    logger::logger << std::endl << std::endl;
+    logger::logger << std::endl;
 }
 
 void logger::close() {
