@@ -11,6 +11,7 @@
 #include "Move.h"
 #include "Minimax.h"
 #include "Logger.h"
+#include "Node.h"
 
 struct board_state {
     int enPassantMove;
@@ -28,13 +29,15 @@ struct board_state {
 };
 typedef struct board_state* BState;
 
+typedef struct tNode* Node;
+
 namespace moveGenerator {
 
-    extern node::Node curr_node;
+    extern Node curr_node;
 
     std::pair<std::string, std::pair<int, int>> generateMove();
 
-    node::Node init_node();
+    Node init_node();
 };
 
 #endif

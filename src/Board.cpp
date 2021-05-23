@@ -7,6 +7,7 @@ extern int move::leftBlackRook;
 extern int move::rightBlackRook;
 extern int move::whiteKing;
 extern int move::blackKing;
+extern Node moveGenerator::curr_node;
 
 namespace board {
     int colorOnMove = piece::WHITE;
@@ -58,6 +59,7 @@ void board::initBoard() {
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
 
+    moveGenerator::curr_node = moveGenerator::init_node();
 }
 
 /**
