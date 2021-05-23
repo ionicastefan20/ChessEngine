@@ -134,6 +134,7 @@ void populate_arb_recursively(Node& root, int level) {
             // logger::log("i", std::to_string(i++), 4);
             BState copy = make_copy();
             board::makeMove(board::encodeMove(std::pair<int, int>(start, end)));
+            board::botColor = board::getOppositeBotColor(board::botColor);
             move::calculateSquaresAttacked();
             move::generate();
 
