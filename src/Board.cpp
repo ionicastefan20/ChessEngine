@@ -7,7 +7,7 @@ extern int move::leftBlackRook;
 extern int move::rightBlackRook;
 extern int move::whiteKing;
 extern int move::blackKing;
-extern node::Node moveGenerator::curr_node;
+extern Node moveGenerator::curr_node;
 
 namespace board {
     int colorOnMove = piece::WHITE;

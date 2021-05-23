@@ -32,7 +32,7 @@ debug_ubuntu:
 run_wsl:
 	rm -f *_out
 	make build
-	rm -f *_out &&DISPLAY=:0 xboard -fcp "make run"
+	rm -f *_out && DISPLAY=:0 xboard -fcp "make run"
 
 debug_wsl:
 	rm -f *_out
@@ -42,3 +42,8 @@ debug_wsl:
 clean:
 	rm -f *_out xboard.debug
 	rm -f $(SRC_FOLDER)*.o main
+
+run_pulsar:
+	rm -f *_out
+	make build
+	rm -f *_out && DISPLAY=:0 xboard -variant 3check -fcp "pulsar2009-9b-64 mxT-2" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseFirst false

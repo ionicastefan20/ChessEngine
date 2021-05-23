@@ -7,6 +7,8 @@
 
 #define MAX_DEPTH 3
 
-double minimax_alpha_beta(node::Node& root, node::Node& node, int depth, int state, double alpha, double beta);
+typedef struct tNode* Node;
+
+double minimax_alpha_beta(Node& root, Node& node, int depth, int state, double alpha, double beta);
 
 #endif

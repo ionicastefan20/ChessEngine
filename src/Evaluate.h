@@ -13,6 +13,8 @@
 #define KnightWt 320
 #define PawnWt 100
 
+typedef struct tNode* Node;
+
 namespace evaluate {
 
     // for white
@@ -41,7 +43,8 @@ namespace evaluate {
 
     extern const int bPawnTable[64];
 
-    double static_eval(node::Node root);
+    double static_eval(Node root);
+
 };
 
 #endif

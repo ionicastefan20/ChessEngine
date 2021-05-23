@@ -10,10 +10,8 @@ extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
 extern std::vector<bool> move::squaresAttacked;
 extern std::unordered_map<int, std::vector<int>> move::moves;
 
-
 namespace moveGenerator {
-
-    node::Node curr_node;
+    Node curr_node;
 }
 
 static void init_materials(std::unordered_map<char, int>& m) {
@@ -34,8 +32,8 @@ static void init_materials(std::unordered_map<char, int>& m) {
     m.insert(std::pair<char, int>('K', 1));
 }
 
-node::Node moveGenerator::init_node() {
-    node::Node root = new node::tNode;
+Node moveGenerator::init_node() {
+    Node root = new tNode;
 
     init_materials(root->materials);
     root->colorOnMove = board::colorOnMove;
@@ -89,7 +87,7 @@ BState make_copy() {
     copy->blackKingPos = board::blackKingPos;
 
     memcpy(copy->squares, board::squares, 64 * sizeof(int));
-    
+
     return copy;
 }
 
@@ -112,12 +110,12 @@ void restore_copy(BState copy) {
 }
 
 
-void populate_arb_recursively(node::Node& root, int level) {
+void populate_arb_recursively(Node& root, int level) {
     // logger::log("SIZE", std::to_string(root->next.size()), 1);
     // logger::log("MDAAAP", "DA", 0);
     if (level == MAX_DEPTH)
         return;
-    
+
     // make copy of moves
     std::unordered_map<int, std::vector<int>> moves_copy;
     for (auto move : move::moves) {
@@ -137,7 +135,7 @@ void populate_arb_recursively(node::Node& root, int level) {
             move::calculateSquaresAttacked();
             move::generate();
 
-            node::Node child = tree_insert(root, start, end);
+            Node child = node::tree_insert(root, start, end);
             if (child != NULL)
                 populate_arb_recursively(child, level + 1);
 
@@ -152,7 +150,7 @@ void populate_arb_recursively(node::Node& root, int level) {
     }
 }
 
-void populate_arb(node::Node& root) { 
+void populate_arb(Node& root) {
     root->next.clear();  // eliminate previous children
     BState copy;
 
@@ -168,8 +166,8 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     logger::log("1", "1", 0);
     populate_arb(curr_node);
 
-    node::Node best_route;
-    
+    Node best_route;
+
     double d_min = -DBL_MAX;
     double d_max = DBL_MAX;
     logger::log("2", "2", 0);

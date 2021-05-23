@@ -6,7 +6,7 @@ namespace node {
     std::vector<std::string> prev_moves;
 }
 
-bool node::is_repeat(node::Node& test) {
+bool node::is_repeat(Node& test) {
     std::string board_hash = "";
 
     for(int i = 0; i < 64; ++i){
@@ -25,9 +25,9 @@ bool node::is_repeat(node::Node& test) {
     return true;
 }
 
-node::Node node::tree_insert(node::Node& root, int src, int dest) {
+Node node::tree_insert(Node& root, int src, int dest) {
 
-    node::Node next = new struct tNode;
+    Node next = new struct tNode;
 
     // Copying the current board state to the new board state
     memcpy(next->board, root->board, 64*sizeof(int));
@@ -61,16 +61,16 @@ node::Node node::tree_insert(node::Node& root, int src, int dest) {
     }
 }
 
-void node::tree_delete(node::Node& root) {
+void node::tree_delete(Node& root) {
     if(NULL == root)
         return;
     if(true == root->next.empty())
         return;
 
-    std::vector<node::Node>::reverse_iterator r_iter;
+    std::vector<Node>::reverse_iterator r_iter;
     for(r_iter = root->next.rbegin(); r_iter != root->next.rend(); r_iter++){
         node::tree_delete(*r_iter);
-        node::Node old = root->next.back();
+        Node old = root->next.back();
         root->next.pop_back();
         delete old;
     }
