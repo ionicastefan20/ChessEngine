@@ -31,7 +31,7 @@ Node node::tree_insert(Node& root, int src, int dest) {
 
     // Copying the current board state to the new board state
     memcpy(next->board, root->board, 64*sizeof(int));
-
+    copy(move::squaresAttacked.begin(), move::squaresAttacked.end(), back_inserter(next->squaresAttacked));
     // Moving the piece from (x,y) to (p,q), replacing if needed
     int target = next->board[dest];
     next->board[dest] = next->board[src];

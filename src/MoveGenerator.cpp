@@ -137,10 +137,12 @@ void populate_arb_recursively(Node& root, int level) {
             move::calculateSquaresAttacked();
             move::generate();
 
+            // logger::log("size pre", std::to_string(move::squaresAttacked.size()), 1);
             Node child = node::tree_insert(root, start, end);
+            // logger::log("size post", std::to_string(child->squaresAttacked.size()), 1);
             if (child != NULL)
                 populate_arb_recursively(child, level + 1);
-
+            
             restore_copy(copy);
         }
     }

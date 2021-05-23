@@ -13,7 +13,7 @@ namespace logger {
     void log(std::string tag, std::string msg, int indent);
     void logBoard(int squares[]);
     void close();
-    void logBoard2();
+    void logBoard2(std::vector<bool> squaresAttacked);
 }
 
 #endif

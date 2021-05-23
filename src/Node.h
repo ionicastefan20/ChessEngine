@@ -11,6 +11,7 @@
 
 struct tNode{
     int board[64];
+    std::vector<bool> squaresAttacked;
 
     std::unordered_map<char, int> materials;
 
