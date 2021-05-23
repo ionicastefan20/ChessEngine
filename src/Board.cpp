@@ -60,6 +60,7 @@ void board::initBoard() {
         squares[i] = piece::BLACK | piece::PAWN;
 
     moveGenerator::curr_node = moveGenerator::init_node();
+    node::prev_moves.clear();
 }
 
 /**

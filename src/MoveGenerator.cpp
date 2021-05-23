@@ -173,7 +173,7 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     double d_min = -DBL_MAX;
     double d_max = DBL_MAX;
     logger::log("2", "2", 0);
-    int state = board::colorOnMove == piece::WHITE ? 0 : 1;
+    int state = board::colorOnMove == piece::WHITE ? 1 : 0;
     logger::log("state", std::to_string(state), 1);
     minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
     logger::log("3", "3", 0);

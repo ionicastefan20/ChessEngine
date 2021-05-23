@@ -1,7 +1,5 @@
 #include "Evaluate.h"
 
-#define MAX_DEPTH 3
-
 // for white
 extern const int evaluate::wKingTableMid[64];
 extern const int evaluate::wQueenTable[64];
@@ -201,9 +199,9 @@ static double mobility_score(Node root) {
 }
 
 double evaluate::static_eval(Node root) {
-    // logger::logBoard(root->board);
+    logger::logBoard(root->board);
     double score = material_score(root->materials) + mobility_score(root);
-    // logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
+    logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
 
