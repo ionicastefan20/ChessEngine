@@ -1,7 +1,7 @@
 #include "Piece.h"
 
 namespace piece {
-    std::unordered_map<char, int> map({
+    std::unordered_map<int, char> map({
         {QUEEN  | WHITE, 'Q'},
         {QUEEN  | BLACK, 'q'},
         {KING   | WHITE, 'K'},

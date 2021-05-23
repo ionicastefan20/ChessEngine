@@ -8,7 +8,7 @@
 // #include "Board.h"
 
 // weight of every piece
-#define KingWt 1300
+#define KingWt 20000
 #define QueenWt 900
 #define RookWt 500
 #define BishopWt 330
