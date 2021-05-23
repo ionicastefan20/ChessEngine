@@ -1,7 +1,5 @@
 #include "Evaluate.h"
 
-#define MAX_DEPTH 3
-
 // for white
 extern const int evaluate::wKingTableMid[64];
 extern const int evaluate::wQueenTable[64];
@@ -16,6 +14,8 @@ extern const int evaluate::bRookTable[64];
 extern const int evaluate::bKnightTable[64];
 extern const int evaluate::bBishopTable[64];
 extern const int evaluate::bPawnTable[64];
+
+extern int board::botColor;
 
 namespace evaluate {
 
@@ -160,7 +160,11 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
     double white_material = PawnWt * nr_pieces['P'] + KnightWt * nr_pieces['N'] +
                          BishopWt * nr_pieces['B'] + RookWt * nr_pieces['R'] +
                          QueenWt * nr_pieces['Q'] + KingWt * nr_pieces['K'];
-    return (white_material - black_material);
+
+    if (board::botColor == piece::BLACK)
+        return (black_material - white_material);
+    else
+        return (white_material - black_material);
 }
 
 static double mobility_score(Node root) {
@@ -202,8 +206,9 @@ static double mobility_score(Node root) {
 
 double evaluate::static_eval(Node root) {
     // logger::logBoard(root->board);
-    double score = material_score(root->materials) + mobility_score(root);
-    // logger::log("EVALUATE", std::to_string(score) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
+    double mob = mobility_score(root);
+    double score = material_score(root->materials) + mob;
+    // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
 

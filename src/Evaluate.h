@@ -1,9 +1,11 @@
 #ifndef EVALUATE_H
 #define EVALUATE_H
 
-#include "Node.h"
 #include <string>
 #include <unordered_map>
+
+#include "Node.h"
+// #include "Board.h"
 
 // weight of every piece
 #define KingWt 1300

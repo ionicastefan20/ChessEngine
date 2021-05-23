@@ -165,35 +165,24 @@ void populate_arb(Node& root) {
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    logger::log("1", "1", 0);
     populate_arb(curr_node);
 
     Node best_route;
 
     double d_min = -DBL_MAX;
     double d_max = DBL_MAX;
-    logger::log("2", "2", 0);
     int state = board::colorOnMove == piece::WHITE ? 0 : 1;
-    logger::log("state", std::to_string(state), 1);
-    minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
-    logger::log("3", "3", 0);
+    int score = minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
 
     // reinitialize curr_node to best route
     curr_node->blackKingPos = best_route->blackKingPos;
-    logger::log("3.1", "3.1", 0);
     curr_node->whiteKingPos = best_route->whiteKingPos;
-    logger::log("3.2", "3.2", 0);
     curr_node->colorOnMove = best_route->colorOnMove;
-    logger::log("3.3", "3.3 size: " + std::to_string(best_route->materials.size()), 0);
     curr_node->materials = best_route->materials;
-    logger::log("3.4", "3.4", 0);
     memcpy(curr_node->board, best_route->board, 64 * sizeof(int));
-    logger::log("5", "5", 0);
     curr_node->next.clear();
-    logger::log("6", "6", 0);
 
     std::pair<int, int> move(best_route->start, best_route->end);
-    logger::log("move", std::to_string(move.first) + " -> " + std::to_string(move.second), 1);
     std::string padding = checkForPromotionAndRandom(move);
 
     std::pair<std::string, std::pair<int, int>> aux(padding, move);
