@@ -5,7 +5,7 @@
 #include "Logger.h"
 #include "Node.h"
 
-#define MAX_DEPTH 1
+#define MAX_DEPTH 4
 
 typedef struct tNode* Node;
 

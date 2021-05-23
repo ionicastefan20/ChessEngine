@@ -1285,3 +1285,75 @@ Bxd8 {+7.53/2 0.1} Kxd8 8. Bc4 {+7.61/2 0.1} cxd4 9. Qxd4 {+10.99/2 0.1} f5
 1. e4 {+0.35/9}
 {xboard exit (Clocks: 288, 64)} *
 
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.23"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Annotator "1. +0.20"]
+
+1. e4 {+0.20/9} a5 2. d4 {+0.61/8 15} b5 3. Bxb5 {+1.66/8 14} g5 4. Bxg5
+{+2.73/8 13} h5 5. Nc3 {+2.98/7 11} c5 6. dxc5 {+3.87/7 11} f5 7. Qd5
+{+6.93/7 13} fxe4 8. Qxa8 {+9.26/7 9} e5 9. Bxd8 {+19.27/8 12} Kxd8 10.
+Qxb8 {+20.06/8 11} Bxc5 11. Qxe5 {+21.08/8 9} Bxf2+ 12. Kxf2 {+21.78/9 11}
+e3+ 13. Ke2 {+23.40/8 8} d5 14. Qd6+ {+149.98/7 9} Bd7 15. Qxd7#
+{+149.99/8 9}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.23"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Annotator "1. +0.35"]
+
+1. e4 {+0.35/9} a5 2. d4 {+0.61/8 12} b6 3. Nc3 {+0.80/8 14} g6 4. Nf3
+{+0.79/8 13} h5 5. Bb5 {+0.94/8 14} c5 6. dxc5 {+1.95/8 12} bxc5 7. Qd5
+{+2.47/7 12} f5 8. Ne5 {+6.93/7 11} fxe4 9. Qf7# {+149.99/7 11}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.23"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Annotator "1. +0.20"]
+
+1. e4 {+0.20/9} Nc6 2. d4 {+0.39/8 13} Nf6 3. d5 {+0.61/8 13} Nd4 4. Qxd4
+{+3.46/9 15} e5 5. Qxe5+ {+4.32/8 10} Be7 6. Qg3 {+4.20/8 11} O-O 7. Bh6
+{+4.61/8 10} Bb4+ 8. c3 {+5.37/9 12} Bd6 9. Qxg7# {+149.99/8 10}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.23"]
+[Round "-"]
+[White "longclaw"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c3 Nc6
+{xboard exit (Clocks: 301, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.23"]
+[Round "-"]
+[White "longclaw"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4
+{xboard exit (Clocks: 302, 229)} *
+

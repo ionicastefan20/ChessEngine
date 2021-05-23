@@ -161,9 +161,9 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
                          BishopWt * nr_pieces['B'] + RookWt * nr_pieces['R'] +
                          QueenWt * nr_pieces['Q'] + KingWt * nr_pieces['K'];
 
-    if (board::botColor == piece::BLACK)
-        return (black_material - white_material);
-    else
+    // if (board::botColor == piece::BLACK)
+        // return (black_material - white_material);
+    // else
         return (white_material - black_material);
 }
 
@@ -202,9 +202,9 @@ static double mobility_score(Node root) {
         else if('p' == c)
             b_score -= evaluate::bPawnTable[i];
         
-        if (board::botColor == piece::BLACK)
-            score += (b_score - w_score);
-        else
+        // if (board::botColor == piece::BLACK)
+        //     score += (b_score - w_score);
+        // else
             score += (w_score - b_score);
     }
 
@@ -213,19 +213,19 @@ static double mobility_score(Node root) {
 
 static double check_eval(Node root) {
     if (root->colorOnMove == piece::WHITE) {
-        logger::logBoard(root->board);
-        logger::logBoard2(root->squaresAttacked);
-        logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-        logger::log("black king", std::to_string(root->blackKingPos), 2);
+        // logger::logBoard(root->board);
+        // logger::logBoard2(root->squaresAttacked);
+        // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+        // logger::log("black king", std::to_string(root->blackKingPos), 2);
         if (root->squaresAttacked[root->blackKingPos]) { 
             return -DBL_MAX;
         }
     } else {
-        logger::logBoard(root->board);
-        logger::logBoard2(root->squaresAttacked);
-        logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-        logger::log("white king", std::to_string(root->whiteKingPos), 2);
-        logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
+        // logger::logBoard(root->board);
+        // logger::logBoard2(root->squaresAttacked);
+        // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+        // logger::log("white king", std::to_string(root->whiteKingPos), 2);
+        // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
         if (root->squaresAttacked[root->whiteKingPos]) {
             return +DBL_MAX;
         }
@@ -240,7 +240,7 @@ double evaluate::static_eval(Node root) {
     // logger::logBoard(root->board);
     double mob = mobility_score(root);
     double score = material_score(root->materials) + mob;
-    logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
+    // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
 
