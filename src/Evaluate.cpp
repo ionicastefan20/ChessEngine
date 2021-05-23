@@ -232,7 +232,7 @@ static double check_eval(Node root) {
 }
 
 double evaluate::static_eval(Node root) {
-    logger::logBoard(root->board);
+    // logger::logBoard(root->board);
     // logger::logBoard2(root->squaresAttacked);
     double check_score = check_eval(root);
     if (check_score == DBL_MAX || check_score == -DBL_MAX)

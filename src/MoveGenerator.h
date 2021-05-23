@@ -38,6 +38,10 @@ namespace moveGenerator {
     std::pair<std::string, std::pair<int, int>> generateMove();
 
     Node init_node();
+
+    BState make_copy();
+
+    void restore_copy(BState copy);
 };
 
 #endif

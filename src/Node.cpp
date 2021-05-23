@@ -26,7 +26,6 @@ bool node::is_repeat(Node& test) {
 }
 
 Node node::tree_insert(Node& root, int src, int dest) {
-
     Node next = new struct tNode;
 
     // Copying the current board state to the new board state

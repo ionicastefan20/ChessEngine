@@ -71,7 +71,7 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 }
 
 
-BState make_copy() {
+BState moveGenerator::make_copy() {
     BState copy = new board_state;
 
     copy->enPassantMove = move::enPassantMove;
@@ -93,7 +93,7 @@ BState make_copy() {
     return copy;
 }
 
-void restore_copy(BState copy) {
+void moveGenerator::restore_copy(BState copy) {
     move::enPassantMove = copy->enPassantMove;
     move::leftBlackRook = copy->leftBlackRook;
     move::leftWhiteRook = copy->leftWhiteRook;
@@ -132,7 +132,7 @@ void populate_arb_recursively(Node& root, int level) {
             int end = legal_move;
 
             // logger::log("i", std::to_string(i++), 4);
-            BState copy = make_copy();
+            BState copy = moveGenerator::make_copy();
             board::makeMove(board::encodeMove(std::pair<int, int>(start, end)));
             board::botColor = board::getOppositeBotColor(board::botColor);
             move::calculateSquaresAttacked();
@@ -144,7 +144,7 @@ void populate_arb_recursively(Node& root, int level) {
             if (child != NULL)
                 populate_arb_recursively(child, level + 1);
 
-            restore_copy(copy);
+            moveGenerator::restore_copy(copy);
         }
     }
 
@@ -159,27 +159,28 @@ void populate_arb(Node& root) {
     root->next.clear();  // eliminate previous children
     BState copy;
 
-    copy = make_copy();
+    copy = moveGenerator::make_copy();
     move::calculateSquaresAttacked();
     move::generate();
 
     populate_arb_recursively(root, 0);
-    restore_copy(copy);
+    moveGenerator::restore_copy(copy);
 }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     curr_node->blackKingPos = board::blackKingPos;
     curr_node->whiteKingPos = board::whiteKingPos;
 
-    populate_arb(curr_node);
+    // populate_arb(curr_node);
 
     Node best_route;
 
-    double d_min = -100000;
-    double d_max = 100000;
+    double d_min = -DBL_MAX;
+    double d_max = DBL_MAX;
     int state = board::colorOnMove == piece::WHITE ? 0 : 1;
-    // int score = negamax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
-    int score = minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
+    int start, end;
+    double score = negamax_alpha_beta(curr_node, start, end, 0, d_min, d_max);
+    // double score = minimax_alpha_beta(curr_node, best_route, 0, state, d_min, d_max);
     // logger::log("Score", std::to_string(score), 0);
 
     // reinitialize curr_node to best route
