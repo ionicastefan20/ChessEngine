@@ -1,6 +1,6 @@
 #include "Minimax.h"
 
-double minimax_alpha_beta(node::Node& root, node::Node& node, int depth, bool state, double alpha, double beta) {
+double minimax_alpha_beta(node::Node& root, node::Node& node, int depth, int state, double alpha, double beta) {
     // logger::log("DEPTH", std::to_string(depth), 2);
     if(depth >= MAX_DEPTH || root->next.size() == 0) {
         // logger::log("VERIFICARE", "DA", 5);

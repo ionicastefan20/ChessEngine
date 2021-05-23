@@ -113,7 +113,6 @@ public:
 int main() {
     logger::init();
     board::initBoard();
-    moveGenerator::curr_node = moveGenerator::init_node();
     move::initDistancesAndDirections();
 
     ReadInput reader;

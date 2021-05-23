@@ -7,6 +7,8 @@
 #include <fstream>
 #include "Move.h"
 #include "Logger.h"
+#include "Node.h"
+// #include "MoveGenerator.h"
 
 namespace board {
 

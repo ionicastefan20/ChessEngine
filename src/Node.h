@@ -34,5 +34,5 @@ namespace node {
     bool is_repeat(node::Node& test);
     node::Node tree_insert(node::Node& root, int src, int dest);
     void tree_delete(node::Node& root);
-}
+};
 #endif
