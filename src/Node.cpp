@@ -45,9 +45,16 @@ Node node::tree_insert(Node& root, int src, int dest) {
             next->materials[piece::map[target]] -= 1;
         }
 
+        
         // Copying attributes from old node to new node
-        next->whiteKingPos = root->whiteKingPos;
-        next->blackKingPos = root->blackKingPos;
+        if (root->board[src] == (piece::WHITE | piece::KING))
+            next->whiteKingPos = dest;
+        else
+            next->whiteKingPos = root->whiteKingPos;
+        if (root->board[src] == (piece::BLACK | piece::KING))
+            next->blackKingPos = dest;
+        else
+            next->blackKingPos = root->blackKingPos;
         next->colorOnMove = !(root->colorOnMove);
         next->start = src;
         next->end = dest;
