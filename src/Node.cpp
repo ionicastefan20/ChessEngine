@@ -38,7 +38,7 @@ Node node::tree_insert(Node& root, int src, int dest) {
     next->board[src] = 0;
 
     // Checks if this board state has already been examined; skips it if it has been examined
-    if(!node::is_repeat(next)){
+    // if(!node::is_repeat(next)){
 
         next->materials = root->materials;
         if(target != 0) {
@@ -54,11 +54,11 @@ Node node::tree_insert(Node& root, int src, int dest) {
 
         root->next.push_back(next);
         return next;
-    }
-    else{
-        delete next;
-        return NULL;
-    }
+    // }
+    // else{
+    //     delete next;
+    //     return NULL;
+    // }
 }
 
 void node::tree_delete(Node& root) {
