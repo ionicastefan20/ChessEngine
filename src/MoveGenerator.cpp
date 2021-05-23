@@ -40,6 +40,8 @@ Node moveGenerator::init_node() {
     root->blackKingPos = board::blackKingPos;
     root->whiteKingPos = board::whiteKingPos;
     memcpy(root->board, board::squares, 64 * sizeof(int));
+
+    return root;
 }
 
 // returns padding for promotion or empty string for a non-promotion
