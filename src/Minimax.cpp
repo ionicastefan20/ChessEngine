@@ -9,6 +9,42 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
         moves_count += p.second.size();
     }
 
+    // if (board::colorOnMove == piece::WHITE) {
+    //     // logger::logBoard(root->board);
+    //     // logger::logBoard2(root->squaresAttacked);
+    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+    //     // logger::log("black king", std::to_string(root->blackKingPos), 2);
+    //     logger::logBoard(board::squares);
+    //     logger::logBoard2(move::squaresAttacked);
+    //     logger::log("eval check", std::to_string(move::squaresAttacked[board::whiteKingPos]), 2);
+    //     if (move::squaresAttacked[board::whiteKingPos]) {
+    //         return -DBL_MAX;
+    //     }
+    //     // int botColorCopy = board::botColor;
+    //     // board::botColor = board::getOppositeBotColor(board::botColor);
+    //     // move::calculateSquaresAttacked();
+    //     // if (move::squaresAttacked[board::whiteKingPos])
+    //     //     return DBL_MAX;
+    //     // board::botColor = botColorCopy;
+    // } else {
+    //     // logger::logBoard(root->board);
+    //     // logger::logBoard2(root->squaresAttacked);
+    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+    //     // logger::log("white king", std::to_string(root->whiteKingPos), 2);
+    //     // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
+    //     logger::logBoard(board::squares);
+    //     logger::logBoard2(move::squaresAttacked);
+    //     if (move::squaresAttacked[board::blackKingPos]) {
+    //         return DBL_MAX;
+    //     }
+    //     // int botColorCopy = board::botColor;
+    //     // board::botColor = board::getOppositeBotColor(board::botColor);
+    //     // move::calculateSquaresAttacked();
+    //     // if (move::squaresAttacked[board::blackKingPos])
+    //     //     return -DBL_MAX;
+    //     // board::botColor = botColorCopy;
+    // }
+
     if(depth >= MAX_DEPTH || moves_count == 0) {
         double result = evaluate::static_eval();
         // logger::log("Score", std::to_string(depth) + "->" + std::to_string(result)
@@ -21,7 +57,6 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
         std::vector<int> next_moves_copy(move.second);
         moves_copy[move.first] = next_moves_copy;
     }
-
 
     double best_score = -DBL_MAX;
     for (auto move : moves_copy) {  // for every legal pair of moves (start -> end)
@@ -53,6 +88,8 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
                 if(depth == 0) {
                     start_res = start;
                     end_res = end;
+                    logger::log("start_res", std::to_string(start_res), 1);
+                    logger::log("end_res", std::to_string(end_res), 1);
                 }
             }
 
@@ -63,9 +100,16 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             moveGenerator::restore_copy(copy);
 
             if (alpha >= beta)
+                // break;
                 return alpha;
         }
     }
+
+        // restore copy
+    // move::moves.clear();
+    // for (auto move_cpy : moves_copy) {
+    //     move::moves[move_cpy.first] = move_cpy.second;
+    // }
 
     return best_score;
 }

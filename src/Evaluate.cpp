@@ -216,18 +216,35 @@ static double check_eval() {
         // logger::logBoard2(root->squaresAttacked);
         // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         // logger::log("black king", std::to_string(root->blackKingPos), 2);
-        if (move::squaresAttacked[board::blackKingPos]) {
+        logger::logBoard(board::squares);
+        logger::logBoard2(move::squaresAttacked);
+        logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
+        if (move::squaresAttacked[board::whiteKingPos]) {
             return -DBL_MAX;
         }
+        // int botColorCopy = board::botColor;
+        // board::botColor = board::getOppositeBotColor(board::botColor);
+        // move::calculateSquaresAttacked();
+        // if (move::squaresAttacked[board::whiteKingPos])
+        //     return DBL_MAX;
+        // board::botColor = botColorCopy;
     } else {
         // logger::logBoard(root->board);
         // logger::logBoard2(root->squaresAttacked);
         // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         // logger::log("white king", std::to_string(root->whiteKingPos), 2);
         // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
-        if (move::squaresAttacked[board::whiteKingPos]) {
+        logger::logBoard(board::squares);
+        logger::logBoard2(move::squaresAttacked);
+        if (move::squaresAttacked[board::blackKingPos]) {
             return DBL_MAX;
         }
+        // int botColorCopy = board::botColor;
+        // board::botColor = board::getOppositeBotColor(board::botColor);
+        // move::calculateSquaresAttacked();
+        // if (move::squaresAttacked[board::blackKingPos])
+        //     return -DBL_MAX;
+        // board::botColor = botColorCopy;
     }
     return 0;
 }
@@ -239,9 +256,9 @@ double evaluate::static_eval() {
     if (check_score == DBL_MAX || check_score == -DBL_MAX)
         return check_score;
     // logger::logBoard(root->board);
-    double mob = mobility_score();
+    // double mob = mobility_score();
     // double mob = 0;
-    double score = material_score() + mob;
+    double score = material_score();// + mob;
     // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }

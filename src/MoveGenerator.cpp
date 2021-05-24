@@ -174,7 +174,7 @@ void moveGenerator::restore_copy(BState copy) {
 // }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    int start, end;
+    int start = - 1, end = -1;
     // std::pair<int, int> best_move;
     // double best_score = -DBL_MAX;
     // move::calculateSquaresAttacked();
@@ -188,9 +188,9 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     //     int start_init = move.first;
     //     for (auto end_init : move.second) {
     double best_score = negamax_alpha_beta(0, 0, start, end, 0, -DBL_MAX, DBL_MAX);
-    logger::log("ScoreFinal", std::to_string(best_score), 0);
-    logger::log("Start", std::to_string(start), 0);
-    logger::log("End", std::to_string(end), 0);
+    // logger::log("ScoreFinal", std::to_string(best_score), 0);
+    // logger::log("Start", std::to_string(start), 0);
+    // logger::log("End", std::to_string(end), 0);
     //         if (score > best_score) {
     //             best_score = score;
     //             best_move = {start, end};
