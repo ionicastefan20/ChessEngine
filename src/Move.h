@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <iostream>
 #include <vector>
+
 #include "Board.h"
 
 #define __min(a,b) (((a) < (b)) ? (a) : (b))

@@ -6,12 +6,11 @@
 #include <time.h>
 #include <iostream>
 #include <float.h>
-#include "Board.h"
+
+#include "Logger.h"
 #include "Piece.h"
 #include "Move.h"
 #include "Minimax.h"
-#include "Logger.h"
-#include "Node.h"
 
 struct board_state {
     int enPassantMove;
@@ -26,6 +25,9 @@ struct board_state {
     int botColor;
     int kingPos, whiteKingPos, blackKingPos;
     int squares[64];
+
+    std::vector<bool> squaresAttacked;
+    std::unordered_map<char, int> materials;
 };
 typedef struct board_state* BState;
 
@@ -34,6 +36,8 @@ typedef struct tNode* Node;
 namespace moveGenerator {
 
     extern Node curr_node;
+
+    void init_materials();
 
     std::pair<std::string, std::pair<int, int>> generateMove();
 

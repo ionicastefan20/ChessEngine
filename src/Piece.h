@@ -1,8 +1,6 @@
 #ifndef CHESSENGINE_PIECE_H
 #define CHESSENGINE_PIECE_H
 
-#pragma once
-
 #include <unordered_map>
 
 namespace piece {

@@ -2,22 +2,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "Board.h"
-#include "Move.h"
+
 #include "MoveGenerator.h"
-#include "Logger.h"
-
-extern int board::colorOnMove;
-extern int board::botColor;
-extern bool board::isPlaying;
-extern int board::kingPos;
-extern int board::whiteKingPos;
-extern int board::blackKingPos;
-
-extern std::unordered_map<std::string, int> move::directions;
-extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
-extern std::vector<bool> move::squaresAttacked;
-extern std::unordered_map<int, std::vector<int>> move::moves;
 
 class ReadInput {
 
@@ -88,7 +74,8 @@ public:
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover
-                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1" << std::endl;
+                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1 myname=\"HikaruOnCrack\"" << std::endl;
+                std::cout << "feature sigint=0 san=0 myname=\"HikaruOnCrack\"" << std::endl;
             } else if (!first_word.compare(commands[2])) { // new
                 board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
@@ -103,7 +90,7 @@ public:
                 return;
             } else if (isValidMove(first_word)) {
                 board::makeMove(first_word); // his move (computer's, oponent's)
-                memcpy(moveGenerator::curr_node->board, board::squares, 64 * sizeof(int));
+                // memcpy(moveGenerator::curr_node->board, board::squares, 64 * sizeof(int));
                 makeBotThink();
             }
         }
@@ -114,6 +101,7 @@ int main() {
     logger::init();
     board::initBoard();
     move::initDistancesAndDirections();
+    moveGenerator::init_materials();
 
     ReadInput reader;
     reader.readInput();

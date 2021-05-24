@@ -2124,3 +2124,231 @@ Bb7 9. Qf3 Bc8 10. Qg4 Bb7 11. Qe4 Bc8 12. Qh4 Bb7 13. Qh5+ g6 14. Qg4 g5
 1. b3 Nc6 2. d3 Nf6 3. e3 Nd4 4. exd4 Ne4
 {xboard exit (Clocks: 302, 306)} *
 
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 Nf6 2. f4 Ng4 3. Qxg4 Nc6 4. d4 Ne5 5. fxe5 d5 6. exd5
+{xboard exit (Clocks: 288, 263)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d4 Nf6
+{xboard exit (Clocks: 257, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 Nf6
+{xboard exit (Clocks: 240, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 Nf6
+{xboard exit (Clocks: 196, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 b5
+{xboard exit (Clocks: 220, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 b5 2. b4 a5 3. c4 h5
+{xboard exit (Clocks: 257, 305)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 b5 2. b4 a5 3. h4 h5
+{xboard exit (Clocks: 127, 305)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4 b5 2. h4 a5
+{xboard exit (Clocks: 277, 303)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4 b5 2. h4 a5
+{xboard exit (Clocks: 186, 303)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c4 b5 2. h4 bxc4 3. d3 cxd3 4. Qxd3 a5 5. Qa3 h5 6. Qxa5 Rxa5 7. g4 Rxa2
+8. Rxa2 hxg4
+{xboard exit (Clocks: 301, 315)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "ionicastefan20"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 d5 2. exd5 c5 3. c4 e5 4. Qa4+ Ke7 5. Qxa7 Rxa7
+{xboard exit (Clocks: 291, 299)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e4 {+0.02/4} d5 2. Bb5+ {+2.42/2 0.1} c6 3. Bxc6+ {+2.42/2 0.1} bxc6 4.
+Nc3 {+2.42/2 0.1} dxe4 5. Nxe4 {+2.53/2 0.1} Qd5 6. Nd6+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "2"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. h4 e5 {-0.05/2 0.1} 2. g4 Nf6 {+0.22/2 0.1} 3. b4 Bxb4 {+1.41/2 0.1} 4.
+f4 exf4 {+2.57/2 0.1} 5. e4 fxe3 {+5.62/2 0.1} 6. a4 exd2+ {+8.46/2 0.1} 7.
+Ke2 dxc1=Q {+12.34/2 0.1} 8. c4 Qb2+ {+25.37/2 0.1} 9. Ke3 Qe7+
+{+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 0-1
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. c3 {+0.02/4} a5 2. d4 {+0.04/2 0.1} b5 3. e4 {+0.33/2 0.1} b4 4. Nf3
+{+0.61/2 0.1} g5 5. Bc4 {+2.02/2 0.1} d5 6. Bxd5 {+4.66/2 0.1} Qxd5 7. exd5
+{+7.89/2 0.1} g4 8. Qa4+ {+9.32/2 0.1} Bd7 9. Qd1 {+7.04/2 0.1} Ba4 10.
+Qxa4+ {+15.60/2 0.1} c6 11. Qxc6+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "4"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. h4 e5 {-0.05/2 0.1} 2. g4 Nf6 {+0.22/2 0.1} 3. b4 Bxb4 {+1.41/2 0.1} 4.
+f4 exf4 {+2.57/2 0.1} 5. e4 fxe3 {+5.62/2 0.1} 6. a4 exd2+ {+8.46/2 0.1} 7.
+Ke2 dxc1=Q {+12.34/2 0.1} 8. c4 Qb2+ {+25.37/2 0.1} 9. Ke3 Qe7+
+{+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 0-1
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. d4 {+0.02/4} b5 2. Nc3 {+0.29/2 0.1} Bb7 3. Nxb5 {+0.99/2 0.1} a6 4. Nc3
+{+1.16/2 0.1} h5 5. e4 {+1.53/2 0.1} g6 6. Bf4 {+1.70/2 0.1} f5 7. Bd3
+{+1.75/2 0.1} fxe4 8. Bxe4 {+2.15/2 0.1} Bc6 9. Bxg6# {+149.99/2 0.1}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-U717S34"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "make"]
+[Result "*"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. Nc3 {+0.02/4} Nf6 2. d4 {+0.38/1 0.1} Ne4 3. Nxe4 {+3.37/2 0.1} e6 4.
+Bd2 {+3.43/2 0.1} Nc6 5. Nf3 {+3.45/2 0.1}
+{xboard exit (Clocks: 309, 210)} *
+

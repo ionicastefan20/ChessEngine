@@ -1,11 +1,12 @@
-#ifndef EVALUATE_H
-#define EVALUATE_H
+#ifndef CHESSENGINE_EVALUATE_H
+#define CHESSENGINE_EVALUATE_H
 
 #include <string>
 #include <unordered_map>
+#include <float.h>
 
-#include "Node.h"
-// #include "Board.h"
+#include "Move.h"
+// #include "MoveGenerator.h"
 
 // weight of every piece
 #define KingWt 20000
@@ -14,8 +15,6 @@
 #define BishopWt 330
 #define KnightWt 320
 #define PawnWt 100
-
-typedef struct tNode* Node;
 
 namespace evaluate {
 
@@ -45,7 +44,7 @@ namespace evaluate {
 
     extern const int bPawnTable[64];
 
-    double static_eval(Node root);
+    double static_eval();
 
 };
 

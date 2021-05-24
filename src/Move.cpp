@@ -4,6 +4,7 @@ extern int board::colorOnMove;
 extern int board::botColor;
 extern bool board::isPlaying;
 extern int board::kingPos;
+extern int board::squares[64];
 
 namespace move {
     int leftWhiteRook = 1;
@@ -412,7 +413,7 @@ int removePositionWithCheck(int i) {
     } else {
         move::moves[i] = nonCheckMoves;
     }
-    
+
     return res;
 }
 

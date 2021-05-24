@@ -7,7 +7,7 @@ extern int move::leftBlackRook;
 extern int move::rightBlackRook;
 extern int move::whiteKing;
 extern int move::blackKing;
-extern Node moveGenerator::curr_node;
+// extern Node moveGenerator::curr_node;
 
 namespace board {
     int colorOnMove = piece::WHITE;
@@ -17,6 +17,7 @@ namespace board {
     int blackKingPos = 60;
     int whiteKingPos = 4;
     int squares[64];
+    std::unordered_map<char, int> materials;
 }
 
 int board::getOppositeBotColor(int color) {
@@ -59,8 +60,8 @@ void board::initBoard() {
     for (int i = 48; i < 56; i++)
         squares[i] = piece::BLACK | piece::PAWN;
 
-    moveGenerator::curr_node = moveGenerator::init_node();
-    node::prev_moves.clear();
+    // moveGenerator::curr_node = moveGenerator::init_node();
+    // node::prev_moves.clear();
 }
 
 /**

@@ -1,14 +1,13 @@
 #ifndef CHESSENGINE_BOARD_H
 #define CHESSENGINE_BOARD_H
 
-#include "Piece.h"
 #include <string>
 #include <cstring>
 #include <fstream>
+
+#include "Piece.h"
 #include "Move.h"
 #include "Logger.h"
-#include "Node.h"
-#include "MoveGenerator.h"
 
 namespace board {
 
@@ -21,6 +20,8 @@ namespace board {
     extern int kingPos, whiteKingPos, blackKingPos;
 
     extern int squares[64]; // main board table
+
+    extern std::unordered_map<char, int> materials;
 
     int getOppositeBotColor(int color);
 

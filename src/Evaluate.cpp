@@ -1,21 +1,22 @@
 #include "Evaluate.h"
 
-// for white
-extern const int evaluate::wKingTableMid[64];
-extern const int evaluate::wQueenTable[64];
-extern const int evaluate::wRookTable[64];
-extern const int evaluate::wBishopTable[64];
-extern const int evaluate::wKnightTable[64];
-extern const int evaluate::wPawnTable[64];
-// for black
-extern const int evaluate::bKingTableMid[64];
-extern const int evaluate::bQueenTable[64];
-extern const int evaluate::bRookTable[64];
-extern const int evaluate::bKnightTable[64];
-extern const int evaluate::bBishopTable[64];
-extern const int evaluate::bPawnTable[64];
-
 extern int board::botColor;
+extern std::unordered_map<char, int> board::materials;
+
+// for white
+// extern const int evaluate::wKingTableMid[64];
+// extern const int evaluate::wQueenTable[64];
+// extern const int evaluate::wRookTable[64];
+// extern const int evaluate::wBishopTable[64];
+// extern const int evaluate::wKnightTable[64];
+// extern const int evaluate::wPawnTable[64];
+// // for black
+// extern const int evaluate::bKingTableMid[64];
+// extern const int evaluate::bQueenTable[64];
+// extern const int evaluate::bRookTable[64];
+// extern const int evaluate::bKnightTable[64];
+// extern const int evaluate::bBishopTable[64];
+// extern const int evaluate::bPawnTable[64];
 
 namespace evaluate {
 
@@ -151,13 +152,13 @@ namespace evaluate {
 60,  80,  80,  80,  80, 80,  80,  60};
 }
 
-static double material_score(std::unordered_map<char, int> nr_pieces) {
-    double black_material = PawnWt * nr_pieces['p'] + KnightWt * nr_pieces['n'] +
-                         BishopWt * nr_pieces['b'] + RookWt * nr_pieces['r'] +
-                         QueenWt * nr_pieces['q'] + KingWt * nr_pieces['k'];
-    double white_material = PawnWt * nr_pieces['P'] + KnightWt * nr_pieces['N'] +
-                         BishopWt * nr_pieces['B'] + RookWt * nr_pieces['R'] +
-                         QueenWt * nr_pieces['Q'] + KingWt * nr_pieces['K'];
+static double material_score() {
+    double black_material = PawnWt * board::materials['p'] + KnightWt * board::materials['n'] +
+                         BishopWt * board::materials['b'] + RookWt * board::materials['r'] +
+                         QueenWt * board::materials['q'] + KingWt * board::materials['k'];
+    double white_material = PawnWt * board::materials['P'] + KnightWt * board::materials['N'] +
+                         BishopWt * board::materials['B'] + RookWt * board::materials['R'] +
+                         QueenWt * board::materials['Q'] + KingWt * board::materials['K'];
 
     // if (board::botColor == piece::BLACK)
         // return (black_material - white_material);
@@ -165,10 +166,10 @@ static double material_score(std::unordered_map<char, int> nr_pieces) {
         return (white_material - black_material);
 }
 
-static double mobility_score(Node root) {
+static double mobility_score() {
     double score = 0;
     for (int i = 0; i < 64; i++) {
-        char c = piece::map[root->board[i]];
+        char c = piece::map[board::squares[i]];
 
         // White's pieces, add score
         double w_score = 0;
@@ -199,7 +200,7 @@ static double mobility_score(Node root) {
             b_score -= evaluate::bKnightTable[i];
         else if('p' == c)
             b_score -= evaluate::bPawnTable[i];
-        
+
         // if (board::botColor == piece::BLACK)
         //     score += (b_score - w_score);
         // else
@@ -209,13 +210,13 @@ static double mobility_score(Node root) {
     return score;
 }
 
-static double check_eval(Node root) {
-    if (root->colorOnMove == piece::WHITE) {
+static double check_eval() {
+    if (board::colorOnMove == piece::WHITE) {
         // logger::logBoard(root->board);
         // logger::logBoard2(root->squaresAttacked);
         // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         // logger::log("black king", std::to_string(root->blackKingPos), 2);
-        if (root->squaresAttacked[root->blackKingPos]) {
+        if (move::squaresAttacked[board::blackKingPos]) {
             return -DBL_MAX;
         }
     } else {
@@ -224,23 +225,23 @@ static double check_eval(Node root) {
         // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         // logger::log("white king", std::to_string(root->whiteKingPos), 2);
         // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
-        if (root->squaresAttacked[root->whiteKingPos]) {
-            return +DBL_MAX;
+        if (move::squaresAttacked[board::whiteKingPos]) {
+            return DBL_MAX;
         }
     }
     return 0;
 }
 
-double evaluate::static_eval(Node root) {
+double evaluate::static_eval() {
     // logger::logBoard(root->board);
     // logger::logBoard2(root->squaresAttacked);
-    double check_score = check_eval(root);
+    double check_score = check_eval();
     if (check_score == DBL_MAX || check_score == -DBL_MAX)
         return check_score;
     // logger::logBoard(root->board);
-    double mob = mobility_score(root);
+    double mob = mobility_score();
     // double mob = 0;
-    double score = material_score(root->materials) + mob;
+    double score = material_score() + mob;
     // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
     return score / 100;
 }
