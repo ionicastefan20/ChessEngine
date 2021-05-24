@@ -88,8 +88,8 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
                 if(depth == 0) {
                     start_res = start;
                     end_res = end;
-                    logger::log("start_res", std::to_string(start_res), 1);
-                    logger::log("end_res", std::to_string(end_res), 1);
+                    // logger::log("start_res", std::to_string(start_res), 1);
+                    // logger::log("end_res", std::to_string(end_res), 1);
                 }
             }
 

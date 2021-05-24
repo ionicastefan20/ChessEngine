@@ -3418,3 +3418,326 @@ Nd5 {+2.64/2 0.1} a6 5. Nxc7+ {+2.97/2 0.1} Qxc7 6. Qxf7+ {+149.99/2 0.1}
 {+0.60/2 0.1} a3 5. Bc4 {+1.77/2 0.1}
 {xboard exit (Clocks: 309, 251)} *
 
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 a5 2. Kd2 e6 3. Kc3 b6 4. Kd4 b5 5. Ke4 c6 6. Kf4 c5 7. Ke5 d6+ 8.
+Ke4 d5+ 9. Kf4 e5+ 10. Kf3 e4+ 11. Kg3 e3 12. Kf3
+{xboard exit (Clocks: 202, 309)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. d4 {+0.02/4} f6 2. e4 {+0.72/2 0.1} c6 3. Qh5+ {+2.23/2 0.1} g6 4. Qc5
+{+1.95/2 0.1} Qa5+ 5. Qxa5 {+9.73/2 0.1} b6 6. Qc3 {+9.68/2 0.1} a5 7. Nf3
+{+9.87/2 0.1} Ra7 8. Bc4 {+9.99/2 0.1} h5 9. Bf7+ {+10.66/2 0.1} Kxf7 10.
+Qc4+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "2"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. f3 e5 {+0.34/2 0.1} 2. c3 Qh4+ {+1.85/2 0.1} 3. g3 Qc4 {+1.57/2 0.1} 4.
+b3 Qb5 {+1.45/2 0.1} 5. h4 d5 {+1.78/2 0.1} 6. a4 Qc6 {+1.73/2 0.1} 7. Ra2
+Qg6 {+5.01/2 0.1} 8. Rh2 Qxg3+ {+9.42/2 0.1} 9. Rf2 Qxf2+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 0-1
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. c3 {+0.02/4} c6 2. d4 {+0.38/1 0.1} f6 3. e4 {+0.72/2 0.1} b6 4. Qh5+
+{+2.17/2 0.1} g6 5. Qh4 {+1.82/2 0.1} a5 6. Nf3 {+2.01/2 0.1} Ra7 7. Bc4
+{+2.18/2 0.1} h5 8. Qg3 {+5.50/2 0.1} Rh7 9. Qxg6+ {+9.89/2 0.1} Rf7 10.
+Bxf7# {+149.99/2 0.1}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "4"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. f3 e5 {+0.34/2 0.1} 2. c3 Qh4+ {+1.85/2 0.1} 3. g3 Qc4 {+1.57/2 0.1} 4.
+b3 Qb5 {+1.45/2 0.1} 5. h4 d5 {+1.78/2 0.1} 6. a4 Qc6 {+1.73/2 0.1} 7. Ra2
+Qg6 {+5.01/2 0.1} 8. Rh2 Qxg3+ {+9.42/2 0.1} 9. Rf2 Qxf2+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 0-1
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. Nc3 {+0.02/4} f6 2. e4 {+0.58/2 0.1} b6 3. Qh5+ {+2.03/2 0.1} g6 4. Qd5
+{+1.79/2 0.1} a5 5. Qxa8 {+7.06/2 0.1} Bh6 6. Qxb8 {+10.03/2 0.1} b5 7.
+Nxb5 {+12.18/2 0.1} Kf8 8. Qxc7 {+12.62/2 0.1} Qxc7 9. Nxc7 {+12.32/2 0.1}
+Ba6 10. Ne6+ {+15.60/2 0.1} dxe6 11. Bxa6 {+15.46/2 0.1} Kg7 12. d4
+{+15.94/2 0.1} Bxc1 13. Rxc1 {+15.81/2 0.1} Kh6 14. Nf3 {+16.37/2 0.1} Kh5
+15. g4+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c3 f6
+{xboard exit (Clocks: 296, 296)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. c3 f6
+{xboard exit (Clocks: 161, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e3 f6
+{xboard exit (Clocks: 300, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. f4 Nc6
+{xboard exit (Clocks: 300, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 e5 2. c3 Qh4 3. e3 Bb4 4. b3 Ba5 5. b4
+{xboard exit (Clocks: 263, 218)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 e5 2. d4 Bb4+ 3. c3 Qf6 4. e3 Ba5 5. b4 Bxb4 6. a4 Ba5 7. Na3 Bb4 8.
+Nc4 Bxc3+ 9. Nd2 Bb4
+{xboard exit (Clocks: 284, 311)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e3 {+0.02/4} e5 2. Nc3 {-0.10/2 0.1} Qh4 3. Nf3 {+0.38/2 0.1} Nf6 4.
+Nxh4 {+9.06/2 0.1} d5 5. Bb5+ {+10.83/2 0.1} Nc6 6. Bxc6+ {+13.48/2 0.1}
+Ke7 7. Nxd5+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. e4 d5 2. exd5 c5 3. d3 e5 4. c3 Nc6 5. c4 Qh4
+{xboard exit (Clocks: 295, 303)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 e5 2. c3 Qh4
+{xboard exit (Clocks: 300, 299)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 e5 2. c3 Qh4
+{xboard exit (Clocks: 95, 300)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d3 a5
+{xboard exit (Clocks: 299, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. b3 h5
+{xboard exit (Clocks: 300, 301)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "-"]
+[White "longclaw"]
+[Black "HikaruOnCrack"]
+[Result "*"]
+[TimeControl "300+2"]
+
+1. d4 Nc6 2. Qd3 Nxd4 3. Qxd4 d5 4. Qxd5 Qxd5 5. e3 Qa5+ 6. b4 Qxb4+ 7. c3
+e5 8. cxb4 Bxb4+
+{xboard exit (Clocks: 145, 305)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e4 {+0.02/4} Nc6 2. d4 {+0.14/2 0.1} Nxd4 3. Qxd4 {+2.20/2 0.1} e5 4.
+Qxe5+ {+4.93/2 0.1} Ne7 5. Bc4 {+6.35/2 0.1} d6 6. Qb5+ {+8.10/2 0.1} Bd7
+7. Bxf7+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "2"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. f3 e5 {+0.34/2 0.1} 2. g3 d5 {+0.32/2 0.1} 3. c3 Nc6 {+0.57/2 0.1} 4.
+Qa4 Bc5 {+0.83/2 0.1} 5. Qxc6+ bxc6 {+5.41/2 0.1} 6. Nh3 Rb8 {+5.67/2 0.1}
+7. b3 Nf6 {+5.88/2 0.1} 8. a4 Rxb3 {+7.03/2 0.1} 9. Ra2 Rxb1 {+10.52/2 0.1}
+10. Ng1 Rxc1# {+149.99/2 0.1}
+{Xboard adjudication: Checkmate} 0-1
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "HikaruOnCrack"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. c3 {+0.02/4} Nc6 2. d4 {-0.25/2 0.1} d5 3. Nf3 {-0.27/2 0.1} e5 4. Nxe5
+{+0.91/2 0.1} Qh4 5. g3 {+1.23/2 0.1} Qg4 6. Nxg4 {+6.94/2 0.1} Nxd4 7.
+Qxd4 {+12.29/2 0.1} Ne7 8. Nf6+ {+13.83/2 0.1} gxf6 9. Qa4+ {+13.59/2 0.1}
+Nc6 10. Qxc6+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.24"]
+[Round "4"]
+[White "HikaruOnCrack"]
+[Black "pulsar2009-9b-64"]
+[Result "0-1"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. f3 e5 {+0.34/2 0.1} 2. g3 d5 {+0.32/2 0.1} 3. c3 Nc6 {+0.57/2 0.1} 4.
+Qa4 Bc5 {+0.83/2 0.1} 5. Qxc6+ bxc6 {+5.41/2 0.1} 6. Nh3 Rb8 {+5.67/2 0.1}
+7. b3 Nf6 {+5.88/2 0.1} 8. a4 Rxb3 {+7.03/2 0.1} 9. Ra2 Rxb1 {+10.52/2 0.1}
+10. Ng1 Rxc1# {+149.99/2 0.1}
+{Xboard adjudication: Checkmate} 0-1
+

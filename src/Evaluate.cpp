@@ -169,37 +169,42 @@ static double material_score() {
 static double mobility_score() {
     double score = 0;
     for (int i = 0; i < 64; i++) {
+        // logger::log("mobility", "score", 4);
+        // logger::logBoard(board::squares);
+
         char c = piece::map[board::squares[i]];
 
         // White's pieces, add score
         double w_score = 0;
         if('K' == c)
-            w_score += evaluate::wKingTableMid[i];
+            w_score += evaluate::bKingTableMid[i];
         else if('Q' == c)
-            w_score += evaluate::wQueenTable[i];
+            w_score += evaluate::bQueenTable[i];
         else if('R' == c)
-            w_score += evaluate::wRookTable[i];
+            w_score += evaluate::bRookTable[i];
         else if('B' == c)
-            w_score += evaluate::wBishopTable[i];
+            w_score += evaluate::bBishopTable[i];
         else if('N' == c)
-            w_score += evaluate::wKnightTable[i];
-        else if('P' == c)
-            w_score += evaluate::wPawnTable[i];
+            w_score += evaluate::bKnightTable[i];
+        else if('P' == c) {
+            w_score += evaluate::bPawnTable[i];
+
+        }
 
         // Black's pieces, substract score
         double b_score = 0;
         if('k' == c)
-            b_score -= evaluate::bKingTableMid[i];
+            b_score += evaluate::wKingTableMid[i];
         else if('q' == c)
-            b_score -= evaluate::bQueenTable[i];
+            b_score += evaluate::wQueenTable[i];
         else if('r' == c)
-            b_score -= evaluate::bRookTable[i];
+            b_score += evaluate::wRookTable[i];
         else if('b' == c)
-            b_score -= evaluate::bBishopTable[i];
+            b_score += evaluate::wBishopTable[i];
         else if('n' == c)
-            b_score -= evaluate::bKnightTable[i];
+            b_score += evaluate::wKnightTable[i];
         else if('p' == c)
-            b_score -= evaluate::bPawnTable[i];
+            b_score += evaluate::wPawnTable[i];
 
         // if (board::botColor == piece::BLACK)
         //     score += (b_score - w_score);
@@ -234,8 +239,8 @@ static double check_eval() {
         // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
         // logger::log("white king", std::to_string(root->whiteKingPos), 2);
         // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
-        logger::logBoard(board::squares);
-        logger::logBoard2(move::squaresAttacked);
+        // logger::logBoard(board::squares);
+        // logger::logBoard2(move::squaresAttacked);
         if (move::squaresAttacked[board::blackKingPos]) {
             return DBL_MAX;
         }
@@ -256,11 +261,11 @@ double evaluate::static_eval() {
     if (check_score == DBL_MAX || check_score == -DBL_MAX)
         return check_score;
     // logger::logBoard(root->board);
-    // double mob = mobility_score();
+    double mob = mobility_score();
     // double mob = 0;
-    double score = material_score();// + mob;
+    double score = material_score() + mob;
     // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob) + " src: " + std::to_string(root->start) + " dest: " + std::to_string(root->end), 1);
-    return score / 100;
+    return score;
 }
 
 

@@ -9,12 +9,12 @@
 // #include "MoveGenerator.h"
 
 // weight of every piece
-#define KingWt 20000
-#define QueenWt 900
-#define RookWt 500
-#define BishopWt 330
-#define KnightWt 320
-#define PawnWt 100
+#define KingWt 200
+#define QueenWt 30
+#define RookWt 17
+#define BishopWt 15
+#define KnightWt 10
+#define PawnWt 8
 
 namespace evaluate {
 
