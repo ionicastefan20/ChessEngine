@@ -61,6 +61,8 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
                 if(depth == 0) {
                     start_res = start;
                     end_res = end;
+                    // logger::log("start_res", std::to_string(start_res), 1);
+                    // logger::log("end_res", std::to_string(end_res), 1);
                 }
             }
             // logger::log("Best", std::to_string(best_score), 0);
@@ -73,9 +75,16 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             moveGenerator::restore_copy(copy);
 
             if (alpha >= beta)
+                // break;
                 return alpha;
         }
     }
+
+        // restore copy
+    // move::moves.clear();
+    // for (auto move_cpy : moves_copy) {
+    //     move::moves[move_cpy.first] = move_cpy.second;
+    // }
 
     return best_score;
 }

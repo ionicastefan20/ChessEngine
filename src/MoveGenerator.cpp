@@ -165,7 +165,7 @@ void moveGenerator::restore_copy(BState copy) {
 // }
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
-    int start, end;
+    int start = - 1, end = -1;
     // std::pair<int, int> best_move;
     // double best_score = -DBL_MAX;
     // move::calculateSquaresAttacked();

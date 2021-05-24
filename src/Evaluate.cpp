@@ -170,37 +170,42 @@ static double material_score() {
 static double mobility_score() {
     double score = 0;
     for (int i = 0; i < 64; i++) {
+        // logger::log("mobility", "score", 4);
+        // logger::logBoard(board::squares);
+
         char c = piece::map[board::squares[i]];
 
         // White's pieces, add score
         double w_score = 0;
         if('K' == c)
-            w_score += evaluate::wKingTableMid[i];
+            w_score += evaluate::bKingTableMid[i];
         else if('Q' == c)
-            w_score += evaluate::wQueenTable[i];
+            w_score += evaluate::bQueenTable[i];
         else if('R' == c)
-            w_score += evaluate::wRookTable[i];
+            w_score += evaluate::bRookTable[i];
         else if('B' == c)
-            w_score += evaluate::wBishopTable[i];
+            w_score += evaluate::bBishopTable[i];
         else if('N' == c)
-            w_score += evaluate::wKnightTable[i];
-        else if('P' == c)
-            w_score += evaluate::wPawnTable[i];
+            w_score += evaluate::bKnightTable[i];
+        else if('P' == c) {
+            w_score += evaluate::bPawnTable[i];
+
+        }
 
         // Black's pieces, substract score
         double b_score = 0;
         if('k' == c)
-            b_score -= evaluate::bKingTableMid[i];
+            b_score += evaluate::wKingTableMid[i];
         else if('q' == c)
-            b_score -= evaluate::bQueenTable[i];
+            b_score += evaluate::wQueenTable[i];
         else if('r' == c)
-            b_score -= evaluate::bRookTable[i];
+            b_score += evaluate::wRookTable[i];
         else if('b' == c)
-            b_score -= evaluate::bBishopTable[i];
+            b_score += evaluate::wBishopTable[i];
         else if('n' == c)
-            b_score -= evaluate::bKnightTable[i];
+            b_score += evaluate::wKnightTable[i];
         else if('p' == c)
-            b_score -= evaluate::bPawnTable[i];
+            b_score += evaluate::wPawnTable[i];
 
         if (board::botColor == piece::BLACK)
             score += (b_score - w_score);
