@@ -44,7 +44,7 @@ namespace evaluate {
 
     extern const int bPawnTable[64];
 
-    double static_eval();
+    double static_eval(int botColor);
 
 };
 

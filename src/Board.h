@@ -23,6 +23,8 @@ namespace board {
 
     extern std::unordered_map<char, int> materials;
 
+    extern std::vector<bool> botSquaresAttacked;
+
     int getOppositeBotColor(int color);
 
     void initBoard();
