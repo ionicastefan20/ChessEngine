@@ -36,7 +36,7 @@ namespace evaluate {
 -10,  0,  0,  0,  0,  0,  0,-10,
 -10,  0,  5,  5,  5,  5,  0,-10,
  -5,  0,  5,  5,  5,  5,  0, -5,
-  0,  0,  5,  5,  1000,  5,  0, -5,
+  0,  0,  5,  5,  5,  5,  0, -5,
 -10,  5,  5,  5,  5,  5,  0,-10,
 -10,  0,  5,  0,  0,  0,  0,-10,
 -20,-10,-10, -5, -5,-10,-10,-20};
@@ -76,7 +76,7 @@ namespace evaluate {
 50, 50, 50, 50, 50, 50, 50, 50,
 10, 10, 2000, 30, 30, 20, 10, 10,
  5,  5, 10, 10, 10, 10,  5,  5,
- 0,  0,  0, 10, 1000,  0,  0,  0,
+ 0,  0,  0, 10, 10,  0,  0,  0,
  5, -5,-10,  0,  0,-10, -5,  5,
  5, 10, 10,-20,-20, 10, 10,  5,
  0,  0,  0,  0,  0,  0,  0,  0};
@@ -209,13 +209,9 @@ static double mobility_score() {
 static double check_eval() {
 
     if (board::colorOnMove == piece::WHITE) {
-        // logger::logBoard(root->board);
-        // logger::logBoard2(root->squaresAttacked);
-        // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-        // logger::log("black king", std::to_string(root->blackKingPos), 2);
-        logger::logBoard(board::squares);
-        logger::logBoard2(move::squaresAttacked);
-        logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
+        // logger::logBoard(board::squares);
+        // logger::logBoard2(move::squaresAttacked);
+        // logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
         if (move::squaresAttacked[board::whiteKingPos]) {
             return 100000000;
         }
@@ -226,9 +222,6 @@ static double check_eval() {
             return -100000000;
         board::botColor = botColorCopy;
     } else {
-        logger::logBoard(board::squares);
-        logger::logBoard2(move::squaresAttacked);
-        logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
         if (move::squaresAttacked[board::blackKingPos]) {
             return -100000000;
         }
@@ -240,37 +233,18 @@ static double check_eval() {
         board::botColor = botColorCopy;
     }
 
-
-    // if (board::colorOnMove == piece::WHITE) {
-    //     // logger::logBoard(root->board);
-    //     // logger::logBoard2(root->squaresAttacked);
-    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-    //     // logger::log("black king", std::to_string(root->blackKingPos), 2);
-    //     if (move::squaresAttacked[board::blackKingPos]) {
-    //         return -DBL_MAX;
-    //     }
-    // } else {
-    //     // logger::logBoard(root->board);
-    //     // logger::logBoard2(root->squaresAttacked);
-    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-    //     // logger::log("white king", std::to_string(root->whiteKingPos), 2);
-    //     // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
-    //     if (move::squaresAttacked[board::whiteKingPos]) {
-    //         return DBL_MAX;
-    //     }
-    // }
     return 0;
 }
 
 double evaluate::static_eval() {
-    logger::logBoard(board::squares);
+    // logger::logBoard(board::squares);
     // logger::logBoard2(root->squaresAttacked);
     double check_score = check_eval();
-    logger::log("check_score", std::to_string(check_score), 1);
+    // logger::log("check_score", std::to_string(check_score), 1);
     // logger::logBoard(root->board);
     double mob = mobility_score() + check_score;
     // double mob = 0;
     double score = material_score() + mob;
-    logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob), 1);
+    // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob), 1);
     return score;
 }

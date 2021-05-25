@@ -16,9 +16,6 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             // logger::logBoard2(root->squaresAttacked);
             // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
             // logger::log("black king", std::to_string(root->blackKingPos), 2);
-            logger::logBoard(board::squares);
-            logger::logBoard2(move::squaresAttacked);
-            logger::log("eval check", std::to_string(move::squaresAttacked[board::whiteKingPos]), 2);
             if (move::squaresAttacked[board::whiteKingPos]) {
                 to_add = 10000;
             }
@@ -29,11 +26,8 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             //     return -100000;
             // board::botColor = botColorCopy;
         } else {
-            logger::logBoard(board::squares);
-            logger::logBoard2(move::squaresAttacked);
-            logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
             if (move::squaresAttacked[board::blackKingPos]) {
-                logger::log("DAAAA", "DAAAA", 3);
+                // logger::log("DAAAA", "DAAAA", 3);
                 to_add = -10000;
             }
             // int botColorCopy = board::botColor;
