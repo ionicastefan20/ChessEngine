@@ -27,6 +27,7 @@ struct board_state {
     int squares[64];
 
     std::vector<bool> squaresAttacked;
+    std::vector<bool> botSquaresAttacked;
     std::unordered_map<char, int> materials;
 };
 typedef struct board_state* BState;
@@ -43,7 +44,7 @@ namespace moveGenerator {
 
     Node init_node();
 
-    BState make_copy();
+    BState make_copy(int botColor);
 
     void restore_copy(BState copy);
 };

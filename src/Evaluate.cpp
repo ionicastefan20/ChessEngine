@@ -2,6 +2,7 @@
 
 extern int board::botColor;
 extern std::unordered_map<char, int> board::materials;
+extern std::vector<bool> board::botSquaresAttacked;
 
 // for white
 // extern const int evaluate::wKingTableMid[64];
@@ -242,6 +243,26 @@ static double check_eval() {
             return -100000;
         board::botColor = botColorCopy;
     }
+
+
+    // if (board::colorOnMove == piece::WHITE) {
+    //     // logger::logBoard(root->board);
+    //     // logger::logBoard2(root->squaresAttacked);
+    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+    //     // logger::log("black king", std::to_string(root->blackKingPos), 2);
+    //     if (move::squaresAttacked[board::blackKingPos]) {
+    //         return -DBL_MAX;
+    //     }
+    // } else {
+    //     // logger::logBoard(root->board);
+    //     // logger::logBoard2(root->squaresAttacked);
+    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+    //     // logger::log("white king", std::to_string(root->whiteKingPos), 2);
+    //     // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
+    //     if (move::squaresAttacked[board::whiteKingPos]) {
+    //         return DBL_MAX;
+    //     }
+    // }
     return 0;
 }
 

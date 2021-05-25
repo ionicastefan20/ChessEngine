@@ -18,6 +18,7 @@ namespace board {
     int whiteKingPos = 4;
     int squares[64];
     std::unordered_map<char, int> materials;
+    std::vector<bool> botSquaresAttacked;
 }
 
 int board::getOppositeBotColor(int color) {

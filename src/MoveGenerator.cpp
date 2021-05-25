@@ -6,6 +6,7 @@ extern bool board::isPlaying;
 extern int board::kingPos, whiteKingPos, blackKingPos;
 extern int board::squares[64];
 extern std::unordered_map<char, int> board::materials;
+extern std::vector<bool> board::botSquaresAttacked;
 
 extern std::unordered_map<std::string, int> move::directions;
 extern std::vector<std::unordered_map<std::string, int>> move::numUntilEdge;
@@ -34,18 +35,6 @@ void moveGenerator::init_materials() {
     board::materials['K'] = 1;
 }
 
-// Node moveGenerator::init_node() {
-//     Node root = new tNode;
-
-//     init_materials(root->materials);
-//     root->colorOnMove = board::colorOnMove;
-//     root->blackKingPos = board::blackKingPos;
-//     root->whiteKingPos = board::whiteKingPos;
-//     memcpy(root->board, board::squares, 64 * sizeof(int));
-
-//     return root;
-// }
-
 // returns padding for promotion or empty string for a non-promotion
 std::string checkForPromotionAndRandom(std::pair<int, int> move) {
     srand(time(NULL));
@@ -73,7 +62,7 @@ std::string checkForPromotionAndRandom(std::pair<int, int> move) {
 }
 
 
-BState moveGenerator::make_copy() {
+BState moveGenerator::make_copy(int botColor) {
     BState copy = new board_state;
 
     copy->enPassantMove = move::enPassantMove;
@@ -92,6 +81,7 @@ BState moveGenerator::make_copy() {
 
     memcpy(copy->squares, board::squares, 64 * sizeof(int));
     copy->squaresAttacked = move::squaresAttacked;
+    copy->botSquaresAttacked = board::botSquaresAttacked;
     copy->materials = board::materials;
 
     return copy;
@@ -114,6 +104,7 @@ void moveGenerator::restore_copy(BState copy) {
 
     memcpy(board::squares, copy->squares, 64 * sizeof(int));
     move::squaresAttacked = copy->squaresAttacked;
+    board::botSquaresAttacked = copy->botSquaresAttacked;
     board::materials = copy->materials;
 }
 
@@ -188,10 +179,10 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     // for (auto move : moves_copy) {  // for every legal pair of moves (start -> end)
     //     int start_init = move.first;
     //     for (auto end_init : move.second) {
-    double best_score = negamax_alpha_beta(0, 0, start, end, 0, -DBL_MAX, DBL_MAX);
-    // logger::log("ScoreFinal", std::to_string(best_score), 0);
-    // logger::log("Start", std::to_string(start), 0);
-    // logger::log("End", std::to_string(end), 0);
+    double best_score = negamax_alpha_beta(0, 0, start, end, 0, -DBL_MAX, DBL_MAX, board::botColor);
+    logger::log("ScoreFinal", std::to_string(best_score), 0);
+    logger::log("Start", std::to_string(start), 0);
+    logger::log("End", std::to_string(end), 0);
     //         if (score > best_score) {
     //             best_score = score;
     //             best_move = {start, end};

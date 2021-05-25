@@ -1,6 +1,6 @@
 #include "Minimax.h"
 
-double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end_res, int depth, double alpha, double beta) {
+double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end_res, int depth, double alpha, double beta, int botColor) {
     move::calculateSquaresAttacked();
     move::generate();
 
@@ -68,7 +68,7 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             int end = legal_move;
 
             // Create a copy of the board state
-            BState copy = moveGenerator::make_copy();
+            BState copy = moveGenerator::make_copy(botColor);
 
             // Update the materials
             if(board::squares[end] != 0) {
@@ -79,13 +79,22 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
 
             // make the move
             board::makeMove(board::encodeMove({start, end}));
+            if (botColor == board::botColor) {
+                // generate squares attacked for bot
+                board::botColor = board::getOppositeBotColor(board::botColor);
+                move::calculateSquaresAttacked();
+                board::botSquaresAttacked = move::squaresAttacked;
+                // restore bot color
+                board::botColor = board::getOppositeBotColor(board::botColor);
+            }
+            // logger::logBoard2(board::botSquaresAttacked);
+            // logger::log("Depth", std::to_string(depth), 0);
+
             board::botColor = board::getOppositeBotColor(board::botColor);
 
-
-            double score = -negamax_alpha_beta(start, end, start_res, end_res, depth + 1, -beta, -alpha);
+            double score = -negamax_alpha_beta(start, end, start_res, end_res, depth + 1, -beta, -alpha, botColor);
             // logger::logBoard(board::squares);
             // logger::log("Depth", std::to_string(depth), 0);
-            // logger::log("Score", std::to_string(score), 0);
             if (score > best_score) {
                 best_score = score;
                 if(depth == 0) {
@@ -95,6 +104,8 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
                     // logger::log("end_res", std::to_string(end_res), 1);
                 }
             }
+            // logger::log("Best", std::to_string(best_score), 0);
+            // logger::log("Move", std::to_string(start_res) + " " + std::to_string(end_res), 0);
 
             if (best_score > alpha)
                 alpha = best_score;
