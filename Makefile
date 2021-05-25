@@ -49,4 +49,4 @@ run_pulsar:
 	DISPLAY=:0 xboard -variant 3check -fcp "pulsar2009-9b-64 mxT-2" -scp "make run" -tc 5 -inc 2 -autoCallFlag true -mg 4 -sgf partide.txt -reuseFirst false -debug
 
 play_pulsar:
-	DISPLAY=:0 xboard -variant 3check -fcp "pulsar2009-9b-64 mxT-2"
+	DISPLAY=:0 xboard -variant 3check -fcp "pulsar2009-9b-64 mxT-4"

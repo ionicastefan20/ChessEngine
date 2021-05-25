@@ -407,7 +407,7 @@ int removePositionWithCheck(int i) {
 
     if (nonCheckMovesCastle.size() != 0) {
         for (auto& p : move::moves) {
-            p.second.clear();
+            //
         }
         move::moves[i] = nonCheckMovesCastle;
     } else {
