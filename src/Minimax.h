@@ -5,7 +5,7 @@
 #include "MoveGenerator.h"
 #include "Logger.h"
 
-#define MAX_DEPTH 1
+#define MAX_DEPTH 2
 
 typedef struct tNode* Node;
 

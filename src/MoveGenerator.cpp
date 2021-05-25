@@ -175,6 +175,7 @@ void moveGenerator::restore_copy(BState copy) {
 
 std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     int start = - 1, end = -1;
+
     // std::pair<int, int> best_move;
     // double best_score = -DBL_MAX;
     // move::calculateSquaresAttacked();
@@ -197,6 +198,7 @@ std::pair<std::string, std::pair<int, int>> moveGenerator::generateMove() {
     //         }
     //     }
     // }
+
 
     std::pair<int, int> move(start, end);
     std::string padding = checkForPromotionAndRandom(move);

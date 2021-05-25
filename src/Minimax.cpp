@@ -9,41 +9,44 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
         moves_count += p.second.size();
     }
 
-    // if (board::colorOnMove == piece::WHITE) {
-    //     // logger::logBoard(root->board);
-    //     // logger::logBoard2(root->squaresAttacked);
-    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-    //     // logger::log("black king", std::to_string(root->blackKingPos), 2);
-    //     logger::logBoard(board::squares);
-    //     logger::logBoard2(move::squaresAttacked);
-    //     logger::log("eval check", std::to_string(move::squaresAttacked[board::whiteKingPos]), 2);
-    //     if (move::squaresAttacked[board::whiteKingPos]) {
-    //         return -DBL_MAX;
-    //     }
-    //     // int botColorCopy = board::botColor;
-    //     // board::botColor = board::getOppositeBotColor(board::botColor);
-    //     // move::calculateSquaresAttacked();
-    //     // if (move::squaresAttacked[board::whiteKingPos])
-    //     //     return DBL_MAX;
-    //     // board::botColor = botColorCopy;
-    // } else {
-    //     // logger::logBoard(root->board);
-    //     // logger::logBoard2(root->squaresAttacked);
-    //     // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-    //     // logger::log("white king", std::to_string(root->whiteKingPos), 2);
-    //     // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
-    //     logger::logBoard(board::squares);
-    //     logger::logBoard2(move::squaresAttacked);
-    //     if (move::squaresAttacked[board::blackKingPos]) {
-    //         return DBL_MAX;
-    //     }
-    //     // int botColorCopy = board::botColor;
-    //     // board::botColor = board::getOppositeBotColor(board::botColor);
-    //     // move::calculateSquaresAttacked();
-    //     // if (move::squaresAttacked[board::blackKingPos])
-    //     //     return -DBL_MAX;
-    //     // board::botColor = botColorCopy;
-    // }
+    if (depth != 0) {
+        if (board::colorOnMove == piece::WHITE) {
+            // logger::logBoard(root->board);
+            // logger::logBoard2(root->squaresAttacked);
+            // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+            // logger::log("black king", std::to_string(root->blackKingPos), 2);
+            logger::logBoard(board::squares);
+            logger::logBoard2(move::squaresAttacked);
+            logger::log("eval check", std::to_string(move::squaresAttacked[board::whiteKingPos]), 2);
+            if (move::squaresAttacked[board::whiteKingPos]) {
+                return -100000;
+            }
+            int botColorCopy = board::botColor;
+            board::botColor = board::getOppositeBotColor(board::botColor);
+            move::calculateSquaresAttacked();
+            if (move::squaresAttacked[board::blackKingPos])
+                return 100000;
+            board::botColor = botColorCopy;
+        } else {
+            // logger::logBoard(root->board);
+            // logger::logBoard2(root->squaresAttacked);
+            // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
+            // logger::log("white king", std::to_string(root->whiteKingPos), 2);
+            // logger::log("dereferentiere", std::to_string(root->squaresAttacked[root->whiteKingPos]), 5);
+            logger::logBoard(board::squares);
+            logger::logBoard2(move::squaresAttacked);
+            if (move::squaresAttacked[board::blackKingPos]) {
+                return 100000;
+            }
+            int botColorCopy = board::botColor;
+            board::botColor = board::getOppositeBotColor(board::botColor);
+            move::calculateSquaresAttacked();
+            if (move::squaresAttacked[board::whiteKingPos])
+                return -100000;
+            board::botColor = botColorCopy;
+        }
+    }
+    // move::calculateSquaresAttacked();
 
     if(depth >= MAX_DEPTH || moves_count == 0) {
         double result = evaluate::static_eval();
