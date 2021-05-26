@@ -8019,38 +8019,22 @@ Bf4 {+2.61/4 0.1} e5 5. Qxe5+ {+5.53/4 0.1} Qe7 6. Qxe7+ {+8.66/4 0.1} Bxe7
 [Event "Computer Chess Game"]
 [Site "DESKTOP-R9ACORC"]
 [Date "2021.05.26"]
-[Round "-"]
-[White "andtheysaychivelryisdead"]
-[Black "longclaw"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
 [Result "*"]
 [TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
 
-1. e3 Nc6 2. Qg4
-{xboard exit (Clocks: 298, 285)} *
-
-[Event "Computer Chess Game"]
-[Site "DESKTOP-R9ACORC"]
-[Date "2021.05.26"]
-[Round "-"]
-[White "andtheysaychivelryisdead"]
-[Black "longclaw"]
-[Result "*"]
-[TimeControl "300+2"]
-
-1. e3 Nc6 2. Qg4
-{xboard exit (Clocks: 298, 252)} *
-
-[Event "Computer Chess Game"]
-[Site "DESKTOP-R9ACORC"]
-[Date "2021.05.26"]
-[Round "-"]
-[White "andtheysaychivelryisdead"]
-[Black "longclaw"]
-[Result "*"]
-[TimeControl "300+2"]
-
-1. e3 Nc6 2. Qh5
-{xboard exit (Clocks: 296, 296)} *
+1. e3 {+0.02/4} Nf6 2. Nf3 {+0.28/1 0.1} Nd5 3. Nc3 {+0.41/2 0.1} e5 4.
+Nxd5 {+3.27/2 0.1} Bb4 5. Nxb4 {+6.51/2 0.1} Nc6 6. Nxc6 {+7.86/2 0.1} dxc6
+7. Nxe5 {+7.08/2 0.1} Qg5 8. Nf3 {+7.84/2 0.1} Qa5 9. Bd3 {+7.20/2 0.1} Bf5
+10. Nd4 {+7.84/2 0.1} Bxd3 11. cxd3 {+6.90/2 0.1} Qe5 12. f4 {+7.87/2 0.1}
+O-O 13. fxe5 {+16.29/2 0.1} g6 14. O-O {+16.90/2 0.1} c5 15. Nb3
+{+16.64/2 0.1} c4 16. dxc4 {+17.57/2 0.1} Rad8 17. e6 {+17.78/2 0.1} f5 18.
+e7 {+21.80/2 0.1}
+{xboard exit (Clocks: 334, 278)} *
 
 [Event "Computer Chess Game"]
 [Site "DESKTOP-R9ACORC"]
@@ -8063,9 +8047,13 @@ Bf4 {+2.61/4 0.1} e5 5. Qxe5+ {+5.53/4 0.1} Qe7 6. Qxe7+ {+8.66/4 0.1} Bxe7
 [Variant "3check"]
 [Annotator "1. +0.02"]
 
-1. e4 {+0.02/4} Nf6 2. e5 {+0.40/4 0.1} d5 3. Bb5+ {+4.06/4 0.1} c6 4.
-Bxc6+ {+4.06/4 0.1} Nxc6 5. exf6 {+3.94/4 0.1} Bg4 6. Qxg4 {+149.99/4 0.1}
-h5 7. Qd7+ {+149.99/4 0.1}
+1. d4 {+0.02/4} Nc6 2. e4 {+0.14/2 0.1} Nf6 3. d5 {+0.16/2 0.1} e5 4. Nc3
+{+0.02/2 0.1} Bb4 5. dxc6 {+0.51/2 0.1} d5 6. cxb7 {+2.89/2 0.1} O-O 7.
+bxa8=Q {+15.15/2 0.1} d4 8. Bd2 {+15.07/2 0.1} Bg4 9. Qxd8 {+16.89/2 0.1}
+Rxd8 10. Nf3 {+14.91/2 0.1} Bxf3 11. gxf3 {+15.00/2 0.1} g5 12. Bxg5
+{+17.22/2 0.1} Nxe4 13. Bxd8 {+21.24/2 0.1} Ng5 14. Bxg5 {+24.44/2 0.1} h6
+15. Bxh6 {+26.14/2 0.1} dxc3 16. Rg1+ {+27.74/2 0.1} Kh8 17. Qd8+
+{+29.69/2 0.1} Kh7 18. Bd3+ {+149.99/2 0.1}
 {Xboard adjudication: 3rd check} 1-0
 
 [Event "Computer Chess Game"]
@@ -8077,10 +8065,9 @@ h5 7. Qd7+ {+149.99/4 0.1}
 [Result "1-0"]
 [TimeControl "300+2"]
 [Variant "3check"]
-[Annotator "1... -0.14"]
 
-1. e3 e5 {-0.14/4 0.1} 2. Qh5 Nc6 {+0.34/4 0.1} 3. Qxf7+ Kxf7 {+3.14/4 0.1}
-4. Bc4+ Ke7 {-149.99/4 0.1} 5. Nc3 Ke8 {-150.00/3 0.1} 6. Bf7+
+1. e3 e5 {-0.14/2 0.1} 2. Qh5 Nc6 {+0.10/2 0.1} 3. Qxf7+ Kxf7 {+3.70/2 0.1}
+4. Bc4+ Kf6 {+2.80/2 0.1} 5. Nc3 Bc5 {-150.00/2 0.1} 6. Nd5+
 {Xboard adjudication: 3rd check} 1-0
 
 [Event "Computer Chess Game"]
@@ -8094,9 +8081,124 @@ h5 7. Qd7+ {+149.99/4 0.1}
 [Variant "3check"]
 [Annotator "1. +0.02"]
 
-1. e4 {+0.02/4} Nf6 2. e5 {+0.40/4 0.1} d5 3. Bb5+ {+4.06/4 0.1} c6 4.
-Bxc6+ {+4.06/4 0.1} Nxc6 5. exf6 {+3.94/4 0.1} Bg4 6. Qxg4 {+149.99/4 0.1}
-h5 7. Qd7+ {+149.99/4 0.1}
+1. Nc3 {+0.02/4} Nc6 2. d4 {+0.38/1 0.1} Nxd4 3. Qxd4 {+2.06/2 0.1} Nf6 4.
+e4 {+2.20/2 0.1} Nd5 5. Nxd5 {+5.58/2 0.1} e6 6. Qe5 {+6.43/2 0.1} Bd6 7.
+Qxg7 {+7.89/2 0.1} Be5 8. Qxe5 {+11.38/2 0.1} O-O 9. Nf6+ {+15.77/2 0.1}
+Qxf6 10. Qxf6 {+19.08/2 0.1} h6 11. Bxh6 {+22.25/2 0.1} d5 12. Qg7#
+{+149.99/2 0.1}
+{Xboard adjudication: Checkmate} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "4"]
+[White "andtheysaychivelryisdead"]
+[Black "pulsar2009-9b-64"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. e3 e5 {-0.14/2 0.1} 2. Qh5 Nc6 {+0.10/2 0.1} 3. Qxf7+ Kxf7 {+3.70/2 0.1}
+4. Bc4+ Kf6 {+2.80/2 0.1} 5. Nc3 Bc5 {-150.00/2 0.1} 6. Nd5+
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e4 {+0.02/4} Nf6 2. e5 {+0.40/3 0.1} d5 3. Bb5+ {+4.06/3 0.1} c6 4.
+Bxc6+ {+4.06/3 0.1} Nxc6 5. exf6 {+4.34/3 0.1} Bg4 6. Qxg4 {+149.99/3 0.1}
+h5 7. Qd7+ {+149.99/3 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "2"]
+[White "andtheysaychivelryisdead"]
+[Black "pulsar2009-9b-64"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1... +0.10"]
+
+1. e3 e5 {+0.10/3 0.1} 2. Qh5 Nc6 {+0.34/3 0.1} 3. Qxf7+ Kxf7 {+2.80/3 0.1}
+4. Bc4+ Ke7 {+3.14/3 0.1} 5. Nc3 Ke8 {-150.00/3 0.1} 6. Nd5 Nf6
+{-150.00/3 0.1} 7. Nxf6+
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "*"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e3 {+0.02/4} Nf6 2. Nf3 {+0.24/3 0.1} Nd5 3. e4 {+0.60/3 0.1} Nf6 4. Nc3
+{+0.72/3 0.1} e5 5. Nxe5 {+1.68/3 0.1} Bb4 6. Bc4 {+2.92/3 0.1} Nc6 7. Nxf7
+{+6.62/3 0.1} d5 8. Nxd8 {+8.66/3 0.1} Bg4 9. Be2 {+9.49/3 0.1} d4 10. Nxc6
+{+13.03/3 0.1} dxc3 11. Nxb4 {+14.01/3 0.1}
+{xboard exit (Clocks: 320, 163)} *
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. Nc3 {+0.02/4} Nc6 2. d4 {+0.24/3 0.1} Nxd4 3. Qxd4 {+2.44/3 0.1} Nf6 4.
+Bf4 {+2.69/3 0.1} e5 5. Qxe5+ {+5.88/3 0.1} Qe7 6. Qxe7+ {+9.13/3 0.1} Bxe7
+7. Bxc7 {+9.30/3 0.1} d5 8. e4 {+9.82/3 0.1} d4 9. Bb5+ {+149.99/3 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "2"]
+[White "andtheysaychivelryisdead"]
+[Black "pulsar2009-9b-64"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1... +0.10"]
+
+1. e3 e5 {+0.10/3 0.1} 2. Qh5 Nc6 {+0.34/3 0.1} 3. Qxf7+ Kxf7 {+2.80/3 0.1}
+4. Bc4+ Ke7 {+3.14/3 0.1} 5. Nc3 Ke8 {-150.00/3 0.1} 6. Nd5 Nf6
+{-150.00/3 0.1} 7. Nxf6+
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. d4 {+0.02/4} Nc6 2. d5 {+0.40/3 0.1} e5 3. Nc3 {+0.26/3 0.1} Bc5 4. Nf3
+{+0.28/3 0.1} Nf6 5. e3 {+1.57/3 0.1} Nxd5 6. Qxd5 {+1.96/3 0.1} Bxe3 7.
+Bxe3 {+4.93/3 0.1} Ne7 8. Qxe5 {+6.21/3 0.1} d6 9. Qxg7 {+9.23/3 0.1} Rg8
+10. Bb5+ {+9.23/3 0.1} Bd7 11. Bxd7+ {+149.99/3 0.1} Kxd7 12. Ne5+
+{+149.99/3 0.1}
 {Xboard adjudication: 3rd check} 1-0
 
 [Event "Computer Chess Game"]
@@ -8108,9 +8210,70 @@ h5 7. Qd7+ {+149.99/4 0.1}
 [Result "1-0"]
 [TimeControl "300+2"]
 [Variant "3check"]
-[Annotator "1... -0.14"]
+[Annotator "1... +0.10"]
 
-1. e3 e5 {-0.14/4 0.1} 2. Qh5 Nc6 {+0.34/4 0.1} 3. Qxf7+ Kxf7 {+3.14/4 0.1}
-4. Bc4+ Ke7 {-149.99/4 0.1} 5. Nc3 Ke8 {-150.00/3 0.1} 6. Bf7+
+1. e3 e5 {+0.10/3 0.1} 2. Qh5 Nc6 {+0.34/3 0.1} 3. Qxf7+ Kxf7 {+2.80/3 0.1}
+4. Bc4+ Ke7 {+3.14/3 0.1} 5. Nc3 Ke8 {-150.00/3 0.1} 6. Nd5 Nf6
+{-150.00/3 0.1} 7. Nxf6+
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "1"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e4 {+0.02/4} Nf6 2. e5 {+0.02/2 0.1} d5 3. Bb5+ {+4.06/2 0.1} c6 4.
+Bxc6+ {+4.06/2 0.1} Nxc6 5. exf6 {+4.06/2 0.1} Bg4 6. Qxg4 {+7.24/2 0.1} h5
+7. Qd7+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "2"]
+[White "andtheysaychivelryisdead"]
+[Black "pulsar2009-9b-64"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. e3 e5 {-0.14/2 0.1} 2. Qh5 Nc6 {+0.10/2 0.1} 3. Qxf7+ Kxf7 {+3.70/2 0.1}
+4. Bc4+ Kf6 {+2.80/2 0.1} 5. Nc3 Bc5 {-150.00/2 0.1} 6. Nd5+
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "3"]
+[White "pulsar2009-9b-64"]
+[Black "andtheysaychivelryisdead"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+[Annotator "1. +0.02"]
+
+1. e4 {+0.02/4} Nf6 2. e5 {+0.02/2 0.1} d5 3. Bb5+ {+4.06/2 0.1} c6 4.
+Bxc6+ {+4.06/2 0.1} Nxc6 5. exf6 {+4.06/2 0.1} Bg4 6. Qxg4 {+7.24/2 0.1} h5
+7. Qd7+ {+149.99/2 0.1}
+{Xboard adjudication: 3rd check} 1-0
+
+[Event "Computer Chess Game"]
+[Site "DESKTOP-R9ACORC"]
+[Date "2021.05.26"]
+[Round "4"]
+[White "andtheysaychivelryisdead"]
+[Black "pulsar2009-9b-64"]
+[Result "1-0"]
+[TimeControl "300+2"]
+[Variant "3check"]
+
+1. e3 e5 {-0.14/2 0.1} 2. Qh5 Nc6 {+0.10/2 0.1} 3. Qxf7+ Kxf7 {+3.70/2 0.1}
+4. Bc4+ Kf6 {+2.80/2 0.1} 5. Nc3 Bc5 {-150.00/2 0.1} 6. Nd5+
 {Xboard adjudication: 3rd check} 1-0
 

@@ -208,6 +208,34 @@ In this stage, the moves are randomly generated. However, the bot eliminates the
 reaching that stage. It also makes the castling a priority, which means that as soon as a castling move is available, it will be chosen. Also, the pawns
 can make the en passant move (which is also prioritized). A pawn that reached the final row, can be promoted to a better piece, randomly chosen.
 
+--- FiNAL STAGE ---
+
+For the final stage we have implemented a negamax algorithm with alpha-beta pruning. The negamax algorithm starts with
+the current board state and generates all the possible moves from this state. Next up, we iterate through all the 
+possible moves, adn for each of them we artificially make that move and make another call to the negamax algorithm
+with the specific parameters (adding +1 to the depth in the tree). On each call of negamax we check if we have reached
+a leaf node in our tree, and in that case we make a call to the evaluation function (which we will get back to 
+in just a second). The difference between negamax and a normal minimax is just an implementation difference, since we
+have used the formula max(a,b) = -min(-a,-b) to reduce from 2 calls to the recursive (which would have been the case in
+the minimax algorithm) to just 1 in negamax. We have implemented one more rule though, on each node in the tree
+that we reach (on every call of the recursive function) we add a bonus to the evaluation if that specific state
+in the tree generates a check (if the opponent generates a check will make it less likely for us to go down that
+path in the tree, and if we give a check we add a considerable bonus on going down that path), this is the meaning
+of the variable "check_bonus" that we have used.
+
+For the evaluation function we made use of 2 heuristics: one is based on the material score and the other one on the
+mobility score. The material score gives bonus points for the difference of pieces on the chess board (a move where we
+take the opponent's queen is highly favorable for us, but a move where we lose a queen is highly unfavorable for us).
+The other heuristic is the mobility score and forces pieces to certain position on the chess board, based on how 
+valuable it is for that piece to be on that square (it is highly unfavorable for the king to be pushed up to the board,
+so we will force it into our "home base" where he is more protected, same for pieces such as queens, rooks, bishops,
+which are favored to be highly pushed onto the board so they can be more aggressive towards the enemy's side of the board).
+The difference in our evaluation function from one made specifically for normal chess (we made one for 3 check chess
+obviously) is that the pieces are much more aggressive and on every on every opportunity they have to give a check to the
+opponent, they take it (A good offense if a strong defense :D). On the same note, our bot tries its hardest to avoid checks
+and if it sees that in the further depths of the tree the opponent has the chance to give a check, it tries its best to
+avoid that path and not let the opponent give a check to us.
+
 ## Responsabilities
 
 For the first stage, we all worked together on developing the structure of the project and the logic behind it.
@@ -216,10 +244,16 @@ For the second stage, Mihai worked on the attack simulation part and the pawn pr
 Stefan worked on the generated moves for every piece and en-passant.
 Vlad worked on the castling and the random-generated move.
 
+For the final stage, Mihai has worked on the evaluation function and the heuristics it implies.
+Stefan worked on the negamax algorithm, it's implementation and optimizations.
+Vlad put together our algorithms and made it work with the previous code from the past stages.
+
 ## Inspiration Sources
 
 https://youtu.be/U4ogK0MIzqk?t=59 &rarr; Chess piece encoding<br>
-https://youtu.be/U4ogK0MIzqk?t=202 &rarr; Board representation
+https://youtu.be/U4ogK0MIzqk?t=202 &rarr; Board representation<br>
+https://www.chessprogramming.org/Evaluation &rarr; Evaluation function heuristics<br>
+https://www.youtube.com/watch?v=l-hh51ncgDI &rarr; Minimax with alpha-beta pruning
 
 
 <!-- <br> -->

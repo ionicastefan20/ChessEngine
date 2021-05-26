@@ -82,7 +82,7 @@ namespace evaluate {
 -10,  0,  5,  0,  0,  0,  0,-10,
 -10,  5,  5,  5,  5,  5,  0,-10,
   0,  0,  5,  5,  5,  5,  0, 0,
- 10000,  0,  5,  5,  5,  5,  0, 10000,
+ 0,  0,  5,  5,  5,  5,  0, 10000,
 -10,  0,  5,  5,  5,  5,  0,-10,
 -10,  0,  0,  0,  0,  0,  0,-10,
 -20,-10,-10, -5, -5,-10,-10,-20};
@@ -193,23 +193,23 @@ static double check_eval() {
 
     if (board::colorOnMove == piece::WHITE) {
         if (move::squaresAttacked[board::whiteKingPos]) {
-            return 10000;
+            return 100000000;
         }
         int botColorCopy = board::botColor;
         board::botColor = board::getOppositeBotColor(board::botColor);
         move::calculateSquaresAttacked();
         if (move::squaresAttacked[board::whiteKingPos])
-            return -10000;
+            return -100000000;
         board::botColor = botColorCopy;
     } else {
         if (move::squaresAttacked[board::blackKingPos]) {
-            return -10000;
+            return -100000000;
         }
         int botColorCopy = board::botColor;
         board::botColor = board::getOppositeBotColor(board::botColor);
         move::calculateSquaresAttacked();
         if (move::squaresAttacked[board::blackKingPos])
-            return 10000;
+            return 100000000;
         board::botColor = botColorCopy;
     }
 
