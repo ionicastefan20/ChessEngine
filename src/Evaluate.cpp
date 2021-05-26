@@ -4,21 +4,6 @@ extern int board::botColor;
 extern std::unordered_map<char, int> board::materials;
 extern std::vector<bool> board::botSquaresAttacked;
 
-// for white
-// extern const int evaluate::wKingTableMid[64];
-// extern const int evaluate::wQueenTable[64];
-// extern const int evaluate::wRookTable[64];
-// extern const int evaluate::wBishopTable[64];
-// extern const int evaluate::wKnightTable[64];
-// extern const int evaluate::wPawnTable[64];
-// // for black
-// extern const int evaluate::bKingTableMid[64];
-// extern const int evaluate::bQueenTable[64];
-// extern const int evaluate::bRookTable[64];
-// extern const int evaluate::bKnightTable[64];
-// extern const int evaluate::bBishopTable[64];
-// extern const int evaluate::bPawnTable[64];
-
 namespace evaluate {
 
     const int wKingTableMid[64] =
@@ -161,8 +146,6 @@ static double material_score() {
 static double mobility_score() {
     double score = 0;
     for (int i = 0; i < 64; i++) {
-        // logger::log("mobility", "score", 4);
-        // logger::logBoard(board::squares);
 
         char c = piece::map[board::squares[i]];
 
@@ -209,9 +192,6 @@ static double mobility_score() {
 static double check_eval() {
 
     if (board::colorOnMove == piece::WHITE) {
-        // logger::logBoard(board::squares);
-        // logger::logBoard2(move::squaresAttacked);
-        // logger::log("eval check", std::to_string(move::squaresAttacked[board::blackKingPos]), 2);
         if (move::squaresAttacked[board::whiteKingPos]) {
             return 100000000;
         }
@@ -237,14 +217,8 @@ static double check_eval() {
 }
 
 double evaluate::static_eval() {
-    // logger::logBoard(board::squares);
-    // logger::logBoard2(root->squaresAttacked);
     double check_score = check_eval();
-    // logger::log("check_score", std::to_string(check_score), 1);
-    // logger::logBoard(root->board);
     double mob = mobility_score() + check_score;
-    // double mob = 0;
     double score = material_score() + mob;
-    // logger::log("EVALUATE", std::to_string(score) + " mob: " + std::to_string(mob), 1);
     return score;
 }

@@ -74,8 +74,7 @@ public:
             if (!first_word.compare(commands[0])) { // xboard
                 std::cout << std::endl;
             } else if (!first_word.compare(commands[1])) { // protover
-                std::cout << "feature sigint=0 san=0 name=\"true_chess\" done=1 myname=\"HikaruOnCrack\"" << std::endl;
-                std::cout << "feature sigint=0 san=0 myname=\"HikaruOnCrack\"" << std::endl;
+                std::cout << "feature sigint=0 san=0 myname=\"andtheysaychivelryisdead\" done=1" << std::endl;
             } else if (!first_word.compare(commands[2])) { // new
                 board::initBoard();
             } else if (!first_word.compare(commands[3])) { // force
@@ -90,7 +89,6 @@ public:
                 return;
             } else if (isValidMove(first_word)) {
                 board::makeMove(first_word); // his move (computer's, oponent's)
-                // memcpy(moveGenerator::curr_node->board, board::squares, 64 * sizeof(int));
                 makeBotThink();
             }
         }

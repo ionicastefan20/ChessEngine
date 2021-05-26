@@ -9,41 +9,22 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
         moves_count += p.second.size();
     }
 
-    double to_add = 0;
+    double check_bonus = 0;
     if (depth != 0) {
         if (board::colorOnMove == piece::WHITE) {
-            // logger::logBoard(root->board);
-            // logger::logBoard2(root->squaresAttacked);
-            // logger::log("size I I I I N N N N", std::to_string(root->squaresAttacked.size()), 3);
-            // logger::log("black king", std::to_string(root->blackKingPos), 2);
             if (move::squaresAttacked[board::whiteKingPos]) {
-                to_add = 10000;
+                check_bonus = 10000;
             }
-            // int botColorCopy = board::botColor;
-            // board::botColor = board::getOppositeBotColor(board::botColor);
-            // move::calculateSquaresAttacked();
-            // if (move::squaresAttacked[board::blackKingPos])
-            //     return -100000;
-            // board::botColor = botColorCopy;
         } else {
             if (move::squaresAttacked[board::blackKingPos]) {
                 // logger::log("DAAAA", "DAAAA", 3);
-                to_add = -10000;
+                check_bonus = -10000;
             }
-            // int botColorCopy = board::botColor;
-            // board::botColor = board::getOppositeBotColor(board::botColor);
-            // move::calculateSquaresAttacked();
-            // if (move::squaresAttacked[board::whiteKingPos])
-            //     return 100000;
-            // board::botColor = botColorCopy;
         }
     }
-    // move::calculateSquaresAttacked();
 
     if(depth >= MAX_DEPTH || moves_count == 0) {
         double result = evaluate::static_eval();
-        // logger::log("Score", std::to_string(depth) + "->" + std::to_string(result)
-        //     + " " + std::to_string(alpha) + " " + std::to_string(beta) + " ", 0);
         return result;
     }
 
@@ -64,9 +45,7 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
 
             // Update the materials
             if(board::squares[end] != 0) {
-                // logger::log("MatUpdate=" + piece::map[board::squares[end]], std::to_string(board::materials[piece::map[board::squares[end]]]), 0);
                 board::materials[piece::map[board::squares[end]]] -= 1;
-                // logger::log("MatUpdate=" + std::to_string(piece::map[board::squares[end]]), std::to_string(board::materials[piece::map[board::squares[end]]]), 0);
             }
 
             // make the move
@@ -79,25 +58,17 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
                 // restore bot color
                 board::botColor = board::getOppositeBotColor(board::botColor);
             }
-            // logger::logBoard2(board::botSquaresAttacked);
-            // logger::log("Depth", std::to_string(depth), 0);
 
             board::botColor = board::getOppositeBotColor(board::botColor);
 
-            double score = to_add - negamax_alpha_beta(start, end, start_res, end_res, depth + 1, -beta, -alpha, botColor);
-            // logger::logBoard(board::squares);
-            // logger::log("Depth", std::to_string(depth), 0);
+            double score = check_bonus - negamax_alpha_beta(start, end, start_res, end_res, depth + 1, -beta, -alpha, botColor);
             if (score > best_score) {
                 best_score = score;
                 if(depth == 0) {
                     start_res = start;
                     end_res = end;
-                    // logger::log("start_res", std::to_string(start_res), 1);
-                    // logger::log("end_res", std::to_string(end_res), 1);
                 }
             }
-            // logger::log("Best", std::to_string(best_score), 0);
-            // logger::log("Move", std::to_string(start_res) + " " + std::to_string(end_res), 0);
 
             if (best_score > alpha)
                 alpha = best_score;
@@ -106,73 +77,9 @@ double negamax_alpha_beta(int start_init, int end_init, int& start_res, int& end
             moveGenerator::restore_copy(copy);
 
             if (alpha >= beta)
-                // break;
                 return alpha;
         }
     }
 
-        // restore copy
-    // move::moves.clear();
-    // for (auto move_cpy : moves_copy) {
-    //     move::moves[move_cpy.first] = move_cpy.second;
-    // }
-
     return best_score;
 }
-
-// double minimax_alpha_beta(Node& root, Node& node, int depth, int state, double alpha, double beta) {
-//     if(depth >= MAX_DEPTH || root->next.size() == 0) {
-//         double result = evaluate::static_eval(root);
-//         // logger::log("Score", std::to_string(depth) + "->" + std::to_string(result)
-//         //     + " " + std::to_string(alpha) + " " + std::to_string(beta) + " ", 0);
-//         return result;
-//     }
-
-//     // CHOOSE MAXIMUM VALUE
-//     else if(state) {
-//         double best_score = -DBL_MAX;
-//         std::vector<Node>::iterator iter;
-//         for(iter = root->next.begin(); iter != root->next.end(); iter++) {
-//             if (*iter == NULL)
-//                 continue;
-//             double val = minimax_alpha_beta(*iter, node, depth + 1, 0, alpha, beta);
-//             if (val > best_score) {
-//                 best_score = val;
-//                 if(depth == 0)
-//                     node = *iter;
-//             }
-//             if(val > alpha) {
-//                 alpha = val;
-//             }
-//             // logger::log("Score", std::to_string(depth) + "->" + std::to_string(val)
-//             //     + " " + std::to_string(alpha) + " " + std::to_string(beta) + " ", 0);
-//             if(alpha >= beta)
-//                 break;
-//         }
-//         return best_score;
-//     }
-
-//     // CHOOSE MINIMUM VALUE
-//     else {
-//         double best_score = DBL_MAX;
-//         std::vector<Node>::iterator iter;
-//         for(iter = root->next.begin(); iter != root->next.end(); iter++) {
-//             if (*iter == NULL)
-//                 continue;
-//             double val = minimax_alpha_beta(*iter, node, depth + 1, 1, alpha, beta);
-//             if (val < best_score) {
-//                 best_score = val;
-//                 if(depth == 0)
-//                     node = *iter;
-//             }
-//             if(val < beta) {
-//                 beta = val;
-//             }
-//             // logger::log("Score", std::to_string(depth) + "->" + std::to_string(val)
-//             //     + " " + std::to_string(alpha) + " " + std::to_string(beta) + " ", 0);
-//             if (alpha >= beta)
-//                 break;
-//         }
-//         return best_score;
-//     }
-// }
